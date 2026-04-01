@@ -3,139 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ItrAura - Luxury in Every Drop</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<title>ItrAura</title>
+
 <style>
-body {
-    margin:0;
-    background:black;
-    color:gold;
-    font-family:'Poppins', sans-serif;
+body {margin:0;background:black;color:white;font-family:serif}
+
+/* NAV */
+.navbar{display:flex;justify-content:space-between;padding:15px}
+.logo{color:gold;font-size:28px}
+.nav-links a{color:gold;margin-left:15px;text-decoration:none}
+
+/* HERO SLIDER */
+.hero{
+  height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(black, #111);
 }
-/* NAVBAR */
-nav {
-    display:flex;
-    justify-content:space-between;
-    padding:20px 40px;
+.hero h1{font-size:60px;color:gold}
+
+/* FILTER */
+.filter{text-align:center;margin:20px}
+.filter button{
+  background:gold;border:none;padding:8px 15px;margin:5px;cursor:pointer
 }
-nav h2 {font-family:'Playfair Display';}
-nav a {
-    color:gold;
-    text-decoration:none;
-    margin-left:20px;
+
+/* PRODUCTS */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
 }
-/* HERO */
-.hero {
-    text-align:center;
-    padding:100px 20px;
-    animation:fadeIn 2s;
+.product{
+  background:#111;padding:10px;border-radius:10px;text-align:center;
+  transition:0.3s;
 }
-.hero h1 {
-    font-size:70px;
-    font-family:'Playfair Display';
+.product:hover{transform:scale(1.05)}
+.product img{width:100%;border-radius:10px}
+.product h3{color:gold}
+.price{color:#ffd700}
+
+/* CART */
+.cart{
+  position:fixed;top:10px;right:10px;
+  background:gold;color:black;padding:10px;border-radius:20px;
 }
-.hero p {margin:10px 0;}
-.hero button {
-    background:gold;
-    color:black;
-    padding:12px 25px;
-    border:none;
-    cursor:pointer;
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;bottom:20px;right:20px;
+  background:green;color:white;padding:15px;border-radius:50%;
 }
-/* PRODUCTS SLIDER */
-.products {
-    display:flex;
-    overflow-x:auto;
-    gap:20px;
-    padding:40px;
-}
-.card {
-    min-width:250px;
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    transition:0.3s;
-}
-.card:hover {
-    transform:scale(1.08);
-}
+
 /* ABOUT */
-.about {
-    padding:60px;
-    text-align:center;
-}
-/* FEATURES */
-.features {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    padding:40px;
-    gap:20px;
-    text-align:center;
-}
+.about{text-align:center;padding:30px}
+
 /* FOOTER */
-footer {
-    text-align:center;
-    padding:20px;
-    color:gray;
-}
-/* ANIMATION */
-@keyframes fadeIn {
-    from{opacity:0;}
-    to{opacity:1;}
-}
+.footer{background:#111;text-align:center;padding:20px}
 </style>
 </head>
+
 <body>
-<nav>
-    <h2>ItrAura</h2>
-    <div>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Contact</a>
-    </div>
-</nav>
-<section class="hero">
+
+<div class="cart">🛒 <span id="cart">0</span></div>
+
+<div class="navbar">
+  <div class="logo">ItrAura</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div>
     <h1>ItrAura</h1>
     <p>Luxury in Every Drop</p>
-    <button onclick="orderNow()">Shop Now</button>
-</section>
-<section class="products">
-    <div class="card">
-        <h3>Rose Attar</h3>
-        <p>₹499</p>
-    </div>
-    <div class="card">
-        <h3>Oud Attar</h3>
-        <p>₹899</p>
-    </div>
-    <div class="card">
-        <h3>Khas Attar</h3>
-        <p>₹599</p>
-    </div>
-    <div class="card">
-        <h3>Premium Blend</h3>
-        <p>₹999</p>
-    </div>
-</section>
-<section class="about">
-    <h2>About ItrAura</h2>
-    <p>
-        A premium attar brand delivering luxury fragrances crafted with precision and passion.
-    </p>
-</section>
-<section class="features">
-    <div>🌿 Alcohol Free</div>
-    <div>💎 Premium Quality</div>
-    <div>⏳ Long Lasting</div>
-    <div>🎁 Gift Packaging</div>
-</section>
-<footer>
-    © 2026 ItrAura | All Rights Reserved
-</footer>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter">
+  <button onclick="filter('all')">All</button>
+  <button onclick="filter('ruh')">Ruh</button>
+  <button onclick="filter('water')">Water</button>
+  <button onclick="filter('oil')">Oils</button>
+</div>
+
+<!-- PRODUCTS -->
+<div class="product-grid" id="products">
+
+  <div class="product ruh">
+    <img src="images/ruh-gulab.jpg">
+    <h3>Ruh Gulab</h3>
+    <p class="price">₹4000</p>
+    <button onclick="add()">Add</button>
+    <button onclick="order('Ruh Gulab')">Buy</button>
+  </div>
+
+  <div class="product ruh">
+    <img src="images/ruh-khus.jpg">
+    <h3>Ruh Khus</h3>
+    <p class="price">₹250</p>
+    <button onclick="add()">Add</button>
+    <button onclick="order('Ruh Khus')">Buy</button>
+  </div>
+
+  <div class="product water">
+    <img src="images/gulab-jal.jpg">
+    <h3>Gulab Jal</h3>
+    <p class="price">₹179</p>
+    <button onclick="add()">Add</button>
+    <button onclick="order('Gulab Jal')">Buy</button>
+  </div>
+
+</div>
+
+<div class="about">
+  <h2 style="color:gold">About Us</h2>
+  <p>Premium handcrafted attars made with traditional techniques.</p>
+</div>
+
+<div class="footer">© ItrAura</div>
+
+<div class="whatsapp" onclick="openWA()">💬</div>
+
 <script>
-function orderNow() {
-    window.open("https://wa.me/917618243220", "_blank");
+let cart=0;
+
+function add(){
+  cart++;
+  document.getElementById("cart").innerText=cart;
+}
+
+function order(product){
+  let num="917618243220";
+  let msg="I want to buy "+product;
+  window.open("https://wa.me/"+num+"?text="+encodeURIComponent(msg));
+}
+
+function openWA(){
+  window.open("https://wa.me/917618243220");
+}
+
+function filter(type){
+  let items=document.querySelectorAll(".product");
+  items.forEach(i=>{
+    i.style.display=(type=="all"||i.classList.contains(type))?"block":"none";
+  });
 }
 </script>
+
 </body>
 </html>
