@@ -1,161 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ItrAura</title>
+<!-- RUH PRODUCTS -->
 
-<style>
-body {margin:0;background:black;color:white;font-family:serif}
-
-/* NAV */
-.navbar{display:flex;justify-content:space-between;padding:15px}
-.logo{color:gold;font-size:28px}
-.nav-links a{color:gold;margin-left:15px;text-decoration:none}
-
-/* HERO SLIDER */
-.hero{
-  height:70vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:linear-gradient(black, #111);
-}
-.hero h1{font-size:60px;color:gold}
-
-/* FILTER */
-.filter{text-align:center;margin:20px}
-.filter button{
-  background:gold;border:none;padding:8px 15px;margin:5px;cursor:pointer
-}
-
-/* PRODUCTS */
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  padding:20px;
-}
-.product{
-  background:#111;padding:10px;border-radius:10px;text-align:center;
-  transition:0.3s;
-}
-.product:hover{transform:scale(1.05)}
-.product img{width:100%;border-radius:10px}
-.product h3{color:gold}
-.price{color:#ffd700}
-
-/* CART */
-.cart{
-  position:fixed;top:10px;right:10px;
-  background:gold;color:black;padding:10px;border-radius:20px;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp{
-  position:fixed;bottom:20px;right:20px;
-  background:green;color:white;padding:15px;border-radius:50%;
-}
-
-/* ABOUT */
-.about{text-align:center;padding:30px}
-
-/* FOOTER */
-.footer{background:#111;text-align:center;padding:20px}
-</style>
-</head>
-
-<body>
-
-<div class="cart">🛒 <span id="cart">0</span></div>
-
-<div class="navbar">
-  <div class="logo">ItrAura</div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-  </div>
+<div class="product ruh">
+  <img src="images/ruh-chameli.jpg">
+  <h3>Ruh Chameli</h3>
+  <p class="price">₹1000</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Ruh Chameli')">Buy</button>
 </div>
 
-<div class="hero">
-  <div>
-    <h1>ItrAura</h1>
-    <p>Luxury in Every Drop</p>
-  </div>
+<div class="product ruh">
+  <img src="images/ruh-gulab.jpg">
+  <h3>Ruh Gulab</h3>
+  <p class="price">₹4000</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Ruh Gulab')">Buy</button>
 </div>
 
-<!-- FILTER -->
-<div class="filter">
-  <button onclick="filter('all')">All</button>
-  <button onclick="filter('ruh')">Ruh</button>
-  <button onclick="filter('water')">Water</button>
-  <button onclick="filter('oil')">Oils</button>
+<div class="product ruh">
+  <img src="images/ruh-juhi.jpg">
+  <h3>Ruh Juhi</h3>
+  <p class="price">₹1500</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Ruh Juhi')">Buy</button>
 </div>
 
-<!-- PRODUCTS -->
-<div class="product-grid" id="products">
-
-  <div class="product ruh">
-    <img src="images/ruh-gulab.jpg">
-    <h3>Ruh Gulab</h3>
-    <p class="price">₹4000</p>
-    <button onclick="add()">Add</button>
-    <button onclick="order('Ruh Gulab')">Buy</button>
-  </div>
-
-  <div class="product ruh">
-    <img src="images/ruh-khus.jpg">
-    <h3>Ruh Khus</h3>
-    <p class="price">₹250</p>
-    <button onclick="add()">Add</button>
-    <button onclick="order('Ruh Khus')">Buy</button>
-  </div>
-
-  <div class="product water">
-    <img src="images/gulab-jal.jpg">
-    <h3>Gulab Jal</h3>
-    <p class="price">₹179</p>
-    <button onclick="add()">Add</button>
-    <button onclick="order('Gulab Jal')">Buy</button>
-  </div>
-
+<div class="product ruh">
+  <img src="images/ruh-khus.jpg">
+  <h3>Ruh Khus</h3>
+  <p class="price">₹250</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Ruh Khus')">Buy</button>
 </div>
 
-<div class="about">
-  <h2 style="color:gold">About Us</h2>
-  <p>Premium handcrafted attars made with traditional techniques.</p>
+<div class="product ruh">
+  <img src="images/ruh-motiy a.jpg">
+  <h3>Ruh Motiya</h3>
+  <p class="price">₹2700</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Ruh Motiya')">Buy</button>
 </div>
 
-<div class="footer">© ItrAura</div>
+<!-- WATER -->
 
-<div class="whatsapp" onclick="openWA()">💬</div>
+<div class="product water">
+  <img src="images/gulab-jal.jpg">
+  <h3>Gulab Jal</h3>
+  <p class="price">₹200</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Gulab Jal')">Buy</button>
+</div>
 
-<script>
-let cart=0;
+<div class="product water">
+  <img src="images/gulab-jal-pasaya.jpg">
+  <h3>Gulab Jal Pasaya</h3>
+  <p class="price">₹400</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Gulab Jal Pasaya')">Buy</button>
+</div>
 
-function add(){
-  cart++;
-  document.getElementById("cart").innerText=cart;
-}
+<!-- OILS -->
 
-function order(product){
-  let num="917618243220";
-  let msg="I want to buy "+product;
-  window.open("https://wa.me/"+num+"?text="+encodeURIComponent(msg));
-}
+<div class="product oil">
+  <img src="images/shamama.jpg">
+  <h3>Shamama</h3>
+  <p class="price">₹300</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Shamama')">Buy</button>
+</div>
 
-function openWA(){
-  window.open("https://wa.me/917618243220");
-}
-
-function filter(type){
-  let items=document.querySelectorAll(".product");
-  items.forEach(i=>{
-    i.style.display=(type=="all"||i.classList.contains(type))?"block":"none";
-  });
-}
-</script>
-
-</body>
-</html>
+<div class="product oil">
+  <img src="images/sandalwood.jpg">
+  <h3>Sandalwood Oil</h3>
+  <p class="price">₹450</p>
+  <button onclick="add()">Add</button>
+  <button onclick="order('Sandalwood Oil')">Buy</button>
+</div>
