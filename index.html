@@ -12,8 +12,27 @@
       margin: 0;
     }
 
-    h1, p {
+    .hero {
       text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: white;
+    }
+
+    .btn {
+      background: gold;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 20px;
+      font-weight: bold;
     }
 
     .products {
@@ -49,19 +68,36 @@
       font-weight: bold;
     }
 
-    .product:hover {
-      transform: scale(1.05);
-      transition: 0.3s;
+    .about {
+      padding: 30px;
+      text-align: center;
+      background: #111;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: green;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 20px;
     }
   </style>
 </head>
 
 <body>
 
-<h1>ItrAura</h1>
-<p>Luxury in Every Drop</p>
+<!-- 🔥 HERO / HOMEPAGE -->
+<div class="hero">
+  <h1>ItrAura</h1>
+  <p>Luxury in Every Drop</p>
+  <button class="btn" onclick="scrollToProducts()">Shop Now</button>
+</div>
 
-<div class="products">
+<!-- 🛍️ PRODUCTS -->
+<div id="products" class="products">
 
   <div class="product">
     <img src="https://via.placeholder.com/300">
@@ -128,12 +164,34 @@
 
 </div>
 
+<!-- 📖 ABOUT -->
+<div class="about">
+  <h2>About ItrAura</h2>
+  <p>
+    ItrAura brings you premium handcrafted attars made using the traditional deg bhapka process.
+    Each fragrance is carefully crafted to deliver a long-lasting, natural and luxurious experience.
+  </p>
+</div>
+
+<!-- 💬 WHATSAPP FLOAT -->
+<div class="whatsapp" onclick="chat()">💬</div>
+
 <script>
 function order(product){
-  let number = "917618243220"; // apna number daal
+  let number = "91XXXXXXXXXX";
   let message = "I want to buy " + product;
   let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
   window.open(url, "_blank");
+}
+
+function chat(){
+  let number = "91XXXXXXXXXX";
+  let url = "https://wa.me/" + number;
+  window.open(url, "_blank");
+}
+
+function scrollToProducts(){
+  document.getElementById("products").scrollIntoView({behavior:"smooth"});
 }
 </script>
 
