@@ -1,27 +1,31 @@
 body {
-  background: #000;
+  margin: 0;
+  padding: 0;
+  background: black;
   color: gold;
   font-family: serif;
-  margin: 0;
 }
 
 /* HEADER */
 header {
-  position: sticky;
-  top: 0;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(10px);
-  padding: 15px;
   text-align: center;
-  font-size: 24px;
+  padding: 15px;
+  font-size: 22px;
   font-weight: bold;
-  z-index: 1000;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 50px 20px;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  font-size: 18px;
 }
 
 .hero button {
@@ -30,29 +34,37 @@ header {
   border: none;
   border-radius: 8px;
   font-weight: bold;
-  cursor: pointer;
 }
 
-/* PRODUCTS GRID */
+/* ABOUT */
+.about {
+  max-width: 800px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* PRODUCTS */
 .products {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
 }
 
-/* PRODUCT CARD */
+/* CARD */
 .product {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 15px;
+  background: #111;
+  padding: 20px;
+  border-radius: 18px;
   text-align: center;
   transition: 0.3s;
-  box-shadow: 0 0 10px rgba(255,215,0,0.2);
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 .product:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px gold;
@@ -64,24 +76,31 @@ header {
   border-radius: 10px;
 }
 
-/* PRICE */
-.price {
+/* TEXT */
+.product h3 {
   font-size: 18px;
-  margin: 10px 0;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 /* BUTTON */
 button {
   padding: 8px 15px;
-  margin: 5px;
-  background: linear-gradient(45deg, gold, orange);
+  background: gold;
   border: none;
   border-radius: 6px;
-  font-weight: bold;
   cursor: pointer;
 }
 
-/* WHATSAPP BUTTON */
+/* WHATSAPP */
 .whatsapp {
   position: fixed;
   bottom: 20px;
@@ -90,16 +109,4 @@ button {
   color: white;
   padding: 15px;
   border-radius: 50%;
-  font-size: 20px;
-}
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.about {
-  text-align: center;
-  padding: 40px;
-  max-width: 600px;
-  margin: auto;
 }
