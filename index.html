@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ItrAura - Luxury in Every Drop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+body {
+    margin:0;
+    background:black;
+    color:gold;
+    font-family:'Poppins', sans-serif;
+}
+/* NAVBAR */
+nav {
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+}
+nav h2 {font-family:'Playfair Display';}
+nav a {
+    color:gold;
+    text-decoration:none;
+    margin-left:20px;
+}
+/* HERO */
+.hero {
+    text-align:center;
+    padding:100px 20px;
+    animation:fadeIn 2s;
+}
+.hero h1 {
+    font-size:70px;
+    font-family:'Playfair Display';
+}
+.hero p {margin:10px 0;}
+.hero button {
+    background:gold;
+    color:black;
+    padding:12px 25px;
+    border:none;
+    cursor:pointer;
+}
+/* PRODUCTS SLIDER */
+.products {
+    display:flex;
+    overflow-x:auto;
+    gap:20px;
+    padding:40px;
+}
+.card {
+    min-width:250px;
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    transition:0.3s;
+}
+.card:hover {
+    transform:scale(1.08);
+}
+/* ABOUT */
+.about {
+    padding:60px;
+    text-align:center;
+}
+/* FEATURES */
+.features {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    padding:40px;
+    gap:20px;
+    text-align:center;
+}
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:20px;
+    color:gray;
+}
+/* ANIMATION */
+@keyframes fadeIn {
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
+</head>
+<body>
+<nav>
+    <h2>ItrAura</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+<section class="hero">
+    <h1>ItrAura</h1>
+    <p>Luxury in Every Drop</p>
+    <button onclick="orderNow()">Shop Now</button>
+</section>
+<section class="products">
+    <div class="card">
+        <h3>Rose Attar</h3>
+        <p>₹499</p>
+    </div>
+    <div class="card">
+        <h3>Oud Attar</h3>
+        <p>₹899</p>
+    </div>
+    <div class="card">
+        <h3>Khas Attar</h3>
+        <p>₹599</p>
+    </div>
+    <div class="card">
+        <h3>Premium Blend</h3>
+        <p>₹999</p>
+    </div>
+</section>
+<section class="about">
+    <h2>About ItrAura</h2>
+    <p>
+        A premium attar brand delivering luxury fragrances crafted with precision and passion.
+    </p>
+</section>
+<section class="features">
+    <div>🌿 Alcohol Free</div>
+    <div>💎 Premium Quality</div>
+    <div>⏳ Long Lasting</div>
+    <div>🎁 Gift Packaging</div>
+</section>
+<footer>
+    © 2026 ItrAura | All Rights Reserved
+</footer>
+<script>
+function orderNow() {
+    window.open("https://wa.me/91XXXXXXXXXX", "_blank");
+}
+</script>
+</body>
+</html>
