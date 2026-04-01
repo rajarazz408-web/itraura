@@ -1,208 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ItrAura</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      background: black;
-      color: gold;
-      font-family: serif;
-      margin: 0;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: white;
-    }
-
-    .btn {
-      background: gold;
-      padding: 10px 20px;
-      border: none;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      padding: 15px;
-    }
-
-    .product {
-      background: #111;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .price {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    button {
-      padding: 8px;
-      margin: 5px;
-      background: gold;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .about {
-      padding: 30px;
-      text-align: center;
-      background: #111;
-    }
-
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: green;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ItrAura</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- 🔥 HERO / HOMEPAGE -->
+<div class="navbar">
+<h2>ItrAura</h2>
+<div>
+<button onclick="filter('all')">All</button>
+<button onclick="filter('ruh')">Ruh</button>
+<button onclick="filter('water')">Water</button>
+<button onclick="filter('oil')">Oils</button>
+</div>
+</div>
+
 <div class="hero">
-  <h1>ItrAura</h1>
-  <p>Luxury in Every Drop</p>
-  <button class="btn" onclick="scrollToProducts()">Shop Now</button>
+<h1>Luxury in Every Drop</h1>
+<p>Premium handcrafted attars</p>
+<button onclick="scrollToProducts()">Shop Now</button>
 </div>
 
-<!-- 🛍️ PRODUCTS -->
-<div id="products" class="products">
+<div id="products" class="products"></div>
 
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
-    <h3>Ruh Chameli</h3>
-    <p class="price">₹1000</p>
-    <button onclick="order('Ruh Chameli')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
-    <h3>Ruh Gulab</h3>
-    <p class="price">₹4000</p>
-    <button onclick="order('Ruh Gulab')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
-    <h3>Ruh Juhi</h3>
-    <p class="price">₹1500</p>
-    <button onclick="order('Ruh Juhi')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1615486363973-3bfa1a6b3c52">
-    <h3>Ruh Khus</h3>
-    <p class="price">₹250</p>
-    <button onclick="order('Ruh Khus')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1526045478516-99145907023c">
-    <h3>Ruh Motiya</h3>
-    <p class="price">₹2700</p>
-    <button onclick="order('Ruh Motiya')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1590080877777-9a2b5a0f4f55">
-    <h3>Gulab Jal</h3>
-    <p class="price">₹200</p>
-    <button onclick="order('Gulab Jal')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
-    <h3>Gulab Jal Pasaya</h3>
-    <p class="price">₹400</p>
-    <button onclick="order('Gulab Jal Pasaya')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba8">
-    <h3>Shamama</h3>
-    <p class="price">₹300</p>
-    <button onclick="order('Shamama')">Buy</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6">
-    <h3>Sandalwood Oil</h3>
-    <p class="price">₹450</p>
-    <button onclick="order('Sandalwood Oil')">Buy</button>
-  </div>
-
+<div class="cart">
+<button onclick="orderCart()">Order Cart 🛒</button>
 </div>
 
-<!-- 📖 ABOUT -->
-<div class="about">
-  <h2>About ItrAura</h2>
-  <p>
-    ItrAura brings you premium handcrafted attars made using the traditional deg bhapka process.
-    Each fragrance is carefully crafted to deliver a long-lasting, natural and luxurious experience.
-  </p>
-</div>
-
-<!-- 💬 WHATSAPP FLOAT -->
-<div class="whatsapp" onclick="chat()">💬</div>
-
-<script>
-function order(product){
-  let number = "91XXXXXXXXXX";
-  let message = "I want to buy " + product;
-  let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
-}
-
-function chat(){
-  let number = "91XXXXXXXXXX";
-  let url = "https://wa.me/" + number;
-  window.open(url, "_blank");
-}
-
-function scrollToProducts(){
-  document.getElementById("products").scrollIntoView({behavior:"smooth"});
-}
-</script>
+<script src="data.js"></script>
+<script src="products.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
