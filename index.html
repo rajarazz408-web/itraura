@@ -2,62 +2,140 @@
 <html>
 <head>
   <title>ItrAura</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: black;
+      color: gold;
+      font-family: serif;
+      margin: 0;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .product {
+      background: #111;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 8px;
+      margin: 5px;
+      background: gold;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1 style="text-align:center;">ItrAura</h1>
-<p style="text-align:center;">Luxury in Every Drop</p>
+<h1>ItrAura</h1>
+<p>Luxury in Every Drop</p>
 
 <div class="products">
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Ruh Chameli</h3>
     <p class="price">₹1000</p>
+    <button onclick="order('Ruh Chameli')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Ruh Gulab</h3>
     <p class="price">₹4000</p>
+    <button onclick="order('Ruh Gulab')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Ruh Juhi</h3>
     <p class="price">₹1500</p>
+    <button onclick="order('Ruh Juhi')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Ruh Khus</h3>
     <p class="price">₹250</p>
+    <button onclick="order('Ruh Khus')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Ruh Motiya</h3>
     <p class="price">₹2700</p>
+    <button onclick="order('Ruh Motiya')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Gulab Jal</h3>
     <p class="price">₹200</p>
+    <button onclick="order('Gulab Jal')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Gulab Jal Pasaya</h3>
     <p class="price">₹400</p>
+    <button onclick="order('Gulab Jal Pasaya')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Shamama</h3>
     <p class="price">₹300</p>
+    <button onclick="order('Shamama')">Buy</button>
   </div>
 
   <div class="product">
+    <img src="https://via.placeholder.com/300">
     <h3>Sandalwood Oil</h3>
     <p class="price">₹450</p>
+    <button onclick="order('Sandalwood Oil')">Buy</button>
   </div>
 
 </div>
+
+<script>
+function order(product){
+  let number = "917618243220"; // apna number daal
+  let message = "I want to buy " + product;
+  let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
