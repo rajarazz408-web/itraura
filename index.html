@@ -1,39 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ItrAura</title>
-<link rel="stylesheet" href="style.css">
+  <title>ItrAura</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="navbar">
-<h2>ItrAura</h2>
-<div>
-<button onclick="filter('all')">All</button>
-<button onclick="filter('ruh')">Ruh</button>
-<button onclick="filter('water')">Water</button>
-<button onclick="filter('oil')">Oils</button>
-</div>
-</div>
+<header>
+  ItrAura
+</header>
 
 <div class="hero">
-<h1>Luxury in Every Drop</h1>
-<p>Premium handcrafted attars</p>
-<button onclick="scrollToProducts()">Shop Now</button>
+  <h1>ItrAura</h1>
+  <p>The Essence in Every Drop</p>
+  <button onclick="window.location='products.html'">Shop Now</button>
 </div>
 
-<div id="products" class="products"></div>
-
-<div class="cart">
-<button onclick="orderCart()">Order Cart 🛒</button>
+<div class="about">
+  <h2>About Us</h2>
+  <p>
+    ItrAura brings you premium handcrafted attars made using traditional distillation techniques. 
+    Each fragrance is carefully crafted to deliver a long-lasting, natural and luxurious experience.
+  </p>
 </div>
-
-<script src="data.js"></script>
-<script src="products.js"></script>
-<script src="script.js"></script>
 
 </body>
 </html>
