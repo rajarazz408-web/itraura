@@ -1,65 +1,94 @@
 body {
-  margin:0;
-  background:black;
-  color:gold;
-  font-family:serif;
+  background: #000;
+  color: gold;
+  font-family: serif;
+  margin: 0;
 }
 
-.navbar {
-  display:flex;
-  justify-content:space-between;
-  padding:10px;
-  background:#000;
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 1000;
 }
 
+/* HERO */
 .hero {
-  text-align:center;
-  padding:40px;
+  text-align: center;
+  padding: 50px 20px;
 }
 
+.hero button {
+  padding: 12px 25px;
+  background: gold;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* PRODUCTS GRID */
 .products {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  padding:15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
+/* PRODUCT CARD */
 .product {
-  background:#111;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-  transition:0.3s;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255,215,0,0.2);
 }
 
+/* HOVER EFFECT */
 .product:hover {
-  transform:scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px gold;
 }
 
+/* IMAGE */
 .product img {
-  width:100%;
-  border-radius:10px;
+  width: 100%;
+  border-radius: 10px;
 }
 
-.desc {
-  font-size:12px;
-  color:#ccc;
+/* PRICE */
+.price {
+  font-size: 18px;
+  margin: 10px 0;
 }
 
+/* BUTTON */
 button {
-  background:gold;
-  border:none;
-  padding:6px 10px;
-  margin:5px;
-  cursor:pointer;
+  padding: 8px 15px;
+  margin: 5px;
+  background: linear-gradient(45deg, gold, orange);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.cart {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:gold;
-  color:black;
-  padding:10px;
-  border-radius:10px;
+/* WHATSAPP BUTTON */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: green;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
 }
