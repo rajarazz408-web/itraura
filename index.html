@@ -1,48 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ✅ GOOGLE VERIFICATION -->
-    <meta name="google-site-verification" content="google9b1122a88dc21552" />
+<title>ItrAura - Premium Attar</title>
 
-    <title>ItrAura - Premium Attar</title>
+<!-- Google Verification (jo tera hai wo same rehne dena) -->
+<meta name="google-site-verification" content="google9b1122a88dc21552" />
 
-    <meta name="description" content="ItrAura brings premium handcrafted attars made with traditional techniques. Long-lasting luxury fragrance.">
-    <meta name="keywords" content="attar, perfume, itr, fragrance, luxury attar India">
-    <meta name="author" content="ItrAura">
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: black;
+    color: gold;
+}
 
-    <link rel="stylesheet" href="style.css">
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #111;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav a {
+    color: gold;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: gold;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Features */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.feature {
+    width: 30%;
+}
+
+/* About */
+.about {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
-    <header style="text-align:center; padding:20px; font-size:24px; font-weight:bold;">
-        ItrAura
-    </header>
+<!-- Navbar -->
+<nav>
+    <h2>ItrAura</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+    </div>
+</nav>
 
-    <section style="text-align:center; padding:60px;">
-        <h1 style="font-size:40px;">ItrAura</h1>
-        <p style="font-size:18px;">The Essence in Every Drop</p>
+<!-- Hero -->
+<section class="hero">
+    <h1>Luxury Attars</h1>
+    <p>The Essence in Every Drop</p>
+    <button class="btn" onclick="window.location.href='products.html'">
+        Shop Now
+    </button>
+</section>
 
-        <button onclick="window.location.href='products.html'" 
-                style="padding:10px 20px; background:gold; border:none; border-radius:5px; cursor:pointer;">
-            Shop Now
-        </button>
-    </section>
+<!-- Features -->
+<section class="features">
+    <div class="feature">
+        <h3>🌿 Natural</h3>
+        <p>100% Alcohol-Free Attars</p>
+    </div>
+    <div class="feature">
+        <h3>⏳ Long Lasting</h3>
+        <p>Fragrance that stays all day</p>
+    </div>
+    <div class="feature">
+        <h3>👑 Premium Quality</h3>
+        <p>Handcrafted with tradition</p>
+    </div>
+</section>
 
-    <section style="text-align:center; padding:40px;">
-        <h2>About Us</h2>
-        <p style="max-width:600px; margin:auto;">
-            ItrAura brings you premium handcrafted attars made using traditional distillation techniques.
-            Each fragrance is carefully crafted to deliver a long-lasting, natural and luxurious experience.
-        </p>
-    </section>
+<!-- About -->
+<section class="about">
+    <h2>About Us</h2>
+    <p>
+        ItrAura brings premium handcrafted attars made using traditional
+        distillation techniques. Experience luxury in every drop.
+    </p>
+</section>
 
-    <footer style="text-align:center; padding:20px; margin-top:50px; font-size:14px;">
-        © 2026 ItrAura. All rights reserved.
-    </footer>
+<!-- Footer -->
+<footer>
+    © 2026 ItrAura. All rights reserved.
+</footer>
 
 </body>
 </html>
