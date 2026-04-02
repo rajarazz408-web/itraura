@@ -69,12 +69,23 @@ nav a {
 .features {
     display: flex;
     justify-content: space-around;
-    padding: 40px 20px;
+    padding: 50px 20px;
     text-align: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .feature {
     width: 30%;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    background: #1a1a1a;
 }
 
 /* About */
