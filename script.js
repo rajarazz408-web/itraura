@@ -25,3 +25,7 @@ function filter(cat){
 function scrollToProducts(){
   document.getElementById("products").scrollIntoView();
 }
+
+function openProduct(name) {
+  window.location.href = "product.html?name=" + name;
+}
