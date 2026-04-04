@@ -1,191 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Products - ItrAura</title>
+  <title>Product - ItrAura</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-  <a href="index.html" style="color:gold; text-decoration:none;">← Back</a>
+  <a href="products.html" style="color:gold; text-decoration:none;">← Back</a>
 </header>
 
-<div class="products">
+<div class="product-detail">
+  <img id="product-img">
+  <h2 id="product-name"></h2>
+  <p id="product-desc"></p>
+  <h3 id="product-price"></h3>
 
-<!-- 1 -->
-<div class="product" onclick="openProduct('ruh-chameli')">
-  <img src="ruh-chameli.png" alt="Ruh Chameli">
-  <h3>Ruh Chameli</h3>
-  <p class="price">₹899</p>
-  <p class="desc">Natural jasmine fragrance</p>
-  <button onclick="buy('Ruh Chameli')">Buy</button>
-</div>
-
-<!-- 2 -->
-<div class="product">
-<img src="ruh gulab.png" alt="Ruh Gulab" width="200">
-<h3>Ruh Gulab</h3>
-<p class="price">₹3499</p>
-<p class="desc">Royal rose fragrance with long-lasting aroma.</p>
-<button onclick="buy('Ruh Gulab')">Buy</button>
-</div>
-
-<!-- 3 -->
-<div class="product">
-<img src="ruh juhi.png" alt="Ruh Juhi" width="200">
-<h3>Ruh Juhi</h3>
-<p class="price">₹1299</p>
-<p class="desc">Soft floral scent with fresh notes.</p>
-<button onclick="buy('Ruh Juhi')">Buy</button>
-</div>
-
-<!-- 4 -->
-<div class="product">
-<img src="ruh khus.png" alt="Ruh Khus" width="200">
-<h3>Ruh Khus</h3>
-<p class="price">₹199</p>
-<p class="desc">Earthy vetiver fragrance.</p>
-<button onclick="buy('Ruh Khus')">Buy</button>
-</div>
-
-<!-- 5 -->
-<div class="product">
-<img src="ruh motiya.png" alt="Ruh Motiya" width="200">
-<h3>Ruh Motiya</h3>
-<p class="price">₹2299</p>
-<p class="desc">Sweet jasmine-based fragrance.</p>
-<button onclick="buy('Ruh Motiya')">Buy</button>
-</div>
-
-<!-- 6 -->
-<div class="product">
-<img src="ruh kadamba.png" alt="Ruh Kadamba" width="200">
-<h3>Ruh Kadamba</h3>
-<p class="price">₹4499</p>
-<p class="desc">Exotic floral aroma.</p>
-<button onclick="buy('Ruh Kadamba')">Buy</button>
-</div>
-
-<!-- 7 -->
-<div class="product">
-<img src="ruh kewra.png" alt="Ruh Kewra" width="200">
-<h3>Ruh Kewra</h3>
-<p class="price">₹3499</p>
-<p class="desc">Fresh kewra fragrance.</p>
-<button onclick="buy('Ruh Kewra')">Buy</button>
-</div>
-
-<!-- 8 -->
-<div class="product">
-<img src="ruh rajnigandha.png" alt="Ruh Rajnigandha" width="200">
-<h3>Ruh Rajnigandha</h3>
-<p class="price">₹1299</p>
-<p class="desc">Strong tuberose scent.</p>
-<button onclick="buy('Ruh Rajnigandha')">Buy</button>
-</div>
-
-<!-- 9 -->
-<div class="product">
-<img src="ruh red champaka.png" alt="Ruh Red Champaka" width="200">
-<h3>Ruh Red Champaka</h3>
-<p class="price">₹1299</p>
-<p class="desc">Warm floral fragrance.</p>
-<button onclick="buy('Ruh Red Champaka')">Buy</button>
-</div>
-
-<!-- 10 -->
-<div class="product">
-<img src="ruh pink lotus.png" alt="Ruh Pink Lotus" width="200">
-<h3>Pink Lotus</h3>
-<p class="price">₹1499</p>
-<p class="desc">Soft aquatic lotus fragrance.</p>
-<button onclick="buy('Pink Lotus')">Buy</button>
-</div>
-
-<!-- 11 -->
-<div class="product">
-<img src="ruh mogra.png" alt="Ruh Mogra" width="200">
-<h3>Ruh Mogra</h3>
-<p class="price">₹999</p>
-<p class="desc">Classic mogra fragrance.</p>
-<button onclick="buy('Ruh Mogra')">Buy</button>
-</div>
-
-<!-- 12 -->
-<div class="product">
-<img src="ruh red gulab.png" alt="Ruh Red Gulab" width="200">
-<h3>Ruh Red Gulab</h3>
-<p class="price">₹2199</p>
-<p class="desc">Deep intense rose fragrance.</p>
-<button onclick="buy('Ruh Red Gulab')">Buy</button>
-</div>
-
-<!-- 13 -->
-<div class="product">
-<img src="gulab jal.png" alt="Gulab Jal" width="200">
-<h3>Gulab Jal</h3>
-<p class="price">₹179</p>
-<p class="desc">Pure rose water for skin.</p>
-<button onclick="buy('Gulab Jal')">Buy</button>
-</div>
-
-<!-- 14 -->
-<div class="product">
-<img src="gulab jal pasaya.png" alt="Gulab Jal Pasaya" width="200">
-<h3>Gulab Jal Pasaya</h3>
-<p class="price">₹349</p>
-<p class="desc">Premium rose water.</p>
-<button onclick="buy('Gulab Jal Pasaya')">Buy</button>
-</div>
-
-<!-- 15 -->
-<div class="product">
-<img src="shamama.png" alt="Shamama" width="200">
-<h3>Shamama</h3>
-<p class="price">₹249</p>
-<p class="desc">Warm spicy blend.</p>
-<button onclick="buy('Shamama')">Buy</button>
-</div>
-
-<!-- 16 -->
-<div class="product">
-<img src="sandalwood oil.png" alt="Sandalwood Oil" width="200">
-<h3>Sandalwood Oil</h3>
-<p class="price">₹399</p>
-<p class="desc">Pure sandalwood oil.</p>
-<button onclick="buy('Sandalwood Oil')">Buy</button>
-</div>
-
-<!-- 17 -->
-<div class="product">
-<img src="mukhallat guldastan.png" alt="Mukhallat Guldastan" width="200">
-<h3>Mukhallat Guldastaan</h3>
-<p class="price">₹1299</p>
-<p class="desc">Luxury attar blend.</p>
-<button onclick="buy('Mukhallat Guldastaan')">Buy</button>
-</div>
-
-<!-- 18 -->
-<div class="product">
-<img src="ruh gulab pasaya.png" alt="Ruh Gulab Pasaya" width="200">
-<h3>Ruh Gulab Pasaya</h3>
-<p class="price">₹3499</p>
-<p class="desc">High quality rose attar.</p>
-<button onclick="buy('Ruh Gulab Pasaya')">Buy</button>
-</div>
-
+  <button onclick="buyNow()">Buy on WhatsApp</button>
 </div>
 
 <script>
-function buy(product){
-  let number = "917618243220";
-  let msg = "I want to buy " + product;
-  window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`);
-}
-</script>
 
-<a href="https://wa.me/917618243220" class="whatsapp">💬</a>
+const data = {
+
+"ruh-chameli": {
+  name: "Ruh Chameli",
+  price: "₹899",
+  img: "ruh-chameli.png",
+  desc: "Natural jasmine attar with long-lasting and calming fragrance."
+},
+
+"ruh-gulab": {
+  name: "Ruh Gulab",
+  price: "₹3499",
+  img: "ruh-gulab.png",
+  desc: "Premium rose attar with rich royal aroma."
+},
+
+"ruh-juhi": {
+  name: "Ruh Juhi",
+  price: "₹1299",
+  img: "ruh-juhi.png",
+  desc: "Soft floral fragrance made from juhi flowers."
+},
+
+"ruh-khus": {
+  name: "Ruh Khus",
+  price: "₹199",
+  img: "ruh-khus.png",
+  desc: "Cooling earthy fragrance of vetiver."
+},
+
+"ruh-motiya": {
+  name: "Ruh Motiya",
+  price: "₹2299",
+  img: "ruh-motiya.png",
+  desc: "Sweet jasmine-based luxurious fragrance."
+},
+
+"ruh-kadamba": {
+  name: "Ruh Kadamba",
+  price: "₹4499",
+  img: "ruh-kadamba.png",
+  desc: "Exotic floral aroma inspired by kadamba."
+},
+
+"ruh-kewra": {
+  name: "Ruh Kewra",
+  price: "₹3499",
+  img: "ruh-kewra.png",
+  desc: "Fresh kewra scent with soothing notes."
+},
+
+"ruh-rajnigandha": {
+  name: "Ruh Rajnigandha",
+  price: "₹1299",
+  img: "ruh-rajnigandha.png",
+  desc: "Night blooming floral fragrance."
+},
+
+"ruh-red-champaka": {
+  name: "Ruh Red Champaka",
+  price: "₹1299",
+  img: "ruh-red-champaka.png",
+  desc: "Warm traditional floral fragrance."
+},
+
+"pink-lotus": {
+  name: "Pink Lotus",
+  price: "₹1499",
+  img: "pink-lotus.png",
+  desc: "Soft aquatic floral lotus fragrance."
+},
+
+"ruh-mogra": {
+  name: "Ruh Mogra",
+  price: "₹999",
+  img: "ruh-mogra.png",
+  desc: "Classic mogra scent, sweet and fresh."
+},
+
+"ruh-red-gulab": {
+  name: "Ruh Red Gulab",
+  price: "₹2199",
+  img: "ruh-red-gulab.png",
+  desc: "Deep rose fragrance with strong lasting power."
+},
+
+"gulab-jal": {
+  name: "Gulab Jal",
+  price: "₹179",
+  img: "gulab-jal.png",
+  desc: "Pure rose water for daily freshness."
+},
+
+"gulab-jal-pasaya": {
+  name: "Gulab Jal Pasaya",
+  price: "₹349",
+  img: "gulab-jal-pasaya.png",
+  desc: "Premium rose water with enhanced aroma."
+},
+
+"sandalwood-oil": {
+  name: "Sandalwood Oil",
+  price: "₹399",
+  img: "sandalwood-oil.png",
+  desc: "Pure sandalwood oil with calming woody scent."
+},
+
+"shamama": {
+  name: "Shamama",
+  price: "₹249",
+  img: "shamama.png",
+  desc: "Rich blend of spices and attars."
+},
+
+"mukhallat": {
+  name: "Mukhallat Guldastaan",
+  price: "₹1299",
+  img: "mukhallat.png",
+  desc: "Luxury blend of multiple attars."
+},
+
+"ruh-gulab-pasaya": {
+  name: "Ruh Gulab Pasaya",
+  price: "₹3499",
+  img: "ruh-gulab-pasaya.png",
+  desc: "Premium rose extract with traditional process."
+}
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const product = params.get("name");
+
+if (data[product]) {
+  document.getElementById("product-img").src = data[product].img;
+  document.getElementById("product-name").innerText = data[product].name;
+  document.getElementById("product-desc").innerText = data[product].desc;
+  document.getElementById("product-price").innerText = data[product].price;
+} else {
+  document.body.innerHTML = "<h2 style='color:white;text-align:center;'>Product Not Found</h2>";
+}
+
+function buyNow() {
+  window.open("https://wa.me/917618243220?text=I want to buy " + data[product].name);
+}
+
+</script>
 
 </body>
 </html>
