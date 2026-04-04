@@ -1,165 +1,194 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Products - ItrAura</title>
+  <title>Product - ItrAura</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="background:black; color:white; text-align:center;">
 
 <header>
-  <a href="index.html" style="color:gold; text-decoration:none;">← Back</a>
+  <a href="products.html" style="color:gold; text-decoration:none;">← Back</a>
 </header>
 
-<div class="products">
+<div class="product-detail">
+  <img id="product-img" style="width:80%; border-radius:15px; margin-top:20px;">
+  <h2 id="product-name" style="color:gold;"></h2>
+  <p id="product-desc"></p>
+  <h3 id="product-price"></h3>
 
-<!-- 1 -->
-<div class="product" onclick="openProduct('ruh-chameli')">
-  <img src="ruh-chameli.png">
-  <h3>Ruh Chameli</h3>
-  <p class="price">₹899</p>
-  <button onclick="buy('Ruh Chameli'); event.stopPropagation();">Buy</button>
+  <button onclick="buyNow()" style="padding:10px 20px; border:none; background:gold; color:black; border-radius:20px;">
+    Buy on WhatsApp
+  </button>
 </div>
 
-<!-- 2 -->
-<div class="product">
-  <img src="ruh-gulab.png">
-  <h3>Ruh Gulab</h3>
-  <p class="price">₹3499</p>
-  <button onclick="buy('Ruh Gulab'); event.stopPropagation();">Buy</button>
-</div>
+<script>
 
-<!-- 3 -->
-<div class="product">
-  <img src="ruh-juhi.png">
-  <h3>Ruh Juhi</h3>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Ruh Juhi'); event.stopPropagation();">Buy</button>
-</div>
+const data = {
 
-<!-- 4 -->
-<div class="product">
-  <img src="ruh-khus.png">
-  <h3>Ruh Khus</h3>
-  <p class="price">₹199</p>
-  <button onclick="buy('Ruh Khus'); event.stopPropagation();">Buy</button>
-</div>
+/* 1 */
+"ruh chameli": {
+  name: "Ruh Chameli",
+  price: "₹899",
+  img: "ruh chameli.png",
+  desc: "Natural jasmine attar with long-lasting fragrance."
+},
 
-<!-- 5 -->
-<div class="product">
-  <img src="ruh-motiya.png">
-  <h3>Ruh Motiya</h3>
-  <p class="price">₹2299</p>
-  <button onclick="buy('Ruh Motiya'); event.stopPropagation();">Buy</button>
-</div>
+/* 2 */
+"ruh gulab": {
+  name: "Ruh Gulab",
+  price: "₹3499",
+  img: "ruh gulab.png",
+  desc: "Premium rose attar with rich aroma."
+},
 
-<!-- 6 -->
-<div class="product">
-  <img src="ruh-kadamba.png">
-  <h3>Ruh Kadamba</h3>
-  <p class="price">₹4499</p>
-  <button onclick="buy('Ruh Kadamba'); event.stopPropagation();">Buy</button>
-</div>
+/* 3 */
+"ruh juhi": {
+  name: "Ruh Juhi",
+  price: "₹1299",
+  img: "ruh juhi.png",
+  desc: "Soft floral fragrance from juhi flowers."
+},
 
-<!-- 7 -->
-<div class="product">
-  <img src="ruh-kewra.png">
-  <h3>Ruh Kewra</h3>
-  <p class="price">₹3499</p>
-  <button onclick="buy('Ruh Kewra'); event.stopPropagation();">Buy</button>
-</div>
+/* 4 */
+"ruh khus": {
+  name: "Ruh Khus",
+  price: "₹199",
+  img: "ruh khus.png",
+  desc: "Cooling earthy fragrance."
+},
 
-<!-- 8 -->
-<div class="product">
-  <img src="ruh-rajnigandha.png">
-  <h3>Ruh Rajnigandha</h3>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Ruh Rajnigandha'); event.stopPropagation();">Buy</button>
-</div>
+/* 5 */
+"ruh motiya": {
+  name: "Ruh Motiya",
+  price: "₹2299",
+  img: "ruh motiya.png",
+  desc: "Sweet jasmine fragrance."
+},
 
-<!-- 9 -->
-<div class="product">
-  <img src="ruh-red-champaka.png">
-  <h3>Ruh Red Champaka</h3>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Ruh Red Champaka'); event.stopPropagation();">Buy</button>
-</div>
+/* 6 */
+"ruh kadamba": {
+  name: "Ruh Kadamba",
+  price: "₹4499",
+  img: "ruh kadamba.png",
+  desc: "Exotic floral aroma."
+},
 
-<!-- 10 -->
-<div class="product">
-  <img src="pink-lotus.png">
-  <h3>Pink Lotus</h3>
-  <p class="price">₹1499</p>
-  <button onclick="buy('Pink Lotus'); event.stopPropagation();">Buy</button>
-</div>
+/* 7 */
+"ruh kewra": {
+  name: "Ruh Kewra",
+  price: "₹3499",
+  img: "ruh kewra.png",
+  desc: "Fresh kewra scent."
+},
 
-<!-- 11 -->
-<div class="product">
-  <img src="ruh-mogra.png">
-  <h3>Ruh Mogra</h3>
-  <p class="price">₹999</p>
-  <button onclick="buy('Ruh Mogra'); event.stopPropagation();">Buy</button>
-</div>
+/* 8 */
+"ruh rajnigandha": {
+  name: "Ruh Rajnigandha",
+  price: "₹1299",
+  img: "ruh rajnigandha.png",
+  desc: "Night blooming floral fragrance."
+},
 
-<!-- 12 -->
-<div class="product">
-  <img src="ruh-red-gulab.png">
-  <h3>Ruh Red Gulab</h3>
-  <p class="price">₹2199</p>
-  <button onclick="buy('Ruh Red Gulab'); event.stopPropagation();">Buy</button>
-</div>
+/* 9 */
+"ruh red champaka": {
+  name: "Ruh Red Champaka",
+  price: "₹1299",
+  img: "ruh red champaka.png",
+  desc: "Warm floral scent."
+},
 
-<!-- 13 -->
-<div class="product">
-  <img src="gulab-jal.png">
-  <h3>Gulab Jal</h3>
-  <p class="price">₹179</p>
-  <button onclick="buy('Gulab Jal'); event.stopPropagation();">Buy</button>
-</div>
+/* 10 */
+"pink lotus": {
+  name: "Pink Lotus",
+  price: "₹1499",
+  img: "pink lotus.png",
+  desc: "Soft lotus fragrance."
+},
 
-<!-- 14 -->
-<div class="product">
-  <img src="gulab-jal-pasaya.png">
-  <h3>Gulab Jal Pasaya</h3>
-  <p class="price">₹349</p>
-  <button onclick="buy('Gulab Jal Pasaya'); event.stopPropagation();">Buy</button>
-</div>
+/* 11 */
+"ruh mogra": {
+  name: "Ruh Mogra",
+  price: "₹999",
+  img: "ruh mogra.png",
+  desc: "Classic mogra scent."
+},
 
-<!-- 15 -->
-<div class="product">
-  <img src="sandalwood-oil.png">
-  <h3>Sandalwood Oil</h3>
-  <p class="price">₹399</p>
-  <button onclick="buy('Sandalwood Oil'); event.stopPropagation();">Buy</button>
-</div>
+/* 12 */
+"ruh red gulab": {
+  name: "Ruh Red Gulab",
+  price: "₹2199",
+  img: "ruh red gulab.png",
+  desc: "Deep rose fragrance."
+},
 
-<!-- 16 -->
-<div class="product">
-  <img src="shamama.png">
-  <h3>Shamama</h3>
-  <p class="price">₹249</p>
-  <button onclick="buy('Shamama'); event.stopPropagation();">Buy</button>
-</div>
+/* 13 */
+"gulab jal": {
+  name: "Gulab Jal",
+  price: "₹179",
+  img: "gulab jal.png",
+  desc: "Pure rose water."
+},
 
-<!-- 17 -->
-<div class="product">
-  <img src="mukhallat.png">
-  <h3>Mukhallat Guldastaan</h3>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Mukhallat Guldastaan'); event.stopPropagation();">Buy</button>
-</div>
+/* 14 */
+"gulab jal pasaya": {
+  name: "Gulab Jal Pasaya",
+  price: "₹349",
+  img: "gulab jal pasaya.png",
+  desc: "Premium rose water."
+},
 
-<!-- 18 -->
-<div class="product">
-  <img src="ruh-gulab-pasaya.png">
-  <h3>Ruh Gulab Pasaya</h3>
-  <p class="price">₹3499</p>
-  <button onclick="buy('Ruh Gulab Pasaya'); event.stopPropagation();">Buy</button>
-</div>
+/* 15 */
+"sandalwood oil": {
+  name: "Sandalwood Oil",
+  price: "₹399",
+  img: "sandalwood oil.png",
+  desc: "Pure sandalwood oil."
+},
 
-</div>
+/* 16 */
+"shamama": {
+  name: "Shamama",
+  price: "₹249",
+  img: "shamama.png",
+  desc: "Rich attar blend."
+},
 
-<script src="script.js"></script>
+/* 17 */
+"mukhallat guldastaan": {
+  name: "Mukhallat Guldastaan",
+  price: "₹1299",
+  img: "mukhallat guldastaan.png",
+  desc: "Luxury fragrance blend."
+},
+
+/* 18 */
+"ruh gulab pasaya": {
+  name: "Ruh Gulab Pasaya",
+  price: "₹3499",
+  img: "ruh gulab pasaya.png",
+  desc: "Premium rose extract."
+}
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const product = params.get("name");
+
+if (data[product]) {
+  document.getElementById("product-img").src = data[product].img;
+  document.getElementById("product-name").innerText = data[product].name;
+  document.getElementById("product-desc").innerText = data[product].desc;
+  document.getElementById("product-price").innerText = data[product].price;
+} else {
+  document.body.innerHTML = "<h2 style='color:white'>Product Not Found</h2>";
+}
+
+function buyNow() {
+  window.open("https://wa.me/917618243220?text=I want to buy " + data[product].name);
+}
+
+</script>
 
 </body>
 </html>
