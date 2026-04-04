@@ -27,5 +27,5 @@ function scrollToProducts(){
 }
 
 function openProduct(name) {
-  window.location.href = "product.html?name=" + name;
+  window.location.href = "product.html?name=" + encodeURIComponent(name);
 }
