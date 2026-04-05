@@ -3,411 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ItrAura | Artisanal Global Perfumery | Essence in Every Drop</title>
+    <meta name="description" content="ItrAura - The soul of artisanal botanical perfumery. Essence in every drop.">
+    <title>ItrAura | The Eternal Legacy of Botanical Scent | Essence in Every Drop</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
-        /* -----------------------------------------------------------
-           1. ELITE CSS VARIABLES (THE FOUNDATION)
-        ----------------------------------------------------------- */
+        /* --- 1. GLOBAL DESIGN SYSTEM --- */
         :root {
             --gold: #D4AF37;
-            --soft-gold: #F1D57A;
+            --soft-gold: #f1d57a;
             --deep-gold: #996515;
             --black: #050505;
             --dark-gray: #0c0c0c;
-            --mid-gray: #1a1a1a;
-            --light-gray: #888888;
+            --surface: #111111;
             --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.02);
-            --border-gold: rgba(212, 175, 55, 0.3);
-            --cubic: cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-ultra: all 1.2s var(--cubic);
-            --transition-fast: all 0.4s ease;
+            --text-gray: #a0a0a0;
+            --glass-gold: rgba(212, 175, 55, 0.05);
+            --border-gold: rgba(212, 175, 55, 0.2);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --luxury-shadow: 0 30px 60px rgba(0,0,0,0.8);
         }
 
-        /* -----------------------------------------------------------
-           2. GLOBAL RESET & PREMIUM SCROLLBAR
-        ----------------------------------------------------------- */
+        /* --- 2. THE FOUNDATION (Lines 50-150: Structural CSS) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
         
-        html { scroll-behavior: smooth; }
-
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: var(--black); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--deep-gold)); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--deep-gold)); border-radius: 10px; }
 
         body {
             background-color: var(--black);
             color: var(--white);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            line-height: 1.9;
+            line-height: 2;
             font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; }
-        a { text-decoration: none; color: inherit; transition: var(--transition-fast); }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; color: var(--gold); }
+        a { text-decoration: none; color: inherit; display: inline-block; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; transition: 1.5s var(--ease-in-out); }
 
-        /* -----------------------------------------------------------
-           3. CUSTOM LUXURY CURSOR
-        ----------------------------------------------------------- */
-        #cursor {
-            width: 25px; height: 25px; border: 1px solid var(--gold); border-radius: 50%;
-            position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
+        /* --- 3. CUSTOM CURSOR ARCHITECTURE --- */
+        #cursor-follower {
+            position: fixed; width: 35px; height: 35px; border: 1px solid var(--gold);
+            border-radius: 50%; pointer-events: none; z-index: 10000;
+            transform: translate(-50%, -50%); transition: transform 0.15s ease-out, background 0.4s, width 0.4s, height 0.4s;
         }
         #cursor-dot {
-            width: 4px; height: 4px; background: var(--gold); border-radius: 50%;
-            position: fixed; pointer-events: none; z-index: 10001; transform: translate(-50%, -50%);
+            position: fixed; width: 5px; height: 5px; background: var(--gold);
+            border-radius: 50%; pointer-events: none; z-index: 10001;
+            transform: translate(-50%, -50%);
         }
+        @media (max-width: 1024px) { #cursor-follower, #cursor-dot { display: none; } * { cursor: auto !important; } }
 
-        @media (max-width: 1024px) { #cursor, #cursor-dot { display: none; } * { cursor: auto !important; } }
-
-        /* -----------------------------------------------------------
-           4. NAVIGATION (THE GLASS MASTER)
-        ----------------------------------------------------------- */
+        /* --- 4. NAVIGATION MASTERCLASS (3-Dots Functional) --- */
         header {
             position: fixed; top: 0; width: 100%; padding: 45px 8%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 5000; transition: var(--transition-ultra);
+            z-index: 8000; transition: all 1s var(--ease-in-out);
         }
-
         header.scrolled {
-            padding: 20px 6%; background: rgba(5, 5, 5, 0.9);
+            padding: 20px 6%; background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(30px); border-bottom: 1px solid var(--border-gold);
         }
-
-        .logo {
-            font-size: 32px; font-weight: 700; letter-spacing: 10px;
-            color: var(--gold); text-transform: uppercase; position: relative;
-        }
-
-        .nav-menu { display: flex; list-style: none; gap: 50px; }
-        .nav-item {
-            font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-            font-weight: 500; position: relative; opacity: 0.8;
-        }
-        .nav-item::before {
-            content: ''; position: absolute; bottom: -8px; left: 0;
-            width: 0; height: 1px; background: var(--gold); transition: 0.6s var(--cubic);
-        }
-        .nav-item:hover { opacity: 1; color: var(--gold); }
-        .nav-item:hover::before { width: 100%; }
-
-        .burger { display: none; cursor: pointer; z-index: 6000; }
-        .burger span { display: block; width: 28px; height: 1px; background: var(--gold); margin: 8px 0; transition: 0.4s; }
-
-        /* -----------------------------------------------------------
-           5. HERO SECTION (CINEMATIC)
-        ----------------------------------------------------------- */
-        .hero {
-            height: 100vh; position: relative; display: flex;
-            align-items: center; justify-content: center; text-align: center;
-            padding: 0 5%; overflow: hidden;
-        }
-
-        .hero-visual {
-            position: absolute; inset: 0; z-index: -1;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('Background.png') no-repeat center/cover;
-            animation: kenBurns 35s infinite alternate;
-        }
-
-        @keyframes kenBurns {
-            0% { transform: scale(1) translate(0,0); }
-            100% { transform: scale(1.2) translate(-2%, -2%); }
-        }
-
-        .hero-content { z-index: 10; opacity: 0; transform: translateY(50px); animation: heroReveal 1.8s forwards 0.5s var(--cubic); }
+        .logo { font-size: 35px; font-weight: 700; letter-spacing: 12px; text-transform: uppercase; }
         
-        @keyframes heroReveal {
-            to { opacity: 1; transform: translateY(0); }
+        .nav-links { display: flex; gap: 50px; }
+        .nav-item { font-size: 12px; letter-spacing: 5px; text-transform: uppercase; font-weight: 500; position: relative; opacity: 0.7; transition: 0.5s; }
+        .nav-item:hover { opacity: 1; color: var(--soft-gold); }
+        .nav-item::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 0; height: 1px; background: var(--gold); transition: 0.8s var(--ease-in-out); }
+        .nav-item:hover::after { width: 100%; }
+
+        /* Burger Menu (3-Dots) */
+        .burger { display: none; cursor: pointer; z-index: 9000; }
+        .burger span { display: block; width: 30px; height: 1px; background: var(--gold); margin: 8px 0; transition: 0.5s; }
+        .burger.toggle .line1 { transform: rotate(-45deg) translate(-6px, 6px); }
+        .burger.toggle .line2 { opacity: 0; }
+        .burger.toggle .line3 { transform: rotate(45deg) translate(-6px, -6px); }
+
+        /* Mobile Overlay */
+        .mobile-overlay {
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+            background: var(--black); z-index: 8500; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; transition: 0.8s var(--ease-in-out);
         }
+        .mobile-overlay.open { right: 0; }
+        .mobile-overlay a { font-family: 'Playfair Display', serif; font-size: 45px; margin: 25px 0; letter-spacing: 3px; }
 
-        .hero-content .tag-top {
-            color: var(--gold); letter-spacing: 15px; text-transform: uppercase;
-            font-size: 14px; margin-bottom: 35px; display: block; font-weight: 200;
-        }
+        /* --- 5. CINEMATIC HERO SECTION --- */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+        .hero-visual { position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('Background.png') no-repeat center/cover; animation: kenBurns 40s infinite alternate; }
+        @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.3); } }
 
-        .hero-content h1 {
-            font-size: clamp(60px, 12vw, 160px); line-height: 0.9;
-            margin-bottom: 50px; font-style: italic; letter-spacing: -2px;
-        }
+        .hero-content { opacity: 0; transform: translateY(100px); animation: eliteFade 2s forwards 0.8s var(--ease-in-out); }
+        @keyframes eliteFade { to { opacity: 1; transform: translateY(0); } }
 
-        .btn-premium {
-            padding: 24px 70px; border: 1px solid var(--gold);
-            color: var(--gold); font-size: 12px; letter-spacing: 6px;
-            text-transform: uppercase; font-weight: 600; position: relative;
-            background: transparent; transition: var(--transition-ultra);
-            overflow: hidden;
-        }
+        .hero-content .pre { color: var(--gold); letter-spacing: 20px; text-transform: uppercase; font-size: 14px; margin-bottom: 40px; display: block; font-weight: 200; }
+        .hero-content h1 { font-size: clamp(60px, 15vw, 180px); line-height: 0.85; margin-bottom: 60px; font-style: italic; letter-spacing: -4px; color: var(--white); }
+        .btn-supreme { padding: 25px 85px; border: 1px solid var(--gold); color: var(--gold); font-size: 12px; letter-spacing: 8px; text-transform: uppercase; font-weight: 600; background: transparent; position: relative; overflow: hidden; }
+        .btn-supreme:hover { background: var(--gold); color: black; box-shadow: 0 30px 80px rgba(212,175,55,0.4); transform: translateY(-10px); }
 
-        .btn-premium::after {
-            content: ''; position: absolute; inset: 0; background: var(--gold);
-            transform: scaleX(0); transform-origin: right; transition: transform 0.6s var(--cubic);
-            z-index: -1;
-        }
-
-        .btn-premium:hover::after { transform: scaleX(1); transform-origin: left; }
-        .btn-premium:hover { color: black; box-shadow: 0 25px 60px rgba(212,175,55,0.4); transform: translateY(-8px); }
-
-        /* -----------------------------------------------------------
-           6. THE RITUAL (DEEP TRADITION)
-        ----------------------------------------------------------- */
-        .ritual-sec { padding: 180px 8%; background: var(--dark-gray); border-bottom: 1px solid #111; }
-        .sec-header { text-align: center; margin-bottom: 100px; }
-        .sec-header span { color: var(--gold); letter-spacing: 12px; text-transform: uppercase; font-size: 13px; }
-        .sec-header h2 { font-size: 55px; margin-top: 30px; letter-spacing: 2px; }
-
-        .ritual-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-        .ritual-box {
-            background: var(--glass); padding: 70px 40px; border: 1px solid rgba(212, 175, 55, 0.08);
-            transition: var(--transition-ultra); position: relative; overflow: hidden;
-        }
-
-        .ritual-box::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            transform: translateX(-100%); transition: 0.8s;
-        }
-
-        .ritual-box:hover::before { transform: translateX(100%); }
-        .ritual-box:hover { transform: translateY(-25px); border-color: var(--gold); background: rgba(212,175,55,0.03); }
-
-        .ritual-box i { font-size: 50px; color: var(--gold); margin-bottom: 40px; display: block; opacity: 0.7; }
-        .ritual-box h3 { font-size: 26px; color: var(--soft-gold); margin-bottom: 25px; }
-        .ritual-box p { font-size: 14px; color: var(--light-gray); font-weight: 200; line-height: 2; }
+        /* --- 6. EMOTIONAL STORYTELLING (The Soul of ItrAura) --- */
+        .story-section { padding: 200px 10%; background: var(--black); border-bottom: 1px solid #111; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 120px; align-items: center; }
+        .story-img-wrap { position: relative; padding: 40px; }
+        .story-img-wrap img { border: 1px solid var(--border-gold); filter: grayscale(0.5); }
+        .story-img-wrap::after { content: 'PURE BOTANICAL'; position: absolute; top: 0; left: 0; padding: 20px; font-size: 10px; letter-spacing: 10px; color: var(--gold); border-left: 1px solid var(--gold); }
         
-        .step-id { position: absolute; top: 25px; left: 25px; font-size: 12px; color: rgba(212,175,55,0.15); font-weight: 800; letter-spacing: 2px; }
+        .story-text h2 { font-size: 65px; line-height: 1.1; margin-bottom: 40px; }
+        .story-text p { font-size: 19px; color: var(--text-gray); margin-bottom: 30px; font-weight: 200; text-align: justify; }
+        .story-text blockquote { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--soft-gold); margin: 50px 0; font-style: italic; position: relative; padding-left: 40px; }
+        .story-text blockquote::before { content: '“'; position: absolute; left: 0; top: -20px; font-size: 80px; color: var(--gold); opacity: 0.3; }
 
-        /* -----------------------------------------------------------
-           7. BOUTIQUE (ELITE PRICE TAGS)
-        ----------------------------------------------------------- */
-        .boutique-sec { padding: 160px 8%; }
-        .coll-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+        /* --- 7. THE RITUAL: THE TRADITIONAL ALCHEMY (Lines 400-600) --- */
+        .ritual-section { padding: 180px 8%; background: var(--dark-gray); }
+        .ritual-header { text-align: center; margin-bottom: 150px; }
+        .ritual-header span { color: var(--gold); letter-spacing: 15px; text-transform: uppercase; font-size: 12px; }
+        .ritual-header h2 { font-size: 55px; margin-top: 30px; }
+
+        .ritual-master-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 45px; }
+        .ritual-card { background: var(--glass-gold); padding: 80px 45px; border: 1px solid var(--border-gold); position: relative; transition: var(--transition-main); overflow: hidden; }
+        .ritual-card:hover { transform: translateY(-30px); border-color: var(--gold); background: rgba(212, 175, 55, 0.03); }
+        .ritual-card span.number { position: absolute; top: 30px; right: 30px; font-size: 40px; font-family: 'Playfair Display'; color: rgba(212,175,55,0.1); font-weight: 900; }
+        .ritual-card i { font-size: 60px; color: var(--gold); margin-bottom: 50px; display: block; opacity: 0.6; }
+        .ritual-card h3 { font-size: 30px; margin-bottom: 25px; color: var(--soft-gold); }
+        .ritual-card p { font-size: 14px; color: #888; font-weight: 200; line-height: 2.2; }
+
+        /* --- 8. THE BOUTIQUE: LUXURY PRICE TAGS & CARDS --- */
+        .boutique-section { padding: 180px 8%; }
+        .boutique-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+        .boutique-card { background: #080808; border: 1px solid rgba(255,255,255,0.02); transition: 1s var(--ease-in-out); position: relative; overflow: hidden; }
+        .boutique-card:hover { border-color: var(--gold); transform: translateY(-20px); }
         
-        .coll-card {
-            background: var(--mid-gray); position: relative; transition: var(--transition-ultra);
-            border: 1px solid rgba(255,255,255,0.02); overflow: hidden;
+        .product-img { height: 650px; overflow: hidden; position: relative; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 3s var(--ease-in-out); }
+        .boutique-card:hover .product-img img { transform: scale(1.2); filter: brightness(0.6); }
+
+        /* THE LEGENDARY PRICE RIBBON */
+        .ribbon-elite {
+            position: absolute; top: 40px; left: -15px; background: linear-gradient(45deg, var(--deep-gold), var(--gold));
+            color: #000; padding: 12px 55px; font-weight: 800; font-size: 16px;
+            letter-spacing: 2px; z-index: 1000; box-shadow: 20px 20px 50px rgba(0,0,0,0.7);
+            border-radius: 0 100px 100px 0; transform: rotate(-3deg);
         }
 
-        .img-container { height: 600px; overflow: hidden; position: relative; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 2.5s var(--cubic); }
+        .product-content { padding: 60px 40px; text-align: center; }
+        .product-content .cat { color: var(--gold); letter-spacing: 8px; text-transform: uppercase; font-size: 11px; margin-bottom: 20px; display: block; }
+        .product-content h3 { font-size: 38px; color: var(--white); margin-bottom: 40px; }
+        .btn-order-wa { padding: 18px 50px; border: 1px solid var(--gold); color: var(--gold); font-size: 12px; letter-spacing: 5px; text-transform: uppercase; font-weight: 600; }
+        .boutique-card:hover .btn-order-wa { background: var(--gold); color: #000; }
         
-        .coll-card:hover .img-container img { transform: scale(1.18) rotate(1deg); }
+        .essence-drop { font-size: 11px; color: #444; margin-top: 45px; font-style: italic; letter-spacing: 5px; text-transform: uppercase; }
 
-        /* ELITE PRICE RIBBON */
-        .elite-price {
-            position: absolute; top: 35px; left: -10px; background: var(--gold);
-            color: black; padding: 12px 45px; font-weight: 700; font-size: 16px;
-            letter-spacing: 2px; z-index: 100; box-shadow: 15px 15px 40px rgba(0,0,0,0.7);
-            border-radius: 0 60px 60px 0;
-        }
+        /* --- 9. THE TRUST & FOOTER ARCHITECTURE --- */
+        .trust-grid { padding: 140px 8%; background: var(--dark-gray); display: grid; grid-template-columns: repeat(4, 1fr); gap: 60px; text-align: center; border-top: 1px solid #111; }
+        .trust-item i { font-size: 45px; color: var(--gold); margin-bottom: 30px; }
+        .trust-item h4 { font-size: 16px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 25px; }
 
-        .coll-meta { padding: 50px 40px; text-align: center; background: #080808; }
-        .coll-meta span { color: var(--gold); font-size: 11px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .coll-meta h3 { font-size: 32px; color: var(--white); margin-bottom: 30px; letter-spacing: 1px; }
+        footer { padding: 180px 8% 60px; background: #000; border-top: 1px solid #1a1a1a; }
+        .f-container { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 120px; }
+        .f-logo h4 { font-size: 55px; color: var(--gold); letter-spacing: 15px; margin-bottom: 45px; }
+        .f-logo p { font-size: 17px; color: #888; line-height: 2.5; max-width: 550px; font-weight: 200; }
+        .f-links h5 { font-size: 15px; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 55px; color: var(--white); }
+        .f-links li { margin-bottom: 25px; }
+        .f-links a { color: #888; transition: 0.5s; font-size: 15px; }
+        .f-links a:hover { color: var(--gold); padding-left: 20px; }
 
-        .wa-btn-premium {
-            padding: 16px 45px; border: 1px solid var(--gold);
-            color: var(--gold); font-size: 11px; letter-spacing: 4px;
-            text-transform: uppercase; display: inline-block; transition: 0.4s;
-        }
+        .f-bottom { text-align: center; padding-top: 100px; border-top: 1px solid #111; font-size: 12px; color: #333; letter-spacing: 10px; margin-top: 150px; text-transform: uppercase; }
 
-        .coll-card:hover .wa-btn-premium { background: var(--gold); color: black; border-color: var(--gold); }
-        .essence-footer { font-size: 10px; color: #333; margin-top: 35px; font-style: italic; letter-spacing: 4px; text-transform: uppercase; }
-
-        /* -----------------------------------------------------------
-           8. TESTIMONIALS (GLASSSMORPHISM)
-        ----------------------------------------------------------- */
-        .test-sec { padding: 150px 8%; background: var(--black); text-align: center; }
-        .test-wrap { 
-            max-width: 1100px; margin: 0 auto; padding: 100px 60px; 
-            border: 1px solid var(--border-gold); background: var(--glass); 
-            position: relative;
-        }
-        .test-wrap i.fa-quote-left { font-size: 50px; color: var(--gold); position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: var(--black); padding: 0 20px; }
-        .test-wrap p { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--soft-gold); font-style: italic; line-height: 1.6; }
-        .connoisseur { margin-top: 50px; letter-spacing: 8px; text-transform: uppercase; font-size: 14px; font-weight: 600; }
-
-        /* -----------------------------------------------------------
-           9. TRUST FOOTER & FINAL DETAILS
-        ----------------------------------------------------------- */
-        .trust-grid { padding: 120px 8%; background: var(--dark-gray); display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px; text-align: center; border-top: 1px solid #111; }
-        .trust-item i { font-size: 40px; color: var(--gold); margin-bottom: 30px; opacity: 0.6; }
-        .trust-item h4 { font-size: 15px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
-        .trust-item p { font-size: 13px; color: var(--light-gray); }
-
-        footer { padding: 150px 8% 60px; background: #000; border-top: 1px solid #1a1a1a; }
-        .f-main { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 100px; }
-        .f-logo h4 { font-size: 45px; color: var(--gold); letter-spacing: 12px; margin-bottom: 40px; }
-        .f-logo p { font-size: 16px; color: var(--light-gray); line-height: 2.2; max-width: 500px; }
-        .f-links h5 { font-size: 14px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 45px; color: var(--white); }
-        .f-links ul li { list-style: none; margin-bottom: 22px; }
-        .f-links a { font-size: 15px; color: var(--light-gray); }
-        .f-links a:hover { color: var(--gold); padding-left: 15px; }
-
-        .f-bottom { 
-            text-align: center; padding-top: 80px; border-top: 1px solid #111; 
-            font-size: 11px; color: #444; letter-spacing: 6px; margin-top: 120px;
-            text-transform: uppercase;
-        }
-
-        /* -----------------------------------------------------------
-           10. ANIMATIONS & REVEALS
-        ----------------------------------------------------------- */
-        .reveal { opacity: 0; transform: translateY(80px); transition: 1.5s var(--cubic); }
+        /* --- 10. ADVANCED REVEAL SYSTEM --- */
+        .reveal { opacity: 0; transform: translateY(120px); transition: 1.8s var(--ease-in-out); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* -----------------------------------------------------------
-           11. MASTER MOBILE RESPONSIVE
-        ----------------------------------------------------------- */
-        @media (max-width: 1200px) {
-            .f-main, .coll-grid, .ritual-container { grid-template-columns: 1fr 1fr; gap: 60px; }
-        }
-
+        /* --- 11. SUPREME MOBILE RESPONSIVENESS (Lines 900-1000) --- */
+        @media (max-width: 1400px) { .f-container { gap: 60px; } }
+        @media (max-width: 1200px) { .boutique-grid, .ritual-master-grid, .f-container { grid-template-columns: 1fr 1fr; gap: 60px; } }
         @media (max-width: 768px) {
-            header { padding: 30px 6%; }
-            .nav-menu { display: none; }
-            .burger { display: block; }
-            .hero-content h1 { font-size: 65px; }
-            .ritual-container, .coll-grid, .trust-grid, .f-main { grid-template-columns: 1fr; text-align: center; }
-            .test-wrap { padding: 60px 30px; }
-            .test-wrap p { font-size: 24px; }
-            .img-container { height: 450px; }
+            header { padding: 35px 6%; } .nav-links { display: none; } .burger { display: block; }
+            .hero-title { font-size: 80px; }
+            .story-grid, .ritual-master-grid, .boutique-grid, .trust-grid, .f-container { grid-template-columns: 1fr; text-align: center; }
+            .story-img-wrap { order: 2; } .story-text { order: 1; }
             .f-logo p { margin: 0 auto; }
-            .elite-price { padding: 10px 30px; font-size: 14px; }
+            .ribbon-elite { padding: 12px 40px; font-size: 14px; }
+            .product-img { height: 500px; }
         }
-
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
     <div id="cursor-dot"></div>
 
     <header id="header">
         <a href="index.html" class="logo">ITRAURA</a>
         <nav>
-            <ul class="nav-menu">
+            <ul class="nav-links">
                 <li><a href="index.html" class="nav-item">The House</a></li>
                 <li><a href="products.html" class="nav-item">Collections</a></li>
                 <li><a href="https://wa.me/917618243220" class="nav-item">Concierge</a></li>
             </ul>
         </nav>
-        <div class="burger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="burger" id="burger">
+            <span class="line1"></span><span class="line2"></span><span class="line3"></span>
         </div>
     </header>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <a href="index.html">The House</a>
+        <a href="products.html">Collections</a>
+        <a href="https://wa.me/917618243220">Concierge</a>
+    </div>
 
     <section class="hero">
         <div class="hero-visual"></div>
         <div class="hero-content">
-            <span class="tag-top">The Pinnacle of Botanical Art</span>
+            <span class="pre">Artisanal • Botanical • Eternal</span>
             <h1>Perfume for the Soul</h1>
-            <a href="products.html" class="btn-premium">Explore The Boutique</a>
+            <a href="products.html" class="btn-supreme">Explore Boutique</a>
         </div>
     </section>
 
-    <section class="ritual-sec reveal">
-        <div class="sec-header">
-            <span>Our Sacred Legacy</span>
+    <section class="story-section reveal">
+        <div class="story-grid">
+            <div class="story-img-wrap">
+                <img src="Background.png" alt="ItrAura Legacy">
+            </div>
+            <div class="story-text">
+                <h2>Inherited Patience</h2>
+                <p>In a world of synthetic speed, we choose the sacred slow. Our journey begins at 4 AM, when the petals are heavy with dew and the soul of the flower is most vibrant. ItrAura is not a brand; it is a promise of purity—a bridge between the 400-year-old copper kilns of our ancestors and the global connoisseur of today.</p>
+                <blockquote>"We do not capture scent; we capture moments of absolute botanical truth."</blockquote>
+                <p>Every bottle is a culmination of days of labor, where fire and water meet to create liquid gold. No alcohol ever touches our oils, for nature needs no dilution. Essence in Every Drop.</p>
+                <a href="products.html" class="btn-supreme" style="padding: 15px 45px; font-size: 10px; margin-top: 30px;">Our Heritage</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ritual-section reveal">
+        <div class="ritual-header">
+            <span>The Sacred Alchemy</span>
             <h2>The Art of Pure Distillation</h2>
         </div>
-        <div class="ritual-container">
-            <div class="ritual-box">
-                <span class="step-id">RITUAL 01</span>
+        <div class="ritual-master-grid">
+            <div class="ritual-card">
+                <span class="number">01</span>
                 <i class="fas fa-fire-alt"></i>
                 <h3>The Copper Deg</h3>
-                <p>Pure copper stills are hand-beaten to ensure the perfect molecular catalyst. Flowers meet fire, but their soul is never burnt, only released.</p>
+                <p>Pure copper stills are hand-beaten to ensure the perfect molecular catalyst. Fresh petals meet controlled fire, releasing the essence without burning its delicate soul.</p>
             </div>
-            <div class="ritual-box">
-                <span class="step-id">RITUAL 02</span>
-                <i class="fas fa-wind"></i>
-                <h3>Steam Journey</h3>
-                <p>The vapor travels through 'Chonga' (Bamboo pipes)—a 400-year-old organic conduit that preserves the botanical truth of the scent.</p>
+            <div class="ritual-card">
+                <span class="number">02</span>
+                <i class="fas fa-leaf"></i>
+                <h3>Steam Ritual</h3>
+                <p>The vapor travels through 'Chonga' (Bamboo pipes)—a 400-year-old organic conduit that preserves the botanical integrity and earthy truth of the scent.</p>
             </div>
-            <div class="ritual-box">
-                <span class="step-id">RITUAL 03</span>
+            <div class="ritual-card">
+                <span class="number">03</span>
                 <i class="fas fa-snowflake"></i>
                 <h3>Condensation</h3>
-                <p>In the Bhapka, submerged in cold water, vapors transform back into liquid gold. A marriage of fire, water, and ancient patience.</p>
+                <p>In the Bhapka, submerged in cold water, vapors transform back into liquid gold. A silent marriage of fire, water, and ancient, unhurried patience.</p>
             </div>
-            <div class="ritual-box">
-                <span class="step-id">RITUAL 04</span>
+            <div class="ritual-card">
+                <span class="number">04</span>
                 <i class="fas fa-certificate"></i>
                 <h3>The Pure Ruh</h3>
-                <p>What remains is 100% botanical oil. Alcohol-free. Synthetic-free. The absolute essence. Essence in Every Drop.</p>
+                <p>What remains is 100% botanical oil. Alcohol-free. Synthetic-free. The absolute truth of nature captured in glass. Essence in Every Drop.</p>
             </div>
         </div>
     </section>
 
-    <section class="boutique-sec reveal">
-        <div class="sec-header">
-            <span>Curated Excellence</span>
+    <section class="boutique-section reveal">
+        <div class="ritual-header">
+            <span>Signature Selection</span>
             <h2>The Masterpiece Series</h2>
         </div>
-        <div class="coll-grid">
-            <a href="https://wa.me/917618243220" class="coll-card reveal">
-                <div class="img-container">
-                    <div class="elite-price">FROM ₹1,000</div>
-                    <img src="ruh series.png" alt="Ruh Collection">
+        <div class="boutique-grid">
+            <a href="https://wa.me/917618243220" class="boutique-card reveal">
+                <div class="product-img">
+                    <div class="ribbon-elite">FROM ₹1,000</div>
+                    <img src="ruh series.png" alt="Ruh Series">
                 </div>
-                <div class="coll-meta">
-                    <span>Absolute Essence</span>
+                <div class="product-content">
+                    <span class="cat">Absolute Essence</span>
                     <h3>The Ruh Series</h3>
-                    <div class="wa-btn-premium">Inquire via WhatsApp</div>
-                    <div class="essence-footer">Essence in Every Drop</div>
+                    <div class="btn-order-wa">Enquire on WhatsApp</div>
+                    <div class="essence-drop">Essence in Every Drop</div>
                 </div>
             </a>
-            <a href="https://wa.me/917618243220" class="coll-card reveal">
-                <div class="img-container">
-                    <div class="elite-price">FROM ₹450</div>
+            <a href="https://wa.me/917618243220" class="boutique-card reveal">
+                <div class="product-img">
+                    <div class="ribbon-elite">FROM ₹450</div>
                     <img src="water series.png" alt="Water Series">
                 </div>
-                <div class="coll-meta">
-                    <span>Natural Hydrosols</span>
+                <div class="product-content">
+                    <span class="cat">Natural Hydrosols</span>
                     <h3>Water Series</h3>
-                    <div class="wa-btn-premium">Inquire via WhatsApp</div>
-                    <div class="essence-footer">Essence in Every Drop</div>
+                    <div class="btn-order-wa">Enquire on WhatsApp</div>
+                    <div class="essence-drop">Essence in Every Drop</div>
                 </div>
             </a>
-            <a href="https://wa.me/917618243220" class="coll-card reveal">
-                <div class="img-container">
-                    <div class="elite-price">FROM ₹1,500</div>
-                    <img src="premium series.png" alt="Premium Blends">
+            <a href="https://wa.me/917618243220" class="boutique-card reveal">
+                <div class="product-img">
+                    <div class="ribbon-elite">FROM ₹1,500</div>
+                    <img src="premium series.png" alt="Premium Series">
                 </div>
-                <div class="coll-meta">
-                    <span>Artisanal Blends</span>
+                <div class="product-content">
+                    <span class="cat">Luxury Blends</span>
                     <h3>Premium Series</h3>
-                    <div class="wa-btn-premium">Inquire via WhatsApp</div>
-                    <div class="essence-footer">Essence in Every Drop</div>
+                    <div class="btn-order-wa">Enquire on WhatsApp</div>
+                    <div class="essence-drop">Essence in Every Drop</div>
                 </div>
             </a>
-        </div>
-    </section>
-
-    <section class="test-sec reveal">
-        <div class="test-wrap">
-            <i class="fas fa-quote-left"></i>
-            <p>"ItrAura captures the very soul of the flora. Their traditional distillation results in a depth of scent that modern high-street brands simply cannot replicate."</p>
-            <div class="connoisseur">— Alexander V. | Global Perfume Collector</div>
         </div>
     </section>
 
     <section class="trust-grid reveal">
-        <div class="trust-item"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Alcohol & Synthetic Free</p></div>
-        <div class="trust-item"><i class="fas fa-globe-americas"></i><h4>Global Reach</h4><p>Exporting to 45+ Countries</p></div>
-        <div class="trust-item"><i class="fas fa-flask"></i><h4>Lab Certified</h4><p>Guaranteed Purity</p></div>
-        <div class="trust-item"><i class="fas fa-shield-alt"></i><h4>Heritage Art</h4><p>Traditional Hasayan Roots</p></div>
+        <div class="trust-item"><i class="fas fa-globe-europe"></i><h4>Global Reach</h4><p>Dubai | London | India</p></div>
+        <div class="trust-item"><i class="fas fa-seedling"></i><h4>100% Botanical</h4><p>Pure concentrated nature</p></div>
+        <div class="trust-item"><i class="fas fa-flask"></i><h4>Traditional</h4><p>Copper Deg Distillation</p></div>
+        <div class="trust-item"><i class="fas fa-shield-alt"></i><h4>Certified</h4><p>Clinical purity standards</p></div>
     </section>
 
     <footer>
-        <div class="f-main">
+        <div class="f-container">
             <div class="f-logo">
                 <h4>ITRAURA</h4>
                 <p>The bridge between ancient Indian heritage and modern global luxury. We preserve the soul of nature in every drop. Handcrafted with passion, bottled with history.</p>
@@ -416,87 +341,74 @@
                 <h5>The House</h5>
                 <ul>
                     <li><a href="#">The Studio</a></li>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="https://wa.me/917618243220">Contact</a></li>
-                </ul>
-            </div>
-            <div class="f-links">
-                <h5>Services</h5>
-                <ul>
-                    <li><a href="products.html">Collections</a></li>
-                    <li><a href="#">Bespoke Blends</a></li>
-                    <li><a href="#">Wholesale</a></li>
+                    <li><a href="#">The Process</a></li>
+                    <li><a href="#">Our Ethics</a></li>
                 </ul>
             </div>
             <div class="f-links">
                 <h5>Concierge</h5>
-                <p style="font-size:15px; color:#555; margin-bottom:30px;">DUBAI | LONDON | INDIA<br>+91 76182 43220</p>
-                <div style="display:flex; gap:30px; color:var(--gold); font-size:24px;">
+                <ul>
+                    <li><a href="https://wa.me/917618243220">Contact Us</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                </ul>
+            </div>
+            <div class="f-links">
+                <h5>Stay Inspired</h5>
+                <p style="font-size: 14px; color: #555; margin-bottom: 30px;">Experience botanical luxury direct from the source.</p>
+                <div style="display:flex; gap:30px; color:var(--gold); font-size:26px;">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </div>
-        <div class="f-bottom">
-            © 2026 ITRAURA ARTISANAL PERFUMERY | ESSENCE IN EVERY DROP
-        </div>
+        <div class="f-bottom">© 2026 ITRAURA ARTISANAL PERFUMERY | ESSENCE IN EVERY DROP</div>
     </footer>
 
     <script>
-        // 1. Luxury Cursor Movement
-        const cursor = document.getElementById('cursor');
+        // 1. Supreme Cursor Logic
+        const cursor = document.getElementById('cursor-follower');
         const dot = document.getElementById('cursor-dot');
-
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            
-            // Outer Circle with smooth lag
-            cursor.style.left = x + 'px';
-            cursor.style.top = y + 'px';
-            
-            // Dot with instant movement
-            dot.style.left = x + 'px';
-            dot.style.top = y + 'px';
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
         });
 
-        // 2. Navbar Scroll Transformation
+        // 2. Navigation Transformation
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
-            if(window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if(window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // 3. Scroll Reveal Engine
-        const revealEngine = () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 100;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
-                }
+        // 3. BURGER MENU LOGIC (The 100% Fix)
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('mobileOverlay');
+        burger.addEventListener('click', () => {
+            overlay.classList.toggle('open');
+            burger.classList.toggle('toggle');
+        });
+        document.querySelectorAll('#mobileOverlay a').forEach(link => {
+            link.addEventListener('click', () => { overlay.classList.remove('open'); burger.classList.remove('toggle'); });
+        });
+
+        // 4. Reveal Engine (Scroll Animations)
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
             });
         };
-        window.addEventListener('scroll', revealEngine);
-        window.onload = revealEngine;
+        window.addEventListener('scroll', reveal);
+        window.onload = reveal;
 
-        // 4. Cursor Hover Effects
-        document.querySelectorAll('a, button, .ritual-box, .coll-card').forEach(item => {
+        // 5. Cursor Hover Mastery
+        document.querySelectorAll('a, .ritual-card, .boutique-card').forEach(item => {
             item.addEventListener('mouseenter', () => {
-                cursor.style.width = '60px';
-                cursor.style.height = '60px';
-                cursor.style.background = 'rgba(212, 175, 55, 0.08)';
-                cursor.style.borderColor = 'var(--gold)';
+                cursor.style.width = '70px'; cursor.style.height = '70px';
+                cursor.style.background = 'rgba(212, 175, 55, 0.1)';
             });
             item.addEventListener('mouseleave', () => {
-                cursor.style.width = '25px';
-                cursor.style.height = '25px';
+                cursor.style.width = '35px'; cursor.style.height = '35px';
                 cursor.style.background = 'transparent';
             });
         });
