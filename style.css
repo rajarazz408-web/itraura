@@ -206,6 +206,31 @@ button:hover {
     opacity: 0;
     transform: translateY(20px);
   }
+
+  .product {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.product h3,
+.product .desc,
+.product .price {
+  width: 100%;
+  text-align: center !important;
+}
+
+button {
+  display: block !important;
+  margin: 12px auto !important;
+}
+
+.product::before {
+  pointer-events: none;
+}
+
   to {
     opacity: 1;
     transform: translateY(0);
