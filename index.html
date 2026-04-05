@@ -1,284 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ItrAura | Premium Natural Attars & Essential Oils</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ItrAura | Artisanal Global Perfumery</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --light-gold: #F4DF4E;
+            --black: #0a0a0a;
+            --deep-gray: #1a1a1a;
+            --white: #ffffff;
+        }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-<style>
-:root {
-    --gold: #D4AF37;
-    --dark-gold: #996515;
-    --black: #0a0a0a;
-}
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(0,0,0,0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            backdrop-filter: blur(10px);
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--black);
-    color: white;
-    overflow-x: hidden;
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-/* --- Navigation --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background: rgba(0,0,0,0.9);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(212,175,55,0.2);
-}
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--gold);
-    letter-spacing: 2px;
-}
+        .nav-links a:hover { color: var(--gold); }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            overflow: hidden;
+        }
 
-nav a:hover { color: var(--gold); }
+        .hero-content {
+            z-index: 10;
+            padding: 0 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-/* --- Hero Slider Style --- */
-.hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(50px, 10vw, 90px);
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 8vw, 75px);
-    color: var(--gold);
-    margin-bottom: 10px;
-}
+        .hero-content .tagline {
+            font-size: clamp(14px, 3vw, 22px);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            font-weight: 300;
+            color: #ddd;
+        }
 
-.hero p {
-    font-size: 20px;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
+        .main-btn {
+            padding: 18px 45px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
 
-.cta-btn {
-    padding: 15px 40px;
-    background: var(--gold);
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: 0.4s;
-}
+        .main-btn:hover {
+            background: var(--gold);
+            color: black;
+            box-shadow: 0 0 25px rgba(212,175,55,0.4);
+        }
 
-.cta-btn:hover { background: white; transform: scale(1.1); }
+        /* --- International Statement Section --- */
+        .statement {
+            padding: 100px 10%;
+            background: #000;
+            text-align: center;
+            position: relative;
+        }
 
-/* --- Global Description (The Large Section) --- */
-.global-about {
-    padding: 80px 10%;
-    text-align: center;
-    background: #111;
-}
+        .statement h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
 
-.global-about h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 35px;
-    color: var(--gold);
-    margin-bottom: 25px;
-}
+        .statement p {
+            font-size: 18px;
+            line-height: 2;
+            color: #aaa;
+            max-width: 900px;
+            margin: 0 auto;
+            font-style: italic;
+        }
 
-.global-about p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #ccc;
-    max-width: 900px;
-    margin: 0 auto;
-}
+        /* --- Featured Categories (Horizontal Scroll on Mobile) --- */
+        .section-header {
+            padding: 60px 8% 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
 
-/* --- Category Showcase (Flipkart/Amazon style) --- */
-.section-title {
-    text-align: center;
-    padding: 50px 0 20px;
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    color: var(--gold);
-}
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--white);
+        }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 0 5% 50px;
-}
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 0 8% 80px;
+        }
 
-.cat-card {
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    cursor: pointer;
-}
+        .cat-box {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-.cat-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
+        .cat-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
 
-.cat-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    transition: 0.3s;
-}
+        .cat-box:hover img { transform: scale(1.1); }
 
-.cat-card:hover img { transform: scale(1.1); }
-.cat-card:hover .cat-overlay { background: rgba(0,0,0,0.2); }
+        .cat-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+        }
 
-.cat-overlay h3 { font-size: 24px; margin-bottom: 10px; }
+        .cat-overlay h3 { font-size: 26px; margin-bottom: 5px; color: var(--gold); }
+        .cat-overlay p { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
 
-/* --- Features --- */
-.features {
-    display: flex;
-    justify-content: space-around;
-    padding: 60px 5%;
-    background: var(--gold);
-    color: black;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        /* --- Features Section --- */
+        .features-wrap {
+            background: var(--deep-gray);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 80px 8%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
 
-.f-item { text-align: center; width: 200px; }
-.f-item h4 { margin-top: 10px; font-weight: bold; }
+        .feature-item h3 { color: var(--gold); font-size: 20px; margin-bottom: 10px; }
+        .feature-item p { font-size: 12px; color: #777; padding: 0 10px; }
 
-/* --- Footer --- */
-footer {
-    padding: 50px 5%;
-    background: #050505;
-    text-align: center;
-    border-top: 1px solid #222;
-}
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            padding: 80px 8% 40px;
+            border-top: 1px solid #222;
+        }
 
-.footer-logo { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); }
-.social-links { margin: 20px 0; }
-.social-links a { color: #888; margin: 0 10px; text-decoration: none; }
-</style>
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about h4 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--gold); margin-bottom: 20px; }
+        .footer-about p { color: #666; font-size: 14px; line-height: 1.8; }
+
+        .footer-links h5 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 10px; }
+        .footer-links ul li a { color: #666; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links ul li a:hover { color: var(--gold); }
+
+        .bottom-bar {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #111;
+            font-size: 12px;
+            color: #444;
+            letter-spacing: 1px;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 900px) {
+            .category-grid { grid-template-columns: 1fr; }
+            .features-wrap { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 60px; }
+            .cat-box { height: 350px; }
+            .nav-links { display: none; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">ITRAURA</div>
-    <div>
-        <a href="index.html">Home</a>
-        <a href="products.html">Collections</a>
-        <a href="https://wa.me/917618243220">Contact</a>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero">
-    <h1>ITRAURA</h1>
-    <p>The Essence in Every Drop</p>
-    <a href="products.html" class="cta-btn">Shop the Collection</a>
-</section>
-
-<!-- International Description -->
-<section class="global-about">
-    <h2>A Legacy Beyond Borders</h2>
-    <p>
-        For centuries, the art of traditional distillation has captured the soul of nature in small glass vials. 
-        At <strong>ItrAura</strong>, we bridge the gap between ancient Indian heritage and modern luxury. 
-        Our attars are handcrafted using the legendary <em>Deg-Bhapka</em> process—100% alcohol-free, 
-        highly concentrated, and designed for those who seek a signature aura that lingers across continents.
-        Whether you are in New York, London, or New Delhi, experience the purity of 100% organic botanical extracts.
-    </p>
-</section>
-
-<!-- Category Grid (Images) -->
-<h2 class="section-title">Explore Our World</h2>
-<div class="category-grid">
-    <div class="cat-card" onclick="location.href='products.html'">
-        <img src="https://images.unsplash.com/photo-1616984748474-23730e62558e?auto=format&fit=crop&w=800&q=80" alt="Ruh Collection">
-        <div class="cat-overlay">
-            <h3>Ruh Collection</h3>
-            <p>100% Pure Botanical Steam Distillations</p>
+    <nav>
+        <div class="logo">ITRAURA</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Collections</a>
+            <a href="https://wa.me/917618243220">Contact Us</a>
         </div>
-    </div>
-    <div class="cat-card" onclick="location.href='products.html'">
-        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80" alt="Luxury Blends">
-        <div class="cat-overlay">
-            <h3>Luxury Blends</h3>
-            <p>Complex Mukhallats & Modern Classics</p>
-        </div>
-    </div>
-    <div class="cat-card" onclick="location.href='products.html'">
-        <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=800&q=80" alt="Floral Waters">
-        <div class="cat-overlay">
-            <h3>Floral Waters</h3>
-            <p>Organic Hydrosols & Refreshing Mists</p>
-        </div>
-    </div>
-</div>
+    </nav>
 
-<!-- Global Trust Features -->
-<section class="features">
-    <div class="f-item">
-        <h3>🌍</h3>
-        <h4>Global Shipping</h4>
-        <p>Doorstep delivery worldwide</p>
-    </div>
-    <div class="f-item">
-        <h3>🌱</h3>
-        <h4>100% Organic</h4>
-        <p>No synthetic chemicals</p>
-    </div>
-    <div class="f-item">
-        <h3>💧</h3>
-        <h4>Alcohol Free</h4>
-        <p>Traditional Oil Based</p>
-    </div>
-    <div class="f-item">
-        <h3>🛡️</h3>
-        <h4>Secure Payment</h4>
-        <p>Safe & Trusted Transactions</p>
-    </div>
-</section>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>ITRAURA</h1>
+            <p class="tagline">The Essence in Every Drop</p>
+            <a href="products.html" class="main-btn">Shop The Global Collection</a>
+        </div>
+    </header>
 
-<footer>
-    <div class="footer-logo">ItrAura</div>
-    <div class="social-links">
-        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a>
+    <!-- International About Section -->
+    <section class="statement">
+        <h2>Handcrafted For The Connoisseur</h2>
+        <p>
+            From the ancient distilleries of Kannauj to the luxury markets of the world. 
+            ItrAura represents the pinnacle of alcohol-free, 100% botanical oils. 
+            Each drop is a testament to India's rich heritage, bottled specifically for an 
+            international audience that values authenticity, longevity, and natural purity.
+        </p>
+    </section>
+
+    <!-- Categories Section -->
+    <div class="section-header">
+        <h2>Our Main Curations</h2>
     </div>
-    <p>© 2026 ItrAura Artisanal Perfumery. Crafted in India, Cherished Globally.</p>
-</footer>
+    <section class="category-grid">
+        <div class="cat-box" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800" alt="The Ruh Collection">
+            <div class="cat-overlay">
+                <p>Pure Distillations</p>
+                <h3>The Ruh Series</h3>
+            </div>
+        </div>
+        <div class="cat-box" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800" alt="Signature Blends">
+            <div class="cat-overlay">
+                <p>Luxury Blends</p>
+                <h3>Mukhallats</h3>
+            </div>
+        </div>
+        <div class="cat-box" onclick="location.href='products.html'">
+            <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=800" alt="Floral Waters">
+            <div class="cat-overlay">
+                <p>Hydrosols</p>
+                <h3>Floral Waters</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Features -->
+    <section class="features-wrap">
+        <div class="feature-item">
+            <h3>🌍</h3>
+            <h3>Global Delivery</h3>
+            <p>Seamless doorstep shipping to over 45 countries worldwide.</p>
+        </div>
+        <div class="feature-item">
+            <h3>🛡️</h3>
+            <h3>Pure & Safe</h3>
+            <p>100% Alcohol-free, skin-safe, and botanically derived oils.</p>
+        </div>
+        <div class="feature-item">
+            <h3>⏳</h3>
+            <h3>Eternal Scent</h3>
+            <p>Unmatched longevity that evolves beautifully on the skin.</p>
+        </div>
+        <div class="feature-item">
+            <h3>✨</h3>
+            <h3>Artisanal</h3>
+            <p>Traditional 'Deg-Bhapka' method used for every extraction.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>ITRAURA</h4>
+                <p>A global perfumery house dedicated to preserving the ancient art of Indian Attars. We believe in transparency, purity, and the power of nature's finest scents.</p>
+            </div>
+            <div class="footer-links">
+                <h5>The Brand</h5>
+                <ul>
+                    <li><a href="index.html">Our Story</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="https://wa.me/917618243220">WhatsApp Us</a></li>
+                    <li><a href="#">Email Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            © 2026 ITRAURA ARTISANAL PERFUMERY | DUBAI | KANNAUJ | LONDON
+        </div>
+    </footer>
 
 </body>
 </html>
