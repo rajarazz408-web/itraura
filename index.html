@@ -5,74 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ItrAura | Artisanal Global Perfumery</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. VIP GLOBAL STYLES --- */
+        /* --- 1. CSS VARIABLES & RESET --- */
         :root {
             --gold: #D4AF37;
             --soft-gold: #f1d57a;
-            --black: #080808;
-            --deep-gray: #111111;
+            --black: #0a0a0a;
+            --deep-gray: #121212;
             --white: #ffffff;
-            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
-        /* Custom Scrollbar for Premium Feel */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--black); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background-color: var(--black);
             color: var(--white);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        /* --- 2. NAVIGATION (Master Class) --- */
+        /* --- 2. NAVIGATION (Glass Effect) --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 8%;
-            background: rgba(0,0,0,0.9);
+            padding: 20px 8%;
+            background: rgba(0,0,0,0.8);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 9999;
-            border-bottom: 1px solid rgba(212,175,55,0.1);
-            backdrop-filter: blur(25px);
+            z-index: 2000;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            backdrop-filter: blur(15px);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
+            font-size: 28px;
             color: var(--gold);
             font-weight: 700;
-            letter-spacing: 6px;
-            text-decoration: none;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            text-decoration: none;
         }
 
         .nav-links { display: flex; list-style: none; }
+
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 45px;
+            margin-left: 35px;
             font-size: 11px;
-            letter-spacing: 3px;
+            font-weight: 500;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: var(--transition);
-            opacity: 0.6;
+            transition: 0.4s ease;
+            opacity: 0.8;
         }
-        .nav-links a:hover { opacity: 1; color: var(--gold); }
 
-        /* --- 3. HERO MASTER (Background.png Fix) --- */
+        .nav-links a:hover { 
+            color: var(--gold); 
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(212,175,55,0.5); 
+        }
+
+        /* --- 3. HERO SECTION (The Smart Background Fix) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -80,179 +82,262 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            padding-left: 10%;
-            background: linear-gradient(to right, rgba(0,0,0,0.95) 20%, transparent 100%), 
-                        url('Background.png') no-repeat center right / cover;
+            padding-left: 8%;
+            /* Desktop: Image starts from right to show the bottle */
+            background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.2) 100%), 
+                        url('Background.png') no-repeat center right/cover;
+            overflow: hidden;
         }
 
-        .hero-content { z-index: 10; max-width: 800px; animation: fadeInUp 2s ease; }
+        .hero-content {
+            z-index: 10;
+            max-width: 700px;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(45px, 9vw, 120px);
+            /* Clamp ensures it never overflows: min 40px, max 100px */
+            font-size: clamp(40px, 8vw, 100px);
             color: var(--gold);
-            line-height: 0.9;
-            margin-bottom: 25px;
+            line-height: 1.1;
+            margin-bottom: 20px;
             font-weight: 700;
         }
 
         .hero-content .tagline {
             font-size: clamp(12px, 2vw, 18px);
-            letter-spacing: 10px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 50px;
-            color: #ccc;
-            font-weight: 200;
+            margin-bottom: 45px;
+            font-weight: 300;
+            color: #efefef;
+            display: block;
         }
 
         .main-btn {
-            padding: 22px 60px;
+            padding: 20px 50px;
+            background: transparent;
             border: 1px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            transition: var(--transition);
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
         }
-        .main-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 50px rgba(212,175,55,0.3); }
 
-        /* --- 4. LUXURY STATEMENT --- */
-        .statement {
-            padding: 180px 15%;
-            text-align: center;
-            background: var(--black);
+        .main-btn:hover {
+            color: black;
+            background: var(--gold);
+            box-shadow: 0 10px 40px rgba(212,175,55,0.4);
+            transform: translateY(-5px);
         }
-        .statement h2 {
+
+        /* --- 4. BRAND STORY SECTION --- */
+        .brand-story {
+            padding: 140px 15%;
+            background: var(--black);
+            text-align: center;
+            position: relative;
+        }
+
+        .brand-story::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .brand-story h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(35px, 6vw, 60px);
+            font-size: clamp(30px, 5vw, 48px);
             color: var(--gold);
-            margin-bottom: 45px;
+            margin-bottom: 30px;
             font-style: italic;
         }
-        .statement p {
-            font-size: 22px;
-            color: #888;
+
+        .brand-story p {
+            font-size: 19px;
+            line-height: 2;
+            color: #bcbcbc;
             font-weight: 300;
-            line-height: 2.2;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        /* --- 5. SERIES GRID (Perfect Alignment) --- */
-        .series-header { padding: 100px 8% 50px; text-align: center; }
-        .series-header h2 { font-family: 'Playfair Display', serif; font-size: 40px; letter-spacing: 4px; }
+        /* --- 5. CATEGORY SECTION (The 3 Series Fix) --- */
+        .section-header {
+            padding: 100px 8% 50px;
+            text-align: center;
+        }
 
-        .grid-wrapper {
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 45px);
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+
+        .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            padding: 0 8% 180px;
+            padding: 0 8% 140px;
         }
 
-        .card {
+        .cat-box {
             position: relative;
-            height: 700px;
+            height: 600px; /* Increased for better visibility */
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.03);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.5s;
         }
 
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: 2s cubic-bezier(0.16, 1, 0.3, 1); }
-        .card:hover img { transform: scale(1.1); }
+        .cat-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-        .overlay {
+        .cat-box:hover img { transform: scale(1.1); }
+
+        .cat-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,1) 5%, transparent 60%);
+            /* Darker gradient at bottom so text is never cut off */
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 15%, rgba(0,0,0,0.4) 50%, transparent 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 60px 45px;
+            padding: 40px;
+            transition: 0.5s;
         }
 
-        .overlay h3 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 10px; }
-        .overlay p { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #aaa; }
+        .cat-overlay h3 { 
+            font-size: 30px; 
+            margin-bottom: 10px; 
+            color: var(--gold); 
+            font-family: 'Playfair Display', serif; 
+        }
 
-        /* --- 6. NEWSLETTER (Extra Premium) --- */
-        .newsletter {
-            padding: 120px 8%;
+        .cat-overlay p { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            color: #ffffff; 
+            opacity: 0.8;
+        }
+
+        /* --- 6. GLOBAL FEATURES --- */
+        .features {
             background: var(--deep-gray);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 100px 8%;
+            gap: 30px;
             text-align: center;
+        }
+
+        .feature-card {
+            padding: 40px 20px;
+            border: 1px solid rgba(212,175,55,0.1);
+            transition: 0.4s;
+        }
+
+        .feature-card:hover { border-color: var(--gold); background: rgba(212,175,55,0.02); }
+
+        .feature-card i { font-size: 40px; color: var(--gold); margin-bottom: 25px; display: block; }
+        .feature-card h4 { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; }
+        .feature-card p { font-size: 13px; color: #888; }
+
+        /* --- 7. PREMIUM FOOTER --- */
+        footer {
+            background: #050505;
+            padding: 100px 8% 40px;
             border-top: 1px solid #1a1a1a;
         }
-        .newsletter h4 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 20px; color: var(--gold); }
-        .newsletter input {
-            padding: 18px 30px;
-            width: 100%;
-            max-width: 400px;
-            background: #000;
-            border: 1px solid #333;
-            color: #fff;
-            margin-right: 15px;
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 100px;
+            margin-bottom: 80px;
         }
-        .newsletter button {
-            padding: 18px 45px;
-            background: var(--gold);
-            border: none;
-            color: #000;
-            text-transform: uppercase;
+
+        .footer-logo h4 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 25px; letter-spacing: 3px; }
+        .footer-logo p { color: #777; font-size: 15px; line-height: 1.8; max-width: 400px; }
+
+        .footer-links h5 { color: white; margin-bottom: 30px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 15px; }
+        .footer-links ul li a { color: #666; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links ul li a:hover { color: var(--gold); padding-left: 8px; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #111;
+            font-size: 11px;
+            color: #444;
             letter-spacing: 2px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* --- 7. FOOTER --- */
-        footer {
-            padding: 120px 8% 60px;
-            background: #040404;
-            border-top: 1px solid #151515;
-        }
-        .f-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 100px; }
-        .f-brand h4 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; }
-        .f-brand p { color: #555; font-size: 15px; max-width: 400px; }
-        .f-links h5 { color: #fff; margin-bottom: 35px; text-transform: uppercase; letter-spacing: 3px; font-size: 14px; }
-        .f-links ul { list-style: none; }
-        .f-links li { margin-bottom: 20px; }
-        .f-links a { color: #444; text-decoration: none; transition: 0.4s; font-size: 14px; }
-        .f-links a:hover { color: var(--gold); padding-left: 10px; }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            z-index: 10000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            font-size: 25px;
+            text-transform: uppercase;
         }
 
         /* --- 8. KEYFRAMES --- */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- 9. THE MOBILE FIX (CRITICAL) --- */
-        @media (max-width: 1000px) {
-            .grid-wrapper { grid-template-columns: 1fr; gap: 30px; }
-            .f-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
-            .f-brand p { margin: 0 auto; }
-            .nav-links { display: none; }
+        /* --- 9. MOBILE RESPONSIVE (THE ULTIMATE FIX) --- */
+        @media (max-width: 1100px) {
+            .category-grid { grid-template-columns: 1fr 1fr; }
+            .features { grid-template-columns: 1fr 1fr; }
+            .footer-main { grid-template-columns: 1fr 1fr; gap: 50px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; } /* Mobile par links hide kiye for premium look */
             
             .hero {
                 justify-content: center;
                 text-align: center;
                 padding-left: 0;
-                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), 
-                            url('Background.png') no-repeat center center / cover;
+                padding: 0 20px;
+                /* Mobile: Image centered so bottle is visible in middle */
+                background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)), 
+                            url('Background.png') no-repeat center center/cover;
             }
-            .hero-content h1 { font-size: 50px; }
-            .card { height: 550px; }
+
+            .hero-content h1 {
+                font-size: 44px; /* Perfectly fits any phone screen */
+                margin-bottom: 15px;
+            }
+
+            .hero-content .tagline {
+                letter-spacing: 3px;
+                margin-bottom: 35px;
+            }
+
+            .brand-story { padding: 80px 8%; }
+            .category-grid { grid-template-columns: 1fr; padding: 0 5% 80px; gap: 25px; }
+            .cat-box { height: 450px; }
+            
+            .features { grid-template-columns: 1fr; padding: 60px 8%; }
+            .footer-main { grid-template-columns: 1fr; text-align: center; gap: 60px; }
+            .footer-logo p { margin: 0 auto; }
         }
     </style>
 </head>
@@ -260,88 +345,106 @@
 
     <nav>
         <a href="index.html" class="logo">ITRAURA</a>
-        <div class="nav-links">
-            <a href="index.html">The House</a>
-            <a href="products.html">Collections</a>
-            <a href="#">Bespoke</a>
-            <a href="https://wa.me/917618243220">Concierge</a>
-        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">The House</a></li>
+            <li><a href="products.html">Collections</a></li>
+            <li><a href="https://wa.me/917618243220">Concierge</a></li>
+        </ul>
     </nav>
 
-    <header class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <span class="tagline">The Art of Pure Attar</span>
+            <span class="tagline">Artisanal Botanical Perfumery</span>
             <h1>ITRAURA</h1>
-            <a href="products.html" class="main-btn">The Collection</a>
+            <a href="products.html" class="main-btn">Discover The Essence</a>
         </div>
-    </header>
-
-    <section class="statement">
-        <h2>Legacy of Kannauj</h2>
-        <p>From the heart of India’s perfume capital to the global luxury stage. 100% Botanical. Zero Alcohol. Pure Soul.</p>
     </section>
 
-    <div class="series-header">
-        <h2>Signature Series</h2>
-    </div>
+    <section class="brand-story">
+        <h2>Legacy in Every Drop</h2>
+        <p>
+            From the ancient copper stills of Kannauj to the luxury houses of the world. 
+            ItrAura represents the pinnacle of alcohol-free, 100% botanical oils. 
+            We preserve the soul of the flower, bottled for those who understand 
+            the true language of scent.
+        </p>
+    </section>
 
-    <section class="grid-wrapper">
-        <div class="card" onclick="location.href='products.html'">
-            <img src="ruh series.png" alt="Ruh">
-            <div class="overlay">
-                <p>The Purest</p>
-                <h3>Ruh Series</h3>
+    <div class="section-header">
+        <h2>The Signature Series</h2>
+    </div>
+    <section class="category-grid">
+        <div class="cat-box" onclick="location.href='products.html'">
+            <img src="ruh series.png" alt="Ruh Series">
+            <div class="cat-overlay">
+                <p>Pure Distillations</p>
+                <h3>The Ruh Series</h3>
             </div>
         </div>
-        <div class="card" onclick="location.href='products.html'">
-            <img src="water series.png" alt="Water">
-            <div class="overlay">
-                <p>Natural</p>
+
+        <div class="cat-box" onclick="location.href='products.html'">
+            <img src="water series.png" alt="Water Series">
+            <div class="cat-overlay">
+                <p>Natural Hydrosols</p>
                 <h3>Water Series</h3>
             </div>
         </div>
-        <div class="card" onclick="location.href='products.html'">
-            <img src="premium series.png" alt="Premium">
-            <div class="overlay">
-                <p>Exquisite</p>
+
+        <div class="cat-box" onclick="location.href='products.html'">
+            <img src="premium series.png" alt="Premium Series">
+            <div class="cat-overlay">
+                <p>Exquisite Blends</p>
                 <h3>Premium Series</h3>
             </div>
         </div>
     </section>
 
-    <section class="newsletter">
-        <h4>Join The Inner Circle</h4>
-        <p style="color: #666; margin-bottom: 30px;">Get exclusive access to private blends and heritage stories.</p>
-        <input type="email" placeholder="Email Address">
-        <button>Subscribe</button>
+    <section class="features">
+        <div class="feature-card">
+            <h4>Global Shipping</h4>
+            <p>Bespoke delivery to over 45 countries with secure packaging.</p>
+        </div>
+        <div class="feature-card">
+            <h4>100% Botanical</h4>
+            <p>Zero alcohol, zero synthetics. Pure concentrated nature.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Eternal Sillage</h4>
+            <p>Long-lasting oils that evolve with your body's natural heat.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Legacy Craft</h4>
+            <p>Traditional steam distillation methods preserved for centuries.</p>
+        </div>
     </section>
 
     <footer>
-        <div class="f-grid">
-            <div class="f-brand">
+        <div class="footer-main">
+            <div class="footer-logo">
                 <h4>ITRAURA</h4>
-                <p>Preserving the 400-year-old artisanal traditions of botanical perfumery for the modern world.</p>
+                <p>The bridge between ancient Indian heritage and modern global luxury. We bring you the world's most authentic artisanal fragrances.</p>
             </div>
-            <div class="f-links">
-                <h5>Curations</h5>
+            <div class="footer-links">
+                <h5>Collections</h5>
                 <ul>
-                    <li><a href="products.html">Ruh Collection</a></li>
+                    <li><a href="products.html">Ruh Series</a></li>
                     <li><a href="products.html">Water Series</a></li>
-                    <li><a href="products.html">Premium Blends</a></li>
+                    <li><a href="products.html">Premium Series</a></li>
                 </ul>
             </div>
-            <div class="f-links">
-                <h5>Contact</h5>
+            <div class="footer-links">
+                <h5>The House</h5>
                 <ul>
-                    <li><a href="https://wa.me/917618243220">WhatsApp</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Heritage Story</a></li>
+                    <li><a href="https://wa.me/917618243220">Contact Us</a></li>
+                    <li><a href="#">Our Heritage</a></li>
+                    <li><a href="#">Bespoke Service</a></li>
                 </ul>
             </div>
         </div>
+        <div class="footer-bottom">
+            © 2026 ITRAURA ARTISANAL PERFUMERY | DUBAI | KANNAUJ | LONDON
+        </div>
     </footer>
-
-    <a href="https://wa.me/917618243220" class="whatsapp-float">WA</a>
 
 </body>
 </html>
