@@ -1,7 +1,12 @@
-/* ===== CART SYSTEM (UPGRADED) ===== */
+/* ===============================
+   CART SYSTEM (FINAL WORKING)
+================================= */
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-/* ADD TO CART */
+/* ===============================
+   ADD TO CART
+================================= */
 function addToCart(item, price){
   cart.push({ item, price });
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -9,7 +14,9 @@ function addToCart(item, price){
   alert(item + " added to cart 🛒");
 }
 
-/* CART COUNT */
+/* ===============================
+   CART COUNT (HEADER)
+================================= */
 function updateCartCount(){
   let count = document.getElementById("cart-count");
   if(count){
@@ -17,33 +24,52 @@ function updateCartCount(){
   }
 }
 
-/* BUY DIRECT (WHATSAPP) */
+/* ===============================
+   BUY DIRECT (WHATSAPP FIXED)
+================================= */
 function buy(item){
-  let num="917618243220";
-  let msg="I want to buy " + item;
-  window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`);
+  let num = "917618243220";
+  let msg = "I want to buy " + item;
+
+  let url = "https://wa.me/" + num + "?text=" + encodeURIComponent(msg);
+
+  window.location.href = url;  // ⭐ FIXED FOR MOBILE
 }
 
-/* ORDER FULL CART */
+/* ===============================
+   ORDER FULL CART (WHATSAPP)
+================================= */
 function orderCart(){
-  let num="917618243220";
-  let msg="Order Details:\n";
+  let num = "917618243220";
+  let msg = "Order Details:\n";
+
+  if(cart.length === 0){
+    alert("Cart is empty ❌");
+    return;
+  }
 
   cart.forEach(p=>{
     msg += p.item + " - " + p.price + "\n";
   });
 
-  window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`);
+  let url = "https://wa.me/" + num + "?text=" + encodeURIComponent(msg);
+
+  window.location.href = url;
 }
 
-/* REMOVE ITEM */
+/* ===============================
+   REMOVE ITEM
+================================= */
 function removeItem(index){
   cart.splice(index,1);
   localStorage.setItem("cart", JSON.stringify(cart));
   loadCart();
+  updateCartCount();
 }
 
-/* LOAD CART PAGE */
+/* ===============================
+   LOAD CART PAGE
+================================= */
 function loadCart(){
   let list = document.getElementById("cart-items");
   let total = document.getElementById("total");
@@ -54,7 +80,8 @@ function loadCart(){
   let sum = 0;
 
   cart.forEach((p,i)=>{
-    sum += parseInt(p.price.replace("₹",""));
+    let priceNum = parseInt(p.price.replace("₹",""));
+    sum += priceNum;
 
     list.innerHTML += `
       <div class="cart-item">
@@ -65,24 +92,37 @@ function loadCart(){
     `;
   });
 
-  total.innerText = "Total: ₹" + sum;
+  if(total){
+    total.innerText = "Total: ₹" + sum;
+  }
 }
 
-/* FILTER */
+/* ===============================
+   FILTER (OPTIONAL)
+================================= */
 function filter(cat){
   if(cat==="all") renderProducts(products);
   else renderProducts(products.filter(p=>p.category===cat));
 }
 
-/* SCROLL */
+/* ===============================
+   SCROLL
+================================= */
 function scrollToProducts(){
-  document.getElementById("products").scrollIntoView();
+  let el = document.getElementById("products");
+  if(el){
+    el.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
-/* PRODUCT PAGE (OPTIONAL) */
+/* ===============================
+   PRODUCT PAGE (OPTIONAL)
+================================= */
 function openProduct(name) {
   window.location.href = "product.html?name=" + encodeURIComponent(name);
 }
 
-/* INIT */
+/* ===============================
+   INIT
+================================= */
 updateCartCount();
