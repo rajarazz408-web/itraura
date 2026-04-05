@@ -63,19 +63,21 @@
 
         .nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px rgba(212,175,55,0.5); }
 
-        /* --- Hero Section (background.png) --- */
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; /* Aligned left for bottle visibility */
-            background: linear-gradient(to right, rgba(0,0,0,0.7) 30%, transparent 100%), 
-                        url('Background.png') no-repeat center center/cover;
-            padding-left: 8%;
-        }
-
+        /* --- Hero Section Fix --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Desktop par bottle right mein dikhegi */
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 20%, transparent 100%), 
+                url('Background.png') no-repeat center right/cover; 
+    padding-left: 8%;
+    overflow: hidden;
+}
+        
         .hero-content {
             z-index: 10;
             max-width: 650px;
@@ -244,13 +246,25 @@
 
         /* --- Mobile Responsive --- */
         @media (max-width: 1000px) {
-            .category-grid { grid-template-columns: 1fr; }
-            .features-wrap { grid-template-columns: 1fr 1fr; gap: 50px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero { justify-content: center; text-align: center; padding-left: 0; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Background.png') center center/cover; }
-            .hero-content h1 { font-size: 65px; }
-        }
-
+    .hero {
+        justify-content: center; 
+        padding-left: 0;
+        text-align: center;
+        /* Mobile Fix: Image center mein aur dark gradient */
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                    url('Background.png') no-repeat center center/cover;
+    }
+    .hero-content h1 {
+        font-size: 42px; /* Screenshot mein jo bahar ja raha tha, ab fit aayega */
+        line-height: 1.2;
+    }
+    .hero-content .tagline {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+    /* Baaki mobile fixes... */
+            }
+    
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
