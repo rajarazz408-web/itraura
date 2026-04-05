@@ -231,6 +231,52 @@ button {
   pointer-events: none;
 }
 
+/* ===== FORCE CENTER FIX (FINAL) ===== */
+
+.products {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  padding: 15px;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product h3 {
+  text-align: center !important;
+  margin-top: 10px;
+}
+
+.product .desc {
+  text-align: center !important;
+}
+
+.product .price {
+  text-align: center !important;
+  font-weight: bold;
+}
+
+.product button {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* CLICK BLOCK FIX */
+.product::before {
+  pointer-events: none !important;
+      }
   to {
     opacity: 1;
     transform: translateY(0);
