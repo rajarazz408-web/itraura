@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Is page ke liye special design */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -45,47 +44,47 @@
 </section>
 
 <div class="container">
-    <!-- Ye main area hai jahan saare products dikhenge -->
     <div id="product-list" class="product-grid">
-        <!-- JavaScript yahan khud-ba-khud products bhar degi -->
+        <!-- JavaScript yahan products load karega -->
     </div>
 </div>
 
-<!-- WhatsApp Floating Button -->
 <a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank">
     Chat on WhatsApp
 </a>
 
-<!-- Yeh files ka sequence hamesha yahi rakhna -->
+<!-- Sequence: Pehle data.js phir products loading script -->
 <script src="data.js"></script>
 <script>
-    // Ye chota sa script products ko load karega
     const productGrid = document.getElementById('product-list');
 
     function renderProducts() {
-        productGrid.innerHTML = ''; // Pehle grid ko khaali karo
-        
-        products.forEach(item => {
-            // Image ka naam wahi rakha hai jo aapne code mein bheja hai
-            const imgFileName = item.name.toLowerCase() + ".png";
+        if (typeof products !== 'undefined') {
+            productGrid.innerHTML = ''; 
             
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <div class="badge">${item.category}</div>
-                <img src="${imgFileName}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/300?text=ItrAura'">
-                <div class="info">
-                    <h3>${item.name}</h3>
-                    <p>${item.desc}</p>
-                    <div class="price-tag">₹${item.price}</div>
-                    <button class="btn" onclick="window.open('https://wa.me/917618243220?text=Hi, I want to buy ${item.name}')">Buy Now</button>
-                </div>
-            `;
-            productGrid.appendChild(card);
-        });
+            products.forEach(item => {
+                // FIXED LINE: Ab ye seedha data.js se image name uthayega
+                const imgFileName = item.img; 
+                
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="badge">${item.category}</div>
+                    <img src="${imgFileName}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/300?text=ItrAura'">
+                    <div class="info">
+                        <h3>${item.name}</h3>
+                        <p>${item.desc}</p>
+                        <div class="price-tag">₹${item.price}</div>
+                        <button class="btn" onclick="window.open('https://wa.me/917618243220?text=Hi, I want to buy ${item.name}')">Buy Now</button>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        } else {
+            console.error("Bhai, data.js file load nahi ho rahi hai!");
+        }
     }
 
-    // Isse products dikhna shuru ho jayenge
     renderProducts();
 </script>
 
