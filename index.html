@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ItrAura | Artisanal Global Perfumery</title>
     
-    <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --gold: #D4AF37;
-            --light-gold: #F4DF4E;
+            --soft-gold: #c5a028;
             --black: #0a0a0a;
-            --deep-gray: #1a1a1a;
+            --deep-gray: #121212;
             --white: #ffffff;
         }
 
@@ -27,164 +26,155 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-
         /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(0,0,0,0.95);
+            padding: 25px 8%;
+            background: rgba(0,0,0,0.85);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 2000;
-            border-bottom: 1px solid rgba(212,175,55,0.2);
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212,175,55,0.15);
+            backdrop-filter: blur(15px);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 30px;
             color: var(--gold);
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 30px;
-            font-size: 13px;
+            margin-left: 40px;
+            font-size: 12px;
             font-weight: 500;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px rgba(212,175,55,0.5); }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (background.png) --- */
         .hero {
             position: relative;
             height: 100vh;
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            overflow: hidden;
+            justify-content: flex-start; /* Aligned left for bottle visibility */
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 30%, transparent 100%), 
+                        url('background.png') no-repeat center center/cover;
+            padding-left: 8%;
         }
 
         .hero-content {
             z-index: 10;
-            padding: 0 20px;
-            animation: fadeIn 2s ease-in-out;
+            max-width: 650px;
+            animation: fadeInUp 1.5s ease-out;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(50px, 10vw, 90px);
+            font-size: clamp(55px, 8vw, 100px);
             color: var(--gold);
-            line-height: 1;
-            margin-bottom: 10px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .hero-content .tagline {
-            font-size: clamp(14px, 3vw, 22px);
-            letter-spacing: 6px;
+            font-size: 18px;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             font-weight: 300;
-            color: #ddd;
+            color: #efefef;
         }
 
         .main-btn {
-            padding: 18px 45px;
+            padding: 20px 50px;
             background: transparent;
-            border: 2px solid var(--gold);
+            border: 1px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            transition: 0.4s;
-            border-radius: 2px;
+            transition: 0.5s;
+            display: inline-block;
         }
 
         .main-btn:hover {
             background: var(--gold);
             color: black;
-            box-shadow: 0 0 25px rgba(212,175,55,0.4);
+            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            transform: translateY(-3px);
         }
 
-        /* --- International Statement Section --- */
+        /* --- Statement Section --- */
         .statement {
-            padding: 100px 10%;
-            background: #000;
+            padding: 120px 15%;
+            background: var(--black);
             text-align: center;
-            position: relative;
         }
 
         .statement h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 40px;
+            font-size: 42px;
             color: var(--gold);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .statement p {
-            font-size: 18px;
-            line-height: 2;
-            color: #aaa;
-            max-width: 900px;
-            margin: 0 auto;
+            font-size: 19px;
+            line-height: 2.1;
+            color: #bcbcbc;
+            font-weight: 300;
             font-style: italic;
         }
 
-        /* --- Featured Categories (Horizontal Scroll on Mobile) --- */
+        /* --- Category Grid (The 3 Series) --- */
         .section-header {
-            padding: 60px 8% 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            padding: 80px 8% 40px;
+            text-align: center;
         }
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--white);
+            font-size: 45px;
+            letter-spacing: 2px;
         }
 
         .category-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            padding: 0 8% 80px;
+            gap: 30px;
+            padding: 0 8% 120px;
         }
 
         .cat-box {
             position: relative;
-            height: 500px;
+            height: 550px;
             overflow: hidden;
-            border-radius: 4px;
             cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .cat-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s ease;
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .cat-box:hover img { transform: scale(1.1); }
@@ -192,73 +182,77 @@
         .cat-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 60%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 40px;
+            padding: 45px;
+            transition: 0.4s;
         }
 
-        .cat-overlay h3 { font-size: 26px; margin-bottom: 5px; color: var(--gold); }
-        .cat-overlay p { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
+        .cat-box:hover .cat-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(212,175,55,0.1) 100%); }
+
+        .cat-overlay h3 { font-size: 28px; margin-bottom: 8px; color: var(--gold); font-family: 'Playfair Display', serif; }
+        .cat-overlay p { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #ddd; }
 
         /* --- Features Section --- */
         .features-wrap {
             background: var(--deep-gray);
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            padding: 80px 8%;
+            padding: 100px 8%;
             text-align: center;
-            border-top: 1px solid #333;
+            border-top: 1px solid #222;
         }
 
-        .feature-item h3 { color: var(--gold); font-size: 20px; margin-bottom: 10px; }
-        .feature-item p { font-size: 12px; color: #777; padding: 0 10px; }
+        .feature-item h3:first-child { font-size: 35px; margin-bottom: 15px; display: block;}
+        .feature-item h3:last-of-type { color: var(--gold); font-size: 18px; letter-spacing: 1px; margin-bottom: 15px; }
+        .feature-item p { font-size: 13px; color: #888; line-height: 1.6; padding: 0 15px; }
 
         /* --- Footer --- */
         footer {
-            background: #000;
-            padding: 80px 8% 40px;
-            border-top: 1px solid #222;
+            background: #050505;
+            padding: 100px 8% 50px;
+            border-top: 1px solid #1a1a1a;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            gap: 80px;
+            margin-bottom: 60px;
         }
 
-        .footer-about h4 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--gold); margin-bottom: 20px; }
-        .footer-about p { color: #666; font-size: 14px; line-height: 1.8; }
+        .footer-about h4 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 25px; letter-spacing: 2px; }
+        .footer-about p { color: #888; font-size: 15px; line-height: 1.8; }
 
-        .footer-links h5 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-links h5 { color: white; margin-bottom: 25px; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; }
         .footer-links ul { list-style: none; }
-        .footer-links ul li { margin-bottom: 10px; }
-        .footer-links ul li a { color: #666; text-decoration: none; font-size: 14px; transition: 0.3s; }
-        .footer-links ul li a:hover { color: var(--gold); }
+        .footer-links ul li { margin-bottom: 15px; }
+        .footer-links ul li a { color: #888; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-links ul li a:hover { color: var(--gold); padding-left: 5px; }
 
         .bottom-bar {
             text-align: center;
-            padding-top: 40px;
+            padding-top: 50px;
             border-top: 1px solid #111;
             font-size: 12px;
-            color: #444;
-            letter-spacing: 1px;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* --- Mobile Responsive --- */
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
             .category-grid { grid-template-columns: 1fr; }
-            .features-wrap { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 60px; }
-            .cat-box { height: 350px; }
-            .nav-links { display: none; }
+            .features-wrap { grid-template-columns: 1fr 1fr; gap: 50px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero { justify-content: center; text-align: center; padding-left: 0; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.png') center center/cover; }
+            .hero-content h1 { font-size: 65px; }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -268,106 +262,103 @@
     <nav>
         <div class="logo">ITRAURA</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
+            <a href="index.html">The House</a>
             <a href="products.html">Collections</a>
-            <a href="https://wa.me/917618243220">Contact Us</a>
+            <a href="https://wa.me/917618243220">Bespoke Inquiry</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
             <h1>ITRAURA</h1>
             <p class="tagline">The Essence in Every Drop</p>
-            <a href="products.html" class="main-btn">Shop The Global Collection</a>
+            <a href="products.html" class="main-btn">Explore The Collections</a>
         </div>
     </header>
 
-    <!-- International About Section -->
     <section class="statement">
         <h2>Handcrafted For The Connoisseur</h2>
         <p>
             From the ancient distilleries of Kannauj to the luxury markets of the world. 
             ItrAura represents the pinnacle of alcohol-free, 100% botanical oils. 
-            Each drop is a testament to India's rich heritage, bottled specifically for an 
-            international audience that values authenticity, longevity, and natural purity.
+            Each drop is a testament to India's rich heritage, bottled for those 
+            who seek natural purity and unmatched longevity.
         </p>
     </section>
 
-    <!-- Categories Section -->
     <div class="section-header">
-        <h2>Our Main Curations</h2>
+        <h2>Our Signature Series</h2>
     </div>
     <section class="category-grid">
         <div class="cat-box" onclick="location.href='products.html'">
-            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800" alt="The Ruh Collection">
+            <img src="ruh series.png" alt="The Ruh Series">
             <div class="cat-overlay">
                 <p>Pure Distillations</p>
                 <h3>The Ruh Series</h3>
             </div>
         </div>
+
         <div class="cat-box" onclick="location.href='products.html'">
-            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800" alt="Signature Blends">
+            <img src="water series.png" alt="The Water Series">
             <div class="cat-overlay">
-                <p>Luxury Blends</p>
-                <h3>Mukhallats</h3>
+                <p>Fresh Hydrosols</p>
+                <h3>Water Series</h3>
             </div>
         </div>
+
         <div class="cat-box" onclick="location.href='products.html'">
-            <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=800" alt="Floral Waters">
+            <img src="premium series.png" alt="The Premium Series">
             <div class="cat-overlay">
-                <p>Hydrosols</p>
-                <h3>Floral Waters</h3>
+                <p>Luxury Blends</p>
+                <h3>Premium Series</h3>
             </div>
         </div>
     </section>
 
-    <!-- Global Features -->
     <section class="features-wrap">
         <div class="feature-item">
             <h3>🌍</h3>
-            <h3>Global Delivery</h3>
-            <p>Seamless doorstep shipping to over 45 countries worldwide.</p>
+            <h3>Global Logistics</h3>
+            <p>Direct shipping from our lab to your doorstep in 45+ countries.</p>
         </div>
         <div class="feature-item">
             <h3>🛡️</h3>
-            <h3>Pure & Safe</h3>
-            <p>100% Alcohol-free, skin-safe, and botanically derived oils.</p>
+            <h3>Pure Botanical</h3>
+            <p>100% Alcohol-free, non-synthetic, skin-safe concentrated oils.</p>
         </div>
         <div class="feature-item">
             <h3>⏳</h3>
-            <h3>Eternal Scent</h3>
-            <p>Unmatched longevity that evolves beautifully on the skin.</p>
+            <h3>Eternal Wear</h3>
+            <p>Oils that adapt to your body heat for 12+ hours of sillage.</p>
         </div>
         <div class="feature-item">
             <h3>✨</h3>
-            <h3>Artisanal</h3>
-            <p>Traditional 'Deg-Bhapka' method used for every extraction.</p>
+            <h3>Artisanal Method</h3>
+            <p>Extracted using the 400-year-old 'Deg-Bhapka' copper still process.</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-about">
                 <h4>ITRAURA</h4>
-                <p>A global perfumery house dedicated to preserving the ancient art of Indian Attars. We believe in transparency, purity, and the power of nature's finest scents.</p>
+                <p>Preserving the soul of Kannauj. We bridge the gap between ancient Indian perfumery and modern global luxury through transparency and botanical excellence.</p>
             </div>
             <div class="footer-links">
-                <h5>The Brand</h5>
+                <h5>Curations</h5>
                 <ul>
-                    <li><a href="index.html">Our Story</a></li>
-                    <li><a href="products.html">Collections</a></li>
-                    <li><a href="#">Wholesale</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="products.html">Ruh Collection</a></li>
+                    <li><a href="products.html">Water Series</a></li>
+                    <li><a href="products.html">Premium Blends</a></li>
+                    <li><a href="#">Wholesale Program</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h5>Connect</h5>
                 <ul>
                     <li><a href="#">Instagram</a></li>
-                    <li><a href="https://wa.me/917618243220">WhatsApp Us</a></li>
-                    <li><a href="#">Email Support</a></li>
+                    <li><a href="https://wa.me/917618243220">WhatsApp Concierge</a></li>
+                    <li><a href="#">Our Heritage</a></li>
                 </ul>
             </div>
         </div>
