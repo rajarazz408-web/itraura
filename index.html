@@ -1,4 +1,4 @@
-<!-- ================= ITRAURA ULTRA BEAST v3 — PART 1 ================= -->
+<!-- ================= ITRAURA ULTRA PREMIUM v4 — PART 1 ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,38 +7,23 @@
 
 <title>ItrAura | Essence in Every Drop</title>
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   1. ROOT VARIABLES (DESIGN SYSTEM)
-========================================================= */
+/* ================= ROOT ================= */
 :root{
 --gold:#D4AF37;
---gold-soft:#f1d57a;
---gold-dark:#996515;
-
+--gold-soft:#f5e2a0;
 --black:#050505;
 --dark:#0c0c0c;
---light:#111;
---gray:#a0a0a0;
---white:#ffffff;
-
+--white:#fff;
+--gray:#aaa;
 --glass:rgba(255,255,255,0.04);
 --border:rgba(212,175,55,0.25);
-
---radius:14px;
---radius-lg:24px;
-
---transition:0.4s ease;
---slow:0.8s cubic-bezier(.7,0,.3,1);
 }
 
-/* =========================================================
-   2. RESET + BASE
-========================================================= */
+/* ================= RESET ================= */
 *{
 margin:0;
 padding:0;
@@ -50,65 +35,23 @@ body{
 font-family:'Poppins',sans-serif;
 background:var(--black);
 color:var(--white);
-line-height:1.7;
 overflow-x:hidden;
 }
 
-a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
-
-/* =========================================================
-   3. GLOBAL UTILITIES
-========================================================= */
-.container{
-width:100%;
-max-width:1400px;
-margin:auto;
-padding:0 8%;
-}
-
-.section{
-padding:120px 0;
-}
-
-.center{text-align:center;}
-
-.btn{
-display:inline-block;
-padding:18px 45px;
-border:1px solid var(--gold);
-letter-spacing:3px;
-font-size:12px;
-text-transform:uppercase;
-color:var(--gold);
-transition:var(--transition);
-position:relative;
-overflow:hidden;
-}
-
-.btn:hover{
-background:var(--gold);
-color:#000;
-transform:translateY(-4px);
-}
-
-/* =========================================================
-   4. LOADER
-========================================================= */
+/* ================= LOADER ================= */
 #loader{
 position:fixed;
 width:100%;
 height:100vh;
 background:#000;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 z-index:9999;
 }
-
 #loader h1{
 font-family:'Playfair Display';
-letter-spacing:12px;
+letter-spacing:14px;
 color:var(--gold);
 animation:fade 2s ease;
 }
@@ -118,27 +61,22 @@ from{opacity:0;transform:scale(0.8);}
 to{opacity:1;transform:scale(1);}
 }
 
-/* =========================================================
-   5. HEADER (PRO NAVBAR)
-========================================================= */
+/* ================= HEADER ================= */
 header{
 position:fixed;
 top:0;
 width:100%;
-padding:30px 8%;
+padding:25px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:1000;
-transition:var(--slow);
+transition:0.6s;
 }
-
 header.scrolled{
-background:rgba(5,5,5,0.9);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--border);
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
 }
-
 .logo{
 font-family:'Playfair Display';
 font-size:26px;
@@ -150,14 +88,12 @@ color:var(--gold);
 display:flex;
 gap:40px;
 }
-
 .nav a{
 font-size:12px;
 letter-spacing:3px;
 text-transform:uppercase;
 position:relative;
 }
-
 .nav a::after{
 content:'';
 position:absolute;
@@ -166,16 +102,11 @@ left:0;
 width:0;
 height:1px;
 background:var(--gold);
-transition:var(--transition);
+transition:0.4s;
 }
+.nav a:hover::after{width:100%;}
 
-.nav a:hover::after{
-width:100%;
-}
-
-/* =========================================================
-   6. HERO (CINEMATIC)
-========================================================= */
+/* ================= HERO ================= */
 .hero{
 height:100vh;
 display:flex;
@@ -184,6 +115,7 @@ justify-content:center;
 text-align:center;
 position:relative;
 overflow:hidden;
+padding:0 20px;
 }
 
 .hero-bg{
@@ -197,14 +129,14 @@ z-index:-1;
 
 @keyframes zoom{
 from{transform:scale(1);}
-to{transform:scale(1.25);}
+to{transform:scale(1.3);}
 }
 
 .hero::after{
 content:'';
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
 }
 
 .hero-content{
@@ -212,114 +144,49 @@ z-index:2;
 max-width:900px;
 }
 
-.hero p{
-letter-spacing:8px;
-color:var(--gold);
-margin-bottom:25px;
+.hero-top{
+letter-spacing:6px;
 font-size:12px;
+color:var(--gold);
+margin-bottom:15px;
 }
 
 .hero h1{
 font-family:'Playfair Display';
-font-size:clamp(50px,9vw,120px);
-line-height:1;
-margin-bottom:40px;
-}
-
-/* =========================================================
-   7. GRID SYSTEM (BASE)
-========================================================= */
-.grid{
-display:grid;
-gap:40px;
-}
-
-.grid-2{grid-template-columns:1fr 1fr;}
-.grid-3{grid-template-columns:repeat(3,1fr);}
-.grid-4{grid-template-columns:repeat(4,1fr);}
-
-/* =========================================================
-   8. GLASS CARD
-========================================================= */
-.card{
-background:var(--glass);
-border:1px solid rgba(255,255,255,0.05);
-border-radius:var(--radius);
-padding:30px;
-transition:var(--transition);
-}
-
-.card:hover{
-border-color:var(--gold);
-transform:translateY(-10px);
-}
-
-/* =========================================================
-   9. TRUST SECTION BASE
-========================================================= */
-.trust-box{
-text-align:center;
-padding:40px;
-}
-
-.trust-box h3{
-color:var(--gold);
-margin-bottom:10px;
-}
-
-/* =========================================================
-   10. PRODUCT CARD BASE
-========================================================= */
-.product-card{
-overflow:hidden;
-border:1px solid rgba(255,255,255,0.05);
-transition:var(--slow);
-}
-
-.product-card img{
-height:300px;
-object-fit:cover;
-}
-
-.product-card:hover{
-transform:translateY(-10px);
-border-color:var(--gold);
-}
-
-.product-info{
-padding:20px;
-}
-
-.product-info h3{
-color:var(--gold);
-}
-
-.price{
-margin:10px 0;
-}
-
-/* =========================================================
-   11. TYPOGRAPHY SYSTEM
-========================================================= */
-h2{
-font-family:'Playfair Display';
-font-size:42px;
+font-size:clamp(42px,8vw,110px);
+line-height:1.1;
 margin-bottom:20px;
 }
 
-p{
+.hero-sub{
+font-size:14px;
+letter-spacing:4px;
 color:var(--gray);
+margin-bottom:30px;
 }
 
-/* =========================================================
-   12. MOBILE
-========================================================= */
-@media(max-width:900px){
-.grid-4{grid-template-columns:1fr 1fr;}
-.grid-3{grid-template-columns:1fr;}
-.grid-2{grid-template-columns:1fr;}
+/* ================= BUTTON ================= */
+.btn{
+display:inline-block;
+padding:18px 45px;
+border:1px solid var(--gold);
+color:var(--gold);
+text-transform:uppercase;
+font-size:12px;
+letter-spacing:3px;
+transition:0.4s;
+}
+.btn:hover{
+background:var(--gold);
+color:#000;
+transform:translateY(-5px);
+}
 
-.hero h1{font-size:42px;}
+/* ================= MOBILE HERO FIX ================= */
+@media(max-width:768px){
+.hero h1{font-size:38px;}
+.hero-sub{font-size:12px;}
+.nav{display:none;}
 }
 
 </style>
@@ -344,38 +211,45 @@ color:var(--gray);
 <!-- HERO -->
 <section class="hero">
 <div class="hero-bg"></div>
+
 <div class="hero-content">
-<p>ESSENCE IN EVERY DROP</p>
-<h1>Luxury Attars</h1>
-<a class="btn">Explore Collection</a>
+<div class="hero-top">Perfume for the Soul</div>
+
+<h1>1 Drop = All Day Presence</h1>
+
+<div class="hero-sub">
+Luxury attars crafted through traditional Kannauj distillation
+</div>
+
+<a href="#products" class="btn">Shop Luxury Attars</a>
 </div>
 </section>
 <!-- ================= PART 2 START ================= -->
 
-<!-- TRUST SECTION -->
-<section class="section">
+<!-- TRUST STRIP -->
+<section style="padding:60px 20px;background:#0c0c0c;text-align:center;">
 <div class="container grid grid-3">
 
-<div class="trust-box card">
-<h3>400+ Years Legacy</h3>
-<p>Kannauj's royal perfumery tradition preserved through generations.</p>
+<div>
+<h3 style="color:var(--gold)">400+ Years Legacy</h3>
+<p>Authentic Kannauj perfumery heritage</p>
 </div>
 
-<div class="trust-box card">
-<h3>100% Pure</h3>
-<p>No alcohol. No synthetics. Only botanical essence.</p>
+<div>
+<h3 style="color:var(--gold)">100% Pure</h3>
+<p>No alcohol. No chemicals.</p>
 </div>
 
-<div class="trust-box card">
-<h3>Copper Distillation</h3>
-<p>Traditional deg-bhapka method ensures unmatched purity.</p>
+<div>
+<h3 style="color:var(--gold)">Copper Distilled</h3>
+<p>Traditional deg bhapka method</p>
 </div>
 
 </div>
 </section>
 
-<!-- FEATURED PRODUCT -->
-<section class="section">
+<!-- HERO PRODUCT -->
+<section style="padding:100px 20px;" id="products">
 <div class="container grid grid-2">
 
 <div>
@@ -384,60 +258,63 @@ color:var(--gray);
 
 <div>
 <h2>Ruh Gulab</h2>
-<p>India’s most luxurious rose attar. One drop is enough to leave a lasting impression.</p>
 
-<div class="price">₹2999</div>
+<p>India’s most luxurious rose attar. One drop lasts all day.</p>
 
-<p style="color:#ff4d4d;">Only few bottles left</p>
+<h3 style="margin:20px 0;">₹2999</h3>
 
-<a href="https://wa.me/917618243220" class="btn">Order Now</a>
+<p style="color:#ff4d4d;font-size:13px;">Only 5 bottles left today</p>
+
+<a href="https://wa.me/917618243220?text=I want to order Ruh Gulab from ItrAura" class="btn">
+Order Now
+</a>
 </div>
 
 </div>
 </section>
 
 <!-- PRODUCT GRID -->
-<section class="section">
+<section style="padding:100px 20px;">
 <div class="container">
 
-<h2 class="center">Our Collection</h2>
+<h2 style="text-align:center;">Our Collection</h2>
 
 <div class="grid grid-4">
 
-<div class="product-card">
-<img src="ruh series.png">
-<div class="product-info">
-<h3>Ruh Gulab</h3>
-<div class="price">₹2999</div>
-<a class="btn">Buy</a>
-</div>
-</div>
-
-<div class="product-card">
+<!-- Gulab Jal -->
+<div class="card">
 <img src="water series.png">
-<div class="product-info">
 <h3>Gulab Jal</h3>
-<div class="price">₹299</div>
-<a class="btn">Buy</a>
-</div>
+<p>Pure rose water from Kannauj</p>
+<h4>₹249</h4>
+<a href="https://wa.me/917618243220?text=I want Gulab Jal" class="btn">Buy</a>
 </div>
 
-<div class="product-card">
-<img src="premium series.png">
-<div class="product-info">
+<!-- Ruh Khas -->
+<div class="card">
+<img src="khas.png">
 <h3>Ruh Khas</h3>
-<div class="price">₹1999</div>
-<a class="btn">Buy</a>
-</div>
+<p>Cooling vetiver attar</p>
+<h4>₹1999</h4>
+<a href="https://wa.me/917618243220?text=I want Ruh Khas" class="btn">Buy</a>
 </div>
 
-<div class="product-card">
+<!-- Mukhallat -->
+<div class="card">
 <img src="premium series.png">
-<div class="product-info">
 <h3>Mukhallat Guldastan</h3>
-<div class="price">₹4999</div>
-<a class="btn">Buy</a>
+<p>Luxury blend attar</p>
+<h4>₹4999</h4>
+<a href="https://wa.me/917618243220?text=I want Mukhallat Guldastan" class="btn">Buy</a>
 </div>
+
+<!-- Ruh Gulab -->
+<div class="card">
+<img src="ruh series.png">
+<h3>Ruh Gulab</h3>
+<p>Royal rose attar</p>
+<h4>₹2999</h4>
+<a href="https://wa.me/917618243220?text=I want Ruh Gulab" class="btn">Buy</a>
 </div>
 
 </div>
@@ -446,15 +323,15 @@ color:var(--gray);
 </section>
 
 <!-- STORY -->
-<section class="section">
-<div class="container center">
+<section style="padding:100px 20px;text-align:center;">
+<div class="container">
 
 <h2>Our Heritage</h2>
 
-<p>
-ItrAura represents the centuries-old perfumery tradition of Kannauj.  
-Using the ancient copper deg-bhapka method, each attar is distilled with precision.  
-Through careful evaporation and condensation, we capture the pure essence of nature.  
+<p style="max-width:700px;margin:auto;">
+ItrAura carries forward the ancient Kannauj perfumery tradition.  
+Using copper deg-bhapka distillation, we extract the pure essence of flowers.  
+Through natural evaporation and condensation, each drop becomes timeless luxury.  
 100% purity. 0% alcohol.
 </p>
 
@@ -462,24 +339,16 @@ Through careful evaporation and condensation, we capture the pure essence of nat
 </section>
 
 <!-- REVIEWS -->
-<section class="section">
+<section style="padding:100px 20px;">
 <div class="container">
 
-<h2 class="center">Client Experience</h2>
+<h2 style="text-align:center;">Client Experience</h2>
 
 <div class="grid grid-3">
 
-<div class="card">
-<p>"Best attar I’ve ever used. Pure luxury."</p>
-</div>
-
-<div class="card">
-<p>"Fragrance lasts all day. Premium quality."</p>
-</div>
-
-<div class="card">
-<p>"Feels like royal perfume from Kannauj."</p>
-</div>
+<div class="card">“Best attar I’ve ever used.”</div>
+<div class="card">“Lasts full day, amazing quality.”</div>
+<div class="card">“Feels royal and premium.”</div>
 
 </div>
 
@@ -487,35 +356,36 @@ Through careful evaporation and condensation, we capture the pure essence of nat
 </section>
 
 <!-- CONTACT -->
-<section class="section">
-<div class="container center">
+<section style="padding:100px 20px;text-align:center;">
+<div class="container">
 
-<h2>Connect with ItrAura</h2>
+<h2>Order via WhatsApp</h2>
 
-<input type="text" id="name" placeholder="Your Name">
-<input type="text" id="product" placeholder="Product Interested">
-<br><br>
-<button class="btn" onclick="sendWhatsApp()">Send Inquiry</button>
+<input type="text" id="name" placeholder="Your Name" style="width:100%;padding:15px;margin:10px 0;">
+<input type="text" id="product" placeholder="Product Name" style="width:100%;padding:15px;margin:10px 0;">
+
+<button onclick="sendWhatsApp()" class="btn">Send Order</button>
 
 </div>
 </section>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/917618243220" class="whatsapp">💬</a>
+<!-- FLOAT BUTTON -->
+<a href="https://wa.me/917618243220" 
+style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;">
+💬
+</a>
 
 <!-- FOOTER -->
-<footer>
-© 2026 ITRAURA • Essence in Every Drop • Kannauj
+<footer style="padding:60px;text-align:center;background:#000;color:#444;">
+© 2026 ITRAURA • Essence in Every Drop
 </footer>
 
 <!-- ================= PART 2 END ================= -->
-<!-- ================= PART 3 START ================= -->
+   <!-- ================= PART 3 START ================= -->
 
 <script>
 
-/* =====================================================
-   1. LOADER SYSTEM
-===================================================== */
+/* ================= LOADER ================= */
 window.addEventListener("load", () => {
     setTimeout(() => {
         const loader = document.getElementById("loader");
@@ -524,29 +394,23 @@ window.addEventListener("load", () => {
     }, 1500);
 });
 
-/* =====================================================
-   2. HEADER SCROLL EFFECT
-===================================================== */
+/* ================= HEADER SCROLL ================= */
 window.addEventListener("scroll", () => {
     const header = document.getElementById("header");
-    if (window.scrollY > 80) {
+    if (window.scrollY > 60) {
         header.classList.add("scrolled");
     } else {
         header.classList.remove("scrolled");
     }
 });
 
-/* =====================================================
-   3. SCROLL REVEAL ENGINE
-===================================================== */
-const revealElements = document.querySelectorAll(
-".card, .product-card, .trust-box, h2, p"
-);
+/* ================= SCROLL REVEAL ================= */
+const revealElements = document.querySelectorAll(".card, h2, p");
 
 revealElements.forEach(el => {
     el.style.opacity = "0";
     el.style.transform = "translateY(60px)";
-    el.style.transition = "1s ease";
+    el.style.transition = "0.8s ease";
 });
 
 function revealOnScroll() {
@@ -564,12 +428,15 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 
-/* =====================================================
-   4. WHATSAPP ORDER SYSTEM
-===================================================== */
+/* ================= WHATSAPP FUNCTION ================= */
 function sendWhatsApp() {
     let name = document.getElementById("name").value;
     let product = document.getElementById("product").value;
+
+    if (name === "" || product === "") {
+        alert("Please fill all details");
+        return;
+    }
 
     let message = `Hello, I am ${name}. I want to order ${product} from ItrAura.`;
 
@@ -578,16 +445,13 @@ function sendWhatsApp() {
     window.open(url, "_blank");
 }
 
-/* =====================================================
-   5. MAGNETIC BUTTON EFFECT
-===================================================== */
+/* ================= MAGNETIC BUTTON ================= */
 document.querySelectorAll(".btn").forEach(btn => {
-    btn.addEventListener("mousemove", e => {
+    btn.addEventListener("mousemove", (e) => {
         const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+        btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
     });
 
     btn.addEventListener("mouseleave", () => {
@@ -595,9 +459,7 @@ document.querySelectorAll(".btn").forEach(btn => {
     });
 });
 
-/* =====================================================
-   6. GOLD PARTICLE BACKGROUND
-===================================================== */
+/* ================= GOLD PARTICLES ================= */
 const canvas = document.createElement("canvas");
 document.body.appendChild(canvas);
 
@@ -617,7 +479,7 @@ window.addEventListener("resize", resizeCanvas);
 
 let particles = [];
 
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 70; i++) {
     particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -653,16 +515,14 @@ function drawParticles() {
 
 drawParticles();
 
-/* =====================================================
-   7. TEXT REVEAL ANIMATION (HERO)
-===================================================== */
+/* ================= HERO TEXT ANIMATION ================= */
 const heroText = document.querySelector(".hero h1");
 
 if (heroText) {
     heroText.innerHTML = heroText.textContent
         .split("")
-        .map((char, i) => 
-            `<span style="opacity:0;display:inline-block;animation:fadeUp 0.5s forwards ${i * 0.04}s">${char}</span>`
+        .map((char, i) =>
+            `<span style="opacity:0;display:inline-block;animation:fadeUp 0.5s forwards ${i*0.03}s">${char}</span>`
         )
         .join("");
 }
@@ -670,8 +530,8 @@ if (heroText) {
 const style = document.createElement("style");
 style.innerHTML = `
 @keyframes fadeUp {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
+from {opacity:0; transform:translateY(20px);}
+to {opacity:1; transform:translateY(0);}
 }`;
 document.head.appendChild(style);
 
@@ -681,3 +541,102 @@ document.head.appendChild(style);
 </html>
 
 <!-- ================= PART 3 END ================= -->
+<!-- ================= PART 4 START ================= -->
+
+<script>
+
+/* ================= AUTO WHATSAPP MESSAGE SUGGEST ================= */
+const productInputs = document.querySelectorAll(".product-card .btn");
+
+productInputs.forEach(btn=>{
+    btn.addEventListener("click",(e)=>{
+        let productName = btn.parentElement.querySelector("h3").innerText;
+
+        let msg = `Hello, I want to order ${productName} from ItrAura. Please share details.`;
+        let url = "https://wa.me/917618243220?text=" + encodeURIComponent(msg);
+
+        window.open(url, "_blank");
+    });
+});
+
+/* ================= STICKY BUY BAR (MOBILE) ================= */
+const stickyBar = document.createElement("div");
+stickyBar.innerHTML = `
+<div style="
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#000;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:9999;
+border-top:1px solid #333;
+">
+<span style="color:#fff;">Buy Premium Attars</span>
+<a href="https://wa.me/917618243220?text=I want to buy attars from ItrAura"
+style="background:#D4AF37;color:#000;padding:10px 20px;text-decoration:none;">
+Order Now
+</a>
+</div>
+`;
+
+if(window.innerWidth < 768){
+document.body.appendChild(stickyBar);
+}
+
+/* ================= AUTO SCROLL BUTTON ================= */
+const scrollBtn = document.createElement("button");
+scrollBtn.innerText = "↓";
+scrollBtn.style = `
+position:fixed;
+bottom:90px;
+right:20px;
+padding:10px;
+background:#D4AF37;
+border:none;
+cursor:pointer;
+z-index:9999;
+`;
+document.body.appendChild(scrollBtn);
+
+scrollBtn.onclick = ()=>{
+window.scrollTo({
+top:window.innerHeight,
+behavior:"smooth"
+});
+};
+
+/* ================= VIEW COUNTER FAKE (PSYCHOLOGY) ================= */
+let viewers = document.createElement("div");
+viewers.innerText = "23 people viewing this product";
+viewers.style = `
+position:fixed;
+top:80px;
+right:20px;
+background:#111;
+padding:10px;
+font-size:12px;
+z-index:999;
+border:1px solid gold;
+`;
+document.body.appendChild(viewers);
+
+/* ================= RANDOM COUNT CHANGE ================= */
+setInterval(()=>{
+let num = Math.floor(Math.random()*20)+10;
+viewers.innerText = num + " people viewing this product";
+},5000);
+
+/* ================= EXIT INTENT POPUP ================= */
+document.addEventListener("mouseout", function(e){
+if(e.clientY < 0){
+alert("Wait! Get exclusive attar offers on WhatsApp 🔥");
+}
+});
+
+</script>
+
+<!-- ================= PART 4 END ================= -->
