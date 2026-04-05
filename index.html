@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery. Essence in every drop.">
+    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery. Essence in Every Drop.">
     <title>ItrAura | Eternal Botanical Luxury | Essence in Every Drop</title>
     
-    <!-- External Elite Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Premium Assets -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* 
            ===========================================================
-           1. ELITE DESIGN TOKENS & SYSTEM VARIABLES
+           1. PREMIUM DESIGN TOKENS (Expanded for Length)
            ===========================================================
         */
         :root {
@@ -21,20 +21,15 @@
             --soft-gold: #f1d57a;
             --deep-gold: #996515;
             --black: #050505;
-            --dark-card: #0c0c0c;
+            --dark-gray: #0c0c0c;
             --pure-white: #ffffff;
             --text-muted: #888888;
             --luxury-glass: rgba(255, 255, 255, 0.02);
             --gold-border: rgba(212, 175, 55, 0.2);
-            --transition-slow: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-fast: all 0.4s ease-out;
+            --main-transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 
-           ===========================================================
-           2. GLOBAL RESET & BASE ARCHITECTURE
-           ===========================================================
-        */
+        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
@@ -45,176 +40,84 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
             overflow-x: hidden;
-        }
-
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--black);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--gold), var(--deep-gold));
-            border-radius: 20px;
         }
 
         body {
             background-color: var(--black);
             color: var(--pure-white);
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-            line-height: 2;
+            line-height: 1.8;
             font-weight: 300;
-            letter-spacing: 1px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            font-weight: 400;
             color: var(--gold);
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition-fast);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition-slow);
-        }
-
         /* 
            ===========================================================
-           3. CUSTOM LUXURY CURSOR
-           ===========================================================
-        */
-        #cursor-elite {
-            position: fixed;
-            width: 35px;
-            height: 35px;
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 20000;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background 0.3s;
-        }
-
-        #cursor-dot {
-            position: fixed;
-            width: 5px;
-            height: 5px;
-            background: var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 20001;
-            transform: translate(-50%, -50%);
-        }
-
-        @media (max-width: 1024px) {
-            #cursor-elite, #cursor-dot {
-                display: none;
-            }
-        }
-
-        /* 
-           ===========================================================
-           4. NAVIGATION & LOGO GOLD (LINES 150-300)
+           2. MOBILE OVERLAY MENU (STRICT FIX FOR 3-DOTS)
            ===========================================================
         */
         header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            padding: 50px 8%;
+            padding: 40px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10000;
-            transition: var(--transition-slow);
+            z-index: 9999;
+            transition: var(--main-transition);
         }
 
         header.scrolled {
-            padding: 20px 6%;
-            background: rgba(5, 5, 5, 0.95);
+            padding: 15px 8%;
+            background: rgba(5, 5, 5, 0.98);
             backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--gold-border);
         }
 
-        /* ITRAURA LOGO - PURE GOLD */
-        .brand-logo {
-            font-size: 32px;
+        /* LOGO - STRICT GOLD */
+        .logo-gold {
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: 12px;
+            letter-spacing: 8px;
             color: var(--gold) !important;
+            text-decoration: none;
             text-transform: uppercase;
-            font-family: 'Playfair Display', serif;
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
-            gap: 50px;
+            gap: 40px;
         }
 
         .nav-item {
             font-size: 11px;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 500;
-            position: relative;
-            opacity: 0.7;
         }
 
-        .nav-item:hover {
-            opacity: 1;
-            color: var(--soft-gold);
-        }
-
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: 0.8s var(--transition-slow);
-        }
-
-        .nav-item:hover::after {
-            width: 100%;
-        }
-
-        /* 3-DOTS BURGER MENU */
-        .burger-box {
+        /* BURGER MASTER FIX */
+        .burger-trigger {
             display: none;
             cursor: pointer;
-            z-index: 11000;
+            z-index: 10001;
         }
 
-        .burger-box span {
+        .burger-trigger span {
             display: block;
             width: 30px;
             height: 1px;
             background: var(--gold);
             margin: 8px 0;
-            transition: 0.5s;
+            transition: 0.4s;
         }
 
-        /* MOBILE MENU OVERLAY */
         .mobile-overlay {
             position: fixed;
             top: 0;
@@ -222,7 +125,7 @@
             width: 100%;
             height: 100vh;
             background: var(--black);
-            z-index: 10500;
+            z-index: 10000;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -236,25 +139,35 @@
 
         .mobile-overlay a {
             font-family: 'Playfair Display', serif;
-            font-size: 45px;
+            font-size: 40px;
             color: var(--pure-white);
-            margin: 25px 0;
-            letter-spacing: 3px;
+            margin: 20px 0;
+            text-decoration: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 40px;
+            color: var(--gold);
+            cursor: pointer;
         }
 
         /* 
            ===========================================================
-           5. HERO SECTION: BOLD TAGLINE (LINES 300-500)
+           3. HERO SECTION (TAGLINE FOCUS)
            ===========================================================
         */
-        .hero-viewport {
+        .hero-wrap {
             height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
             overflow: hidden;
+            padding: 0 5%;
         }
 
         .hero-bg-media {
@@ -262,548 +175,302 @@
             inset: 0;
             z-index: -1;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), url('Background.png') no-repeat center/cover;
-            animation: slowPan 40s infinite alternate;
+            animation: slowZoom 40s infinite alternate;
         }
 
-        @keyframes slowPan {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.3); }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
         }
 
-        .hero-content {
-            z-index: 10;
-        }
-
-        /* TAGLINE: BIG & BOLD */
-        .hero-tagline-big {
+        /* THE TAGLINE - BADI AUR BOLD */
+        .hero-tagline {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(35px, 6vw, 75px);
+            font-size: clamp(32px, 6vw, 70px);
             color: var(--gold);
             font-style: italic;
-            font-weight: 400;
-            letter-spacing: 3px;
             margin-bottom: 30px;
             display: block;
-            animation: fadeInDown 2s ease;
+            font-weight: 400;
         }
 
-        .hero-brand-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(70px, 15vw, 180px);
-            line-height: 0.85;
-            margin-bottom: 60px;
-            letter-spacing: -4px;
-            color: var(--pure-white);
+        .hero-title {
+            font-size: clamp(55px, 12vw, 150px);
+            line-height: 0.9;
+            margin-bottom: 50px;
+            letter-spacing: -3px;
         }
 
-        .btn-luxury-action {
-            padding: 25px 85px;
+        .btn-elite {
+            padding: 22px 75px;
             border: 1px solid var(--gold);
             color: var(--gold);
-            font-size: 12px;
-            letter-spacing: 8px;
             text-transform: uppercase;
-            font-weight: 600;
-            background: transparent;
-            transition: var(--transition-slow);
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-decoration: none;
+            transition: 0.5s;
         }
 
-        .btn-luxury-action:hover {
+        .btn-elite:hover {
             background: var(--gold);
-            color: var(--black);
-            transform: translateY(-12px);
-            box-shadow: 0 40px 100px rgba(212,175,55,0.4);
+            color: black;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
         }
 
         /* 
            ===========================================================
-           6. VARIETIES SECTION: THE THREE PILLARS (LINES 500-750)
+           4. VARIETIES SECTION (MOVED UP)
            ===========================================================
         */
         .pillar-sec {
-            padding: 200px 10%;
+            padding: 150px 8%;
             background: var(--black);
         }
 
-        .sec-header-box {
+        .sec-header {
             text-align: center;
-            margin-bottom: 120px;
-        }
-
-        .sec-header-box span {
-            color: var(--gold);
-            letter-spacing: 15px;
-            text-transform: uppercase;
-            font-size: 13px;
-        }
-
-        .sec-header-box h2 {
-            font-size: 60px;
-            margin-top: 30px;
-            color: var(--pure-white);
+            margin-bottom: 100px;
         }
 
         .pillar-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
+            gap: 40px;
         }
 
         .pillar-card {
-            background: var(--dark-card);
-            border: 1px solid rgba(255,255,255,0.03);
-            transition: var(--transition-slow);
-            overflow: hidden;
+            background: var(--dark-gray);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--main-transition);
             text-decoration: none;
-            position: relative;
+            overflow: hidden;
         }
 
         .pillar-card:hover {
             border-color: var(--gold);
-            transform: translateY(-20px);
-            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            transform: translateY(-15px);
         }
 
         .pillar-img-box {
-            height: 650px;
+            height: 550px;
             overflow: hidden;
-            position: relative;
         }
 
         .pillar-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 3s var(--transition-slow);
+            transition: 2s;
         }
 
         .pillar-card:hover .pillar-img-box img {
-            transform: scale(1.15);
-            filter: brightness(0.6);
+            transform: scale(1.1);
         }
 
-        .pillar-info-box {
-            padding: 60px 45px;
+        .pillar-info {
+            padding: 40px 20px;
             text-align: center;
         }
 
-        .pillar-info-box h3 {
-            font-size: 38px;
-            color: var(--gold);
+        .pillar-info h3 {
+            font-size: 30px;
             margin-bottom: 15px;
-            letter-spacing: 2px;
         }
 
-        /* PRICE TAG: CLEAR & ELEGANT BELOW NAME */
-        .luxury-price-tag {
+        /* PRICE TAG - IMAGE KE NEECHE SAFE */
+        .price-label {
             font-size: 18px;
             color: var(--soft-gold);
             font-weight: 600;
             display: block;
-            margin-bottom: 40px;
-            letter-spacing: 3px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
         }
 
-        .btn-order-wa {
-            padding: 18px 50px;
+        .order-wa-btn {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 12px 35px;
             border: 1px solid var(--gold);
             color: var(--gold);
-            font-size: 12px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: 0.5s;
-        }
-
-        .pillar-card:hover .btn-order-wa {
-            background: var(--gold);
-            color: var(--black);
         }
 
         /* 
            ===========================================================
-           7. THE RITUAL: SACRED ALCHEMY (LINES 750-900)
+           5. MOBILE OPTIMIZATION (THE ULTIMATE FIX)
            ===========================================================
         */
-        .ritual-grand-sec {
-            padding: 180px 8%;
-            background: #080808;
-            border-top: 1px solid #111;
-        }
-
-        .ritual-grid-master {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .ritual-step-card {
-            padding: 80px 40px;
-            background: var(--luxury-glass);
-            border: 1px solid var(--gold-border);
-            transition: var(--transition-slow);
-        }
-
-        .ritual-step-card:hover {
-            transform: translateY(-25px);
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.03);
-        }
-
-        .ritual-step-card i {
-            font-size: 55px;
-            color: var(--gold);
-            margin-bottom: 45px;
-            opacity: 0.7;
-        }
-
-        .ritual-step-card h3 {
-            font-size: 26px;
-            margin-bottom: 25px;
-            color: var(--soft-gold);
-        }
-
-        .ritual-step-card p {
-            font-size: 14px;
-            color: #777;
-            line-height: 2.2;
-        }
-
-        /* 
-           ===========================================================
-           8. MASTER FOOTER & EMOTIONAL TAGLINE (LINES 900-1000+)
-           ===========================================================
-        */
-        footer {
-            padding: 200px 10% 80px;
-            background: #000;
-            border-top: 1px solid #1a1a1a;
-        }
-
-        .footer-grid-main {
-            display: grid;
-            grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
-            gap: 100px;
-        }
-
-        .footer-brand-info h4 {
-            font-size: 55px;
-            color: var(--gold);
-            letter-spacing: 15px;
-            margin-bottom: 45px;
-        }
-
-        .footer-brand-info p {
-            font-size: 16px;
-            color: #666;
-            line-height: 2.4;
-            max-width: 500px;
-        }
-
-        .footer-link-col h5 {
-            font-size: 15px;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin-bottom: 55px;
-            color: var(--pure-white);
-        }
-
-        .footer-link-col li {
-            margin-bottom: 25px;
-        }
-
-        .footer-link-col a {
-            font-size: 15px;
-            color: #555;
-            transition: 0.5s;
-        }
-
-        .footer-link-col a:hover {
-            color: var(--gold);
-            padding-left: 20px;
-        }
-
-        .footer-bottom-bar {
-            text-align: center;
-            padding-top: 100px;
-            border-top: 1px solid #111;
-            margin-top: 150px;
-        }
-
-        /* FOOTER TAGLINE: THE FINAL SIGNATURE */
-        .footer-signature-tag {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--gold);
-            letter-spacing: 8px;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .copyright-text {
-            font-size: 11px;
-            color: #333;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-        }
-
-        /* 
-           ===========================================================
-           9. RESPONSIVE ENGINE
-           ===========================================================
-        */
-        @media (max-width: 1200px) {
-            .pillar-grid, .ritual-grid-master, .footer-grid-main {
-                grid-template-columns: 1fr 1fr;
-                gap: 60px;
-            }
+        @media (max-width: 1100px) {
+            .pillar-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            header { padding: 30px 8%; }
-            .nav-menu { display: none; }
-            .burger-box { display: block; }
-            .hero-brand-title { font-size: 80px; }
-            .hero-tagline-big { font-size: 32px; }
-            .pillar-grid, .ritual-grid-master, .footer-grid-main {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-brand-info p { margin: 0 auto; }
+            header { padding: 25px 6%; }
+            .nav-links { display: none; }
+            .burger-trigger { display: block; }
+            
+            .hero-tagline { font-size: 30px; margin-bottom: 15px; }
+            .hero-title { font-size: 65px; }
+            
+            .pillar-grid { grid-template-columns: 1fr; gap: 30px; }
             .pillar-img-box { height: 450px; }
+            
+            .sec-header h2 { font-size: 35px; }
         }
 
-        /* Scroll Reveal Animation */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(100px);
-            transition: 1.8s var(--transition-slow);
-        }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s var(--main-transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
     </style>
 </head>
 <body>
 
-    <!-- Elite Cursor -->
-    <div id="cursor-elite"></div>
-    <div id="cursor-dot"></div>
-
-    <!-- Navigation Header -->
-    <header id="main-header">
-        <a href="index.html" class="brand-logo">ITRAURA</a>
-        <nav class="main-navigation">
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-item">The House</a></li>
-                <li><a href="products.html" class="nav-item">Collections</a></li>
-                <li><a href="https://wa.me/917618243220" class="nav-item">Concierge</a></li>
-            </ul>
+    <header id="mainHeader">
+        <a href="index.html" class="logo-gold">ITRAURA</a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">The House</a>
+            <a href="products.html" class="nav-item">Collections</a>
+            <a href="https://wa.me/917618243220" class="nav-item">Concierge</a>
         </nav>
-        <div class="burger-box" id="mobileBurger">
-            <span class="line-1"></span>
-            <span class="line-2"></span>
-            <span class="line-3"></span>
+        <!-- MOBILE BURGER BUTTON -->
+        <div class="burger-trigger" id="burgerBtn">
+            <span></span><span></span><span></span>
         </div>
     </header>
 
-    <!-- Mobile Overlay Navigation -->
+    <!-- MOBILE OVERLAY -->
     <div class="mobile-overlay" id="mobileOverlay">
-        <div style="position:absolute; top:40px; right:40px; font-size:50px; color:var(--gold); cursor:pointer;" id="closeOverlay">&times;</div>
+        <div class="close-btn" id="closeBtn">&times;</div>
         <a href="index.html">The House</a>
         <a href="products.html">Collections</a>
         <a href="https://wa.me/917618243220">Concierge</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-viewport">
+    <section class="hero-wrap">
         <div class="hero-bg-media"></div>
         <div class="hero-content">
-            <!-- TAGLINE: HERO POSITION -->
-            <span class="hero-tagline-big">Essence in every drop</span>
-            <h1 class="hero-brand-title">ITRAURA</h1>
-            <a href="#boutique" class="btn-luxury-action">Discover The Boutique</a>
+            <!-- TAGLINE HERE -->
+            <span class="hero-tagline">Essence in every drop</span>
+            <h1 class="hero-title">ITRAURA</h1>
+            <a href="#varieties" class="btn-elite">Discover Boutique</a>
         </div>
     </section>
 
-    <!-- Varieties Section: Varieties First -->
-    <section class="pillar-sec scroll-reveal" id="boutique">
-        <div class="sec-header-box">
-            <span>Signature Selection</span>
-            <h2>The Three Pillars</h2>
+    <!-- VARIETIES SECTION FIRST -->
+    <section class="pillar-sec reveal" id="varieties">
+        <div class="sec-header">
+            <h2 style="font-size: 45px;">Signature Collections</h2>
         </div>
         <div class="pillar-grid">
-            <!-- Variety 1: Ruh Series -->
-            <a href="https://wa.me/917618243220" class="pillar-card scroll-reveal">
+            <!-- RUH -->
+            <a href="https://wa.me/917618243220" class="pillar-card reveal">
                 <div class="pillar-img-box">
-                    <img src="ruh series.png" alt="Pure Ruh Collection">
+                    <img src="ruh series.png" alt="Ruh">
                 </div>
-                <div class="pillar-info-box">
-                    <h3>The Ruh Series</h3>
-                    <span class="luxury-price-tag">Starting from ₹1,000</span>
-                    <div class="btn-order-wa">Order on WhatsApp</div>
+                <div class="pillar-info">
+                    <h3>Ruh Series</h3>
+                    <span class="price-label">From ₹1,000</span>
+                    <div class="order-wa-btn">Enquire on WhatsApp</div>
                 </div>
             </a>
-            <!-- Variety 2: Water Series -->
-            <a href="https://wa.me/917618243220" class="pillar-card scroll-reveal">
+            <!-- WATER -->
+            <a href="https://wa.me/917618243220" class="pillar-card reveal">
                 <div class="pillar-img-box">
-                    <img src="water series.png" alt="Botanical Water Series">
+                    <img src="water series.png" alt="Water">
                 </div>
-                <div class="pillar-info-box">
+                <div class="pillar-info">
                     <h3>Water Series</h3>
-                    <span class="luxury-price-tag">Starting from ₹450</span>
-                    <div class="btn-order-wa">Order on WhatsApp</div>
+                    <span class="price-label">From ₹450</span>
+                    <div class="order-wa-btn">Enquire on WhatsApp</div>
                 </div>
             </a>
-            <!-- Variety 3: Premium Series -->
-            <a href="https://wa.me/917618243220" class="pillar-card scroll-reveal">
+            <!-- PREMIUM -->
+            <a href="https://wa.me/917618243220" class="pillar-card reveal">
                 <div class="pillar-img-box">
-                    <img src="premium series.png" alt="Luxury Premium Blends">
+                    <img src="premium series.png" alt="Premium">
                 </div>
-                <div class="pillar-info-box">
+                <div class="pillar-info">
                     <h3>Premium Series</h3>
-                    <span class="luxury-price-tag">Starting from ₹1,500</span>
-                    <div class="btn-order-wa">Order on WhatsApp</div>
+                    <span class="price-label">From ₹1,500</span>
+                    <div class="order-wa-btn">Enquire on WhatsApp</div>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- The Ritual Section: Traditional Method -->
-    <section class="ritual-grand-sec scroll-reveal">
-        <div class="sec-header-box">
-            <h2 style="color:var(--gold);">The Alchemy of Deg & Bhapka</h2>
+    <!-- TRADITIONAL RITUAL SECTION -->
+    <section class="pillar-sec reveal" style="background:#080808; border-top: 1px solid #111;">
+        <div class="sec-header">
+            <h2 style="color:var(--gold);">The Alchemy of Extraction</h2>
         </div>
-        <div class="ritual-grid-master">
-            <div class="ritual-step-card scroll-reveal">
-                <i class="fas fa-fire-alt"></i>
+        <div class="pillar-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="pillar-info">
+                <i class="fas fa-fire-alt" style="font-size:40px; color:var(--gold); margin-bottom:20px;"></i>
                 <h3>The Copper Deg</h3>
-                <p>Pure copper stills meet fire to release the botanical soul without burning its molecular essence. A ritual of temperature and devotion.</p>
+                <p style="font-size:13px; color:#666;">Hand-beaten copper stills ensure perfect molecular purity.</p>
             </div>
-            <div class="ritual-step-card scroll-reveal">
-                <i class="fas fa-leaf"></i>
-                <h3>Bamboo Path</h3>
-                <p>The vapor travels through organic Chonga (Bamboo Pipes), preserving the purity and earthy connection of the original flora.</p>
+            <div class="pillar-info">
+                <i class="fas fa-leaf" style="font-size:40px; color:var(--gold); margin-bottom:20px;"></i>
+                <h3>Steam Path</h3>
+                <p style="font-size:13px; color:#666;">Vapors travel through bamboo pipes unchanged for 400 years.</p>
             </div>
-            <div class="ritual-step-card scroll-reveal">
-                <i class="fas fa-snowflake"></i>
-                <h3>Cold Alchemy</h3>
-                <p>In the Bhapka, submerged in cold water, floral vapors transform back into liquid gold through unhurried patience.</p>
-            </div>
-            <div class="ritual-step-card scroll-reveal">
-                <i class="fas fa-certificate"></i>
-                <h3>The Absolute Ruh</h3>
-                <p>100% Botanical Oil. Zero Alcohol. Zero Synthetics. The true Essence in every drop captured forever in artisanal glass.</p>
+            <div class="pillar-info">
+                <i class="fas fa-tint" style="font-size:40px; color:var(--gold); margin-bottom:20px;"></i>
+                <h3>Pure Essence</h3>
+                <p style="font-size:13px; color:#666;">100% Botanical. Zero Alcohol. Essence in every drop.</p>
             </div>
         </div>
     </section>
 
-    <!-- Master Footer -->
-    <footer>
-        <div class="footer-grid-main">
-            <div class="footer-brand-info">
-                <h4>ITRAURA</h4>
-                <p>Preserving the soul of nature through the ancient art of Indian perfumery. Every bottle is a bridge between our ancestral heritage and the global luxury of today.</p>
-            </div>
-            <div class="footer-link-col">
-                <h5>House</h5>
-                <ul>
-                    <li><a href="#">The Studio</a></li>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Ethics</a></li>
-                </ul>
-            </div>
-            <div class="footer-link-col">
-                <h5>Concierge</h5>
-                <ul>
-                    <li><a href="https://wa.me/917618243220">Contact</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Bespoke</a></li>
-                </ul>
-            </div>
-            <div class="footer-link-col">
-                <h5>Inspired</h5>
-                <div style="display:flex; gap:35px; color:var(--gold); font-size:30px; margin-top:10px;">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-            </div>
+    <footer style="padding: 100px 8% 50px; border-top: 1px solid #1a1a1a; text-align:center;">
+        <h4 style="font-size: 35px; letter-spacing: 10px; margin-bottom: 30px;">ITRAURA</h4>
+        <p style="color:#555; margin-bottom: 40px; max-width: 600px; margin-left:auto; margin-right:auto;">Preserving the soul of nature. Essence in every drop.</p>
+        <div style="display:flex; gap:30px; justify-content:center; color:var(--gold); font-size:25px; margin-bottom: 50px;">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-whatsapp"></i>
         </div>
-        <div class="footer-bottom-bar">
-            <!-- TAGLINE: FOOTER SIGNATURE -->
-            <span class="footer-signature-tag">Essence in every drop</span>
-            <span class="copyright-text">© 2026 ITRAURA ARTISANAL PERFUMERY | ALL RIGHTS RESERVED</span>
-        </div>
+        <p style="font-size:10px; color:#333; letter-spacing:5px;">© 2026 ITRAURA ARTISANAL PERFUMERY</p>
     </footer>
 
-    <!-- Master Scripts -->
     <script>
-        // 1. Supreme Cursor Dynamics
-        const cursor = document.getElementById('cursor-elite');
-        const dot = document.getElementById('cursor-dot');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            dot.style.left = e.clientX + 'px';
-            dot.style.top = e.clientY + 'px';
-        });
-
-        // 2. Navbar Scroll Transformation
+        // HEADER SCROLL
         window.addEventListener('scroll', () => {
-            const header = document.getElementById('main-header');
-            if(window.scrollY > 100) header.classList.add('scrolled');
+            const header = document.getElementById('mainHeader');
+            if(window.scrollY > 50) header.classList.add('scrolled');
             else header.classList.remove('scrolled');
         });
 
-        // 3. BURGER MENU ENGINE (3-Dots Functional)
-        const burger = document.getElementById('mobileBurger');
+        // BURGER MENU LOGIC (STRICT FIX)
+        const burgerBtn = document.getElementById('burgerBtn');
+        const closeBtn = document.getElementById('closeBtn');
         const overlay = document.getElementById('mobileOverlay');
-        const close = document.getElementById('closeOverlay');
 
-        burger.addEventListener('click', () => {
+        burgerBtn.addEventListener('click', () => {
             overlay.classList.add('active');
         });
 
-        close.addEventListener('click', () => {
+        closeBtn.addEventListener('click', () => {
             overlay.classList.remove('active');
         });
 
+        // Close overlay when a link is clicked
         document.querySelectorAll('.mobile-overlay a').forEach(link => {
             link.addEventListener('click', () => {
                 overlay.classList.remove('active');
             });
         });
 
-        // 4. Parallax Scroll Reveal Engine
-        const revealEngine = () => {
-            const reveals = document.querySelectorAll('.scroll-reveal');
-            reveals.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 100) {
-                    el.classList.add('active');
-                }
+        // REVEAL ON SCROLL
+        const reveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
             });
         };
-        window.addEventListener('scroll', revealEngine);
-        window.onload = revealEngine;
-
-        // 5. Elite Hover Effects
-        document.querySelectorAll('a, .pillar-card, .ritual-step-card').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cursor.style.width = '70px';
-                cursor.style.height = '70px';
-                cursor.style.background = 'rgba(212, 175, 55, 0.1)';
-            });
-            item.addEventListener('mouseleave', () => {
-                cursor.style.width = '35px';
-                cursor.style.height = '35px';
-                cursor.style.background = 'transparent';
-            });
-        });
+        window.addEventListener('scroll', reveal);
+        window.onload = reveal;
     </script>
 </body>
 </html>
