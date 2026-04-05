@@ -1,188 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Products - ItrAura</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - ItrAura</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Is page ke liye special design */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <h2>ItrAura</h2>
-  <a href="index.html">Home</a>
+<header class="navbar">
+    <div class="logo">ItrAura</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#" class="active">Products</a>
+    </nav>
 </header>
 
-<div class="products">
+<section class="shop-header">
+    <h1>Our Premium Collection</h1>
+    <p>Handpicked natural fragrances and pure essential oils.</p>
+</section>
 
-<!-- 1 -->
-<div class="product">
-  <img src="ruh chameli.png">
-  <h3>Ruh Chameli</h3>
-  <p class="desc">Rich jasmine fragrance, soothing and long-lasting.</p>
-  <p class="price">₹899</p>
-  <button onclick="buy('Ruh Chameli')">Buy</button>
+<div class="container">
+    <!-- Ye main area hai jahan saare products dikhenge -->
+    <div id="product-list" class="product-grid">
+        <!-- JavaScript yahan khud-ba-khud products bhar degi -->
+    </div>
 </div>
 
-<!-- 2 -->
-<div class="product">
-  <img src="ruh gulab.png">
-  <h3>Ruh Gulab</h3>
-  <p class="desc">Royal rose fragrance with deep richness.</p>
-  <p class="price">₹3499</p>
-  <button onclick="buy('Ruh Gulab')">Buy</button>
-</div>
-
-<!-- 3 -->
-<div class="product">
-  <img src="ruh juhi.png">
-  <h3>Ruh Juhi</h3>
-  <p class="desc">Sweet and soft floral aroma with calming effect.</p>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Ruh Juhi')">Buy</button>
-</div>
-
-<!-- 4 -->
-<div class="product">
-  <img src="ruh khus.png">
-  <h3>Ruh Khus</h3>
-  <p class="desc">Cooling earthy fragrance, perfect for summers.</p>
-  <p class="price">₹199</p>
-  <button onclick="buy('Ruh Khus')">Buy</button>
-</div>
-
-<!-- 5 -->
-<div class="product">
-  <img src="ruh motiya.png">
-  <h3>Ruh Motiya</h3>
-  <p class="desc">Traditional floral fragrance with deep sweetness.</p>
-  <p class="price">₹2399</p>
-  <button onclick="buy('Ruh Motiya')">Buy</button>
-</div>
-
-<!-- 6 -->
-<div class="product">
-  <img src="ruh kadamba.png">
-  <h3>Ruh Kadamba</h3>
-  <p class="desc">Rare floral scent with unique sweetness.</p>
-  <p class="price">₹4499</p>
-  <button onclick="buy('Ruh Kadamba')">Buy</button>
-</div>
-
-<!-- 7 -->
-<div class="product">
-  <img src="ruh kewra.png">
-  <h3>Ruh Kewra</h3>
-  <p class="desc">Fresh green floral aroma with aquatic touch.</p>
-  <p class="price">₹899</p>
-  <button onclick="buy('Ruh Kewra')">Buy</button>
-</div>
-
-<!-- 8 -->
-<div class="product">
-  <img src="ruh rajnigandha.png">
-  <h3>Ruh Rajnigandha</h3>
-  <p class="desc">Elegant night-blooming floral fragrance.</p>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Ruh Rajnigandha')">Buy</button>
-</div>
-
-<!-- 9 -->
-<div class="product">
-  <img src="ruh red champaka.png">
-  <h3>Ruh Red Champaka</h3>
-  <p class="desc">Exotic floral fragrance with bold notes.</p>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Ruh Red Champaka')">Buy</button>
-</div>
-
-<!-- 10 -->
-<div class="product">
-  <img src="ruh pink lotus.png">
-  <h3>Pink Lotus</h3>
-  <p class="desc">Soft lotus fragrance, calm and peaceful.</p>
-  <p class="price">₹1199</p>
-  <button onclick="buy('Pink Lotus')">Buy</button>
-</div>
-
-<!-- 11 -->
-<div class="product">
-  <img src="ruh mogra.png">
-  <h3>Ruh Mogra</h3>
-  <p class="desc">Fresh mogra scent with traditional touch.</p>
-  <p class="price">₹999</p>
-  <button onclick="buy('Ruh Mogra')">Buy</button>
-</div>
-
-<!-- 12 -->
-<div class="product">
-  <img src="ruh red gulab.png">
-  <h3>Ruh Red Gulab</h3>
-  <p class="desc">Strong and luxurious rose essence.</p>
-  <p class="price">₹1199</p>
-  <button onclick="buy('Ruh Red Gulab')">Buy</button>
-</div>
-
-<!-- 13 -->
-<div class="product">
-  <img src="gulab jal.png">
-  <h3>Gulab Jal</h3>
-  <p class="desc">Pure rose water for refreshing feel.</p>
-  <p class="price">₹179</p>
-  <button onclick="buy('Gulab Jal')">Buy</button>
-</div>
-
-<!-- 14 -->
-<div class="product">
-  <img src="gulab jal pasaya.png">
-  <h3>Gulab Jal Pasaya</h3>
-  <p class="desc">Premium distilled rose water, soft and pure.</p>
-  <p class="price">₹499</p>
-  <button onclick="buy('Gulab Jal Pasaya')">Buy</button>
-</div>
-
-<!-- 15 -->
-<div class="product">
-  <img src="shamama.png">
-  <h3>Shamama</h3>
-  <p class="desc">Warm spicy blend with traditional richness.</p>
-  <p class="price">₹249</p>
-  <button onclick="buy('Shamama')">Buy</button>
-</div>
-
-<!-- 16 -->
-<div class="product">
-  <img src="sandalwood oil.png">
-  <h3>Sandalwood Oil</h3>
-  <p class="desc">Pure sandalwood oil with deep woody aroma.</p>
-  <p class="price">₹999</p>
-  <button onclick="buy('Sandalwood Oil')">Buy</button>
-</div>
-
-<!-- 17 -->
-<div class="product">
-  <img src="mukhallat guldastan.png">
-  <h3>Mukhallat Guldastan</h3>
-  <p class="desc">Luxury mix of floral and woody notes.</p>
-  <p class="price">₹1299</p>
-  <button onclick="buy('Mukhallat Guldastan')">Buy</button>
-</div>
-
-<!-- 18 -->
-<div class="product">
-  <img src="ruh gulab pasaya.png">
-  <h3>Ruh Gulab Pasaya</h3>
-  <p class="desc">Highly concentrated rose attar, rich and rare.</p>
-  <p class="price">₹3499</p>
-  <button onclick="buy('Ruh Gulab Pasaya')">Buy</button>
-</div>
-
-</div>
-
-<a href="https://wa.me/917618243220" class="whatsapp">
-  Chat
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank">
+    Chat on WhatsApp
 </a>
-  
-<script src="script.js?v=10"></script>
+
+<!-- Yeh files ka sequence hamesha yahi rakhna -->
+<script src="data.js"></script>
+<script>
+    // Ye chota sa script products ko load karega
+    const productGrid = document.getElementById('product-list');
+
+    function renderProducts() {
+        productGrid.innerHTML = ''; // Pehle grid ko khaali karo
+        
+        products.forEach(item => {
+            // Image ka naam wahi rakha hai jo aapne code mein bheja hai
+            const imgFileName = item.name.toLowerCase() + ".png";
+            
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="badge">${item.category}</div>
+                <img src="${imgFileName}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/300?text=ItrAura'">
+                <div class="info">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <div class="price-tag">₹${item.price}</div>
+                    <button class="btn" onclick="window.open('https://wa.me/917618243220?text=Hi, I want to buy ${item.name}')">Buy Now</button>
+                </div>
+            `;
+            productGrid.appendChild(card);
+        });
+    }
+
+    // Isse products dikhna shuru ho jayenge
+    renderProducts();
+</script>
 
 </body>
 </html>
