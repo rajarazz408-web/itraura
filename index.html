@@ -3,252 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ItrAura - Premium Luxury Attar</title>
+<title>ItrAura | Premium Natural Attars & Essential Oils</title>
 
-<!-- Google Verification -->
-<meta name="google-site-verification" content="google9b1122a88dc21552" />
-
-<!-- Google Fonts for Premium Look -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ================= GLOBAL SETTINGS ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --gold: #D4AF37;
+    --dark-gold: #996515;
+    --black: #0a0a0a;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #111, #000);
-    color: gold;
+    background: var(--black);
+    color: white;
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-}
-
-/* ================= NAVBAR ================= */
+/* --- Navigation --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     background: rgba(0,0,0,0.9);
-    border-bottom: 1px solid rgba(255,215,0,0.2);
-    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
 }
 
-nav h2 {
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px gold;
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 2px;
 }
 
 nav a {
-    color: gold;
+    color: white;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 25px;
     font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 1px;
     transition: 0.3s;
 }
 
-nav a:hover {
-    text-shadow: 0 0 8px gold;
-}
+nav a:hover { color: var(--gold); }
 
-/* ================= HERO SECTION ================= */
+/* --- Hero Slider Style --- */
 .hero {
-    height: 90vh;
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
-    url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1500&q=80');
-    background-size: cover;
-    background-position: center;
-    border-bottom: 2px solid rgba(255,215,0,0.2);
+    padding: 20px;
 }
 
 .hero h1 {
-    font-size: clamp(40px, 8vw, 70px);
-    margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(255,215,0,0.5);
-    letter-spacing: 2px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 8vw, 75px);
+    color: var(--gold);
+    margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: 20px;
+    letter-spacing: 3px;
     margin-bottom: 30px;
-    color: #eee;
-    max-width: 700px;
+    text-transform: uppercase;
 }
 
-.btn {
+.cta-btn {
     padding: 15px 40px;
-    background: linear-gradient(45deg, gold, #ffcc00);
+    background: var(--gold);
     color: black;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
+    text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(255,215,0,0.4);
+    border-radius: 50px;
     transition: 0.4s;
 }
 
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px gold;
-}
+.cta-btn:hover { background: white; transform: scale(1.1); }
 
-/* ================= ABOUT / DESCRIPTION ================= */
-.about {
-    max-width: 900px;
-    margin: 80px auto;
+/* --- Global Description (The Large Section) --- */
+.global-about {
+    padding: 80px 10%;
     text-align: center;
-    padding: 0 20px;
+    background: #111;
 }
 
-.about h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
+.global-about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: var(--gold);
+    margin-bottom: 25px;
 }
 
-.about h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: gold;
-    margin: 10px auto;
-}
-
-.about p {
+.global-about p {
     font-size: 18px;
     line-height: 1.8;
     color: #ccc;
-    margin-bottom: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* ================= FEATURES ================= */
+/* --- Category Showcase (Flipkart/Amazon style) --- */
+.section-title {
+    text-align: center;
+    padding: 50px 0 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--gold);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 5% 50px;
+}
+
+.cat-card {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.cat-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.cat-card:hover img { transform: scale(1.1); }
+.cat-card:hover .cat-overlay { background: rgba(0,0,0,0.2); }
+
+.cat-overlay h3 { font-size: 24px; margin-bottom: 10px; }
+
+/* --- Features --- */
 .features {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 50px 5%;
+    justify-content: space-around;
+    padding: 60px 5%;
+    background: var(--gold);
+    color: black;
     flex-wrap: wrap;
-    background: rgba(255,215,0,0.02);
+    gap: 20px;
 }
 
-.feature {
-    width: 300px;
-    background: linear-gradient(145deg, #0a0a0a, #151515);
-    padding: 40px 25px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid rgba(255,215,0,0.1);
-    transition: 0.4s;
-}
+.f-item { text-align: center; width: 200px; }
+.f-item h4 { margin-top: 10px; font-weight: bold; }
 
-.feature:hover {
-    transform: translateY(-10px);
-    border-color: gold;
-    box-shadow: 0 10px 30px rgba(255,215,0,0.1);
-}
-
-.feature h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: white;
-}
-
-.feature p {
-    font-size: 14px;
-    color: #999;
-}
-
-/* ================= FOOTER ================= */
+/* --- Footer --- */
 footer {
-    text-align: center;
-    padding: 40px;
+    padding: 50px 5%;
     background: #050505;
-    border-top: 1px solid rgba(255,215,0,0.1);
-    font-size: 14px;
-    color: #555;
+    text-align: center;
+    border-top: 1px solid #222;
 }
 
-/* Responsive Fix */
-@media (max-width: 768px) {
-    .feature { width: 100%; }
-    .hero h1 { font-size: 45px; }
-}
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); }
+.social-links { margin: 20px 0; }
+.social-links a { color: #888; margin: 0 10px; text-decoration: none; }
 </style>
 </head>
-
 <body>
 
-<!-- Navbar -->
 <nav>
-    <h2 class="logo">ITRAURA</h2>
+    <div class="logo">ITRAURA</div>
     <div>
         <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
+        <a href="products.html">Collections</a>
+        <a href="https://wa.me/917618243220">Contact</a>
     </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero">
-    <h1>Experience Pure Luxury</h1>
-    <p>Handcrafted Traditional Attars. No Alcohol, Just the Soul of Nature.</p>
-    <button class="btn" onclick="window.location.href='products.html'">
-        Explore Collection
-    </button>
+    <h1>ITRAURA</h1>
+    <p>The Essence in Every Drop</p>
+    <a href="products.html" class="cta-btn">Shop the Collection</a>
 </section>
 
-<!-- About Section -->
-<section class="about">
-    <h2>Our Essence</h2>
+<!-- International Description -->
+<section class="global-about">
+    <h2>A Legacy Beyond Borders</h2>
     <p>
-        <strong>ItrAura</strong> mein hum sirf perfume nahi, balki ek sadiyon purani virasat (heritage) ko aap tak pahunchate hain. Hamara har ittar (attar) traditional <em>Deg-Bhapka</em> vidhi se banaya jata hai, jisme phoolon ki asliyat ko mehfooz rakha jata hai.
-    </p>
-    <p>
-        Chahe wo <strong>Ruh Gulab</strong> ki mehak ho ya <strong>Sandalwood Oil</strong> ki gehrai, hum guarantee dete hain ki hamara har product 100% alcohol-free aur skin-friendly hai. Hamara maksad hai aapki shaksiyat ko ek nayi aura dena.
+        For centuries, the art of traditional distillation has captured the soul of nature in small glass vials. 
+        At <strong>ItrAura</strong>, we bridge the gap between ancient Indian heritage and modern luxury. 
+        Our attars are handcrafted using the legendary <em>Deg-Bhapka</em> process—100% alcohol-free, 
+        highly concentrated, and designed for those who seek a signature aura that lingers across continents.
+        Whether you are in New York, London, or New Delhi, experience the purity of 100% organic botanical extracts.
     </p>
 </section>
 
-<!-- Features Section -->
+<!-- Category Grid (Images) -->
+<h2 class="section-title">Explore Our World</h2>
+<div class="category-grid">
+    <div class="cat-card" onclick="location.href='products.html'">
+        <img src="https://images.unsplash.com/photo-1616984748474-23730e62558e?auto=format&fit=crop&w=800&q=80" alt="Ruh Collection">
+        <div class="cat-overlay">
+            <h3>Ruh Collection</h3>
+            <p>100% Pure Botanical Steam Distillations</p>
+        </div>
+    </div>
+    <div class="cat-card" onclick="location.href='products.html'">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80" alt="Luxury Blends">
+        <div class="cat-overlay">
+            <h3>Luxury Blends</h3>
+            <p>Complex Mukhallats & Modern Classics</p>
+        </div>
+    </div>
+    <div class="cat-card" onclick="location.href='products.html'">
+        <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=800&q=80" alt="Floral Waters">
+        <div class="cat-overlay">
+            <h3>Floral Waters</h3>
+            <p>Organic Hydrosols & Refreshing Mists</p>
+        </div>
+    </div>
+</div>
+
+<!-- Global Trust Features -->
 <section class="features">
-    <div class="feature">
-        <h3>🌿 100% Organic</h3>
-        <p>Directly distilled from nature's finest petals and woods. No synthetic chemicals.</p>
+    <div class="f-item">
+        <h3>🌍</h3>
+        <h4>Global Shipping</h4>
+        <p>Doorstep delivery worldwide</p>
     </div>
-    <div class="feature">
-        <h3>⏳ Long Lasting</h3>
-        <p>Highly concentrated oil-based fragrances that stay with you for 24+ hours.</p>
+    <div class="f-item">
+        <h3>🌱</h3>
+        <h4>100% Organic</h4>
+        <p>No synthetic chemicals</p>
     </div>
-    <div class="feature">
-        <h3>👑 Royal Heritage</h3>
-        <p>Handcrafted with the same passion as the ancient royals of India.</p>
+    <div class="f-item">
+        <h3>💧</h3>
+        <h4>Alcohol Free</h4>
+        <p>Traditional Oil Based</p>
+    </div>
+    <div class="f-item">
+        <h3>🛡️</h3>
+        <h4>Secure Payment</h4>
+        <p>Safe & Trusted Transactions</p>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
-    © 2026 ItrAura Portal | Pure Essence of Nature <br>
-    Designed for Luxury.
+    <div class="footer-logo">ItrAura</div>
+    <div class="social-links">
+        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a>
+    </div>
+    <p>© 2026 ItrAura Artisanal Perfumery. Crafted in India, Cherished Globally.</p>
 </footer>
 
 </body>
