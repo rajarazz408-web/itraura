@@ -10,7 +10,6 @@
     <style>
         :root {
             --gold: #D4AF37;
-            --soft-gold: #c5a028;
             --black: #0a0a0a;
             --deep-gray: #121212;
             --white: #ffffff;
@@ -31,152 +30,143 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 8%;
-            background: rgba(0,0,0,0.85);
+            padding: 20px 8%;
+            background: rgba(0,0,0,0.9);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 2000;
-            border-bottom: 1px solid rgba(212,175,55,0.15);
-            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
+            font-size: clamp(20px, 4vw, 28px);
             color: var(--gold);
             font-weight: 700;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 40px;
+            margin-left: 30px;
             font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: 0.4s;
+            transition: 0.3s;
         }
 
-        .nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px rgba(212,175,55,0.5); }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* --- Hero Section Fix --- */
-.hero {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    /* Desktop par bottle right mein dikhegi */
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 20%, transparent 100%), 
-                url('Background.png') no-repeat center right/cover; 
-    padding-left: 8%;
-    overflow: hidden;
-}
-        
+        /* --- Hero Section (The Master Fix) --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            /* Desktop par text left mein, Mobile par niche media query handle karegi */
+            justify-content: flex-start; 
+            padding: 0 8%;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.2) 100%), 
+                              url('Background.png');
+            background-size: cover;
+            background-position: center right; /* Bottle desktop par right mein dikhegi */
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
         .hero-content {
             z-index: 10;
-            max-width: 650px;
+            max-width: 600px;
             animation: fadeInUp 1.5s ease-out;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(55px, 8vw, 100px);
+            font-size: clamp(40px, 8vw, 90px);
             color: var(--gold);
             line-height: 1.1;
             margin-bottom: 15px;
-            font-weight: 700;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         .hero-content .tagline {
-            font-size: 18px;
-            letter-spacing: 8px;
+            font-size: clamp(12px, 2.5vw, 18px);
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
+            color: #ddd;
             font-weight: 300;
-            color: #efefef;
         }
 
         .main-btn {
-            padding: 20px 50px;
+            padding: 18px 40px;
             background: transparent;
             border: 1px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
-            font-weight: 600;
             font-size: 13px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: 0.5s;
+            transition: 0.4s;
             display: inline-block;
         }
 
         .main-btn:hover {
             background: var(--gold);
             color: black;
-            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
-            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(212,175,55,0.4);
         }
 
         /* --- Statement Section --- */
         .statement {
-            padding: 120px 15%;
-            background: var(--black);
+            padding: 100px 10%;
             text-align: center;
         }
 
         .statement h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
+            font-size: clamp(28px, 5vw, 42px);
             color: var(--gold);
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .statement p {
-            font-size: 19px;
-            line-height: 2.1;
-            color: #bcbcbc;
-            font-weight: 300;
+            font-size: clamp(16px, 2vw, 19px);
+            line-height: 1.8;
+            color: #aaa;
             font-style: italic;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        /* --- Category Grid (The 3 Series) --- */
-        .section-header {
-            padding: 80px 8% 40px;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 45px;
-            letter-spacing: 2px;
-        }
+        /* --- Category Grid --- */
+        .section-header { padding: 60px 8% 30px; text-align: center; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: white; }
 
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 0 8% 120px;
+            padding: 0 8% 100px;
         }
 
         .cat-box {
             position: relative;
-            height: 550px;
+            height: 500px;
             overflow: hidden;
             cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .cat-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: 1s;
         }
 
         .cat-box:hover img { transform: scale(1.1); }
@@ -184,89 +174,77 @@
         .cat-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 60%);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 45px;
-            transition: 0.4s;
+            padding: 30px;
         }
 
-        .cat-box:hover .cat-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(212,175,55,0.1) 100%); }
-
-        .cat-overlay h3 { font-size: 28px; margin-bottom: 8px; color: var(--gold); font-family: 'Playfair Display', serif; }
-        .cat-overlay p { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #ddd; }
-
-        /* --- Features Section --- */
-        .features-wrap {
-            background: var(--deep-gray);
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            padding: 100px 8%;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .feature-item h3:first-child { font-size: 35px; margin-bottom: 15px; display: block;}
-        .feature-item h3:last-of-type { color: var(--gold); font-size: 18px; letter-spacing: 1px; margin-bottom: 15px; }
-        .feature-item p { font-size: 13px; color: #888; line-height: 1.6; padding: 0 15px; }
+        .cat-overlay h3 { color: var(--gold); font-size: 24px; font-family: 'Playfair Display', serif; }
+        .cat-overlay p { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #ccc; }
 
         /* --- Footer --- */
         footer {
             background: #050505;
-            padding: 100px 8% 50px;
-            border-top: 1px solid #1a1a1a;
+            padding: 80px 8% 40px;
+            border-top: 1px solid #222;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
         }
 
-        .footer-about h4 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 25px; letter-spacing: 2px; }
-        .footer-about p { color: #888; font-size: 15px; line-height: 1.8; }
+        .footer-about h4 { color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+        .footer-about p { color: #777; font-size: 14px; line-height: 1.6; }
 
-        .footer-links h5 { color: white; margin-bottom: 25px; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-links h5 { color: white; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; }
         .footer-links ul { list-style: none; }
-        .footer-links ul li { margin-bottom: 15px; }
-        .footer-links ul li a { color: #888; text-decoration: none; font-size: 14px; transition: 0.3s; }
-        .footer-links ul li a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-links ul li { margin-bottom: 10px; }
+        .footer-links ul li a { color: #666; text-decoration: none; font-size: 13px; transition: 0.3s; }
+        .footer-links ul li a:hover { color: var(--gold); }
 
         .bottom-bar {
             text-align: center;
-            padding-top: 50px;
+            padding-top: 30px;
             border-top: 1px solid #111;
-            font-size: 12px;
-            color: #555;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 11px;
+            color: #444;
+            letter-spacing: 1px;
         }
 
-        /* --- Mobile Responsive --- */
-        @media (max-width: 1000px) {
-    .hero {
-        justify-content: center; 
-        padding-left: 0;
-        text-align: center;
-        /* Mobile Fix: Image center mein aur dark gradient */
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
-                    url('Background.png') no-repeat center center/cover;
-    }
-    .hero-content h1 {
-        font-size: 42px; /* Screenshot mein jo bahar ja raha tha, ab fit aayega */
-        line-height: 1.2;
-    }
-    .hero-content .tagline {
-        font-size: 14px;
-        letter-spacing: 3px;
-    }
-    /* Baaki mobile fixes... */
+        /* --- MOBILE RESPONSIVE FIXES --- */
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; } /* Hide links for clean mobile look */
+            
+            .hero {
+                justify-content: center; /* Center text on mobile */
+                text-align: center;
+                padding: 0 20px;
+                background-position: center center; /* Center bottle on mobile */
+                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                                  url('Background.png');
             }
-    
+
+            .hero-content h1 {
+                font-size: 42px; /* Fixed: Not overflowing anymore */
+                margin-bottom: 10px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+                padding: 0 5% 50px;
+            }
+            
+            .cat-box { height: 400px; }
+        }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -278,7 +256,7 @@
         <div class="nav-links">
             <a href="index.html">The House</a>
             <a href="products.html">Collections</a>
-            <a href="https://wa.me/917618243220">Bespoke Inquiry</a>
+            <a href="https://wa.me/917618243220">WhatsApp</a>
         </div>
     </nav>
 
@@ -286,17 +264,16 @@
         <div class="hero-content">
             <h1>ITRAURA</h1>
             <p class="tagline">The Essence in Every Drop</p>
-            <a href="products.html" class="main-btn">Explore The Collections</a>
+            <a href="products.html" class="main-btn">Explore Collections</a>
         </div>
     </header>
 
     <section class="statement">
         <h2>Handcrafted For The Connoisseur</h2>
         <p>
-            From the ancient distilleries of Kannauj to the luxury markets of the world. 
+            From the ancient copper stills of Kannauj to the global stage. 
             ItrAura represents the pinnacle of alcohol-free, 100% botanical oils. 
-            Each drop is a testament to India's rich heritage, bottled for those 
-            who seek natural purity and unmatched longevity.
+            Bottled for those who seek natural purity and unmatched longevity.
         </p>
     </section>
 
@@ -329,34 +306,11 @@
         </div>
     </section>
 
-    <section class="features-wrap">
-        <div class="feature-item">
-            <h3>🌍</h3>
-            <h3>Global Logistics</h3>
-            <p>Direct shipping from our lab to your doorstep in 45+ countries.</p>
-        </div>
-        <div class="feature-item">
-            <h3>🛡️</h3>
-            <h3>Pure Botanical</h3>
-            <p>100% Alcohol-free, non-synthetic, skin-safe concentrated oils.</p>
-        </div>
-        <div class="feature-item">
-            <h3>⏳</h3>
-            <h3>Eternal Wear</h3>
-            <p>Oils that adapt to your body heat for 12+ hours of sillage.</p>
-        </div>
-        <div class="feature-item">
-            <h3>✨</h3>
-            <h3>Artisanal Method</h3>
-            <p>Extracted using the 400-year-old 'Deg-Bhapka' copper still process.</p>
-        </div>
-    </section>
-
     <footer>
         <div class="footer-grid">
             <div class="footer-about">
                 <h4>ITRAURA</h4>
-                <p>Preserving the soul of Kannauj. We bridge the gap between ancient Indian perfumery and modern global luxury through transparency and botanical excellence.</p>
+                <p>A global perfumery house dedicated to preserving the ancient art of Indian Attars. Purity in every drop.</p>
             </div>
             <div class="footer-links">
                 <h5>Curations</h5>
@@ -364,14 +318,13 @@
                     <li><a href="products.html">Ruh Collection</a></li>
                     <li><a href="products.html">Water Series</a></li>
                     <li><a href="products.html">Premium Blends</a></li>
-                    <li><a href="#">Wholesale Program</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h5>Connect</h5>
+                <h5>Help</h5>
                 <ul>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="https://wa.me/917618243220">WhatsApp Concierge</a></li>
+                    <li><a href="https://wa.me/917618243220">Contact Us</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
                     <li><a href="#">Our Heritage</a></li>
                 </ul>
             </div>
