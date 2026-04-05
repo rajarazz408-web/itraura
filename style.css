@@ -115,17 +115,19 @@ nav a:hover, nav a.active {
   box-shadow: 0 0 30px rgba(255,215,0,0.3);
 }
 
-/* ================= IMAGE ================= */
+/* ================= IMAGE (FIXED FOR FULL VIEW) ================= */
 .product-card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 350px; /* Thodi height badha di hai */
+  object-fit: contain; /* Isse poori photo dikhegi, kategi nahi */
+  background: #000; /* Gap mein black color rahega */
   border-radius: 12px;
   transition: 0.4s;
+  padding: 5px;
 }
 
 .product-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Subtle zoom */
 }
 
 /* ================= TEXT & INFO ================= */
@@ -139,16 +141,16 @@ nav a:hover, nav a.active {
 .info p {
   font-size: 14px;
   color: #ccc;
-  height: 45px;
-  overflow: hidden;
+  min-height: 45px; /* Thoda gap fix kiya */
   padding: 0 10px;
+  margin-bottom: 10px;
 }
 
 .price-tag {
   color: #fff;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 10px 0;
   display: block;
 }
 
@@ -165,6 +167,7 @@ nav a:hover, nav a.active {
   width: 90%;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-top: auto; /* Button hamesha niche rahega */
 }
 
 .btn:hover {
