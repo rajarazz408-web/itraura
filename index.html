@@ -1,642 +1,766 @@
-<!-- ================= ITRAURA ULTRA PREMIUM v4 — PART 1 ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ItrAura | The Royal Essence of Kannauj</title>
 
-<title>ItrAura | Essence in Every Drop</title>
+    <!-- Google Fonts: Luxury Pair -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F1D382;
+            --gold-dark: #996515;
+            --black: #050505;
+            --dark-grey: #121212;
+            --white: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(212, 175, 55, 0.2);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-<style>
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { 
+            background: var(--black); 
+            color: var(--white); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+            selection-background: var(--gold);
+        }
 
-/* ================= ROOT ================= */
-:root{
---gold:#D4AF37;
---gold-soft:#f5e2a0;
---black:#050505;
---dark:#0c0c0c;
---white:#fff;
---gray:#aaa;
---glass:rgba(255,255,255,0.04);
---border:rgba(212,175,55,0.25);
-}
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
 
-/* ================= RESET ================= */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+        /* ULTRA LUXURY LOADER */
+        #loader {
+            position: fixed; inset: 0; background: #000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 10000; transition: 1s ease-in-out;
+        }
+        .loader-logo {
+            font-family: 'Playfair Display';
+            font-size: 3rem; color: var(--gold);
+            letter-spacing: 15px; text-transform: uppercase;
+            animation: pulseGold 2s infinite;
+        }
+        .loader-bar {
+            width: 150px; height: 1px; background: rgba(212,175,55,0.2);
+            margin-top: 20px; position: relative; overflow: hidden;
+        }
+        .loader-progress {
+            position: absolute; width: 0%; height: 100%;
+            background: var(--gold); animation: progress 2.5s forwards;
+        }
 
-body{
-font-family:'Poppins',sans-serif;
-background:var(--black);
-color:var(--white);
-overflow-x:hidden;
-}
+        @keyframes progress { to { width: 100%; } }
+        @keyframes pulseGold { 
+            0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 5px var(--gold)); }
+            50% { opacity: 0.5; transform: scale(0.98); filter: drop-shadow(0 0 20px var(--gold)); }
+        }
 
-/* ================= LOADER ================= */
-#loader{
-position:fixed;
-width:100%;
-height:100vh;
-background:#000;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-}
-#loader h1{
-font-family:'Playfair Display';
-letter-spacing:14px;
-color:var(--gold);
-animation:fade 2s ease;
-}
+        /* HEADER & NAV */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 999;
+            padding: 30px 5%; display: flex; justify-content: space-between;
+            align-items: center; transition: var(--transition);
+        }
+        header.scrolled {
+            padding: 15px 5%; background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .logo {
+            font-family: 'Playfair Display'; font-size: 28px;
+            font-weight: 800; letter-spacing: 4px; color: var(--gold);
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a {
+            text-decoration: none; color: var(--white); font-size: 11px;
+            text-transform: uppercase; letter-spacing: 2px; font-weight: 600;
+            position: relative; transition: 0.3s;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0%; height: 1px; background: var(--gold); transition: 0.4s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--gold); }
 
-@keyframes fade{
-from{opacity:0;transform:scale(0.8);}
-to{opacity:1;transform:scale(1);}
-}
-
-/* ================= HEADER ================= */
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:25px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-transition:0.6s;
-}
-header.scrolled{
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(10px);
-}
-.logo{
-font-family:'Playfair Display';
-font-size:26px;
-letter-spacing:8px;
-color:var(--gold);
-}
-
-.nav{
-display:flex;
-gap:40px;
-}
-.nav a{
-font-size:12px;
-letter-spacing:3px;
-text-transform:uppercase;
-position:relative;
-}
-.nav a::after{
-content:'';
-position:absolute;
-bottom:-5px;
-left:0;
-width:0;
-height:1px;
-background:var(--gold);
-transition:0.4s;
-}
-.nav a:hover::after{width:100%;}
-
-/* ================= HERO ================= */
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-overflow:hidden;
-padding:0 20px;
-}
-
-.hero-bg{
-position:absolute;
-width:100%;
-height:100%;
-background:url('Background.png') center/cover no-repeat;
-animation:zoom 25s infinite alternate;
-z-index:-1;
-}
-
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.3);}
-}
-
-.hero::after{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
-}
-
-.hero-content{
-z-index:2;
-max-width:900px;
-}
-
-.hero-top{
-letter-spacing:6px;
-font-size:12px;
-color:var(--gold);
-margin-bottom:15px;
-}
-
-.hero h1{
-font-family:'Playfair Display';
-font-size:clamp(42px,8vw,110px);
-line-height:1.1;
-margin-bottom:20px;
-}
-
-.hero-sub{
-font-size:14px;
-letter-spacing:4px;
-color:var(--gray);
-margin-bottom:30px;
-}
-
-/* ================= BUTTON ================= */
-.btn{
-display:inline-block;
-padding:18px 45px;
-border:1px solid var(--gold);
-color:var(--gold);
-text-transform:uppercase;
-font-size:12px;
-letter-spacing:3px;
-transition:0.4s;
-}
-.btn:hover{
-background:var(--gold);
-color:#000;
-transform:translateY(-5px);
-}
-
-/* ================= MOBILE HERO FIX ================= */
-@media(max-width:768px){
-.hero h1{font-size:38px;}
-.hero-sub{font-size:12px;}
-.nav{display:none;}
-}
-
-</style>
+        /* MOBILE MENU ICON */
+        .menu-btn { display: none; cursor: pointer; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-btn { display: block; }
+            .loader-logo { font-size: 2rem; letter-spacing: 8px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- LOADER -->
-<div id="loader"><h1>ITRAURA</h1></div>
+<div id="loader">
+    <div class="loader-logo">ItrAura</div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
 
-<!-- HEADER -->
-<header id="header">
-<div class="logo">ITRAURA</div>
-<nav class="nav">
-<a href="#">Home</a>
-<a href="#">Collection</a>
-<a href="#">Heritage</a>
-<a href="#">Contact</a>
-</nav>
+<header id="navbar">
+    <a href="#" class="logo">ITRAURA</a>
+    <nav class="nav-links">
+        <a href="#home">Heritage</a>
+        <a href="#collection">Collection</a>
+        <a href="#process">The Craft</a>
+        <a href="#reviews">Experience</a>
+        <a href="#contact">Consultation</a>
+    </nav>
+    <div class="menu-btn">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M5 8H25M5 15H25M5 22H25" stroke="#D4AF37" stroke-width="2"/>
+        </svg>
+    </div>
 </header>
+   <!-- HERO SECTION START -->
+<section class="hero-wrapper" id="home">
+    <!-- Interactive Canvas for Golden Dust -->
+    <canvas id="heroCanvas"></canvas>
+    
+    <div class="hero-main">
+        <div class="hero-inner">
+            <span class="hero-tag reveal-text">Est. 1610 | Kannauj, India</span>
+            <h1 class="hero-title">
+                <span class="line-1">Scent of</span>
+                <span class="line-2">The Immortals</span>
+            </h1>
+            <p class="hero-description">
+                Experience the world's most expensive attars, distilled in ancient copper vessels. 
+                One drop. Infinite presence. 100% Alcohol-Free.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#collection" class="premium-btn">
+                    <span>Explore The Vault</span>
+                    <div class="btn-shine"></div>
+                </a>
+                <a href="#process" class="secondary-btn">Watch The Craft</a>
+            </div>
+        </div>
+    </div>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-bg"></div>
-
-<div class="hero-content">
-<div class="hero-top">Perfume for the Soul</div>
-
-<h1>1 Drop = All Day Presence</h1>
-
-<div class="hero-sub">
-Luxury attars crafted through traditional Kannauj distillation
-</div>
-
-<a href="#products" class="btn">Shop Luxury Attars</a>
-</div>
-</section>
-<!-- ================= PART 2 START ================= -->
-
-<!-- TRUST STRIP -->
-<section style="padding:60px 20px;background:#0c0c0c;text-align:center;">
-<div class="container grid grid-3">
-
-<div>
-<h3 style="color:var(--gold)">400+ Years Legacy</h3>
-<p>Authentic Kannauj perfumery heritage</p>
-</div>
-
-<div>
-<h3 style="color:var(--gold)">100% Pure</h3>
-<p>No alcohol. No chemicals.</p>
-</div>
-
-<div>
-<h3 style="color:var(--gold)">Copper Distilled</h3>
-<p>Traditional deg bhapka method</p>
-</div>
-
-</div>
+    <!-- Floating Scroll Indicator -->
+    <div class="scroll-down">
+        <div class="mouse"></div>
+        <p>Scroll to Distill</p>
+    </div>
 </section>
 
-<!-- HERO PRODUCT -->
-<section style="padding:100px 20px;" id="products">
-<div class="container grid grid-2">
+<style>
+    /* HERO WRAPPER */
+    .hero-wrapper {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 50%, #151515 0%, #000 100%);
+    }
 
-<div>
-<img src="ruh series.png" alt="">
-</div>
+    #heroCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+    }
 
-<div>
-<h2>Ruh Gulab</h2>
+    .hero-main {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 1000px;
+        padding: 0 20px;
+    }
 
-<p>India’s most luxurious rose attar. One drop lasts all day.</p>
+    /* KINETIC TYPOGRAPHY */
+    .hero-tag {
+        display: block;
+        color: var(--gold);
+        font-size: 14px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-<h3 style="margin:20px 0;">₹2999</h3>
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(3.5rem, 10vw, 8.5rem);
+        line-height: 0.9;
+        font-weight: 900;
+        margin-bottom: 30px;
+        perspective: 1000px;
+    }
 
-<p style="color:#ff4d4d;font-size:13px;">Only 5 bottles left today</p>
+    .hero-title span {
+        display: block;
+        background: linear-gradient(180deg, #FFFFFF 30%, var(--gold-light) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    }
 
-<a href="https://wa.me/917618243220?text=I want to order Ruh Gulab from ItrAura" class="btn">
-Order Now
-</a>
-</div>
+    .hero-description {
+        color: rgba(255,255,255,0.6);
+        font-size: clamp(14px, 2vw, 18px);
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+        letter-spacing: 1px;
+    }
 
-</div>
-</section>
+    /* PREMIUM BUTTONS */
+    .hero-cta-group {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
 
-<!-- PRODUCT GRID -->
-<section style="padding:100px 20px;">
-<div class="container">
+    .premium-btn {
+        position: relative;
+        padding: 22px 50px;
+        background: var(--gold);
+        color: #000;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: var(--transition);
+        border: 1px solid var(--gold);
+    }
 
-<h2 style="text-align:center;">Our Collection</h2>
+    .premium-btn:hover {
+        background: transparent;
+        color: var(--gold);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        transform: scale(1.05);
+    }
 
-<div class="grid grid-4">
+    .btn-shine {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+    }
 
-<!-- Gulab Jal -->
-<div class="card">
-<img src="water series.png">
-<h3>Gulab Jal</h3>
-<p>Pure rose water from Kannauj</p>
-<h4>₹249</h4>
-<a href="https://wa.me/917618243220?text=I want Gulab Jal" class="btn">Buy</a>
-</div>
+    .premium-btn:hover .btn-shine {
+        left: 150%;
+    }
 
-<!-- Ruh Khas -->
-<div class="card">
-<img src="khas.png">
-<h3>Ruh Khas</h3>
-<p>Cooling vetiver attar</p>
-<h4>₹1999</h4>
-<a href="https://wa.me/917618243220?text=I want Ruh Khas" class="btn">Buy</a>
-</div>
+    .secondary-btn {
+        padding: 22px 40px;
+        color: var(--white);
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: var(--transition);
+    }
 
-<!-- Mukhallat -->
-<div class="card">
-<img src="premium series.png">
-<h3>Mukhallat Guldastan</h3>
-<p>Luxury blend attar</p>
-<h4>₹4999</h4>
-<a href="https://wa.me/917618243220?text=I want Mukhallat Guldastan" class="btn">Buy</a>
-</div>
+    .secondary-btn:hover {
+        background: rgba(255,255,255,0.05);
+        border-color: var(--white);
+    }
 
-<!-- Ruh Gulab -->
-<div class="card">
-<img src="ruh series.png">
-<h3>Ruh Gulab</h3>
-<p>Royal rose attar</p>
-<h4>₹2999</h4>
-<a href="https://wa.me/917618243220?text=I want Ruh Gulab" class="btn">Buy</a>
-</div>
+    /* SCROLL INDICATOR */
+    .scroll-down {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        opacity: 0.7;
+    }
 
-</div>
+    .mouse {
+        width: 25px;
+        height: 45px;
+        border: 2px solid var(--gold);
+        border-radius: 20px;
+        position: relative;
+    }
 
-</div>
-</section>
+    .mouse::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 8px;
+        background: var(--gold);
+        border-radius: 2px;
+        animation: scrollAnim 2s infinite;
+    }
 
-<!-- STORY -->
-<section style="padding:100px 20px;text-align:center;">
-<div class="container">
+    @keyframes scrollAnim {
+        0% { opacity: 1; transform: translate(-50%, 0); }
+        100% { opacity: 0; transform: translate(-50%, 20px); }
+    }
 
-<h2>Our Heritage</h2>
-
-<p style="max-width:700px;margin:auto;">
-ItrAura carries forward the ancient Kannauj perfumery tradition.  
-Using copper deg-bhapka distillation, we extract the pure essence of flowers.  
-Through natural evaporation and condensation, each drop becomes timeless luxury.  
-100% purity. 0% alcohol.
-</p>
-
-</div>
-</section>
-
-<!-- REVIEWS -->
-<section style="padding:100px 20px;">
-<div class="container">
-
-<h2 style="text-align:center;">Client Experience</h2>
-
-<div class="grid grid-3">
-
-<div class="card">“Best attar I’ve ever used.”</div>
-<div class="card">“Lasts full day, amazing quality.”</div>
-<div class="card">“Feels royal and premium.”</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section style="padding:100px 20px;text-align:center;">
-<div class="container">
-
-<h2>Order via WhatsApp</h2>
-
-<input type="text" id="name" placeholder="Your Name" style="width:100%;padding:15px;margin:10px 0;">
-<input type="text" id="product" placeholder="Product Name" style="width:100%;padding:15px;margin:10px 0;">
-
-<button onclick="sendWhatsApp()" class="btn">Send Order</button>
-
-</div>
-</section>
-
-<!-- FLOAT BUTTON -->
-<a href="https://wa.me/917618243220" 
-style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;">
-💬
-</a>
-
-<!-- FOOTER -->
-<footer style="padding:60px;text-align:center;background:#000;color:#444;">
-© 2026 ITRAURA • Essence in Every Drop
-</footer>
-
-<!-- ================= PART 2 END ================= -->
-   <!-- ================= PART 3 START ================= -->
+    /* MOBILE OPTIMIZATION FOR HERO */
+    @media (max-width: 768px) {
+        .hero-title { font-size: 3.5rem; }
+        .hero-cta-group { flex-direction: column; width: 100%; }
+        .premium-btn, .secondary-btn { width: 100%; text-align: center; }
+        .hero-description { font-size: 14px; }
+    }
+</style>
 
 <script>
+    // PART 2 JS: GOLDEN DUST ENGINE
+    const canvas = document.getElementById('heroCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-/* ================= LOADER ================= */
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        const loader = document.getElementById("loader");
-        loader.style.opacity = "0";
-        setTimeout(() => loader.style.display = "none", 500);
-    }, 1500);
-});
-
-/* ================= HEADER SCROLL ================= */
-window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 60) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
-});
+    window.addEventListener('resize', resize);
+    resize();
 
-/* ================= SCROLL REVEAL ================= */
-const revealElements = document.querySelectorAll(".card, h2, p");
-
-revealElements.forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(60px)";
-    el.style.transition = "0.8s ease";
-});
-
-function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-
-    revealElements.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+            this.opacity = Math.random() * 0.5 + 0.2;
         }
-    });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-/* ================= WHATSAPP FUNCTION ================= */
-function sendWhatsApp() {
-    let name = document.getElementById("name").value;
-    let product = document.getElementById("product").value;
-
-    if (name === "" || product === "") {
-        alert("Please fill all details");
-        return;
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+            ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
 
-    let message = `Hello, I am ${name}. I want to order ${product} from ItrAura.`;
-
-    let url = "https://wa.me/917618243220?text=" + encodeURIComponent(message);
-
-    window.open(url, "_blank");
-}
-
-/* ================= MAGNETIC BUTTON ================= */
-document.querySelectorAll(".btn").forEach(btn => {
-    btn.addEventListener("mousemove", (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width/2;
-        const y = e.clientY - rect.top - rect.height/2;
-        btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
-    });
-
-    btn.addEventListener("mouseleave", () => {
-        btn.style.transform = "translate(0,0)";
-    });
-});
-
-/* ================= GOLD PARTICLES ================= */
-const canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-
-canvas.style.position = "fixed";
-canvas.style.top = "0";
-canvas.style.left = "0";
-canvas.style.zIndex = "0";
-
-const ctx = canvas.getContext("2d");
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-let particles = [];
-
-for (let i = 0; i < 70; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2,
-        d: Math.random() * 1
-    });
-}
-
-function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "rgba(212,175,55,0.25)";
-    ctx.beginPath();
-
-    particles.forEach(p => {
-        ctx.moveTo(p.x, p.y);
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
-    });
-
-    ctx.fill();
-
-    particles.forEach(p => {
-        p.y += p.d;
-
-        if (p.y > canvas.height) {
-            p.y = 0;
-            p.x = Math.random() * canvas.width;
+    function init() {
+        for (let i = 0; i < 150; i++) {
+            particles.push(new Particle());
         }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+    init();
+    animate();
+
+    // GSAP jaisa text reveal effect (Pure JS)
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.querySelector('.hero-tag').style.opacity = '1';
+            document.querySelector('.hero-tag').style.transform = 'translateY(0)';
+        }, 2000);
     });
-
-    requestAnimationFrame(drawParticles);
-}
-
-drawParticles();
-
-/* ================= HERO TEXT ANIMATION ================= */
-const heroText = document.querySelector(".hero h1");
-
-if (heroText) {
-    heroText.innerHTML = heroText.textContent
-        .split("")
-        .map((char, i) =>
-            `<span style="opacity:0;display:inline-block;animation:fadeUp 0.5s forwards ${i*0.03}s">${char}</span>`
-        )
-        .join("");
-}
-
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fadeUp {
-from {opacity:0; transform:translateY(20px);}
-to {opacity:1; transform:translateY(0);}
-}`;
-document.head.appendChild(style);
-
 </script>
+<!-- HERO SECTION END -->
+<!-- COLLECTION SECTION START -->
+<section class="collection-section" id="collection">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sub-title">The Vault</span>
+            <h2 class="main-title">Signature Attars</h2>
+            <div class="gold-divider"></div>
+        </div>
 
+        <div class="product-grid">
+            <!-- Product 1: Ruh Gulab -->
+            <div class="product-card reveal">
+                <div class="card-inner">
+                    <div class="product-image">
+                        <div class="badge">Limited</div>
+                        <img src="https://via.placeholder.com/400x500/080808/D4AF37?text=RUH+GULAB" alt="Ruh Gulab">
+                        <div class="image-overlay">
+                            <button class="quick-view">View Heritage</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ruh Gulab (1610 Edition)</h3>
+                        <p class="scent-notes">Notes: Damask Rose, Sandalwood, Earth</p>
+                        <div class="price-row">
+                            <span class="price">₹2,999</span>
+                            <span class="size">12ml / 1 Tola</span>
+                        </div>
+                        <a href="https://wa.me/917618243220?text=I+want+to+order+Ruh+Gulab" class="cart-btn">
+                            <span>Reserve Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Ruh Khus -->
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
+                <div class="card-inner">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x500/080808/D4AF37?text=RUH+KHUS" alt="Ruh Khus">
+                        <div class="image-overlay">
+                            <button class="quick-view">View Heritage</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ruh Khus (Wild Vetiver)</h3>
+                        <p class="scent-notes">Notes: Damp Earth, Green Grass, Rain</p>
+                        <div class="price-row">
+                            <span class="price">₹1,999</span>
+                            <span class="size">12ml / 1 Tola</span>
+                        </div>
+                        <a href="#" class="cart-btn"><span>Reserve Now</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Mukhallat -->
+            <div class="product-card reveal" style="transition-delay: 0.4s;">
+                <div class="card-inner">
+                    <div class="product-image">
+                        <div class="badge">Vintage</div>
+                        <img src="https://via.placeholder.com/400x500/080808/D4AF37?text=MUKHALLAT" alt="Mukhallat">
+                        <div class="image-overlay">
+                            <button class="quick-view">View Heritage</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mukhallat Guldastan</h3>
+                        <p class="scent-notes">Notes: Saffron, Oud, White Florals</p>
+                        <div class="price-row">
+                            <span class="price">₹4,999</span>
+                            <span class="size">12ml / 1 Tola</span>
+                        </div>
+                        <a href="#" class="cart-btn"><span>Reserve Now</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE CRAFT (STORY) SECTION -->
+<section class="craft-section" id="process">
+    <div class="craft-container">
+        <div class="craft-content reveal">
+            <h2>The Deg-Bhapka Method</h2>
+            <p>For four centuries, our family has used the same copper stills. No electricity, no modern chemicals—just wood fire, water, and the patience of time. Each bottle takes 15 days to distill, capturing the very soul of the flower.</p>
+            <ul class="craft-features">
+                <li><span>01</span> Hydro-Distilled in Copper</li>
+                <li><span>02</span> Aged in Camel Skin Bags</li>
+                <li><span>03</span> 100% Alcohol & Paraben Free</li>
+            </ul>
+        </div>
+        <div class="craft-visual reveal">
+            <div class="gold-frame"></div>
+            <img src="https://via.placeholder.com/600x800/111/D4AF37?text=Traditional+Distillation" alt="Kannauj Craft">
+        </div>
+    </div>
+</section>
+
+<style>
+    /* COLLECTION STYLES */
+    .collection-section { padding: 150px 0; background: var(--black); }
+    .section-header { text-align: center; margin-bottom: 80px; }
+    .sub-title { color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+    .main-title { font-family: 'Playfair Display'; font-size: clamp(2rem, 5vw, 3.5rem); margin-top: 10px; }
+    .gold-divider { width: 60px; height: 2px; background: var(--gold); margin: 25px auto; }
+
+    /* PRODUCT GRID & CARDS */
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 5%; }
+    .product-card { background: var(--dark-grey); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+    .product-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+    
+    .product-image { position: relative; overflow: hidden; aspect-ratio: 4/5; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; transition: 1s ease; }
+    .product-card:hover img { transform: scale(1.1); filter: brightness(0.7); }
+    
+    .badge { position: absolute; top: 20px; left: 20px; background: var(--gold); color: #000; padding: 5px 15px; font-size: 10px; font-weight: 800; text-transform: uppercase; z-index: 2; }
+    
+    .image-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.5s; }
+    .product-card:hover .image-overlay { opacity: 1; }
+    
+    .quick-view { background: transparent; border: 1px solid var(--white); color: var(--white); padding: 12px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
+
+    .product-info { padding: 30px; text-align: left; }
+    .product-info h3 { font-family: 'Playfair Display'; font-size: 22px; margin-bottom: 10px; color: var(--gold-light); }
+    .scent-notes { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 20px; font-style: italic; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
+    .price { font-size: 20px; font-weight: 600; color: var(--white); }
+    .size { font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+
+    .cart-btn { display: block; width: 100%; padding: 15px; text-align: center; border: 1px solid var(--gold); text-decoration: none; color: var(--gold); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; }
+    .cart-btn:hover { background: var(--gold); color: #000; }
+
+    /* CRAFT SECTION */
+    .craft-section { padding: 150px 5%; display: flex; align-items: center; background: #080808; }
+    .craft-container { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .craft-content h2 { font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 30px; color: var(--gold); }
+    .craft-content p { font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+    .craft-features { list-style: none; }
+    .craft-features li { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+    .craft-features span { color: var(--gold); font-size: 24px; font-family: 'Playfair Display'; }
+
+    .craft-visual { position: relative; }
+    .gold-frame { position: absolute; top: -20px; right: -20px; width: 100%; height: 100%; border: 2px solid var(--gold); z-index: 0; }
+    .craft-visual img { position: relative; width: 100%; z-index: 1; filter: grayscale(0.5); transition: 0.8s; }
+    .craft-visual:hover img { filter: grayscale(0); }
+
+    /* REVEAL ANIMATION CLASS */
+    .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* MOBILE FIXES */
+    @media (max-width: 992px) {
+        .product-grid { grid-template-columns: 1fr 1fr; }
+        .craft-container { grid-template-columns: 1fr; gap: 50px; }
+        .craft-content h2 { font-size: 2.2rem; }
+    }
+    @media (max-width: 600px) {
+        .product-grid { grid-template-columns: 1fr; }
+        .collection-section { padding: 80px 0; }
+        .craft-section { padding: 80px 5%; }
+    }
+</style>
+<!-- TESTIMONIALS: THE ROYAL EXPERIENCE -->
+<section class="experience-section" id="reviews">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="sub-title">Patron Stories</span>
+            <h2 class="main-title">The Scent of Royalty</h2>
+        </div>
+
+        <div class="testimonial-slider reveal">
+            <div class="testimonial-track">
+                <div class="t-card">
+                    <div class="quote-icon">“</div>
+                    <p>"The Ruh Gulab is not just a perfume; it's a memory. It stayed on my blazer for three days. Truly the gold standard of Indian attars."</p>
+                    <div class="t-author">
+                        <span class="t-name">Vikram Aditya</span>
+                        <span class="t-loc">Mumbai, India</span>
+                    </div>
+                </div>
+                <!-- Duplicate for Smooth Loop (JS managed) -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT: THE CONSULTATION -->
+<section class="contact-section" id="contact">
+    <div class="contact-container">
+        <div class="contact-box reveal">
+            <div class="contact-info">
+                <h3>Request a Consultation</h3>
+                <p>Confused which scent defines your aura? Speak to our Master Distiller on WhatsApp for a personalized recommendation.</p>
+                <div class="contact-details">
+                    <div class="detail-item"><span>Address:</span> Old City, Kannauj, UP</div>
+                    <div class="detail-item"><span>Heritage:</span> 400+ Years of Lineage</div>
+                </div>
+            </div>
+            
+            <form id="waForm" class="contact-form">
+                <div class="input-group">
+                    <input type="text" id="waName" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <select id="waProduct">
+                        <option value="General Inquiry">Select Your Interest</option>
+                        <option value="Ruh Gulab">Ruh Gulab (1610 Ed.)</option>
+                        <option value="Ruh Khus">Ruh Khus (Wild Vetiver)</option>
+                        <option value="Mukhallat">Mukhallat Guldastan</option>
+                    </select>
+                </div>
+                <button type="button" onclick="sendPremiumWA()" class="premium-btn" style="width: 100%;">
+                    <span>Begin Conversation</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- EXIT INTENT MODAL -->
+<div id="exitModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-inner">
+            <h2>Wait, Your Majesty!</h2>
+            <p>Get an exclusive 10% First-Order discount on our 'Ruh' Series. Only valid for the next 2 hours.</p>
+            <a href="https://wa.me/917618243220?text=I+want+my+10%+Discount" class="premium-btn">Claim My Offer</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div class="f-col">
+            <h2 class="logo">ITRAURA</h2>
+            <p>Preserving the liquid gold of Kannauj since generations.</p>
+        </div>
+        <div class="f-col">
+            <h4>Navigate</h4>
+            <a href="#home">Heritage</a>
+            <a href="#collection">Collection</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="f-col">
+            <h4>Follow</h4>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 ITRAURA. Handcrafted in India.
+    </div>
+</footer>
+
+<style>
+    /* EXPERIENCE & TESTIMONIALS */
+    .experience-section { padding: 120px 0; background: #050505; text-align: center; }
+    .testimonial-slider { max-width: 800px; margin: 50px auto; overflow: hidden; position: relative; }
+    .t-card { background: var(--dark-grey); padding: 60px 40px; border: 1px solid var(--border); }
+    .quote-icon { font-size: 80px; color: var(--gold); font-family: serif; line-height: 0; margin-bottom: 20px; opacity: 0.3; }
+    .t-card p { font-size: 20px; font-style: italic; line-height: 1.6; color: rgba(255,255,255,0.8); }
+    .t-author { margin-top: 30px; display: flex; flex-direction: column; }
+    .t-name { color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .t-loc { font-size: 12px; color: #666; margin-top: 5px; }
+
+    /* CONTACT SECTION */
+    .contact-section { padding: 100px 5%; background: radial-gradient(circle at top, #111 0%, #000 100%); }
+    .contact-container { max-width: 1000px; margin: 0 auto; }
+    .contact-box { display: grid; grid-template-columns: 1fr 1fr; background: #080808; border: 1px solid var(--border); }
+    .contact-info { padding: 60px; border-right: 1px solid var(--border); }
+    .contact-info h3 { font-family: 'Playfair Display'; font-size: 32px; margin-bottom: 20px; color: var(--gold); }
+    .contact-details { margin-top: 40px; }
+    .detail-item { margin-bottom: 15px; font-size: 14px; color: #888; }
+    .detail-item span { color: var(--gold); font-weight: 600; margin-right: 10px; }
+    
+    .contact-form { padding: 60px; display: flex; flex-direction: column; gap: 20px; }
+    .input-group input, .input-group select { width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #fff; font-family: inherit; }
+    .input-group input:focus { border-color: var(--gold); outline: none; }
+
+    /* MODAL */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
+    .modal-content { background: #080808; border: 2px solid var(--gold); padding: 50px; max-width: 500px; position: relative; text-align: center; }
+    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: var(--gold); }
+
+    /* FOOTER */
+    .main-footer { padding: 100px 5% 40px; background: #000; border-top: 1px solid #111; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1200px; margin-bottom: 60px; }
+    .f-col h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+    .f-col a { display: block; color: #666; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
+    .f-col a:hover { color: var(--gold); padding-left: 5px; }
+    .footer-bottom { border-top: 1px solid #111; padding-top: 30px; text-align: center; color: #444; font-size: 12px; letter-spacing: 2px; }
+
+    /* MOBILE CONTACT */
+    @media (max-width: 768px) {
+        .contact-box { grid-template-columns: 1fr; }
+        .contact-info { border-right: none; border-bottom: 1px solid var(--border); padding: 40px; }
+        .contact-form { padding: 40px; }
+        .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    }
+</style>
+
+<script>
+    /* CORE ENGINE: SCROLL REVEAL */
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* LOADER HIDE */
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('loader').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+            }, 1000);
+        }, 2000);
+    });
+
+    /* WHATSAPP PREMIUM SENDER */
+    function sendPremiumWA() {
+        const name = document.getElementById('waName').value;
+        const product = document.getElementById('waProduct').value;
+        if(!name) return alert("Please enter your name, Majesty.");
+        
+        const text = `Greetings! I am ${name}. I am interested in the heritage collection: ${product}. Let us begin a scent consultation.`;
+        window.open(`https://wa.me/917618243220?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    /* EXIT INTENT LOGIC */
+    let exitTriggered = false;
+    document.addEventListener("mouseleave", (e) => {
+        if (e.clientY < 0 && !exitTriggered) {
+            document.getElementById('exitModal').style.display = 'flex';
+            exitTriggered = true;
+        }
+    });
+
+    function closeModal() {
+        document.getElementById('exitModal').style.display = 'none';
+    }
+
+    /* PARALLAX EFFECT ON MOUSE MOVE (Only Desktop) */
+    if(window.innerWidth > 1024) {
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.product-card');
+            const x = (window.innerWidth / 2 - e.pageX) / 50;
+            const y = (window.innerHeight / 2 - e.pageY) / 50;
+            cards.forEach(card => {
+                card.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+    }
+</script>
 </body>
 </html>
 
-<!-- ================= PART 3 END ================= -->
-<!-- ================= PART 4 START ================= -->
-
-<script>
-
-/* ================= AUTO WHATSAPP MESSAGE SUGGEST ================= */
-const productInputs = document.querySelectorAll(".product-card .btn");
-
-productInputs.forEach(btn=>{
-    btn.addEventListener("click",(e)=>{
-        let productName = btn.parentElement.querySelector("h3").innerText;
-
-        let msg = `Hello, I want to order ${productName} from ItrAura. Please share details.`;
-        let url = "https://wa.me/917618243220?text=" + encodeURIComponent(msg);
-
-        window.open(url, "_blank");
-    });
-});
-
-/* ================= STICKY BUY BAR (MOBILE) ================= */
-const stickyBar = document.createElement("div");
-stickyBar.innerHTML = `
-<div style="
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#000;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:9999;
-border-top:1px solid #333;
-">
-<span style="color:#fff;">Buy Premium Attars</span>
-<a href="https://wa.me/917618243220?text=I want to buy attars from ItrAura"
-style="background:#D4AF37;color:#000;padding:10px 20px;text-decoration:none;">
-Order Now
-</a>
-</div>
-`;
-
-if(window.innerWidth < 768){
-document.body.appendChild(stickyBar);
-}
-
-/* ================= AUTO SCROLL BUTTON ================= */
-const scrollBtn = document.createElement("button");
-scrollBtn.innerText = "↓";
-scrollBtn.style = `
-position:fixed;
-bottom:90px;
-right:20px;
-padding:10px;
-background:#D4AF37;
-border:none;
-cursor:pointer;
-z-index:9999;
-`;
-document.body.appendChild(scrollBtn);
-
-scrollBtn.onclick = ()=>{
-window.scrollTo({
-top:window.innerHeight,
-behavior:"smooth"
-});
-};
-
-/* ================= VIEW COUNTER FAKE (PSYCHOLOGY) ================= */
-let viewers = document.createElement("div");
-viewers.innerText = "23 people viewing this product";
-viewers.style = `
-position:fixed;
-top:80px;
-right:20px;
-background:#111;
-padding:10px;
-font-size:12px;
-z-index:999;
-border:1px solid gold;
-`;
-document.body.appendChild(viewers);
-
-/* ================= RANDOM COUNT CHANGE ================= */
-setInterval(()=>{
-let num = Math.floor(Math.random()*20)+10;
-viewers.innerText = num + " people viewing this product";
-},5000);
-
-/* ================= EXIT INTENT POPUP ================= */
-document.addEventListener("mouseout", function(e){
-if(e.clientY < 0){
-alert("Wait! Get exclusive attar offers on WhatsApp 🔥");
-}
-});
-
-</script>
-
-<!-- ================= PART 4 END ================= -->
