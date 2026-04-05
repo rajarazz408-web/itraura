@@ -3,103 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ItrAura - Premium Luxury Attar</title>
 
-<title>ItrAura - Premium Attar</title>
-
-<!-- Google Verification (jo tera hai wo same rehne dena) -->
+<!-- Google Verification -->
 <meta name="google-site-verification" content="google9b1122a88dc21552" />
 
+<!-- Google Fonts for Premium Look -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body {
+/* ================= GLOBAL SETTINGS ================= */
+* {
     margin: 0;
-    font-family: Arial;
-    background: black;
-    color: gold;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Navbar */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #111, #000);
+    color: gold;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= NAVBAR ================= */
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;
-    background: #111;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid rgba(255,215,0,0.2);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav h2 {
-    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px gold;
 }
 
 nav a {
     color: gold;
     text-decoration: none;
-    margin-left: 15px;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1594035910387-fea47794261f');
-    background-size: cover;
-    background-position: center;
-    color: gold;
-    }
-
-.hero h1 {
-    font-size: 40px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin: 10px 0 20px;
-}
-
-.btn {
-    padding: 12px 25px;
-    background: gold;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* Features */
-.features {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 20px;
-    text-align: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.feature {
-    width: 30%;
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
+    margin-left: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: 0.3s;
 }
 
-.feature:hover {
-    transform: translateY(-5px);
-    background: #1a1a1a;
+nav a:hover {
+    text-shadow: 0 0 8px gold;
 }
 
-/* About */
-.about {
+/* ================= HERO SECTION ================= */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 0 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+    url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid rgba(255,215,0,0.2);
 }
 
-/* Footer */
+.hero h1 {
+    font-size: clamp(40px, 8vw, 70px);
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255,215,0,0.5);
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: clamp(16px, 4vw, 22px);
+    margin-bottom: 30px;
+    color: #eee;
+    max-width: 700px;
+}
+
+.btn {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, gold, #ffcc00);
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(255,215,0,0.4);
+    transition: 0.4s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px gold;
+}
+
+/* ================= ABOUT / DESCRIPTION ================= */
+.about {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.about h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: gold;
+    margin: 10px auto;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* ================= FEATURES ================= */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 5%;
+    flex-wrap: wrap;
+    background: rgba(255,215,0,0.02);
+}
+
+.feature {
+    width: 300px;
+    background: linear-gradient(145deg, #0a0a0a, #151515);
+    padding: 40px 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,215,0,0.1);
+    transition: 0.4s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    border-color: gold;
+    box-shadow: 0 10px 30px rgba(255,215,0,0.1);
+}
+
+.feature h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.feature p {
+    font-size: 14px;
+    color: #999;
+}
+
+/* ================= FOOTER ================= */
 footer {
     text-align: center;
-    padding: 20px;
-    background: #111;
+    padding: 40px;
+    background: #050505;
+    border-top: 1px solid rgba(255,215,0,0.1);
     font-size: 14px;
+    color: #555;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .feature { width: 100%; }
+    .hero h1 { font-size: 45px; }
 }
 </style>
 </head>
@@ -108,50 +202,53 @@ footer {
 
 <!-- Navbar -->
 <nav>
-    <h2>ItrAura</h2>
+    <h2 class="logo">ITRAURA</h2>
     <div>
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
     </div>
 </nav>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <section class="hero">
-    <h1>Luxury Attars</h1>
-    <p>The Essence in Every Drop</p>
+    <h1>Experience Pure Luxury</h1>
+    <p>Handcrafted Traditional Attars. No Alcohol, Just the Soul of Nature.</p>
     <button class="btn" onclick="window.location.href='products.html'">
-        Shop Now
+        Explore Collection
     </button>
 </section>
 
-<!-- Features -->
+<!-- About Section -->
+<section class="about">
+    <h2>Our Essence</h2>
+    <p>
+        <strong>ItrAura</strong> mein hum sirf perfume nahi, balki ek sadiyon purani virasat (heritage) ko aap tak pahunchate hain. Hamara har ittar (attar) traditional <em>Deg-Bhapka</em> vidhi se banaya jata hai, jisme phoolon ki asliyat ko mehfooz rakha jata hai.
+    </p>
+    <p>
+        Chahe wo <strong>Ruh Gulab</strong> ki mehak ho ya <strong>Sandalwood Oil</strong> ki gehrai, hum guarantee dete hain ki hamara har product 100% alcohol-free aur skin-friendly hai. Hamara maksad hai aapki shaksiyat ko ek nayi aura dena.
+    </p>
+</section>
+
+<!-- Features Section -->
 <section class="features">
     <div class="feature">
-        <h3>🌿 Natural</h3>
-        <p>100% Alcohol-Free Attars</p>
+        <h3>🌿 100% Organic</h3>
+        <p>Directly distilled from nature's finest petals and woods. No synthetic chemicals.</p>
     </div>
     <div class="feature">
         <h3>⏳ Long Lasting</h3>
-        <p>Fragrance that stays all day</p>
+        <p>Highly concentrated oil-based fragrances that stay with you for 24+ hours.</p>
     </div>
     <div class="feature">
-        <h3>👑 Premium Quality</h3>
-        <p>Handcrafted with tradition</p>
+        <h3>👑 Royal Heritage</h3>
+        <p>Handcrafted with the same passion as the ancient royals of India.</p>
     </div>
-</section>
-
-<!-- About -->
-<section class="about">
-    <h2>About Us</h2>
-    <p>
-        ItrAura brings premium handcrafted attars made using traditional
-        distillation techniques. Experience luxury in every drop.
-    </p>
 </section>
 
 <!-- Footer -->
 <footer>
-    © 2026 ItrAura. All rights reserved.
+    © 2026 ItrAura Portal | Pure Essence of Nature <br>
+    Designed for Luxury.
 </footer>
 
 </body>
