@@ -2,510 +2,682 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ItrAura | Artisanal Global Perfumery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery from Kannauj to the World.">
+    <title>ItrAura | Artisanal Global Perfumery | Dubai • London • Kannauj</title>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
-        /* --- 1. THEME VARIABLES --- */
+        /* -----------------------------------------------------------
+           1. CSS VARIABLES & ROOT SETTINGS
+        ----------------------------------------------------------- */
         :root {
             --gold: #D4AF37;
-            --light-gold: #F1D57A;
+            --soft-gold: #f1d57a;
             --deep-gold: #996515;
             --black: #050505;
             --dark-gray: #111111;
+            --light-gray: #a0a0a0;
             --white: #ffffff;
-            --text-gray: #a0a0a0;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --glass: rgba(255, 255, 255, 0.03);
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --cubic: cubic-bezier(0.7, 0, 0.3, 1);
+            --transition-slow: all 0.8s var(--cubic);
+            --transition-fast: all 0.3s ease;
         }
 
-        /* --- 2. GLOBAL RESET --- */
+        /* -----------------------------------------------------------
+           2. GLOBAL RESET & SCROLLBAR
+        ----------------------------------------------------------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* For Custom Cursor */
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         body {
             background-color: var(--black);
             color: var(--white);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
-        /* --- 3. CUSTOM CURSOR --- */
-        #cursor {
-            width: 20px;
-            height: 20px;
+        a { text-decoration: none; color: inherit; cursor: pointer; }
+        ul { list-style: none; }
+
+        /* -----------------------------------------------------------
+           3. CUSTOM MOUSE CURSOR (DESKTOP ONLY)
+        ----------------------------------------------------------- */
+        #cursor-follower {
+            position: fixed;
+            width: 30px;
+            height: 30px;
             border: 1px solid var(--gold);
             border-radius: 50%;
-            position: fixed;
             pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease-out;
+            z-index: 10000;
+            transition: transform 0.15s ease-out, background 0.3s ease;
+            transform: translate(-50%, -50%);
         }
 
-        #cursor-blur {
-            width: 200px;
-            height: 200px;
-            background: rgba(212, 175, 55, 0.05);
-            filter: blur(80px);
+        #cursor-dot {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
             border-radius: 50%;
-            position: fixed;
             pointer-events: none;
-            z-index: 9998;
+            z-index: 10001;
+            transform: translate(-50%, -50%);
         }
 
-        /* --- 4. NAVIGATION --- */
-        nav {
+        @media (max-width: 1024px) {
+            #cursor-follower, #cursor-dot { display: none; }
+            * { cursor: auto !important; }
+        }
+
+        /* -----------------------------------------------------------
+           4. NAVIGATION (PREMIUM HEADER)
+        ----------------------------------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 40px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 8%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
+            z-index: 2000;
+            transition: var(--transition-slow);
         }
 
-        nav.scrolled {
-            padding: 15px 8%;
+        header.scrolled {
+            padding: 20px 8%;
             background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid var(--border-gold);
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            color: var(--gold);
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: 6px;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 8px;
+            color: var(--gold);
             text-transform: uppercase;
             position: relative;
-            transition: var(--transition);
         }
 
-        .nav-links a::after {
+        .nav-menu { display: flex; gap: 40px; }
+        .nav-item {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition-fast);
+        }
+
+        .nav-item::after {
             content: '';
             position: absolute;
+            bottom: 0;
+            left: 0;
             width: 0;
             height: 1px;
-            bottom: -5px;
-            left: 0;
             background: var(--gold);
-            transition: var(--transition);
+            transition: var(--transition-slow);
         }
 
-        .nav-links a:hover::after { width: 100%; }
+        .nav-item:hover { color: var(--gold); }
+        .nav-item:hover::after { width: 100%; }
 
-        /* Mobile Menu Icon */
-        .menu-btn {
+        /* Mobile Burger */
+        .burger {
             display: none;
-            font-size: 24px;
-            color: var(--gold);
+            cursor: pointer;
+            z-index: 3000;
         }
 
-        /* --- 5. HERO SECTION --- */
+        .burger div {
+            width: 25px;
+            height: 2px;
+            background: var(--gold);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* -----------------------------------------------------------
+           5. MOBILE OVERLAY MENU
+        ----------------------------------------------------------- */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--black);
+            z-index: 2500;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: var(--transition-slow);
+        }
+
+        .mobile-overlay.open { transform: translateY(0); }
+
+        .mobile-overlay a {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin: 20px 0;
+            color: var(--white);
+            transition: var(--transition-fast);
+        }
+
+        .mobile-overlay a:hover { color: var(--gold); transform: italic; }
+
+        /* -----------------------------------------------------------
+           6. HERO SECTION (THE MASTERPIECE)
+        ----------------------------------------------------------- */
         .hero {
             height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 0 5%;
         }
 
-        .hero-bg {
+        .hero-video-wrap {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('Background.png');
-            background-size: cover;
-            background-position: center;
-            animation: slowZoom 20s infinite alternate;
             z-index: -1;
         }
 
-        @keyframes slowZoom {
+        .hero-video-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), rgba(5,5,5,0.9));
+        }
+
+        .hero-img-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenBurns 20s infinite alternate;
+        }
+
+        @keyframes kenBurns {
             from { transform: scale(1); }
-            to { transform: scale(1.1); }
+            to { transform: scale(1.2); }
         }
 
-        .hero-content {
-            z-index: 10;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.5s forwards 0.5s;
-        }
-
+        .hero-content { z-index: 10; max-width: 1000px; }
         .hero-content .pre-title {
             font-size: 14px;
-            letter-spacing: 8px;
+            letter-spacing: 10px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: block;
+            animation: fadeInDown 1.5s ease;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(50px, 10vw, 120px);
-            line-height: 1;
-            margin-bottom: 30px;
+            font-size: clamp(50px, 10vw, 130px);
             font-weight: 400;
+            line-height: 1;
+            margin-bottom: 40px;
             font-style: italic;
+            animation: fadeInUp 1.5s ease;
         }
 
-        .cta-group {
+        /* Premium Buttons */
+        .btn-wrap {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
-            margin-top: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 2s ease;
         }
 
-        .btn-premium {
-            padding: 18px 45px;
+        .btn-main {
+            padding: 20px 50px;
             border: 1px solid var(--gold);
-            text-decoration: none;
-            color: var(--gold);
             text-transform: uppercase;
             font-size: 11px;
-            letter-spacing: 3px;
-            transition: var(--transition);
+            letter-spacing: 4px;
+            font-weight: 600;
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            color: var(--gold);
+        }
+
+        .btn-main.filled { background: var(--gold); color: var(--black); }
+        .btn-main:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+            color: var(--white);
             background: transparent;
         }
 
-        .btn-premium:hover {
-            background: var(--gold);
-            color: black;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-        }
-
-        /* --- 6. STORY SECTION --- */
-        .story {
-            padding: 150px 10%;
+        /* -----------------------------------------------------------
+           7. BRAND STORY (LAYOUT FIX)
+        ----------------------------------------------------------- */
+        .story-sec {
+            padding: 180px 10%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 100px;
             align-items: center;
         }
 
-        .story-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 45px;
-            color: var(--gold);
-            margin-bottom: 30px;
-        }
-
-        .story-text p {
-            font-size: 18px;
-            color: var(--text-gray);
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-
-        .story-img {
+        .story-visual {
             position: relative;
-            height: 500px;
-            border: 1px solid var(--gold);
+            padding: 30px;
         }
 
-        .story-img img {
+        .story-visual img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            border: 1px solid var(--gold);
+            transition: var(--transition-slow);
+        }
+
+        .story-visual::before {
+            content: '';
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            border-top: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
         }
 
-        /* --- 7. COLLECTIONS GRID --- */
-        .section-header {
-            text-align: center;
-            padding: 100px 0 50px;
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            color: var(--gold);
+            margin-bottom: 35px;
+            line-height: 1.2;
         }
 
-        .section-header span { color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-size: 12px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-top: 10px; }
+        .story-content p {
+            font-size: 18px;
+            color: var(--light-gray);
+            margin-bottom: 30px;
+            font-weight: 200;
+        }
 
-        .collection-grid {
+        /* -----------------------------------------------------------
+           8. COLLECTION CARDS (INTERACTIVE)
+        ----------------------------------------------------------- */
+        .section-header { text-align: center; padding: 100px 0 80px; }
+        .section-header h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 45px; 
+            letter-spacing: 2px;
+        }
+
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            padding: 0 8% 100px;
-            gap: 30px;
+            gap: 40px;
+            padding: 0 8% 150px;
         }
 
-        .product-card {
+        .card-item {
+            height: 650px;
             position: relative;
-            height: 600px;
             overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition-slow);
         }
 
-        .product-card img {
+        .card-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.5s ease;
+            transition: transform 2s var(--cubic);
         }
 
-        .product-info {
+        .card-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 40px;
-            background: linear-gradient(to top, black, transparent);
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 50px;
+            opacity: 0.9;
+            transition: var(--transition-slow);
+        }
+
+        .card-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .card-overlay p {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            color: var(--white);
+        }
+
+        .card-item:hover img { transform: scale(1.15); }
+        .card-item:hover { border-color: var(--gold); }
+
+        /* -----------------------------------------------------------
+           9. FEATURES (THE GOLD BOXES)
+        ----------------------------------------------------------- */
+        .features-wrap {
+            background: var(--dark-gray);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 100px 8%;
+            gap: 40px;
             text-align: center;
-            transform: translateY(20px);
-            transition: var(--transition);
         }
 
-        .product-card:hover img { transform: scale(1.1); }
-        .product-card:hover .product-info { transform: translateY(0); }
+        .f-card {
+            padding: 50px 30px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition-fast);
+        }
 
-        .product-info h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); }
-        .product-info p { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+        .f-card:hover { background: rgba(212, 175, 55, 0.05); border-color: var(--gold); }
+        .f-card i { font-size: 40px; color: var(--gold); margin-bottom: 30px; }
+        .f-card h4 { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+        .f-card p { font-size: 13px; color: var(--light-gray); }
 
-        /* --- 8. FOOTER --- */
+        /* -----------------------------------------------------------
+           10. PREMIUM FOOTER
+        ----------------------------------------------------------- */
         footer {
-            padding: 100px 8% 50px;
             background: #000;
-            border-top: 1px solid #111;
+            padding: 120px 8% 50px;
+            border-top: 1px solid #1a1a1a;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 50px;
-            margin-bottom: 80px;
+            gap: 80px;
+            margin-bottom: 100px;
         }
 
-        .footer-col h4 { color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 25px; font-size: 24px; }
-        .footer-col p { color: var(--text-gray); font-size: 14px; margin-bottom: 20px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: var(--text-gray); text-decoration: none; font-size: 14px; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-brand h4 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; }
+        .footer-brand p { color: var(--light-gray); max-width: 400px; }
+
+        .footer-links h5 { font-size: 13px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 35px; color: var(--white); }
+        .footer-links ul li { margin-bottom: 18px; }
+        .footer-links ul li a { color: var(--light-gray); font-size: 14px; transition: 0.3s; }
+        .footer-links ul li a:hover { color: var(--gold); padding-left: 10px; }
 
         .newsletter input {
+            width: 100%;
             background: transparent;
             border: none;
-            border-bottom: 1px solid var(--gold);
-            padding: 10px 0;
-            width: 100%;
-            color: white;
+            border-bottom: 1px solid var(--border-gold);
+            padding: 15px 0;
+            color: var(--white);
             margin-bottom: 20px;
-            outline: none;
         }
 
-        /* --- 9. ANIMATIONS & REVEAL --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out;
+        .footer-bottom {
+            text-align: center;
+            padding-top: 50px;
+            border-top: 1px solid #111;
+            font-size: 11px;
+            color: #444;
+            letter-spacing: 3px;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* -----------------------------------------------------------
+           11. SCROLL REVEAL ANIMATION
+        ----------------------------------------------------------- */
+        .reveal { opacity: 0; transform: translateY(60px); transition: 1.2s var(--cubic); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- 10. RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            .story { grid-template-columns: 1fr; text-align: center; }
-            .collection-grid { grid-template-columns: 1fr 1fr; }
-            .footer-content { grid-template-columns: 1fr 1fr; }
+        /* -----------------------------------------------------------
+           12. MOBILE OPTIMIZATION (THE ULTIMATE FIX)
+        ----------------------------------------------------------- */
+        @media (max-width: 1200px) {
+            .grid-container { grid-template-columns: 1fr 1fr; }
+            .features-wrap { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .menu-btn { display: block; }
-            .hero-content h1 { font-size: 60px; }
-            .collection-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            * { cursor: auto !important; }
-            #cursor, #cursor-blur { display: none; }
+            header { padding: 25px 5%; }
+            .nav-menu { display: none; }
+            .burger { display: block; }
+
+            .hero { text-align: center; }
+            .btn-wrap { flex-direction: column; width: 100%; }
+            .btn-main { width: 100%; padding: 18px 30px; }
+
+            .story-sec { grid-template-columns: 1fr; padding: 100px 5%; gap: 60px; text-align: center; }
+            .story-visual { order: 2; }
+            .story-content { order: 1; }
+            .story-content h2 { font-size: 38px; }
+
+            .grid-container { grid-template-columns: 1fr; padding: 0 5% 100px; gap: 30px; }
+            .card-item { height: 500px; }
+            
+            .features-wrap { grid-template-columns: 1fr; padding: 80px 5%; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
+            .footer-brand p { margin: 0 auto; }
         }
+
     </style>
 </head>
 <body>
 
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
-    <div id="cursor-blur"></div>
+    <div id="cursor-follower"></div>
+    <div id="cursor-dot"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo">ITRAURA</a>
-        <ul class="nav-links">
-            <li><a href="#">The House</a></li>
-            <li><a href="#">Collections</a></li>
-            <li><a href="#">Heritage</a></li>
-            <li><a href="#">Concierge</a></li>
-        </ul>
-        <div class="menu-btn"><i class="fas fa-bars"></i></div>
-    </nav>
+    <header id="header">
+        <a href="index.html" class="logo">ITRAURA</a>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-item">The House</a>
+            <a href="products.html" class="nav-item">Collections</a>
+            <a href="https://wa.me/917618243220" class="nav-item">Concierge</a>
+        </nav>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </header>
 
-    <!-- Hero Section -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <a href="index.html">The House</a>
+        <a href="products.html">Collections</a>
+        <a href="https://wa.me/917618243220">Concierge</a>
+    </div>
+
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-video-wrap">
+            <img src="Background.png" alt="ItrAura Hero" class="hero-img-bg">
+        </div>
         <div class="hero-content">
-            <span class="pre-title">Kannauj • Dubai • London</span>
-            <h1>The Soul of Flora</h1>
-            <div class="cta-group">
-                <a href="#" class="btn-premium">Explore Collection</a>
-                <a href="#" class="btn-premium" style="background: var(--gold); color: black;">Our Story</a>
+            <span class="pre-title">Artisanal Botanical Perfumery</span>
+            <h1>Perfume for the Soul</h1>
+            <div class="btn-wrap">
+                <a href="products.html" class="btn-main filled">Explore Boutique</a>
+                <a href="https://wa.me/917618243220" class="btn-main">Private Consultation</a>
             </div>
         </div>
     </section>
 
-    <!-- Story Section -->
-    <section class="story reveal">
-        <div class="story-img">
-            <img src="Background.png" alt="Heritage Image">
+    <section class="story-sec reveal">
+        <div class="story-visual">
+            <img src="Background.png" alt="Handcrafted Perfumery">
         </div>
-        <div class="story-text">
-            <h2>Crafting Scented Poetry</h2>
-            <p>Every bottle of ItrAura is a journey through time. We use the traditional 'Deg-Bhapka' method to extract pure oils, ensuring that not a single drop of alcohol or synthetic chemical touches your skin.</p>
-            <p>It’s not just perfume; it’s an invisible heirloom.</p>
-            <a href="#" class="btn-premium">Discover Heritage</a>
+        <div class="story-content">
+            <h2>Inherited Fragrance, Crafted for Today.</h2>
+            <p>From the ancient steam-distilled oils of Kannauj to the modern world's high-end boutiques, ItrAura is a bridge between centuries.</p>
+            <p>Our oils contain zero synthetics and zero alcohol. Pure nature, captured in artisanal glass.</p>
+            <a href="#" class="btn-main" style="display:inline-block; margin-top:20px;">Our Heritage</a>
         </div>
     </section>
 
-    <!-- Signature Series -->
-    <section class="section-header reveal">
-        <span>Curated Selection</span>
+    <div class="section-header reveal">
         <h2>The Signature Series</h2>
-    </section>
-
-    <section class="collection-grid">
-        <!-- Card 1 -->
-        <div class="product-card reveal">
-            <img src="ruh series.png" alt="Ruh Series">
-            <div class="product-info">
-                <p>Pure Oil</p>
-                <h3>The Ruh Series</h3>
-                <a href="#" class="btn-premium" style="padding: 10px 20px; font-size: 9px; margin-top: 15px;">View More</a>
+    </div>
+    <section class="grid-container">
+        <a href="products.html" class="card-item reveal">
+            <img src="ruh series.png" alt="Ruh Collection">
+            <div class="card-overlay">
+                <p>Distilled Heritage</p>
+                <h3>Ruh Series</h3>
             </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="product-card reveal">
-            <img src="water series.png" alt="Water Series">
-            <div class="product-info">
-                <p>Artisanal</p>
-                <h3>Hydrosol Water</h3>
-                <a href="#" class="btn-premium" style="padding: 10px 20px; font-size: 9px; margin-top: 15px;">View More</a>
+        </a>
+        <a href="products.html" class="card-item reveal">
+            <img src="water series.png" alt="Water Collection">
+            <div class="card-overlay">
+                <p>Pure Hydrosols</p>
+                <h3>Water Series</h3>
             </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="product-card reveal">
-            <img src="premium series.png" alt="Premium Series">
-            <div class="product-info">
+        </a>
+        <a href="products.html" class="card-item reveal">
+            <img src="premium series.png" alt="Premium Collection">
+            <div class="card-overlay">
                 <p>Luxury Blends</p>
                 <h3>Premium Series</h3>
-                <a href="#" class="btn-premium" style="padding: 10px 20px; font-size: 9px; margin-top: 15px;">View More</a>
             </div>
+        </a>
+    </section>
+
+    <section class="features-wrap reveal">
+        <div class="f-card">
+            <i class="fas fa-gem"></i>
+            <h4>Bespoke Luxury</h4>
+            <p>Every scent is hand-curated and packed with clinical precision.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-seedling"></i>
+            <h4>100% Botanical</h4>
+            <p>No chemicals. No synthetics. Just the soul of the plant.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-earth-gold"></i>
+            <h4>Global Reach</h4>
+            <p>Exporting luxury to over 45 countries worldwide.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-scroll"></i>
+            <h4>Heritage Method</h4>
+            <p>Distilled using the 400-year-old copper deg method.</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-col">
+        <div class="footer-grid">
+            <div class="footer-brand">
                 <h4>ITRAURA</h4>
-                <p>Preserving the ancient art of Indian perfumery for the modern connoisseur. Experience the pinnacle of botanical luxury.</p>
+                <p>The bridge between ancient Indian heritage and modern global luxury. Experience the pinnacle of fragrance.</p>
+            </div>
+            <div class="footer-links">
+                <h5>The House</h5>
+                <ul>
+                    <li><a href="#">The Studio</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Ethics</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Client Care</h5>
+                <ul>
+                    <li><a href="https://wa.me/917618243220">Contact Us</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Private Bespoke</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Stay Inspired</h5>
                 <div class="newsletter">
-                    <input type="email" placeholder="JOIN THE INNER CIRCLE">
+                    <input type="email" placeholder="YOUR EMAIL ADDRESS">
                 </div>
-            </div>
-            <div class="footer-col">
-                <ul style="margin-top: 50px;">
-                    <li><a href="#">The House</a></li>
-                    <li><a href="#">Process</a></li>
-                    <li><a href="#">Ingredients</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <ul style="margin-top: 50px;">
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>Flagship Studio: Kannauj, UP<br>Global Concierge: +91 76182 43220</p>
-                <div style="display:flex; gap: 20px; font-size: 18px; color: var(--gold);">
+                <div style="display:flex; gap:20px; font-size:20px; color:var(--gold);">
                     <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </div>
-        <div style="text-align:center; color: #444; font-size: 10px; letter-spacing: 2px;">
-            © 2026 ITRAURA ARTISANAL PERFUMERY | HANDCRAFTED IN INDIA
+        <div class="footer-bottom">
+            © 2026 ITRAURA ARTISANAL PERFUMERY | DUBAI | LONDON | KANNAUJ
         </div>
     </footer>
 
-    <!-- JavaScript for Premium Effects -->
     <script>
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        const blur = document.getElementById('cursor-blur');
-        
+        // 1. Custom Cursor Logic
+        const dot = document.getElementById('cursor-dot');
+        const circle = document.getElementById('cursor-follower');
+
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX - 10 + 'px';
-            cursor.style.top = e.clientY - 10 + 'px';
-            blur.style.left = e.clientX - 100 + 'px';
-            blur.style.top = e.clientY - 100 + 'px';
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+            
+            // Adding a small delay for the follower
+            setTimeout(() => {
+                circle.style.left = e.clientX + 'px';
+                circle.style.top = e.clientY + 'px';
+            }, 50);
         });
 
-        // Navbar Scroll Effect
+        // 2. Navigation Scroll Effect
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if(window.scrollY > 50) {
-                nav.classList.add('scrolled');
+            const header = document.getElementById('header');
+            if(window.scrollY > 100) {
+                header.classList.add('scrolled');
             } else {
-                nav.classList.remove('scrolled');
+                header.classList.remove('scrolled');
             }
         });
 
-        // Reveal on Scroll
+        // 3. Mobile Menu Toggle
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('mobile-overlay');
+
+        burger.addEventListener('click', () => {
+            overlay.classList.toggle('open');
+            // Animate Burger Lines
+            burger.classList.toggle('toggle');
+        });
+
+        // 4. Reveal Animation on Scroll
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -519,17 +691,21 @@
         }
         window.addEventListener("scroll", reveal);
 
-        // Hover Effect for Cursor
-        document.querySelectorAll('.btn-premium, .product-card, .logo, a').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(3)';
-                cursor.style.background = 'rgba(212, 175, 55, 0.2)';
+        // Hover animations for cursor
+        document.querySelectorAll('a, .btn-main, .card-item').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                circle.style.transform = 'translate(-50%, -50%) scale(2)';
+                circle.style.background = 'rgba(212, 175, 55, 0.1)';
             });
-            item.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.background = 'transparent';
+            link.addEventListener('mouseleave', () => {
+                circle.style.transform = 'translate(-50%, -50%) scale(1)';
+                circle.style.background = 'transparent';
             });
         });
+
+        // Trigger reveal on load
+        window.onload = reveal;
     </script>
+
 </body>
 </html>
