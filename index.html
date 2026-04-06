@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery from Kannauj to the World.">
-    <title>ItrAura | Artisanal Global Perfumery | Dubai • London • Kannauj</title>
+    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery. Traditional copper deg distillation, 0% alcohol, 100% purity. Experience the essence of Kannauj.">
+    <title>ItrAura | Essence in Every Drop | Dubai • London • Kannauj</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
+    
     <style>
         /* -----------------------------------------------------------
            1. CSS VARIABLES & ROOT SETTINGS
@@ -39,7 +39,6 @@
             outline: none;
             -webkit-tap-highlight-color: transparent;
         }
-
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--black); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
@@ -52,12 +51,11 @@
             line-height: 1.7;
             font-weight: 300;
         }
-
         a { text-decoration: none; color: inherit; cursor: pointer; }
         ul { list-style: none; }
 
         /* -----------------------------------------------------------
-           3. CUSTOM MOUSE CURSOR (DESKTOP ONLY)
+           3. CUSTOM MOUSE CURSOR
         ----------------------------------------------------------- */
         #cursor-follower {
             position: fixed;
@@ -67,10 +65,9 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 10000;
-            transition: transform 0.15s ease-out, background 0.3s ease;
+            transition: transform 0.2s ease, left 0.1s ease-out, top 0.1s ease-out;
             transform: translate(-50%, -50%);
         }
-
         #cursor-dot {
             position: fixed;
             width: 4px;
@@ -81,14 +78,13 @@
             z-index: 10001;
             transform: translate(-50%, -50%);
         }
-
         @media (max-width: 1024px) {
             #cursor-follower, #cursor-dot { display: none; }
             * { cursor: auto !important; }
         }
 
         /* -----------------------------------------------------------
-           4. NAVIGATION (PREMIUM HEADER)
+           4. NAVIGATION
         ----------------------------------------------------------- */
         header {
             position: fixed;
@@ -101,14 +97,12 @@
             z-index: 2000;
             transition: var(--transition-slow);
         }
-
         header.scrolled {
             padding: 20px 8%;
             background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-gold);
         }
-
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -116,9 +110,7 @@
             letter-spacing: 8px;
             color: var(--gold);
             text-transform: uppercase;
-            position: relative;
         }
-
         .nav-menu { display: flex; gap: 40px; }
         .nav-item {
             font-size: 11px;
@@ -129,7 +121,6 @@
             padding: 5px 0;
             transition: var(--transition-fast);
         }
-
         .nav-item::after {
             content: '';
             position: absolute;
@@ -140,34 +131,20 @@
             background: var(--gold);
             transition: var(--transition-slow);
         }
-
         .nav-item:hover { color: var(--gold); }
         .nav-item:hover::after { width: 100%; }
 
-        /* Mobile Burger */
-        .burger {
-            display: none;
-            cursor: pointer;
-            z-index: 3000;
-        }
+        .burger { display: none; cursor: pointer; z-index: 3000; }
+        .burger div { width: 25px; height: 2px; background: var(--gold); margin: 5px; transition: all 0.3s ease; }
+        
+        /* Burger Animation to X */
+        .burger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+        .burger.toggle .line2 { opacity: 0; }
+        .burger.toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
 
-        .burger div {
-            width: 25px;
-            height: 2px;
-            background: var(--gold);
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* -----------------------------------------------------------
-           5. MOBILE OVERLAY MENU
-        ----------------------------------------------------------- */
         .mobile-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
+            inset: 0;
             background: var(--black);
             z-index: 2500;
             display: flex;
@@ -177,21 +154,16 @@
             transform: translateY(-100%);
             transition: var(--transition-slow);
         }
-
         .mobile-overlay.open { transform: translateY(0); }
-
         .mobile-overlay a {
             font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            margin: 20px 0;
+            font-size: 36px;
+            margin: 15px 0;
             color: var(--white);
-            transition: var(--transition-fast);
         }
 
-        .mobile-overlay a:hover { color: var(--gold); transform: italic; }
-
         /* -----------------------------------------------------------
-           6. HERO SECTION (THE MASTERPIECE)
+           6. HERO SECTION (Updated Tagline)
         ----------------------------------------------------------- */
         .hero {
             height: 100vh;
@@ -204,78 +176,51 @@
             overflow: hidden;
             padding: 0 5%;
         }
-
-        .hero-video-wrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
+        .hero-video-wrap { position: absolute; inset: 0; z-index: -1; }
         .hero-video-wrap::after {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(to bottom, rgba(5,5,5,0.4), rgba(5,5,5,0.9));
         }
-
         .hero-img-bg {
             width: 100%;
             height: 100%;
             object-fit: cover;
             animation: kenBurns 20s infinite alternate;
         }
-
-        @keyframes kenBurns {
-            from { transform: scale(1); }
-            to { transform: scale(1.2); }
-        }
+        @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.15); } }
 
         .hero-content { z-index: 10; max-width: 1000px; }
         .hero-content .pre-title {
             font-size: 14px;
-            letter-spacing: 10px;
+            letter-spacing: 12px;
             text-transform: uppercase;
             color: var(--gold);
             margin-bottom: 25px;
             display: block;
             animation: fadeInDown 1.5s ease;
         }
-
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(50px, 10vw, 130px);
+            font-size: clamp(45px, 8vw, 115px);
             font-weight: 400;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 40px;
             font-style: italic;
             animation: fadeInUp 1.5s ease;
         }
-
-        /* Premium Buttons */
-        .btn-wrap {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 2s ease;
-        }
-
         .btn-main {
-            padding: 20px 50px;
+            padding: 18px 45px;
             border: 1px solid var(--gold);
             text-transform: uppercase;
             font-size: 11px;
             letter-spacing: 4px;
             font-weight: 600;
             transition: var(--transition-slow);
-            position: relative;
-            overflow: hidden;
             color: var(--gold);
+            display: inline-block;
         }
-
         .btn-main.filled { background: var(--gold); color: var(--black); }
         .btn-main:hover {
             transform: translateY(-5px);
@@ -285,220 +230,80 @@
         }
 
         /* -----------------------------------------------------------
-           7. BRAND STORY (LAYOUT FIX)
+           7. BRAND STORY (Updated Description & Purity Focus)
         ----------------------------------------------------------- */
-        .story-sec {
-            padding: 180px 10%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: center;
-        }
-
-        .story-visual {
-            position: relative;
-            padding: 30px;
-        }
-
-        .story-visual img {
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--gold);
-            transition: var(--transition-slow);
-        }
-
+        .story-sec { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .story-visual { position: relative; padding: 30px; }
+        .story-visual img { width: 100%; border: 1px solid var(--gold); transition: var(--transition-slow); }
         .story-visual::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100px;
-            border-top: 2px solid var(--gold);
-            border-left: 2px solid var(--gold);
+            content: ''; position: absolute; top: 0; left: 0; width: 100px; height: 100px;
+            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
         }
-
-        .story-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 50px;
-            color: var(--gold);
-            margin-bottom: 35px;
-            line-height: 1.2;
-        }
-
-        .story-content p {
-            font-size: 18px;
-            color: var(--light-gray);
-            margin-bottom: 30px;
-            font-weight: 200;
-        }
+        .story-content h2 { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--gold); margin-bottom: 35px; line-height: 1.2; }
+        .story-content p { font-size: 17px; color: var(--light-gray); margin-bottom: 25px; font-weight: 300; }
 
         /* -----------------------------------------------------------
-           8. COLLECTION CARDS (INTERACTIVE)
+           8. COLLECTION CARDS
         ----------------------------------------------------------- */
         .section-header { text-align: center; padding: 100px 0 80px; }
-        .section-header h2 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 45px; 
-            letter-spacing: 2px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            padding: 0 8% 150px;
-        }
-
-        .card-item {
-            height: 650px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition-slow);
-        }
-
-        .card-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 2s var(--cubic);
-        }
-
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--white); }
+        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 150px; }
+        .card-item { height: 600px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition-slow); }
+        .card-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 2s var(--cubic); }
         .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 50px;
-            opacity: 0.9;
-            transition: var(--transition-slow);
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 15%, transparent 60%);
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;
         }
-
-        .card-overlay h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .card-overlay p {
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 11px;
-            color: var(--white);
-        }
-
-        .card-item:hover img { transform: scale(1.15); }
+        .card-overlay h3 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); margin-bottom: 10px; }
+        .card-overlay p { text-transform: uppercase; letter-spacing: 4px; font-size: 11px; color: var(--white); }
+        .card-item:hover img { transform: scale(1.1); }
         .card-item:hover { border-color: var(--gold); }
 
         /* -----------------------------------------------------------
-           9. FEATURES (THE GOLD BOXES)
+           9. FEATURES
         ----------------------------------------------------------- */
-        .features-wrap {
-            background: var(--dark-gray);
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            padding: 100px 8%;
-            gap: 40px;
-            text-align: center;
-        }
-
-        .f-card {
-            padding: 50px 30px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: var(--transition-fast);
-        }
-
+        .features-wrap { background: var(--dark-gray); display: grid; grid-template-columns: repeat(4, 1fr); padding: 100px 8%; gap: 40px; text-align: center; }
+        .f-card { padding: 50px 30px; border: 1px solid rgba(212, 175, 55, 0.1); transition: 0.3s; }
         .f-card:hover { background: rgba(212, 175, 55, 0.05); border-color: var(--gold); }
-        .f-card i { font-size: 40px; color: var(--gold); margin-bottom: 30px; }
-        .f-card h4 { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        .f-card p { font-size: 13px; color: var(--light-gray); }
+        .f-card i { font-size: 35px; color: var(--gold); margin-bottom: 25px; }
+        .f-card h4 { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; }
 
         /* -----------------------------------------------------------
-           10. PREMIUM FOOTER
+           10. FOOTER
         ----------------------------------------------------------- */
-        footer {
-            background: #000;
-            padding: 120px 8% 50px;
-            border-top: 1px solid #1a1a1a;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 80px;
-            margin-bottom: 100px;
-        }
-
-        .footer-brand h4 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; }
-        .footer-brand p { color: var(--light-gray); max-width: 400px; }
-
-        .footer-links h5 { font-size: 13px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 35px; color: var(--white); }
-        .footer-links ul li { margin-bottom: 18px; }
+        footer { background: #000; padding: 100px 8% 50px; border-top: 1px solid #1a1a1a; }
+        .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
+        .footer-brand h4 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 25px; }
+        .footer-links h5 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; color: var(--white); }
+        .footer-links ul li { margin-bottom: 15px; }
         .footer-links ul li a { color: var(--light-gray); font-size: 14px; transition: 0.3s; }
-        .footer-links ul li a:hover { color: var(--gold); padding-left: 10px; }
+        .footer-links ul li a:hover { color: var(--gold); padding-left: 8px; }
+        .newsletter input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border-gold); padding: 15px 0; color: var(--white); margin-bottom: 20px; }
+        .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid #111; font-size: 11px; color: #444; letter-spacing: 2px; }
 
-        .newsletter input {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--border-gold);
-            padding: 15px 0;
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 50px;
-            border-top: 1px solid #111;
-            font-size: 11px;
-            color: #444;
-            letter-spacing: 3px;
-        }
-
-        /* -----------------------------------------------------------
-           11. SCROLL REVEAL ANIMATION
-        ----------------------------------------------------------- */
-        .reveal { opacity: 0; transform: translateY(60px); transition: 1.2s var(--cubic); }
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s var(--cubic); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* -----------------------------------------------------------
-           12. MOBILE OPTIMIZATION (THE ULTIMATE FIX)
+           12. MOBILE OPTIMIZATION
         ----------------------------------------------------------- */
-        @media (max-width: 1200px) {
+        @media (max-width: 1024px) {
             .grid-container { grid-template-columns: 1fr 1fr; }
             .features-wrap { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
-
         @media (max-width: 768px) {
             header { padding: 25px 5%; }
             .nav-menu { display: none; }
             .burger { display: block; }
-
-            .hero { text-align: center; }
-            .btn-wrap { flex-direction: column; width: 100%; }
-            .btn-main { width: 100%; padding: 18px 30px; }
-
-            .story-sec { grid-template-columns: 1fr; padding: 100px 5%; gap: 60px; text-align: center; }
-            .story-visual { order: 2; }
-            .story-content { order: 1; }
-            .story-content h2 { font-size: 38px; }
-
-            .grid-container { grid-template-columns: 1fr; padding: 0 5% 100px; gap: 30px; }
-            .card-item { height: 500px; }
-            
-            .features-wrap { grid-template-columns: 1fr; padding: 80px 5%; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 60px; }
-            .footer-brand p { margin: 0 auto; }
+            .story-sec { grid-template-columns: 1fr; text-align: center; padding: 100px 5%; gap: 60px; }
+            .story-visual { order: 2; } .story-content { order: 1; }
+            .grid-container { grid-template-columns: 1fr; padding: 0 5% 100px; }
+            .features-wrap { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .btn-main { width: 100%; margin: 10px 0 !important; }
         }
-
     </style>
 </head>
 <body>
@@ -514,9 +319,7 @@
             <a href="https://wa.me/917618243220" class="nav-item">Concierge</a>
         </nav>
         <div class="burger" id="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+            <div class="line1"></div><div class="line2"></div><div class="line3"></div>
         </div>
     </header>
 
@@ -528,10 +331,10 @@
 
     <section class="hero">
         <div class="hero-video-wrap">
-            <img src="Background.png" alt="ItrAura Hero" class="hero-img-bg">
+            <img src="Background.png" alt="ItrAura Essence" class="hero-img-bg">
         </div>
         <div class="hero-content">
-            <span class="pre-title">Artisanal Botanical Perfumery</span>
+            <span class="pre-title">Essence in Every Drop</span>
             <h1>Perfume for the Soul</h1>
             <div class="btn-wrap">
                 <a href="products.html" class="btn-main filled">Explore Boutique</a>
@@ -542,38 +345,39 @@
 
     <section class="story-sec reveal">
         <div class="story-visual">
-            <img src="Background.png" alt="Handcrafted Perfumery">
+            <img src="Background.png" alt="Traditional Distillation">
         </div>
         <div class="story-content">
-            <h2>Inherited Fragrance, Crafted for Today.</h2>
-            <p>From the ancient steam-distilled oils of Kannauj to the modern world's high-end boutiques, ItrAura is a bridge between centuries.</p>
-            <p>Our oils contain zero synthetics and zero alcohol. Pure nature, captured in artisanal glass.</p>
-            <a href="#" class="btn-main" style="display:inline-block; margin-top:20px;">Our Heritage</a>
+            <h2>Inherited Purity.</h2>
+            <p>At ItrAura, we believe that purity is not a claim—it is our inheritance. While the modern world turned to synthetic fragrances and alcohol bases, we remained anchored in the 400-year-old steam distillation traditions of Kannauj.</p>
+            <p>Our oils are birthed in <strong>Traditional Copper Degs</strong>, captured through the slow dance of steam and condensation. 100% botanical, zero synthetics, and zero alcohol. This is nature, matured to perfection in artisanal glass.</p>
+            <a href="#" class="btn-main" style="margin-top:20px;">Our Heritage</a>
         </div>
     </section>
 
     <div class="section-header reveal">
         <h2>The Signature Series</h2>
     </div>
+
     <section class="grid-container">
         <a href="products.html" class="card-item reveal">
             <img src="ruh series.png" alt="Ruh Collection">
             <div class="card-overlay">
-                <p>Distilled Heritage</p>
+                <p>Pure Distillations</p>
                 <h3>Ruh Series</h3>
             </div>
         </a>
         <a href="products.html" class="card-item reveal">
             <img src="water series.png" alt="Water Collection">
             <div class="card-overlay">
-                <p>Pure Hydrosols</p>
+                <p>Natural Hydrosols</p>
                 <h3>Water Series</h3>
             </div>
         </a>
         <a href="products.html" class="card-item reveal">
             <img src="premium series.png" alt="Premium Collection">
             <div class="card-overlay">
-                <p>Luxury Blends</p>
+                <p>Exquisite Blends</p>
                 <h3>Premium Series</h3>
             </div>
         </a>
@@ -581,24 +385,24 @@
 
     <section class="features-wrap reveal">
         <div class="f-card">
-            <i class="fas fa-gem"></i>
-            <h4>Bespoke Luxury</h4>
-            <p>Every scent is hand-curated and packed with clinical precision.</p>
-        </div>
-        <div class="f-card">
-            <i class="fas fa-seedling"></i>
+            <i class="fas fa-leaf"></i>
             <h4>100% Botanical</h4>
             <p>No chemicals. No synthetics. Just the soul of the plant.</p>
         </div>
         <div class="f-card">
-            <i class="fas fa-earth-gold"></i>
-            <h4>Global Reach</h4>
-            <p>Exporting luxury to over 45 countries worldwide.</p>
+            <i class="fas fa-tint-slash"></i>
+            <h4>Zero Alcohol</h4>
+            <p>Skin-friendly oils that evolve with your body's warmth.</p>
+        </div>
+        <div class="f-card">
+            <i class="fas fa-fire-alt"></i>
+            <h4>Copper Distilled</h4>
+            <p>Preserving the 400-year-old 'Deg-Bhapka' method.</p>
         </div>
         <div class="f-card">
             <i class="fas fa-scroll"></i>
-            <h4>Heritage Method</h4>
-            <p>Distilled using the 400-year-old copper deg method.</p>
+            <h4>Global Reach</h4>
+            <p>Exporting artisanal luxury to over 45 countries.</p>
         </div>
     </section>
 
@@ -606,30 +410,30 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <h4>ITRAURA</h4>
-                <p>The bridge between ancient Indian heritage and modern global luxury. Experience the pinnacle of fragrance.</p>
+                <p>The bridge between ancient Indian heritage and modern global luxury. We bring you the world's most authentic artisanal fragrances.</p>
             </div>
             <div class="footer-links">
                 <h5>The House</h5>
                 <ul>
-                    <li><a href="#">The Studio</a></li>
                     <li><a href="#">Our Story</a></li>
                     <li><a href="#">Ethics</a></li>
+                    <li><a href="#">The Studio</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h5>Client Care</h5>
                 <ul>
                     <li><a href="https://wa.me/917618243220">Contact Us</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Private Bespoke</a></li>
+                    <li><a href="#">Bespoke Service</a></li>
+                    <li><a href="#">Shipping</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h5>Stay Inspired</h5>
                 <div class="newsletter">
-                    <input type="email" placeholder="YOUR EMAIL ADDRESS">
+                    <input type="email" placeholder="EMAIL ADDRESS">
                 </div>
-                <div style="display:flex; gap:20px; font-size:20px; color:var(--gold);">
+                <div style="display:flex; gap:20px; font-size:18px; color:var(--gold);">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-whatsapp"></i>
@@ -642,70 +446,55 @@
     </footer>
 
     <script>
-        // 1. Custom Cursor Logic
         const dot = document.getElementById('cursor-dot');
         const circle = document.getElementById('cursor-follower');
-
         document.addEventListener('mousemove', (e) => {
             dot.style.left = e.clientX + 'px';
             dot.style.top = e.clientY + 'px';
-            
-            // Adding a small delay for the follower
             setTimeout(() => {
                 circle.style.left = e.clientX + 'px';
                 circle.style.top = e.clientY + 'px';
             }, 50);
         });
 
-        // 2. Navigation Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
-            if(window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 100);
         });
 
-        // 3. Mobile Menu Toggle
         const burger = document.getElementById('burger');
         const overlay = document.getElementById('mobile-overlay');
-
         burger.addEventListener('click', () => {
             overlay.classList.toggle('open');
-            // Animate Burger Lines
             burger.classList.toggle('toggle');
+            document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : 'auto';
         });
 
-        // 4. Reveal Animation on Scroll
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
+            reveals.forEach(el => {
                 var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+                var elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    el.classList.add("active");
                 }
-            }
+            });
         }
         window.addEventListener("scroll", reveal);
 
-        // Hover animations for cursor
-        document.querySelectorAll('a, .btn-main, .card-item').forEach(link => {
+        document.querySelectorAll('a, .btn-main, .card-item, .burger').forEach(link => {
             link.addEventListener('mouseenter', () => {
                 circle.style.transform = 'translate(-50%, -50%) scale(2)';
-                circle.style.background = 'rgba(212, 175, 55, 0.1)';
+                circle.style.background = 'rgba(212, 175, 55, 0.15)';
+                circle.style.border = 'none';
             });
             link.addEventListener('mouseleave', () => {
                 circle.style.transform = 'translate(-50%, -50%) scale(1)';
                 circle.style.background = 'transparent';
+                circle.style.border = '1px solid var(--gold)';
             });
         });
-
-        // Trigger reveal on load
         window.onload = reveal;
     </script>
-
 </body>
 </html>
