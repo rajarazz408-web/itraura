@@ -17,97 +17,89 @@
             --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
-        /* 1. GLOBAL SETTINGS */
+        /* RESET & GLOBAL */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.7; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
         
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-thumb { background: var(--gold); }
 
-        /* 2. NAVIGATION & CART ICON */
+        /* NAVIGATION & CART ICON */
         header { position: fixed; top: 0; width: 100%; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; transition: var(--transition); }
         header.scrolled { padding: 20px 8%; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-gold); }
         .logo { font-family: 'Playfair Display', serif; font-size: 30px; letter-spacing: 8px; color: var(--gold); font-weight: 700; text-transform: uppercase; cursor: pointer; }
         
         .nav-right { display: flex; gap: 30px; align-items: center; }
-        .nav-link { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
+        .nav-link { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; color: #888; }
+        .nav-link:hover { color: var(--gold); }
         .cart-trigger { position: relative; cursor: pointer; color: var(--gold); font-size: 20px; transition: 0.3s; }
-        .cart-trigger:hover { transform: scale(1.1); }
         .cart-count { position: absolute; top: -10px; right: -12px; background: var(--white); color: var(--black); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 
-        /* 3. LUXURY SIDE CART DRAWER */
-        #cart-drawer { position: fixed; top: 0; right: -450px; width: 450px; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 9999; transition: var(--transition); padding: 40px; display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9); }
+        /* LUXURY SIDE CART DRAWER */
+        #cart-drawer { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 10000; transition: var(--transition); padding: 30px; display: flex; flex-direction: column; }
+        @media (min-width: 901px) { #cart-drawer { width: 450px; right: -450px; padding: 40px; } }
         #cart-drawer.open { right: 0; }
         .cart-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 20px; margin-bottom: 30px; }
         .cart-head h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; letter-spacing: 2px; }
         
-        #cart-content { flex-grow: 1; overflow-y: auto; padding-right: 15px; }
-        .cart-item-row { display: flex; gap: 20px; margin-bottom: 30px; align-items: center; border-bottom: 1px solid #111; padding-bottom: 20px; position: relative; }
-        .cart-item-row img { width: 90px; height: 90px; object-fit: contain; background: #000; border: 1px solid #222; }
+        #cart-content { flex-grow: 1; overflow-y: auto; padding-right: 10px; }
+        .cart-item-row { display: flex; gap: 20px; margin-bottom: 25px; align-items: center; border-bottom: 1px solid #111; padding-bottom: 20px; }
+        .cart-item-row img { width: 80px; height: 80px; object-fit: contain; background: #000; border: 1px solid #222; }
         
         .cart-foot { border-top: 1px solid #222; padding-top: 30px; }
         .cart-total { display: flex; justify-content: space-between; font-size: 22px; color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 30px; }
         .checkout-whatsapp { width: 100%; padding: 22px; background: var(--gold); color: #000; font-weight: 700; text-transform: uppercase; border: none; letter-spacing: 3px; cursor: pointer; transition: 0.4s; }
-        .checkout-whatsapp:hover { background: var(--white); transform: translateY(-3px); }
-
+        
         #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(8px); }
 
-        /* 4. HERO SECTION */
+        /* HERO SECTION */
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
         .hero-video { position: absolute; inset: 0; z-index: 1; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('Background.png'); background-size: cover; background-position: center; }
         .hero-content { z-index: 10; max-width: 1000px; padding: 0 5%; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(50px, 8vw, 110px); color: var(--white); font-style: italic; line-height: 1.1; margin: 25px 0; }
-        .hero-btn { padding: 20px 50px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; font-weight: 600; display: inline-block; transition: 0.5s; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 8vw, 110px); color: var(--white); font-style: italic; line-height: 1.1; margin: 25px 0; }
+        .hero-btn { padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; font-weight: 600; display: inline-block; transition: 0.5s; }
         .hero-btn:hover { background: var(--gold); color: #000; transform: translateY(-5px); }
 
-        /* 5. SIGNATURE SERIES (PRODUCTS) */
+        /* SIGNATURE SERIES (PRODUCTS) */
         .section-header { text-align: center; padding: 120px 0 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); letter-spacing: 2px; }
-        
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); letter-spacing: 2px; }
         .grid-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 100px; }
-        .item-card { height: 600px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); transition: var(--transition); }
+        .item-card { height: 550px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); }
         .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--transition); }
         .item-card:hover img { transform: scale(1.1); }
-        .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 45px; }
-        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 10px; }
-        .item-overlay p { text-transform: uppercase; letter-spacing: 4px; font-size: 11px; color: #888; }
+        .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 5px; }
 
-        /* 6. HERITAGE STORY */
-        .heritage-sec { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; background: #080808; border-top: 1px solid #111; }
-        .heritage-img img { width: 100%; border: 1px solid var(--gold); padding: 15px; filter: grayscale(30%); }
-        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 50px; color: var(--gold); margin-bottom: 35px; }
-        .heritage-content p { color: #aaa; font-size: 18px; margin-bottom: 25px; text-align: justify; font-weight: 200; }
+        /* HERITAGE STORY */
+        .heritage-sec { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: #080808; }
+        .heritage-img img { width: 100%; border: 1px solid var(--gold); padding: 10px; }
+        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 30px; }
+        .heritage-content p { color: #aaa; font-size: 16px; margin-bottom: 20px; font-weight: 300; }
 
-        /* 7. TRUST FEATURES BAR */
-        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 100px 8%; background: var(--black); border-top: 1px solid #111; text-align: center; gap: 40px; }
-        .trust-box i { font-size: 30px; color: var(--gold); margin-bottom: 25px; display: block; }
-        .trust-box h4 { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
-        .trust-box p { font-size: 13px; color: #555; }
+        /* TRUST BAR */
+        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 80px 8%; background: var(--black); border-top: 1px solid #111; text-align: center; gap: 30px; }
+        .trust-box i { font-size: 28px; color: var(--gold); margin-bottom: 20px; display: block; }
+        .trust-box h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+        .trust-box p { font-size: 12px; color: #555; }
 
-        /* 8. FOOTER */
-        footer { padding: 100px 8% 50px; border-top: 1px solid #111; background: #000; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; letter-spacing: 5px; }
-        .footer-links h5 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 35px; color: var(--white); }
-        .footer-links ul li { margin-bottom: 18px; }
-        .footer-links a { color: #666; font-size: 14px; }
-        .footer-links a:hover { color: var(--gold); padding-left: 8px; }
+        /* FOOTER */
+        footer { padding: 80px 8% 40px; border-top: 1px solid #111; background: #000; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 60px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); margin-bottom: 20px; letter-spacing: 5px; }
+        .footer-links h5 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; color: var(--white); }
+        .footer-links a { color: #444; font-size: 13px; display: block; margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--gold); }
         
-        .footer-bottom { border-top: 1px solid #111; padding-top: 50px; text-align: center; }
-        .seo-text { font-size: 10px; color: #222; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
-        .copy { font-size: 12px; color: #444; letter-spacing: 3px; }
+        .footer-bottom { border-top: 1px solid #111; padding-top: 40px; text-align: center; }
+        .seo-text { font-size: 9px; color: #222; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .copy { font-size: 11px; color: #333; letter-spacing: 2px; }
 
-        /* MOBILE OPTIMIZATION */
         @media (max-width: 1024px) {
-            #cart-drawer { width: 100%; right: -100%; }
             .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr 1fr; }
             .heritage-sec { grid-template-columns: 1fr; text-align: center; }
         }
         @media (max-width: 768px) {
-            header { padding: 25px 5%; }
-            .nav-link { display: none; }
             .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 45px; }
         }
@@ -115,24 +107,24 @@
 </head>
 <body>
 
+    <!-- CART SIDEBAR -->
     <div id="cart-drawer">
         <div class="cart-head">
-            <h2>Your Selection</h2>
-            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 24px;"></i>
+            <h2>Selection</h2>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 22px;"></i>
         </div>
-        <div id="cart-content">
-            </div>
+        <div id="cart-content"></div>
         <div class="cart-foot">
             <div class="cart-total">
-                <span>Subtotal</span>
+                <span>Total</span>
                 <span>₹<span id="grand-total">0</span></span>
             </div>
             <button class="checkout-whatsapp" onclick="sendWhatsAppOrder()">Reserve via WhatsApp</button>
-            <p style="font-size: 10px; color: #333; text-align: center; margin-top: 20px; letter-spacing: 2px;">HAND-DISTILLED IN HASAYAN</p>
         </div>
     </div>
     <div id="cart-mask" onclick="toggleCart()"></div>
 
+    <!-- HEADER -->
     <header id="header">
         <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
         <div class="nav-right">
@@ -141,103 +133,67 @@
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count" id="cart-count-badge">0</span>
             </div>
-            <div style="color:var(--gold); font-size: 22px; cursor:pointer;" class="burger-menu"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-video"></div>
         <div class="hero-content">
-            <span style="letter-spacing: 15px; color: var(--gold); text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;" class="animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
+            <span style="letter-spacing: 10px; color: var(--gold); text-transform: uppercase; font-size: 11px; display: block; margin-bottom: 20px;" class="animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
             <h1 class="animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
-            <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-                <a href="product.html" class="hero-btn">Experience Essence</a>
-            </div>
+            <a href="product.html" class="hero-btn animate__animated animate__fadeInUp">Experience Essence</a>
         </div>
     </section>
 
-    <div class="section-header">
-        <h2>Signature Series</h2>
-    </div>
+    <section class="section-header"><h2>Signature Series</h2></section>
+    
     <section class="grid-wrap">
         <a href="product.html" class="item-card">
             <img src="ruh series.png" alt="Ruh Series">
-            <div class="item-overlay">
-                <p>Pure Distillations</p>
-                <h3>Ruh Series</h3>
-            </div>
+            <div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div>
         </a>
         <a href="product.html" class="item-card">
             <img src="water series.png" alt="Water Series">
-            <div class="item-overlay">
-                <p>Natural Hydrosols</p>
-                <h3>Water Series</h3>
-            </div>
+            <div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div>
         </a>
         <a href="product.html" class="item-card">
             <img src="premium series.png" alt="Premium Series">
-            <div class="item-overlay">
-                <p>Exquisite Blends</p>
-                <h3>Premium Series</h3>
-            </div>
+            <div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div>
         </a>
     </section>
 
     <section class="heritage-sec">
-        <div class="heritage-img"><img src="Background.png" alt="Legacy Since 1958"></div>
+        <div class="heritage-img"><img src="Background.png" alt="Legacy"></div>
         <div class="heritage-content">
             <h2>Heritage Since 1958.</h2>
-            <p>At ItrAura, we believe that purity is not a claim—it is our inheritance. Born from a family tradition established in 1958, we preserve the 400-year-old <strong>Deg-Bhapka</strong> steam distillation method of Kannauj.</p>
-            <p>Every bottle is a soul-stirring experience, hand-crafted in the rose-rich lands of <strong>Hasayan</strong>. 100% Botanical. 0% Alcohol. Pure Nature.</p>
+            <p>At ItrAura, purity is our inheritance. Born from a family tradition established in 1958, we preserve the 400-year-old Deg-Bhapka distillation method.</p>
+            <p>Hand-crafted in Hasayan. 100% Botanical. Zero Alcohol.</p>
             <a href="product.html" class="hero-btn" style="margin-top: 20px;">Discover Our Roots</a>
         </div>
     </section>
 
     <section class="trust-bar">
-        <div class="trust-box"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>A legacy of perfume mastery.</p></div>
-        <div class="trust-box"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>Direct from the Rose Capital.</p></div>
-        <div class="trust-box"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka Art</h4><p>Traditional steam distillation.</p></div>
-        <div class="trust-box"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol. Zero Synthetics.</p></div>
+        <div class="trust-box"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>Perfume mastery.</p></div>
+        <div class="trust-box"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>From the Rose Capital.</p></div>
+        <div class="trust-box"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka Art</h4><p>Traditional steam.</p></div>
+        <div class="trust-box"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol.</p></div>
     </section>
 
     <footer>
         <div class="footer-grid">
-            <div>
-                <div class="footer-logo">ITRAURA</div>
-                <p style="color:#444; font-size:14px; line-height:2;">The bridge between ancient Indian heritage and modern global luxury. Distilled in Hasayan, recognized worldwide.</p>
-            </div>
-            <div class="footer-links">
-                <h5>Heritage</h5>
-                <ul>
-                    <li><a href="#">The Hasayan Fields</a></li>
-                    <li><a href="#">Distillation Process</a></li>
-                    <li><a href="#">Family Legacy</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h5>Concierge</h5>
-                <ul>
-                    <li><a href="https://wa.me/917618243220">Contact Us</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Bespoke Blending</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h5>Newsletter</h5>
-                <input type="email" placeholder="EMAIL ADDRESS" style="width:100%; background:transparent; border:none; border-bottom:1px solid #222; padding:15px 0; color:white; margin-bottom:20px;">
-                <div style="display:flex; gap:20px; color:var(--gold); font-size:20px;">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-            </div>
+            <div><div class="footer-logo">ITRAURA</div><p style="color:#333; font-size:13px;">Ancient heritage meets modern global luxury.</p></div>
+            <div class="footer-links"><h5>Heritage</h5><a href="#">Hasayan Fields</a><a href="#">Distillation</a></div>
+            <div class="footer-links"><h5>Concierge</h5><a href="https://wa.me/917618243220">Contact Us</a><a href="#">Shipping</a></div>
+            <div class="footer-links"><h5>Newsletter</h5><input type="text" placeholder="EMAIL" style="width:100%; background:transparent; border:none; border-bottom:1px solid #222; padding:10px 0; color:white;"></div>
         </div>
         <div class="footer-bottom">
-            <p class="seo-text">Pure Rose Water Hasayan | Traditional Kannauj Attar | Alcohol-Free Luxury Perfumes | Est. 1958</p>
+            <p class="seo-text">Pure Rose Water Hasayan | Traditional Kannauj Attar | Alcohol-Free Luxury Perfumes</p>
             <p class="copy">© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY | HASAYAN • KANNAUJ • LONDON</p>
         </div>
     </footer>
 
     <script>
+        // CART LOGIC
         let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
 
         function toggleCart() {
@@ -269,11 +225,11 @@
                 count += item.qty;
                 container.innerHTML += `
                     <div class="cart-item-row">
-                        <img src="${item.img}" alt="${item.name}">
+                        <img src="${item.img}">
                         <div style="flex-grow:1;">
                             <h4 style="color:var(--gold); font-size:14px; margin-bottom:5px;">${item.name}</h4>
-                            <p style="font-size:11px; color:#555;">Size: ${item.size} | Qty: ${item.qty}</p>
-                            <p style="font-size:14px; margin-top:8px; color:#fff;">₹${item.price * item.qty}</p>
+                            <p style="font-size:11px; color:#555;">${item.size} | Qty: ${item.qty}</p>
+                            <p style="font-size:14px; color:#fff;">₹${item.price * item.qty}</p>
                         </div>
                         <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color:#222; cursor:pointer; font-size:12px;"></i>
                     </div>
@@ -293,17 +249,13 @@
         function sendWhatsAppOrder() {
             if (cart.length === 0) return;
             let msg = "Hello ItrAura, I'd like to reserve the following Selection:\n\n";
-            let total = 0;
-            cart.forEach(item => {
-                msg += `• ${item.name} (${item.size}) x ${item.qty} = ₹${item.price * item.qty}\n`;
-                total += item.price * item.qty;
-            });
-            msg += `\nTotal Selection: ₹${total}\n\nPlease share the payment details.`;
+            cart.forEach(item => msg += `• ${item.name} (${item.size}) x ${item.qty} = ₹${item.price * item.qty}\n`);
+            msg += `\nTotal: ₹${document.getElementById('grand-total').innerText}\nPlease share payment details.`;
             window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
         }
 
         window.addEventListener('scroll', () => {
-            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 80);
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
         });
 
         window.onload = renderCart;
