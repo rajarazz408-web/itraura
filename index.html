@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery since 1958. Traditional copper deg-bhapka distillation from Hasayan & Kannauj. 0% alcohol, 100% purity.">
-    <title>ItrAura | Luxury Artisanal Perfumes | Est. 1958 | Hasayan • Kannauj</title>
+    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery since 1958. Traditional copper deg distillation from Hasayan.">
+    <title>ItrAura | Luxury Fragrance | Est. 1958 | Hasayan • Kannauj</title>
     
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
+        /* 1. ROOT & VARIABLES */
         :root {
             --gold: #D4AF37;
             --soft-gold: #f1d57a;
+            --deep-gold: #996515;
             --black: #050505;
             --dark-gray: #0a0a0a;
             --white: #ffffff;
@@ -22,98 +23,113 @@
             --transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
-        /* ---------------- RESET & BASICS ---------------- */
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
-        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.7; }
-        a { text-decoration: none; color: inherit; }
+        /* 2. GLOBAL RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.7; font-weight: 300; }
+        a { text-decoration: none; color: inherit; cursor: pointer; }
+        ul { list-style: none; }
+
+        /* 3. CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* 4. LUXURY CURSOR (Hidden on touch devices) */
+        #cursor-follower { position: fixed; width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 10000; transition: transform 0.15s ease-out; transform: translate(-50%, -50%); }
+        #cursor-dot { position: fixed; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 10001; transform: translate(-50%, -50%); }
+        @media (max-width: 1024px) { #cursor-follower, #cursor-dot { display: none !important; } * { cursor: auto !important; } }
+
+        /* 5. NAVIGATION & BURGER */
+        header { position: fixed; top: 0; width: 100%; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; transition: var(--transition); }
+        header.scrolled { padding: 20px 8%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-gold); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; transition: 0.5s; }
         
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); }
+        .nav-menu { display: flex; gap: 40px; align-items: center; }
+        .nav-item { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; position: relative; padding: 5px 0; }
+        .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: 0.5s; }
+        .nav-item:hover::after { width: 100%; }
 
-        /* ---------------- LUXURY CURSOR ---------------- */
-        #cursor-follower { position: fixed; width: 35px; height: 35px; border: 1px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 10000; transition: transform 0.1s ease-out; transform: translate(-50%, -50%); }
-        #cursor-dot { position: fixed; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 10001; transform: translate(-50%, -50%); }
-
-        /* ---------------- NAVIGATION ---------------- */
-        header { position: fixed; top: 0; width: 100%; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; transition: var(--transition); }
-        header.scrolled { padding: 20px 8%; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-gold); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; }
+        .burger { display: none; cursor: pointer; z-index: 6000; padding: 10px; }
+        .burger div { width: 28px; height: 2px; background: var(--gold); margin: 6px; transition: 0.4s; }
         
-        .nav-menu { display: flex; gap: 40px; }
-        .nav-item { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; position: relative; transition: 0.3s; }
-        .nav-item:hover { color: var(--gold); }
+        /* Burger Animation */
+        .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+        .toggle .line2 { opacity: 0; }
+        .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
 
-        .burger { display: none; cursor: pointer; }
-        .burger div { width: 25px; height: 2px; background: var(--gold); margin: 5px; transition: 0.3s; }
+        /* 6. MOBILE OVERLAY */
+        .mobile-overlay { position: fixed; inset: 0; background: var(--black); z-index: 5500; display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(-100%); transition: var(--transition); }
+        .mobile-overlay.open { transform: translateY(0); }
+        .mobile-overlay a { font-family: 'Playfair Display', serif; font-size: 36px; margin: 15px 0; color: var(--white); transition: 0.3s; }
+        .mobile-overlay a:hover { color: var(--gold); letter-spacing: 5px; }
 
-        /* ---------------- HERO SECTION ---------------- */
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; z-index: -1; }
-        .hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); animation: kenBurns 20s infinite alternate; }
+        /* 7. HERO SECTION */
+        .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: #000; }
+        .hero-video-wrap { position: absolute; inset: 0; z-index: 1; }
+        .hero-video-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transform: scale(1.1); animation: kenBurns 20s infinite alternate; }
         @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.15); } }
         
-        .hero-content { z-index: 10; max-width: 900px; padding: 0 20px; }
-        .pre-title { font-size: 14px; letter-spacing: 12px; text-transform: uppercase; color: var(--gold); margin-bottom: 25px; display: block; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 7vw, 110px); font-weight: 400; font-style: italic; margin-bottom: 40px; line-height: 1.1; }
+        .hero-content { z-index: 10; max-width: 1000px; padding: 0 20px; }
+        .hero-content .pre-title { font-size: 14px; letter-spacing: 12px; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; display: block; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 8vw, 115px); font-weight: 400; line-height: 1.1; margin-bottom: 45px; font-style: italic; }
 
-        /* ---------------- STORY SECTION ---------------- */
-        .story-sec { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-        .story-visual { position: relative; }
-        .story-visual img { width: 100%; border: 1px solid var(--border-gold); filter: grayscale(20%); }
-        .story-visual::after { content: ''; position: absolute; inset: -15px; border: 1px solid var(--gold); z-index: -1; }
-        .story-content h2 { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--gold); margin-bottom: 35px; }
-        .story-content p { color: #b0b0b0; font-size: 17px; margin-bottom: 25px; text-align: justify; font-weight: 200; }
-
-        /* ---------------- COLLECTION GRID ---------------- */
-        .section-header { text-align: center; padding: 100px 0 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 45px; letter-spacing: 2px; }
+        /* 8. SIGNATURE SERIES (NOW FIRST) */
+        .section-header { text-align: center; padding: 120px 0 60px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 50px); color: var(--gold); letter-spacing: 2px; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 8% 150px; }
-        .card-item { height: 600px; position: relative; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.1); }
-        .card-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--transition); }
-        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; transition: 0.5s; }
-        .card-overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 10px; }
-        .card-overlay p { text-transform: uppercase; letter-spacing: 4px; font-size: 10px; }
+        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 120px; }
+        .card-item { height: 600px; position: relative; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.15); transition: var(--transition); }
+        .card-item img { width: 100%; height: 100%; object-fit: cover; transition: 2s var(--transition); }
+        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 70%); display: flex; flex-direction: column; justify-content: flex-end; padding: 45px; }
+        .card-overlay h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 12px; }
+        .card-overlay p { text-transform: uppercase; letter-spacing: 4px; font-size: 11px; color: #aaa; }
         .card-item:hover img { transform: scale(1.1); }
-        .card-item:hover { border-color: var(--gold); }
+        .card-item:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 
-        /* ---------------- FEATURES ---------------- */
-        .features-grid { background: #080808; display: grid; grid-template-columns: repeat(4, 1fr); padding: 100px 8%; gap: 30px; text-align: center; border-top: 1px solid #111; }
-        .f-item i { font-size: 30px; color: var(--gold); margin-bottom: 25px; display: block; }
-        .f-item h4 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; color: var(--gold); }
-        .f-item p { font-size: 13px; color: #666; font-weight: 300; }
-
-        /* ---------------- FOOTER ---------------- */
-        footer { background: #000; padding: 100px 8% 40px; border-top: 1px solid #1a1a1a; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; }
-        .footer-brand h4 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 30px; letter-spacing: 5px; }
-        .footer-links h5 { font-size: 12px; color: var(--white); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; }
-        .footer-links ul li { list-style: none; margin-bottom: 15px; }
-        .footer-links a { color: #666; font-size: 14px; transition: 0.3s; }
-        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
+        /* 9. STORY SECTION (NOW SECOND) */
+        .story-sec { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; background: #080808; border-top: 1px solid #111; }
+        .story-visual { position: relative; padding: 20px; }
+        .story-visual img { width: 100%; border: 1px solid var(--gold); transition: var(--transition); }
+        .story-visual::before { content: ''; position: absolute; top: 0; left: 0; width: 80px; height: 80px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
         
-        .footer-bottom { border-top: 1px solid #111; margin-top: 80px; padding-top: 40px; text-align: center; }
-        .seo-tags { font-size: 10px; color: #222; letter-spacing: 2px; margin-bottom: 15px; }
-        .copyright { font-size: 11px; color: #444; letter-spacing: 3px; text-transform: uppercase; }
+        .story-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 4vw, 55px); color: var(--gold); margin-bottom: 40px; }
+        .story-content p { font-size: 17px; color: #999; margin-bottom: 30px; text-align: justify; font-weight: 300; }
+        .story-content strong { color: var(--gold); font-weight: 400; }
 
-        /* ---------------- BUTTONS ---------------- */
-        .btn-main { padding: 18px 45px; border: 1px solid var(--gold); text-transform: uppercase; font-size: 11px; letter-spacing: 4px; font-weight: 600; color: var(--gold); display: inline-block; transition: 0.5s; background: transparent; }
-        .btn-main.filled { background: var(--gold); color: var(--black); }
-        .btn-main:hover { background: var(--gold); color: var(--black); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
+        /* 10. FOOTER */
+        footer { background: #000; padding: 100px 8% 50px; border-top: 1px solid #1a1a1a; }
+        .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
+        .footer-brand h4 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; letter-spacing: 5px; }
+        .footer-links h5 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 35px; color: var(--white); border-bottom: 1px solid var(--border-gold); display: inline-block; padding-bottom: 10px; }
+        .footer-links ul li { margin-bottom: 18px; }
+        .footer-links a { color: #777; font-size: 14px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--gold); padding-left: 10px; }
 
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1.5s var(--transition); }
+        .footer-bottom { text-align: center; padding-top: 50px; border-top: 1px solid #111; }
+        .seo-tags { font-size: 10px; color: #333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .copyright { font-size: 12px; color: #555; letter-spacing: 3px; font-weight: 400; }
+
+        /* 11. BUTTONS & REVEALS */
+        .btn-main { padding: 20px 50px; border: 1px solid var(--gold); text-transform: uppercase; font-size: 11px; letter-spacing: 5px; font-weight: 600; color: var(--gold); display: inline-block; transition: 0.5s; background: transparent; }
+        .btn-main:hover { background: var(--gold); color: var(--black); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2); }
+
+        .reveal { opacity: 0; transform: translateY(60px); transition: 1.5s var(--transition); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* 12. MOBILE RESPONSIVE */
         @media (max-width: 1024px) {
-            .grid-container { grid-template-columns: 1fr 1fr; }
-            .features-grid { grid-template-columns: 1fr 1fr; }
+            .grid-container { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
             header { padding: 25px 5%; }
             .nav-menu { display: none; }
             .burger { display: block; }
-            .story-sec { grid-template-columns: 1fr; text-align: center; padding: 100px 5%; }
-            .grid-container { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 50px; }
+            .story-sec { grid-template-columns: 1fr; padding: 100px 5%; text-align: center; }
+            .grid-container { grid-template-columns: 1fr; padding: 0 5% 100px; }
+            .card-item { height: 500px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
@@ -130,58 +146,50 @@
             <a href="products.html" class="nav-item">Collections</a>
             <a href="https://wa.me/917618243220" class="nav-item" style="color:var(--gold)">Concierge</a>
         </nav>
-        <div class="burger">
+        <div class="burger" id="burger">
             <div class="line1"></div><div class="line2"></div><div class="line3"></div>
         </div>
     </header>
 
-    <!-- HERO -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <a href="index.html">The House</a>
+        <a href="products.html">Collections</a>
+        <a href="https://wa.me/917618243220">Concierge</a>
+    </div>
+
     <section class="hero">
-        <div class="hero-bg"><img src="Background.png" alt="ItrAura Background"></div>
+        <div class="hero-video-wrap">
+            <img src="Background.png" alt="ItrAura Essence">
+        </div>
         <div class="hero-content">
             <span class="pre-title animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
-            <h1 class="animate__animated animate__fadeInUp">The Soul of Hasayan,<br>The Craft of Kannauj.</h1>
+            <h1 class="animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
             <div class="btn-wrap animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                <a href="products.html" class="btn-main filled">Explore Boutique</a>
-                <a href="https://wa.me/917618243220" class="btn-main" style="margin-left: 15px;">Private Inquiry</a>
+                <a href="#series" class="btn-main" style="background: var(--gold); color: black;">Explore Boutique</a>
             </div>
         </div>
     </section>
 
-    <!-- STORY -->
-    <section class="story-sec reveal">
-        <div class="story-visual">
-            <img src="Background.png" alt="Traditional Deg-Bhapka Distillation">
-        </div>
-        <div class="story-content">
-            <h2>Heritage Since 1958.</h2>
-            <p>At ItrAura, purity is not a claim—it is our inheritance. Born from a family tradition established in 1958, we bridge the gap between ancient Indian artistry and modern global luxury.</p>
-            <p>Our essences are birthed in the rose-rich lands of <strong>Hasayan</strong>—India's true rose capital—using the legendary <strong>Traditional Deg-Bhapka</strong> method of Kannauj. 100% botanical, zero synthetics, and zero alcohol. This is nature, matured to perfection in artisanal glass.</p>
-            <a href="#" class="btn-main" style="margin-top: 20px;">The Legacy</a>
-        </div>
-    </section>
-
-    <!-- COLLECTIONS -->
-    <div class="section-header reveal">
+    <div id="series" class="section-header reveal">
         <h2>The Signature Series</h2>
     </div>
     <section class="grid-container">
         <a href="products.html" class="card-item reveal">
-            <img src="ruh series.png" alt="Ruh Series">
+            <img src="ruh series.png" alt="Ruh Collection">
             <div class="card-overlay">
                 <p>Pure Distillations</p>
                 <h3>Ruh Series</h3>
             </div>
         </a>
         <a href="products.html" class="card-item reveal">
-            <img src="water series.png" alt="Water Series">
+            <img src="water series.png" alt="Water Collection">
             <div class="card-overlay">
                 <p>Natural Hydrosols</p>
                 <h3>Water Series</h3>
             </div>
         </a>
         <a href="products.html" class="card-item reveal">
-            <img src="premium series.png" alt="Premium Series">
+            <img src="premium series.png" alt="Premium Collection">
             <div class="card-overlay">
                 <p>Exquisite Blends</p>
                 <h3>Premium Series</h3>
@@ -189,69 +197,82 @@
         </a>
     </section>
 
-    <!-- FEATURES -->
-    <section class="features-grid reveal">
-        <div class="f-item">
-            <i class="fas fa-leaf"></i>
-            <h4>100% Botanical</h4>
-            <p>Zero synthetics. Pure soul.</p>
+    <section class="story-sec reveal">
+        <div class="story-visual">
+            <img src="Background.png" alt="Traditional Distillation">
         </div>
-        <div class="f-item">
-            <i class="fas fa-tint-slash"></i>
-            <h4>Alcohol Free</h4>
-            <p>Kind to skin and spirit.</p>
-        </div>
-        <div class="f-item">
-            <i class="fas fa-fire-alt"></i>
-            <h4>Copper Distilled</h4>
-            <p>Ancient Deg-Bhapka technique.</p>
-        </div>
-        <div class="f-item">
-            <i class="fas fa-crown"></i>
-            <h4>Est. 1958</h4>
-            <p>A legacy of 68 years.</p>
+        <div class="story-content">
+            <h2>Heritage Since 1958.</h2>
+            <p>At ItrAura, purity is not a claim—it is our inheritance. Born from a family tradition <strong>established in 1958</strong>, we bridge the gap between ancient Indian artistry and modern global luxury.</p>
+            <p>Our essences are birthed in the rose-rich lands of <strong>Hasayan</strong> using the legendary <strong>Traditional Deg-Bhapka method</strong> of Kannauj. 100% botanical, zero synthetics, and zero alcohol.</p>
+            <a href="#" class="btn-main" style="margin-top:20px;">Discover Roots</a>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
                 <h4>ITRAURA</h4>
-                <p style="color:#666; font-size:14px;">The bridge between ancient Indian heritage and modern global luxury. Crafted in Hasayan, recognized worldwide.</p>
+                <p style="color:#555; font-size:14px; line-height:2;">The bridge between ancient Indian heritage and modern global luxury. Crafted in the heart of Hasayan since 1958.</p>
             </div>
             <div class="footer-links">
                 <h5>Heritage</h5>
                 <ul>
-                    <li><a href="#">The Hasayan Story</a></li>
-                    <li><a href="#">Deg-Bhapka Method</a></li>
-                    <li><a href="#">1958 Legacy</a></li>
+                    <li><a href="#">The Hasayan Fields</a></li>
+                    <li><a href="#">Traditional Distillation</a></li>
+                    <li><a href="#">Purity Promise</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h5>Concierge</h5>
+                <h5>Client Care</h5>
                 <ul>
-                    <li><a href="https://wa.me/917618243220">Whatsapp Inquiry</a></li>
+                    <li><a href="https://wa.me/917618243220">Concierge Service</a></li>
                     <li><a href="#">Shipping Policy</a></li>
                     <li><a href="#">Bespoke Blends</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h5>Stay Inspired</h5>
-                <input type="email" placeholder="JOIN THE CIRCLE" style="width:100%; background:transparent; border:none; border-bottom:1px solid #333; padding:10px 0; color:white; margin-bottom:20px;">
-                <div style="display:flex; gap:20px; color:var(--gold); font-size:20px;">
+                <input type="email" placeholder="EMAIL ADDRESS" style="width:100%; background:transparent; border:none; border-bottom:1px solid #333; padding:15px 0; color:white; margin-bottom:25px;">
+                <div style="display:flex; gap:25px; font-size:20px; color:var(--gold);">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="seo-tags">PURE ROSE WATER HASAYAN | TRADITIONAL KANNAUJ ATTAR | LUXURY PERFUMES | ESTABLISHED 1958</p>
+            <p class="seo-tags">Pure Rose Water Hasayan | Traditional Kannauj Attar | Luxury Alcohol-Free Perfumes | Est. 1958</p>
             <p class="copyright">© 2026 ITRAURA | HASAYAN • KANNAUJ • LONDON</p>
         </div>
     </footer>
 
     <script>
+        // 1. Fixed Burger Menu Logic
+        const burger = document.getElementById('burger');
+        const overlay = document.getElementById('mobile-overlay');
+        const header = document.getElementById('header');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('toggle');
+            overlay.classList.toggle('open');
+            // Prevent scrolling when menu is open
+            if(overlay.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.mobile-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('toggle');
+                overlay.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // 2. Luxury Cursor (Only for Desktop)
         const dot = document.getElementById('cursor-dot');
         const circle = document.getElementById('cursor-follower');
         
@@ -264,23 +285,24 @@
             }, 60);
         });
 
+        // 3. Scroll Effects
         window.addEventListener('scroll', () => {
-            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100);
+            header.classList.toggle('scrolled', window.scrollY > 100);
             reveal();
         });
 
         function reveal() {
             document.querySelectorAll(".reveal").forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+                let windowHeight = window.innerHeight;
+                let elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add("active");
+                }
             });
         }
-        window.onload = reveal;
 
-        // Luxury Hover Effect
-        document.querySelectorAll('a, .btn-main, .card-item').forEach(el => {
-            el.onmouseenter = () => circle.style.transform = 'translate(-50%, -50%) scale(2)';
-            el.onmouseleave = () => circle.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
+        // Initial Reveal
+        window.onload = reveal;
     </script>
 </body>
 </html>
