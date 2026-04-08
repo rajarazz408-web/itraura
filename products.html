@@ -11,99 +11,102 @@
     
     <style>
         :root {
-            --gold: #D4AF37;
-            --black: #050505;
-            --dark-gray: #0a0a0a;
-            --white: #ffffff;
+            --gold: #D4AF37; --black: #050505; --dark-gray: #0a0a0a; --white: #ffffff;
             --border-gold: rgba(212, 175, 55, 0.15);
             --transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
-        /* 1. RESET & BASICS */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
 
-        /* 2. NAVIGATION HEADER */
+        /* HEADER & CART ICON */
         header { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; background: rgba(5,5,5,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-gold); }
         .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; cursor: pointer; }
-        nav a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-left: 35px; color: #888; transition: 0.3s; }
-        nav a.active { color: var(--gold); }
+        
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-menu a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; transition: 0.3s; margin-left: 20px; }
+        .nav-menu a.active { color: var(--gold); }
+        .cart-trigger { position: relative; cursor: pointer; color: var(--gold); font-size: 20px; }
+        .cart-count { position: absolute; top: -10px; right: -12px; background: var(--white); color: var(--black); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 
-        /* 3. SHOP HEADER */
+        /* LUXURY SIDE CART */
+        #cart-drawer { position: fixed; top: 0; right: -450px; width: 450px; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 9999; transition: var(--transition); padding: 40px; display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9); }
+        #cart-drawer.open { right: 0; }
+        .cart-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 20px; margin-bottom: 30px; }
+        .cart-head h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 24px; }
+        #cart-content { flex-grow: 1; overflow-y: auto; }
+        .cart-item-row { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; border-bottom: 1px solid #111; padding-bottom: 15px; }
+        .cart-item-row img { width: 70px; height: 70px; object-fit: contain; border: 1px solid #222; background: #000; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 22px; color: var(--gold); font-family: 'Playfair Display', serif; padding: 20px 0; border-top: 1px solid #222; margin-top: 20px; }
+        .checkout-btn { width: 100%; padding: 20px; background: var(--gold); color: #000; font-weight: 700; text-transform: uppercase; border: none; letter-spacing: 2px; cursor: pointer; }
+        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9998; display: none; backdrop-filter: blur(5px); }
+
+        /* SHOP CONTENT */
         .shop-header { padding: 180px 8% 80px; text-align: center; }
         .shop-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 60px); color: var(--gold); margin-bottom: 20px; font-style: italic; }
         .shop-header p { font-size: 12px; letter-spacing: 4px; color: #666; text-transform: uppercase; }
-
-        /* 4. PRODUCT GRID */
         .container { padding: 0 8% 100px; }
         .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
-        /* 5. PRODUCT CARD - SPECIAL IMAGE PROTECTION */
+        /* CARD FIXES */
         .product-card { background: var(--dark-gray); border: 1px solid var(--border-gold); transition: var(--transition); display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-12px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
-        
-        /* Image Protection CSS: Hindi-English-Urdu text will NOT cut */
         .img-container { width: 100%; height: 450px; background: #000; position: relative; overflow: hidden; padding: 25px; display: flex; align-items: center; justify-content: center; }
-        .product-card img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            object-fit: contain; /* CRITICAL FIX: Ensures languages text never cuts */
-            transition: 1s var(--transition);
-        }
-        .product-card:hover img { transform: scale(1.03); }
-
+        .product-card img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 1s var(--transition); }
         .badge { position: absolute; top: 15px; left: 15px; background: var(--gold); color: #000; font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 5px 15px; text-transform: uppercase; z-index: 10; }
-
-        /* 6. INFO SECTION */
-        .info { padding: 35px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .info h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; color: var(--white); letter-spacing: 1px; }
-        .info p { font-size: 13px; color: #777; margin-bottom: 25px; font-weight: 300; line-height: 1.6; min-height: 40px; }
-
-        /* ML SELECTOR */
+        .info { padding: 35px; text-align: center; flex-grow: 1; }
+        .info h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; color: var(--white); }
+        .info p { font-size: 13px; color: #777; margin-bottom: 25px; min-height: 40px; }
         .size-selector { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .ml-btn { background: transparent; border: 1px solid #333; color: #666; padding: 7px 18px; font-size: 11px; cursor: pointer; transition: 0.3s; letter-spacing: 1px; border-radius: 2px; }
-        .ml-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(212, 175, 55, 0.08); font-weight: 600; }
+        .ml-btn { background: transparent; border: 1px solid #333; color: #666; padding: 7px 18px; font-size: 11px; cursor: pointer; transition: 0.3s; }
+        .ml-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(212, 175, 55, 0.08); }
+        .price-tag { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 30px; }
+        .btn-experience { width: 100%; padding: 18px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-size: 11px; letter-spacing: 3px; font-weight: 600; cursor: pointer; transition: 0.4s; margin-top: 10px; }
+        .btn-experience:hover { background: var(--gold); color: #000; }
 
-        .price-tag { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 30px; font-weight: 400; }
-        
-        .btn-experience { width: 100%; padding: 18px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-size: 11px; letter-spacing: 3px; font-weight: 600; cursor: pointer; transition: 0.4s; }
-        .btn-experience:hover { background: var(--gold); color: #000; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
-
-        /* 7. TRUST BAR (THE 4 POINTS) */
+        /* TRUST BAR */
         .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); background: #080808; padding: 100px 8%; border-top: 1px solid #111; gap: 40px; text-align: center; }
         .trust-item i { color: var(--gold); font-size: 30px; margin-bottom: 25px; display: block; }
         .trust-item h4 { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-        .trust-item p { font-size: 13px; color: #555; line-height: 1.6; }
+        .trust-item p { font-size: 13px; color: #555; }
 
-        /* 8. FOOTER & WHATSAPP */
-        .footer-simple { text-align: center; padding: 50px; border-top: 1px solid #111; font-size: 11px; color: #444; letter-spacing: 3px; text-transform: uppercase; }
-        .whatsapp-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 15px 30px rgba(0,0,0,0.4); z-index: 6000; transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(8deg); }
+        .footer-simple { text-align: center; padding: 50px; border-top: 1px solid #111; font-size: 11px; color: #444; letter-spacing: 3px; }
+        .whatsapp-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 6000; }
 
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) { 
-            .product-grid { grid-template-columns: 1fr 1fr; } 
-            .trust-bar { grid-template-columns: 1fr 1fr; } 
-        }
-        @media (max-width: 768px) { 
-            header { padding: 20px 5%; }
-            .logo { font-size: 22px; letter-spacing: 4px; }
-            .product-grid { grid-template-columns: 1fr; } 
-            .img-container { height: 400px; }
-            .trust-bar { grid-template-columns: 1fr; gap: 50px; padding: 80px 10%; } 
-            .nav-menu { display: none; }
-        }
+        @media (max-width: 1024px) { .product-grid, .trust-bar { grid-template-columns: 1fr 1fr; } #cart-drawer { width: 100%; right: -100%; } }
+        @media (max-width: 768px) { .product-grid, .trust-bar { grid-template-columns: 1fr; } .nav-menu { display: none; } }
     </style>
 </head>
 <body>
 
+<div id="cart-drawer">
+    <div class="cart-head">
+        <h2>Your Selection</h2>
+        <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold);"></i>
+    </div>
+    <div id="cart-content"></div>
+    <div class="cart-footer-logic">
+        <div class="cart-total">
+            <span>Total</span>
+            <span>₹<span id="cart-total-val">0</span></span>
+        </div>
+        <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+    </div>
+</div>
+<div id="cart-mask" onclick="toggleCart()"></div>
+
 <header>
     <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
-    <nav class="nav-menu">
-        <a href="index.html">The House</a>
-        <a href="product.html" class="active">Collections</a>
-    </nav>
+    <div class="nav-right">
+        <nav class="nav-menu">
+            <a href="index.html">The House</a>
+            <a href="product.html" class="active">Collections</a>
+        </nav>
+        <div class="cart-trigger" onclick="toggleCart()">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count" id="cart-badge">0</span>
+        </div>
+    </div>
 </header>
 
 <section class="shop-header">
@@ -112,49 +115,28 @@
 </section>
 
 <div class="container">
-    <div id="product-list" class="product-grid">
-        </div>
+    <div id="product-list" class="product-grid"></div>
 </div>
 
 <section class="trust-bar">
-    <div class="trust-item">
-        <i class="fas fa-history"></i>
-        <h4>Established 1958</h4>
-        <p>A heritage of purity preserved through generations of perfume mastery.</p>
-    </div>
-    <div class="trust-item">
-        <i class="fas fa-seedling"></i>
-        <h4>Soul of Hasayan</h4>
-        <p>Sourced directly from the legendary rose fields of India's scent capital.</p>
-    </div>
-    <div class="trust-item">
-        <i class="fas fa-fire-alt"></i>
-        <h4>Deg-Bhapka Art</h4>
-        <p>The 400-year-old tradition of copper steam distillation for uncompromised quality.</p>
-    </div>
-    <div class="trust-item">
-        <i class="fas fa-leaf"></i>
-        <h4>100% Botanical</h4>
-        <p>Experience pure nature. Zero Alcohol, Zero Synthetics, Zero Compromise.</p>
-    </div>
+    <div class="trust-item"><i class="fas fa-history"></i><h4>Established 1958</h4><p>A heritage of purity preserved through generations.</p></div>
+    <div class="trust-item"><i class="fas fa-seedling"></i><h4>Soul of Hasayan</h4><p>Sourced directly from the rose fields of India.</p></div>
+    <div class="trust-item"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka Art</h4><p>Traditional copper steam distillation.</p></div>
+    <div class="trust-item"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol. Zero Synthetics.</p></div>
 </section>
 
-<footer class="footer-simple">
-    © 2026 ITRAURA LUXURY ARTISANAL PERFUMERY | HASAYAN • KANNAUJ • LONDON
-</footer>
+<footer class="footer-simple">© 2026 ITRAURA | HASAYAN • KANNAUJ • LONDON</footer>
 
-<a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script src="data.js"></script>
 <script>
+    let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
     const productGrid = document.getElementById('product-list');
 
     function renderProducts() {
         if (typeof products !== 'undefined') {
             productGrid.innerHTML = ''; 
-            
             products.forEach(item => {
                 const availableSizes = Object.keys(item.prices);
                 const firstSize = availableSizes[0];
@@ -162,53 +144,111 @@
 
                 const card = document.createElement('div');
                 card.className = 'product-card';
-                
                 card.innerHTML = `
                     <div class="img-container">
                         <div class="badge">${item.category}</div>
-                        <img src="${item.img}" alt="${item.name}" onclick="goToDetail(${item.id})" onerror="this.src='https://via.placeholder.com/600x800?text=ItrAura+Essence'">
+                        <img src="${item.img}" alt="${item.name}" onclick="goToDetail(${item.id})">
                     </div>
                     <div class="info">
-                        <div class="top-info">
-                            <h3 onclick="goToDetail(${item.id})">${item.name}</h3>
-                            <p>${item.desc}</p>
+                        <h3 onclick="goToDetail(${item.id})">${item.name}</h3>
+                        <p>${item.desc}</p>
+                        <div class="size-selector">
+                            ${availableSizes.map((size, index) => `
+                                <button class="ml-btn ${index === 0 ? 'active' : ''}" 
+                                        onclick="changePrice(this, ${item.prices[size]})">
+                                    ${size}
+                                </button>
+                            `).join('')}
                         </div>
-                        
-                        <div class="selector-wrap">
-                            <div class="size-selector">
-                                ${availableSizes.map((size, index) => `
-                                    <button class="ml-btn ${index === 0 ? 'active' : ''}" 
-                                            onclick="changePrice(this, ${item.prices[size]})">
-                                        ${size}
-                                    </button>
-                                `).join('')}
-                            </div>
-
-                            <div class="price-tag">₹<span class="price-val">${firstPrice}</span></div>
-                            <button class="btn-experience" onclick="goToDetail(${item.id})">Experience Essence</button>
-                        </div>
+                        <div class="price-tag">₹<span class="price-val">${firstPrice}</span></div>
+                        <button class="btn-experience" onclick="addToSelection(${item.id}, this)">Add to Selection</button>
+                        <button class="btn-experience" style="border:none; font-size:9px; letter-spacing:1px;" onclick="goToDetail(${item.id})">View Details</button>
                     </div>
                 `;
                 productGrid.appendChild(card);
             });
         }
+        updateBadge();
     }
 
     function changePrice(btn, newPrice) {
-        const priceElement = btn.closest('.info').querySelector('.price-val');
-        priceElement.innerText = newPrice;
-        
-        const buttons = btn.parentElement.querySelectorAll('.ml-btn');
-        buttons.forEach(b => b.classList.remove('active'));
+        const info = btn.closest('.info');
+        info.querySelector('.price-val').innerText = newPrice;
+        info.querySelectorAll('.ml-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
 
-    function goToDetail(productId) {
-        window.location.href = `product-detail.html?id=${productId}`;
+    function addToSelection(id, btn) {
+        const item = products.find(p => p.id === id);
+        const info = btn.closest('.info');
+        const size = info.querySelector('.ml-btn.active').innerText;
+        const price = parseInt(info.querySelector('.price-val').innerText);
+        
+        const existing = cart.find(c => c.id === id && c.size === size);
+        if(existing) existing.qty++;
+        else cart.push({ id, name: item.name, price, size, img: item.img, qty: 1 });
+        
+        localStorage.setItem('itraura_cart', JSON.stringify(cart));
+        updateBadge();
+        toggleCart();
     }
+
+    function toggleCart() {
+        const drawer = document.getElementById('cart-drawer');
+        const mask = document.getElementById('cart-mask');
+        drawer.classList.toggle('open');
+        mask.style.display = drawer.classList.contains('open') ? 'block' : 'none';
+        renderCart();
+    }
+
+    function renderCart() {
+        const container = document.getElementById('cart-content');
+        const totalVal = document.getElementById('cart-total-val');
+        container.innerHTML = '';
+        let total = 0;
+        
+        if(cart.length === 0) {
+            container.innerHTML = '<p style="text-align:center; padding:50px; color:#444;">Your selection is empty.</p>';
+            totalVal.innerText = '0'; return;
+        }
+
+        cart.forEach((item, index) => {
+            total += item.price * item.qty;
+            container.innerHTML += `
+                <div class="cart-item-row">
+                    <img src="${item.img}">
+                    <div style="flex-grow:1">
+                        <h4 style="color:var(--gold); font-size:14px;">${item.name}</h4>
+                        <p style="font-size:10px; color:#555;">${item.size} x ${item.qty}</p>
+                        <p>₹${item.price * item.qty}</p>
+                    </div>
+                    <i class="fas fa-trash" onclick="removeItem(${index})" style="cursor:pointer; color:#222;"></i>
+                </div>`;
+        });
+        totalVal.innerText = total;
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        localStorage.setItem('itraura_cart', JSON.stringify(cart));
+        renderCart(); updateBadge();
+    }
+
+    function updateBadge() {
+        document.getElementById('cart-badge').innerText = cart.reduce((s, i) => s + i.qty, 0);
+    }
+
+    function checkoutWhatsApp() {
+        if(cart.length === 0) return;
+        let msg = "Hello ItrAura, I'd like to order:\n";
+        cart.forEach(i => msg += `• ${i.name} (${i.size}) x ${i.qty} = ₹${i.price*i.qty}\n`);
+        msg += `\nTotal: ₹${document.getElementById('cart-total-val').innerText}`;
+        window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
+    }
+
+    function goToDetail(id) { window.location.href = `product-detail.html?id=${id}`; }
 
     window.onload = renderProducts;
 </script>
-
 </body>
 </html>
