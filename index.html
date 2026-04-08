@@ -3,306 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery since 1958. Traditional copper deg distillation from Hasayan.">
-    <title>ItrAura | Luxury Fragrance | Est. 1958 | Hasayan • Kannauj</title>
+    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery since 1958. 100% Purity from Hasayan & Kannauj.">
+    <title>ItrAura | Luxury Artisanal Perfumes | Est. 1958 | Hasayan • Kannauj</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
-        /* 1. ROOT & VARIABLES */
         :root {
-            --gold: #D4AF37;
-            --soft-gold: #f1d57a;
-            --deep-gold: #996515;
-            --black: #050505;
-            --dark-gray: #0a0a0a;
-            --white: #ffffff;
+            --gold: #D4AF37; --black: #050505; --dark-gray: #0a0a0a; --white: #ffffff;
             --border-gold: rgba(212, 175, 55, 0.2);
-            --transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+            --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
-        /* 2. GLOBAL RESET */
+        /* 1. GLOBAL SETTINGS */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.7; font-weight: 300; }
-        a { text-decoration: none; color: inherit; cursor: pointer; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
+        
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); }
 
-        /* 3. CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: var(--black); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-
-        /* 4. LUXURY CURSOR (Hidden on touch devices) */
-        #cursor-follower { position: fixed; width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 10000; transition: transform 0.15s ease-out; transform: translate(-50%, -50%); }
-        #cursor-dot { position: fixed; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 10001; transform: translate(-50%, -50%); }
-        @media (max-width: 1024px) { #cursor-follower, #cursor-dot { display: none !important; } * { cursor: auto !important; } }
-
-        /* 5. NAVIGATION & BURGER */
+        /* 2. NAVIGATION & CART ICON */
         header { position: fixed; top: 0; width: 100%; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; transition: var(--transition); }
-        header.scrolled { padding: 20px 8%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-gold); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; transition: 0.5s; }
+        header.scrolled { padding: 20px 8%; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-gold); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 30px; letter-spacing: 8px; color: var(--gold); font-weight: 700; text-transform: uppercase; cursor: pointer; }
         
-        .nav-menu { display: flex; gap: 40px; align-items: center; }
-        .nav-item { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; position: relative; padding: 5px 0; }
-        .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: 0.5s; }
-        .nav-item:hover::after { width: 100%; }
+        .nav-right { display: flex; gap: 30px; align-items: center; }
+        .nav-link { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
+        .cart-trigger { position: relative; cursor: pointer; color: var(--gold); font-size: 20px; transition: 0.3s; }
+        .cart-trigger:hover { transform: scale(1.1); }
+        .cart-count { position: absolute; top: -10px; right: -12px; background: var(--white); color: var(--black); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 
-        .burger { display: none; cursor: pointer; z-index: 6000; padding: 10px; }
-        .burger div { width: 28px; height: 2px; background: var(--gold); margin: 6px; transition: 0.4s; }
+        /* 3. LUXURY SIDE CART DRAWER */
+        #cart-drawer { position: fixed; top: 0; right: -450px; width: 450px; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 9999; transition: var(--transition); padding: 40px; display: flex; flex-direction: column; box-shadow: -20px 0 50px rgba(0,0,0,0.9); }
+        #cart-drawer.open { right: 0; }
+        .cart-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 20px; margin-bottom: 30px; }
+        .cart-head h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; letter-spacing: 2px; }
         
-        /* Burger Animation */
-        .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-        .toggle .line2 { opacity: 0; }
-        .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
-
-        /* 6. MOBILE OVERLAY */
-        .mobile-overlay { position: fixed; inset: 0; background: var(--black); z-index: 5500; display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(-100%); transition: var(--transition); }
-        .mobile-overlay.open { transform: translateY(0); }
-        .mobile-overlay a { font-family: 'Playfair Display', serif; font-size: 36px; margin: 15px 0; color: var(--white); transition: 0.3s; }
-        .mobile-overlay a:hover { color: var(--gold); letter-spacing: 5px; }
-
-        /* 7. HERO SECTION */
-        .hero { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: #000; }
-        .hero-video-wrap { position: absolute; inset: 0; z-index: 1; }
-        .hero-video-wrap img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transform: scale(1.1); animation: kenBurns 20s infinite alternate; }
-        @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.15); } }
+        #cart-content { flex-grow: 1; overflow-y: auto; padding-right: 15px; }
+        .cart-item-row { display: flex; gap: 20px; margin-bottom: 30px; align-items: center; border-bottom: 1px solid #111; padding-bottom: 20px; position: relative; }
+        .cart-item-row img { width: 90px; height: 90px; object-fit: contain; background: #000; border: 1px solid #222; }
         
-        .hero-content { z-index: 10; max-width: 1000px; padding: 0 20px; }
-        .hero-content .pre-title { font-size: 14px; letter-spacing: 12px; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; display: block; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 8vw, 115px); font-weight: 400; line-height: 1.1; margin-bottom: 45px; font-style: italic; }
+        .cart-foot { border-top: 1px solid #222; padding-top: 30px; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 22px; color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 30px; }
+        .checkout-whatsapp { width: 100%; padding: 22px; background: var(--gold); color: #000; font-weight: 700; text-transform: uppercase; border: none; letter-spacing: 3px; cursor: pointer; transition: 0.4s; }
+        .checkout-whatsapp:hover { background: var(--white); transform: translateY(-3px); }
 
-        /* 8. SIGNATURE SERIES (NOW FIRST) */
+        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(8px); }
+
+        /* 4. HERO SECTION */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+        .hero-video { position: absolute; inset: 0; z-index: 1; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('Background.png'); background-size: cover; background-position: center; }
+        .hero-content { z-index: 10; max-width: 1000px; padding: 0 5%; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(50px, 8vw, 110px); color: var(--white); font-style: italic; line-height: 1.1; margin: 25px 0; }
+        .hero-btn { padding: 20px 50px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; font-weight: 600; display: inline-block; transition: 0.5s; }
+        .hero-btn:hover { background: var(--gold); color: #000; transform: translateY(-5px); }
+
+        /* 5. SIGNATURE SERIES (PRODUCTS) */
         .section-header { text-align: center; padding: 120px 0 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 50px); color: var(--gold); letter-spacing: 2px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); letter-spacing: 2px; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 120px; }
-        .card-item { height: 600px; position: relative; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.15); transition: var(--transition); }
-        .card-item img { width: 100%; height: 100%; object-fit: cover; transition: 2s var(--transition); }
-        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 70%); display: flex; flex-direction: column; justify-content: flex-end; padding: 45px; }
-        .card-overlay h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 12px; }
-        .card-overlay p { text-transform: uppercase; letter-spacing: 4px; font-size: 11px; color: #aaa; }
-        .card-item:hover img { transform: scale(1.1); }
-        .card-item:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .grid-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 100px; }
+        .item-card { height: 600px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); transition: var(--transition); }
+        .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--transition); }
+        .item-card:hover img { transform: scale(1.1); }
+        .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 45px; }
+        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 10px; }
+        .item-overlay p { text-transform: uppercase; letter-spacing: 4px; font-size: 11px; color: #888; }
 
-        /* 9. STORY SECTION (NOW SECOND) */
-        .story-sec { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; background: #080808; border-top: 1px solid #111; }
-        .story-visual { position: relative; padding: 20px; }
-        .story-visual img { width: 100%; border: 1px solid var(--gold); transition: var(--transition); }
-        .story-visual::before { content: ''; position: absolute; top: 0; left: 0; width: 80px; height: 80px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
-        
-        .story-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 4vw, 55px); color: var(--gold); margin-bottom: 40px; }
-        .story-content p { font-size: 17px; color: #999; margin-bottom: 30px; text-align: justify; font-weight: 300; }
-        .story-content strong { color: var(--gold); font-weight: 400; }
+        /* 6. HERITAGE STORY */
+        .heritage-sec { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; background: #080808; border-top: 1px solid #111; }
+        .heritage-img img { width: 100%; border: 1px solid var(--gold); padding: 15px; filter: grayscale(30%); }
+        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 50px; color: var(--gold); margin-bottom: 35px; }
+        .heritage-content p { color: #aaa; font-size: 18px; margin-bottom: 25px; text-align: justify; font-weight: 200; }
 
-        /* 10. FOOTER */
-        footer { background: #000; padding: 100px 8% 50px; border-top: 1px solid #1a1a1a; }
-        .footer-grid { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
-        .footer-brand h4 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; letter-spacing: 5px; }
-        .footer-links h5 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 35px; color: var(--white); border-bottom: 1px solid var(--border-gold); display: inline-block; padding-bottom: 10px; }
+        /* 7. TRUST FEATURES BAR */
+        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 100px 8%; background: var(--black); border-top: 1px solid #111; text-align: center; gap: 40px; }
+        .trust-box i { font-size: 30px; color: var(--gold); margin-bottom: 25px; display: block; }
+        .trust-box h4 { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
+        .trust-box p { font-size: 13px; color: #555; }
+
+        /* 8. FOOTER */
+        footer { padding: 100px 8% 50px; border-top: 1px solid #111; background: #000; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 30px; letter-spacing: 5px; }
+        .footer-links h5 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 35px; color: var(--white); }
         .footer-links ul li { margin-bottom: 18px; }
-        .footer-links a { color: #777; font-size: 14px; transition: 0.3s; }
-        .footer-links a:hover { color: var(--gold); padding-left: 10px; }
+        .footer-links a { color: #666; font-size: 14px; }
+        .footer-links a:hover { color: var(--gold); padding-left: 8px; }
+        
+        .footer-bottom { border-top: 1px solid #111; padding-top: 50px; text-align: center; }
+        .seo-text { font-size: 10px; color: #222; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .copy { font-size: 12px; color: #444; letter-spacing: 3px; }
 
-        .footer-bottom { text-align: center; padding-top: 50px; border-top: 1px solid #111; }
-        .seo-tags { font-size: 10px; color: #333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
-        .copyright { font-size: 12px; color: #555; letter-spacing: 3px; font-weight: 400; }
-
-        /* 11. BUTTONS & REVEALS */
-        .btn-main { padding: 20px 50px; border: 1px solid var(--gold); text-transform: uppercase; font-size: 11px; letter-spacing: 5px; font-weight: 600; color: var(--gold); display: inline-block; transition: 0.5s; background: transparent; }
-        .btn-main:hover { background: var(--gold); color: var(--black); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2); }
-
-        .reveal { opacity: 0; transform: translateY(60px); transition: 1.5s var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* 12. MOBILE RESPONSIVE */
+        /* MOBILE OPTIMIZATION */
         @media (max-width: 1024px) {
-            .grid-container { grid-template-columns: 1fr 1fr; gap: 20px; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            #cart-drawer { width: 100%; right: -100%; }
+            .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr 1fr; }
+            .heritage-sec { grid-template-columns: 1fr; text-align: center; }
         }
         @media (max-width: 768px) {
             header { padding: 25px 5%; }
-            .nav-menu { display: none; }
-            .burger { display: block; }
-            .hero-content h1 { font-size: 50px; }
-            .story-sec { grid-template-columns: 1fr; padding: 100px 5%; text-align: center; }
-            .grid-container { grid-template-columns: 1fr; padding: 0 5% 100px; }
-            .card-item { height: 500px; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .nav-link { display: none; }
+            .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 45px; }
         }
     </style>
 </head>
 <body>
 
-    <div id="cursor-follower"></div>
-    <div id="cursor-dot"></div>
+    <div id="cart-drawer">
+        <div class="cart-head">
+            <h2>Your Selection</h2>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 24px;"></i>
+        </div>
+        <div id="cart-content">
+            </div>
+        <div class="cart-foot">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span>₹<span id="grand-total">0</span></span>
+            </div>
+            <button class="checkout-whatsapp" onclick="sendWhatsAppOrder()">Reserve via WhatsApp</button>
+            <p style="font-size: 10px; color: #333; text-align: center; margin-top: 20px; letter-spacing: 2px;">HAND-DISTILLED IN HASAYAN</p>
+        </div>
+    </div>
+    <div id="cart-mask" onclick="toggleCart()"></div>
 
     <header id="header">
-        <a href="index.html" class="logo">ITRAURA</a>
-        <nav class="nav-menu">
-            <a href="index.html" class="nav-item">The House</a>
-            <a href="products.html" class="nav-item">Collections</a>
-            <a href="https://wa.me/917618243220" class="nav-item" style="color:var(--gold)">Concierge</a>
-        </nav>
-        <div class="burger" id="burger">
-            <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+        <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
+        <div class="nav-right">
+            <a href="product.html" class="nav-link">The Collection</a>
+            <div class="cart-trigger" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cart-count-badge">0</span>
+            </div>
+            <div style="color:var(--gold); font-size: 22px; cursor:pointer;" class="burger-menu"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
-    <div class="mobile-overlay" id="mobile-overlay">
-        <a href="index.html">The House</a>
-        <a href="products.html">Collections</a>
-        <a href="https://wa.me/917618243220">Concierge</a>
-    </div>
-
     <section class="hero">
-        <div class="hero-video-wrap">
-            <img src="Background.png" alt="ItrAura Essence">
-        </div>
+        <div class="hero-video"></div>
         <div class="hero-content">
-            <span class="pre-title animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
+            <span style="letter-spacing: 15px; color: var(--gold); text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 25px;" class="animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
             <h1 class="animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
-            <div class="btn-wrap animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                <a href="#series" class="btn-main" style="background: var(--gold); color: black;">Explore Boutique</a>
+            <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                <a href="product.html" class="hero-btn">Experience Essence</a>
             </div>
         </div>
     </section>
 
-    <div id="series" class="section-header reveal">
-        <h2>The Signature Series</h2>
+    <div class="section-header">
+        <h2>Signature Series</h2>
     </div>
-    <section class="grid-container">
-        <a href="products.html" class="card-item reveal">
-            <img src="ruh series.png" alt="Ruh Collection">
-            <div class="card-overlay">
+    <section class="grid-wrap">
+        <a href="product.html" class="item-card">
+            <img src="ruh series.png" alt="Ruh Series">
+            <div class="item-overlay">
                 <p>Pure Distillations</p>
                 <h3>Ruh Series</h3>
             </div>
         </a>
-        <a href="products.html" class="card-item reveal">
-            <img src="water series.png" alt="Water Collection">
-            <div class="card-overlay">
+        <a href="product.html" class="item-card">
+            <img src="water series.png" alt="Water Series">
+            <div class="item-overlay">
                 <p>Natural Hydrosols</p>
                 <h3>Water Series</h3>
             </div>
         </a>
-        <a href="products.html" class="card-item reveal">
-            <img src="premium series.png" alt="Premium Collection">
-            <div class="card-overlay">
+        <a href="product.html" class="item-card">
+            <img src="premium series.png" alt="Premium Series">
+            <div class="item-overlay">
                 <p>Exquisite Blends</p>
                 <h3>Premium Series</h3>
             </div>
         </a>
     </section>
 
-    <section class="story-sec reveal">
-        <div class="story-visual">
-            <img src="Background.png" alt="Traditional Distillation">
-        </div>
-        <div class="story-content">
+    <section class="heritage-sec">
+        <div class="heritage-img"><img src="Background.png" alt="Legacy Since 1958"></div>
+        <div class="heritage-content">
             <h2>Heritage Since 1958.</h2>
-            <p>At ItrAura, purity is not a claim—it is our inheritance. Born from a family tradition <strong>established in 1958</strong>, we bridge the gap between ancient Indian artistry and modern global luxury.</p>
-            <p>Our essences are birthed in the rose-rich lands of <strong>Hasayan</strong> using the legendary <strong>Traditional Deg-Bhapka method</strong> of Kannauj. 100% botanical, zero synthetics, and zero alcohol.</p>
-            <a href="#" class="btn-main" style="margin-top:20px;">Discover Roots</a>
+            <p>At ItrAura, we believe that purity is not a claim—it is our inheritance. Born from a family tradition established in 1958, we preserve the 400-year-old <strong>Deg-Bhapka</strong> steam distillation method of Kannauj.</p>
+            <p>Every bottle is a soul-stirring experience, hand-crafted in the rose-rich lands of <strong>Hasayan</strong>. 100% Botanical. 0% Alcohol. Pure Nature.</p>
+            <a href="product.html" class="hero-btn" style="margin-top: 20px;">Discover Our Roots</a>
         </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="trust-box"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>A legacy of perfume mastery.</p></div>
+        <div class="trust-box"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>Direct from the Rose Capital.</p></div>
+        <div class="trust-box"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka Art</h4><p>Traditional steam distillation.</p></div>
+        <div class="trust-box"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol. Zero Synthetics.</p></div>
     </section>
 
     <footer>
         <div class="footer-grid">
-            <div class="footer-brand">
-                <h4>ITRAURA</h4>
-                <p style="color:#555; font-size:14px; line-height:2;">The bridge between ancient Indian heritage and modern global luxury. Crafted in the heart of Hasayan since 1958.</p>
+            <div>
+                <div class="footer-logo">ITRAURA</div>
+                <p style="color:#444; font-size:14px; line-height:2;">The bridge between ancient Indian heritage and modern global luxury. Distilled in Hasayan, recognized worldwide.</p>
             </div>
             <div class="footer-links">
                 <h5>Heritage</h5>
                 <ul>
                     <li><a href="#">The Hasayan Fields</a></li>
-                    <li><a href="#">Traditional Distillation</a></li>
-                    <li><a href="#">Purity Promise</a></li>
+                    <li><a href="#">Distillation Process</a></li>
+                    <li><a href="#">Family Legacy</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h5>Client Care</h5>
+                <h5>Concierge</h5>
                 <ul>
-                    <li><a href="https://wa.me/917618243220">Concierge Service</a></li>
+                    <li><a href="https://wa.me/917618243220">Contact Us</a></li>
                     <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Bespoke Blends</a></li>
+                    <li><a href="#">Bespoke Blending</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h5>Stay Inspired</h5>
-                <input type="email" placeholder="EMAIL ADDRESS" style="width:100%; background:transparent; border:none; border-bottom:1px solid #333; padding:15px 0; color:white; margin-bottom:25px;">
-                <div style="display:flex; gap:25px; font-size:20px; color:var(--gold);">
+                <h5>Newsletter</h5>
+                <input type="email" placeholder="EMAIL ADDRESS" style="width:100%; background:transparent; border:none; border-bottom:1px solid #222; padding:15px 0; color:white; margin-bottom:20px;">
+                <div style="display:flex; gap:20px; color:var(--gold); font-size:20px;">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="seo-tags">Pure Rose Water Hasayan | Traditional Kannauj Attar | Luxury Alcohol-Free Perfumes | Est. 1958</p>
-            <p class="copyright">© 2026 ITRAURA | HASAYAN • KANNAUJ • LONDON</p>
+            <p class="seo-text">Pure Rose Water Hasayan | Traditional Kannauj Attar | Alcohol-Free Luxury Perfumes | Est. 1958</p>
+            <p class="copy">© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY | HASAYAN • KANNAUJ • LONDON</p>
         </div>
     </footer>
 
     <script>
-        // 1. Fixed Burger Menu Logic
-        const burger = document.getElementById('burger');
-        const overlay = document.getElementById('mobile-overlay');
-        const header = document.getElementById('header');
+        let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
 
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('toggle');
-            overlay.classList.toggle('open');
-            // Prevent scrolling when menu is open
-            if(overlay.classList.contains('open')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.mobile-overlay a').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('toggle');
-                overlay.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // 2. Luxury Cursor (Only for Desktop)
-        const dot = document.getElementById('cursor-dot');
-        const circle = document.getElementById('cursor-follower');
-        
-        document.addEventListener('mousemove', (e) => {
-            dot.style.left = e.clientX + 'px';
-            dot.style.top = e.clientY + 'px';
-            setTimeout(() => {
-                circle.style.left = e.clientX + 'px';
-                circle.style.top = e.clientY + 'px';
-            }, 60);
-        });
-
-        // 3. Scroll Effects
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 100);
-            reveal();
-        });
-
-        function reveal() {
-            document.querySelectorAll(".reveal").forEach(el => {
-                let windowHeight = window.innerHeight;
-                let elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    el.classList.add("active");
-                }
-            });
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const mask = document.getElementById('cart-mask');
+            drawer.classList.toggle('open');
+            mask.style.display = drawer.classList.contains('open') ? 'block' : 'none';
+            renderCart();
         }
 
-        // Initial Reveal
-        window.onload = reveal;
+        function renderCart() {
+            const container = document.getElementById('cart-content');
+            const totalDisplay = document.getElementById('grand-total');
+            const badge = document.getElementById('cart-count-badge');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#333; margin-top:100px; font-size:14px; letter-spacing:2px;">Your Selection is Empty.</p>';
+                totalDisplay.innerText = '0';
+                badge.innerText = '0';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                count += item.qty;
+                container.innerHTML += `
+                    <div class="cart-item-row">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div style="flex-grow:1;">
+                            <h4 style="color:var(--gold); font-size:14px; margin-bottom:5px;">${item.name}</h4>
+                            <p style="font-size:11px; color:#555;">Size: ${item.size} | Qty: ${item.qty}</p>
+                            <p style="font-size:14px; margin-top:8px; color:#fff;">₹${item.price * item.qty}</p>
+                        </div>
+                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color:#222; cursor:pointer; font-size:12px;"></i>
+                    </div>
+                `;
+            });
+
+            totalDisplay.innerText = total;
+            badge.innerText = count;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('itraura_cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) return;
+            let msg = "Hello ItrAura, I'd like to reserve the following Selection:\n\n";
+            let total = 0;
+            cart.forEach(item => {
+                msg += `• ${item.name} (${item.size}) x ${item.qty} = ₹${item.price * item.qty}\n`;
+                total += item.price * item.qty;
+            });
+            msg += `\nTotal Selection: ₹${total}\n\nPlease share the payment details.`;
+            window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
+        }
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        window.onload = renderCart;
     </script>
 </body>
 </html>
