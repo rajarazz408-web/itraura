@@ -2,79 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Collections - ItrAura</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery since 1958. 100% Purity, 0% Alcohol.">
+    <title>The Collections | ItrAura | Est. 1958 | Hasayan • Kannauj</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* ML Selector Styles */
-        .size-selector {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
+        :root {
+            --gold: #D4AF37;
+            --black: #050505;
+            --dark-gray: #0a0a0a;
+            --white: #ffffff;
+            --border-gold: rgba(212, 175, 55, 0.15);
+            --transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
         }
-        .ml-btn {
-            background: transparent;
-            border: 1px solid #D4AF37;
-            color: #D4AF37;
-            padding: 5px 12px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 4px;
-            text-transform: uppercase;
+
+        /* 1. RESET & BASICS */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 2. NAVIGATION HEADER */
+        header { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; background: rgba(5,5,5,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-gold); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; cursor: pointer; }
+        nav a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-left: 35px; color: #888; transition: 0.3s; }
+        nav a.active { color: var(--gold); }
+
+        /* 3. SHOP HEADER */
+        .shop-header { padding: 180px 8% 80px; text-align: center; }
+        .shop-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 60px); color: var(--gold); margin-bottom: 20px; font-style: italic; }
+        .shop-header p { font-size: 12px; letter-spacing: 4px; color: #666; text-transform: uppercase; }
+
+        /* 4. PRODUCT GRID */
+        .container { padding: 0 8% 100px; }
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+        /* 5. PRODUCT CARD - SPECIAL IMAGE PROTECTION */
+        .product-card { background: var(--dark-gray); border: 1px solid var(--border-gold); transition: var(--transition); display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-12px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+        
+        /* Image Protection CSS: Hindi-English-Urdu text will NOT cut */
+        .img-container { width: 100%; height: 450px; background: #000; position: relative; overflow: hidden; padding: 25px; display: flex; align-items: center; justify-content: center; }
+        .product-card img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; /* CRITICAL FIX: Ensures languages text never cuts */
+            transition: 1s var(--transition);
         }
-        .ml-btn.active {
-            background: #D4AF37;
-            color: #000;
-            font-weight: 600;
+        .product-card:hover img { transform: scale(1.03); }
+
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--gold); color: #000; font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 5px 15px; text-transform: uppercase; z-index: 10; }
+
+        /* 6. INFO SECTION */
+        .info { padding: 35px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .info h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; color: var(--white); letter-spacing: 1px; }
+        .info p { font-size: 13px; color: #777; margin-bottom: 25px; font-weight: 300; line-height: 1.6; min-height: 40px; }
+
+        /* ML SELECTOR */
+        .size-selector { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .ml-btn { background: transparent; border: 1px solid #333; color: #666; padding: 7px 18px; font-size: 11px; cursor: pointer; transition: 0.3s; letter-spacing: 1px; border-radius: 2px; }
+        .ml-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(212, 175, 55, 0.08); font-weight: 600; }
+
+        .price-tag { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 30px; font-weight: 400; }
+        
+        .btn-experience { width: 100%; padding: 18px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; font-size: 11px; letter-spacing: 3px; font-weight: 600; cursor: pointer; transition: 0.4s; }
+        .btn-experience:hover { background: var(--gold); color: #000; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
+
+        /* 7. TRUST BAR (THE 4 POINTS) */
+        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); background: #080808; padding: 100px 8%; border-top: 1px solid #111; gap: 40px; text-align: center; }
+        .trust-item i { color: var(--gold); font-size: 30px; margin-bottom: 25px; display: block; }
+        .trust-item h4 { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+        .trust-item p { font-size: 13px; color: #555; line-height: 1.6; }
+
+        /* 8. FOOTER & WHATSAPP */
+        .footer-simple { text-align: center; padding: 50px; border-top: 1px solid #111; font-size: 11px; color: #444; letter-spacing: 3px; text-transform: uppercase; }
+        .whatsapp-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 15px 30px rgba(0,0,0,0.4); z-index: 6000; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(8deg); }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) { 
+            .product-grid { grid-template-columns: 1fr 1fr; } 
+            .trust-bar { grid-template-columns: 1fr 1fr; } 
         }
-        .product-card {
-            cursor: pointer;
-            transition: transform 0.4s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-        .product-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
+        @media (max-width: 768px) { 
+            header { padding: 20px 5%; }
+            .logo { font-size: 22px; letter-spacing: 4px; }
+            .product-grid { grid-template-columns: 1fr; } 
+            .img-container { height: 400px; }
+            .trust-bar { grid-template-columns: 1fr; gap: 50px; padding: 80px 10%; } 
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
-<header class="navbar">
-    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">ItrAura</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#" class="active">Products</a>
+<header>
+    <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
+    <nav class="nav-menu">
+        <a href="index.html">The House</a>
+        <a href="product.html" class="active">Collections</a>
     </nav>
 </header>
 
 <section class="shop-header">
-    <h1>Our Premium Collection</h1>
-    <p>Traditional copper deg distillation. 100% Purity. 0% Alcohol.</p>
+    <h1>Artisanal Collections</h1>
+    <p>Distilled in Hasayan • Legacy Since 1958</p>
 </section>
 
 <div class="container">
@@ -82,8 +116,35 @@
         </div>
 </div>
 
+<section class="trust-bar">
+    <div class="trust-item">
+        <i class="fas fa-history"></i>
+        <h4>Established 1958</h4>
+        <p>A heritage of purity preserved through generations of perfume mastery.</p>
+    </div>
+    <div class="trust-item">
+        <i class="fas fa-seedling"></i>
+        <h4>Soul of Hasayan</h4>
+        <p>Sourced directly from the legendary rose fields of India's scent capital.</p>
+    </div>
+    <div class="trust-item">
+        <i class="fas fa-fire-alt"></i>
+        <h4>Deg-Bhapka Art</h4>
+        <p>The 400-year-old tradition of copper steam distillation for uncompromised quality.</p>
+    </div>
+    <div class="trust-item">
+        <i class="fas fa-leaf"></i>
+        <h4>100% Botanical</h4>
+        <p>Experience pure nature. Zero Alcohol, Zero Synthetics, Zero Compromise.</p>
+    </div>
+</section>
+
+<footer class="footer-simple">
+    © 2026 ITRAURA LUXURY ARTISANAL PERFUMERY | HASAYAN • KANNAUJ • LONDON
+</footer>
+
 <a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank">
-    Chat on WhatsApp
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 <script src="data.js"></script>
@@ -95,7 +156,6 @@
             productGrid.innerHTML = ''; 
             
             products.forEach(item => {
-                // Pehla size aur price nikalna
                 const availableSizes = Object.keys(item.prices);
                 const firstSize = availableSizes[0];
                 const firstPrice = item.prices[firstSize];
@@ -104,23 +164,29 @@
                 card.className = 'product-card';
                 
                 card.innerHTML = `
-                    <div class="badge">${item.category}</div>
-                    <img src="${item.img}" alt="${item.name}" onclick="goToDetail(${item.id})" onerror="this.src='https://via.placeholder.com/300?text=ItrAura'">
+                    <div class="img-container">
+                        <div class="badge">${item.category}</div>
+                        <img src="${item.img}" alt="${item.name}" onclick="goToDetail(${item.id})" onerror="this.src='https://via.placeholder.com/600x800?text=ItrAura+Essence'">
+                    </div>
                     <div class="info">
-                        <h3 onclick="goToDetail(${item.id})">${item.name}</h3>
-                        <p>${item.desc}</p>
-                        
-                        <div class="size-selector">
-                            ${availableSizes.map((size, index) => `
-                                <button class="ml-btn ${index === 0 ? 'active' : ''}" 
-                                        onclick="changePrice(this, ${item.prices[size]})">
-                                    ${size}
-                                </button>
-                            `).join('')}
+                        <div class="top-info">
+                            <h3 onclick="goToDetail(${item.id})">${item.name}</h3>
+                            <p>${item.desc}</p>
                         </div>
+                        
+                        <div class="selector-wrap">
+                            <div class="size-selector">
+                                ${availableSizes.map((size, index) => `
+                                    <button class="ml-btn ${index === 0 ? 'active' : ''}" 
+                                            onclick="changePrice(this, ${item.prices[size]})">
+                                        ${size}
+                                    </button>
+                                `).join('')}
+                            </div>
 
-                        <div class="price-tag">₹<span class="price-val">${firstPrice}</span></div>
-                        <button class="btn" onclick="goToDetail(${item.id})">Experience Essence</button>
+                            <div class="price-tag">₹<span class="price-val">${firstPrice}</span></div>
+                            <button class="btn-experience" onclick="goToDetail(${item.id})">Experience Essence</button>
+                        </div>
                     </div>
                 `;
                 productGrid.appendChild(card);
@@ -128,23 +194,20 @@
         }
     }
 
-    // Function: Price update karne ke liye jab button click ho
     function changePrice(btn, newPrice) {
         const priceElement = btn.closest('.info').querySelector('.price-val');
         priceElement.innerText = newPrice;
         
-        // Active button change karna
         const buttons = btn.parentElement.querySelectorAll('.ml-btn');
         buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
 
-    // Function: Next page (Detail Page) par bhejne ke liye
     function goToDetail(productId) {
         window.location.href = `product-detail.html?id=${productId}`;
     }
 
-    renderProducts();
+    window.onload = renderProducts;
 </script>
 
 </body>
