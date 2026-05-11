@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ItrAura - Artisanal Botanical Perfumery since 1958. 100% Purity, 0% Alcohol.">
-    <title>The Collections | ItrAura | Est. 1958 | Hasayan • Kannauj</title>
     
+    <title>Collections | ItrAura Artisanal Perfumes | Pure Hasayan & Kannauj Attars</title>
+    <meta name="description" content="Explore ItrAura's artisanal collection of 100% pure, alcohol-free Indian attars. Featuring the Ruh Series, Water Series, and Premium Blends distilled via Deg-Bhapka.">
+    <meta name="keywords" content="Ruh Gulab, Pure Khus Attar, Sandalwood Oil India, Natural Rose Water, Alcohol Free Luxury Perfume, Artisanal Fragrances India, ItrAura Collection">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -52,10 +54,10 @@
         /* CARD FIXES */
         .product-card { background: var(--dark-gray); border: 1px solid var(--border-gold); transition: var(--transition); display: flex; flex-direction: column; }
         .img-container { width: 100%; height: 450px; background: #000; position: relative; overflow: hidden; padding: 25px; display: flex; align-items: center; justify-content: center; }
-        .product-card img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 1s var(--transition); }
+        .product-card img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 1.5s var(--transition); cursor: pointer; }
         .badge { position: absolute; top: 15px; left: 15px; background: var(--gold); color: #000; font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 5px 15px; text-transform: uppercase; z-index: 10; }
         .info { padding: 35px; text-align: center; flex-grow: 1; }
-        .info h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; color: var(--white); }
+        .info h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; color: var(--white); cursor: pointer; }
         .info p { font-size: 13px; color: #777; margin-bottom: 25px; min-height: 40px; }
         .size-selector { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
         .ml-btn { background: transparent; border: 1px solid #333; color: #666; padding: 7px 18px; font-size: 11px; cursor: pointer; transition: 0.3s; }
@@ -71,11 +73,22 @@
         .trust-item p { font-size: 13px; color: #555; }
 
         .footer-simple { text-align: center; padding: 50px; border-top: 1px solid #111; font-size: 11px; color: #444; letter-spacing: 3px; }
-        .whatsapp-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 6000; }
+        .whatsapp-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 6000; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
         @media (max-width: 1024px) { .product-grid, .trust-bar { grid-template-columns: 1fr 1fr; } #cart-drawer { width: 100%; right: -100%; } }
         @media (max-width: 768px) { .product-grid, .trust-bar { grid-template-columns: 1fr; } .nav-menu { display: none; } }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "ItemList",
+      "name": "ItrAura Signature Collections",
+      "description": "Premium Botanical Perfumes and Attars from ItrAura House.",
+      "numberOfItems": 10
+    }
+    </script>
 </head>
 <body>
 
@@ -125,9 +138,9 @@
     <div class="trust-item"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol. Zero Synthetics.</p></div>
 </section>
 
-<footer class="footer-simple">© 2026 ITRAURA | HASAYAN • KANNAUJ • LONDON</footer>
+<footer class="footer-simple">© 2026 ITRAURA | HASAYAN • KANNAUJ • LONDON | Pure Indian Attars & Luxury Perfumes</footer>
 
-<a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank" aria-label="Order via WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <script src="data.js"></script>
 <script>
@@ -147,7 +160,7 @@
                 card.innerHTML = `
                     <div class="img-container">
                         <div class="badge">${item.category}</div>
-                        <img src="${item.img}" alt="${item.name}" onclick="goToDetail(${item.id})">
+                        <img src="${item.img}" alt="ItrAura ${item.name} - Luxury ${item.category} Attar" onclick="goToDetail(${item.id})">
                     </div>
                     <div class="info">
                         <h3 onclick="goToDetail(${item.id})">${item.name}</h3>
@@ -216,7 +229,7 @@
             total += item.price * item.qty;
             container.innerHTML += `
                 <div class="cart-item-row">
-                    <img src="${item.img}">
+                    <img src="${item.img}" alt="${item.name}">
                     <div style="flex-grow:1">
                         <h4 style="color:var(--gold); font-size:14px;">${item.name}</h4>
                         <p style="font-size:10px; color:#555;">${item.size} x ${item.qty}</p>
@@ -235,12 +248,13 @@
     }
 
     function updateBadge() {
-        document.getElementById('cart-badge').innerText = cart.reduce((s, i) => s + i.qty, 0);
+        const count = cart.reduce((s, i) => s + i.qty, 0);
+        document.getElementById('cart-badge').innerText = count;
     }
 
     function checkoutWhatsApp() {
         if(cart.length === 0) return;
-        let msg = "Hello ItrAura, I'd like to order:\n";
+        let msg = "Hello ItrAura, I'd like to order from the Collections:\n";
         cart.forEach(i => msg += `• ${i.name} (${i.size}) x ${i.qty} = ₹${i.price*i.qty}\n`);
         msg += `\nTotal: ₹${document.getElementById('cart-total-val').innerText}`;
         window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
