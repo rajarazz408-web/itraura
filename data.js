@@ -16,7 +16,7 @@ const products = [
         category: "Ruh Series",
         img: "ruh gulab.png",
         prices: { "3ml": 3499, "6ml": 6499, "12ml": 11999 },
-        desc: "The Royal Rose of India. Traditional Deg-Bhapka distillation.",
+        desc: "The pinnacle of luxury. Distilled using the ancient 'Deg-Bhapka' method, it takes nearly 4 tons of hand-picked Damask Roses to produce just 1kg of this Ruh Gulab. A deep, honeyed, and spiritual rose essence that represents the true heritage of ItrAura.",
         fullDesc: "The pinnacle of luxury. Distilled using the ancient 'Deg-Bhapka' method, it takes thousands of roses to produce a single drop of this Ruh Gulab. It offers a rich, honeyed rose scent that represents the true heritage of Indian perfumery.",
         scentProfile: { top: "Damask Rose", heart: "Honeyed Petals", base: "Earthy Rose" }
     },
