@@ -65,7 +65,8 @@
 
         /* HERO SECTION */
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-        .hero-video { position: absolute; inset: 0; z-index: 1; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('Background.png'); background-size: cover; background-position: center; }
+        .hero-video { position: absolute; inset: 0; z-index: 1; background: #000; }
+        .hero-video video { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
         .hero-content { z-index: 10; max-width: 1000px; padding: 0 5%; }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 8vw, 110px); color: var(--white); font-style: italic; line-height: 1.1; margin: 25px 0; }
         .hero-btn { padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; font-weight: 600; display: inline-block; transition: 0.5s; }
@@ -81,29 +82,33 @@
         .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
         .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 5px; }
 
-        /* HERITAGE STORY */
+        /* HERITAGE STORY & VIDEO */
         .heritage-sec { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: #080808; }
-        .heritage-img img { width: 100%; border: 1px solid var(--gold); padding: 10px; }
-        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 30px; }
-        .heritage-content p { color: #aaa; font-size: 16px; margin-bottom: 20px; font-weight: 300; }
+        .heritage-media { position: relative; border: 1px solid var(--gold); padding: 10px; }
+        .heritage-media video { width: 100%; display: block; margin-bottom: 20px; border: 1px solid #222; }
+        .heritage-media img { width: 100%; }
+        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 10px; }
+        .heritage-content p { color: #f0f0f0; font-size: 16px; margin-bottom: 20px; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        
+        .power-fact-badge { display: inline-block; border: 1px solid var(--gold); padding: 12px 20px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; letter-spacing: 1px; }
 
         /* TRUST BAR */
         .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 80px 8%; background: var(--black); border-top: 1px solid #111; text-align: center; gap: 30px; }
         .trust-box i { font-size: 28px; color: var(--gold); margin-bottom: 20px; display: block; }
         .trust-box h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-        .trust-box p { font-size: 12px; color: #555; }
+        .trust-box p { font-size: 12px; color: #888; font-weight: 500; }
 
         /* FOOTER */
         footer { padding: 80px 8% 40px; border-top: 1px solid #111; background: #000; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 60px; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); margin-bottom: 20px; letter-spacing: 5px; }
         .footer-links h5 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; color: var(--white); }
-        .footer-links a { color: #444; font-size: 13px; display: block; margin-bottom: 12px; }
+        .footer-links a { color: #888; font-size: 13px; display: block; margin-bottom: 12px; font-weight: 500; }
         .footer-links a:hover { color: var(--gold); }
         
         .footer-bottom { border-top: 1px solid #111; padding-top: 40px; text-align: center; }
-        .seo-text { font-size: 9px; color: #222; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-        .copy { font-size: 11px; color: #333; letter-spacing: 2px; }
+        .seo-text { font-size: 9px; color: #333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .copy { font-size: 11px; color: #555; letter-spacing: 2px; }
 
         @media (max-width: 1024px) {
             .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -174,7 +179,11 @@
     </header>
 
     <section class="hero">
-        <div class="hero-video"></div>
+        <div class="hero-video">
+            <video autoplay muted loop playsinline>
+                <source src="media/Itraura.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-content">
             <span style="letter-spacing: 10px; color: var(--gold); text-transform: uppercase; font-size: 11px; display: block; margin-bottom: 20px;" class="animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
             <h1 class="animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
@@ -186,7 +195,7 @@
     
     <section class="grid-wrap">
         <a href="product.html" class="item-card">
-            <img src="ruh series.png" alt="ItrAura Ruh Series - Pure Botanical Distillation Attar">
+            <img src="media/Ruh Bottle.png" alt="ItrAura Ruh Series - Pure Botanical Distillation Attar">
             <div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div>
         </a>
         <a href="product.html" class="item-card">
@@ -194,15 +203,24 @@
             <div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div>
         </a>
         <a href="product.html" class="item-card">
-            <img src="premium series.png" alt="ItrAura Premium Series - Luxury Alcohol-Free Perfume Blends">
+            <img src="media/Ruh mini.png" alt="ItrAura Premium Series - Luxury Alcohol-Free Perfume Blends">
             <div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div>
         </a>
     </section>
 
     <section class="heritage-sec" id="heritage-sec">
-        <div class="heritage-img"><img src="Background.png" alt="ItrAura Legacy and Traditional Distillation Background"></div>
+        <div class="heritage-media">
+            <video autoplay muted loop playsinline>
+                <source src="media/Bhapka.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="media/Rose.mp4" type="video/mp4">
+            </video>
+            <img src="Background.png" alt="ItrAura Legacy and Traditional Distillation Background">
+        </div>
         <div class="heritage-content">
             <h2>Heritage Since 1958.</h2>
+            <div class="power-fact-badge">"4 tons of hand-picked roses create just 1kg of our Ruh Gulab."</div>
             <p>At ItrAura, purity is our inheritance. Born from a family tradition established in 1958, we preserve the 400-year-old <strong>Deg-Bhapka steam distillation</strong> method in the heart of Firozabad and Hasayan.</p>
             <p>Each bottle is a masterpiece of <strong>Hand-crafted, 100% Botanical, and Zero Alcohol</strong> essence, bringing the soul of Indian flowers to the global stage.</p>
             <a href="product.html" class="hero-btn" style="margin-top: 20px;">Discover Our Roots</a>
@@ -221,22 +239,22 @@
         <div style="max-width: 900px; margin: 0 auto;">
             <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px;">
                 <h4 style="color: var(--gold); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px;">Are ItrAura fragrances 100% alcohol-free?</h4>
-                <p style="color: #888; font-size: 14px; line-height: 1.6;">Yes, absolutely. We preserve the ancient Deg-Bhapka tradition. Every drop is a pure botanical extract with zero alcohol, zero synthetics, and zero parabens.</p>
+                <p style="color: #ccc; font-size: 14px; line-height: 1.6; font-weight: 500;">Yes, absolutely. We preserve the ancient Deg-Bhapka tradition. Every drop is a pure botanical extract with zero alcohol, zero synthetics, and zero parabens.</p>
             </div>
             <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px;">
                 <h4 style="color: var(--gold); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px;">What makes Deg-Bhapka distillation special?</h4>
-                <p style="color: #888; font-size: 14px; line-height: 1.6;">It is a 400-year-old traditional steam distillation process using copper vessels (Degs). Unlike modern machinery, this slow process captures the true 'soul' and therapeutic properties of the flowers.</p>
+                <p style="color: #ccc; font-size: 14px; line-height: 1.6; font-weight: 500;">It is a 400-year-old traditional steam distillation process using copper vessels (Degs). Unlike modern machinery, this slow process captures the true 'soul' and therapeutic properties of the flowers.</p>
             </div>
             <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px;">
                 <h4 style="color: var(--gold); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px;">Do you ship internationally (USA, UAE, UK)?</h4>
-                <p style="color: #888; font-size: 14px; line-height: 1.6;">Yes, we offer secure global shipping to UAE, USA, UK, and beyond. Please contact our concierge via WhatsApp for international rates.</p>
+                <p style="color: #ccc; font-size: 14px; line-height: 1.6; font-weight: 500;">Yes, we offer secure global shipping to UAE, USA, UK, and beyond. Please contact our concierge via WhatsApp for international rates.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-grid">
-            <div><div class="footer-logo">ITRAURA</div><p style="color:#333; font-size:13px;">Ancient heritage meets modern global luxury.</p></div>
+            <div><div class="footer-logo">ITRAURA</div><p style="color:#888; font-size:13px; font-weight:500;">Ancient heritage meets modern global luxury.</p></div>
             <div class="footer-links">
                 <h5>Heritage</h5>
                 <a href="product.html">Hasayan Fields</a>
@@ -271,7 +289,7 @@
             container.innerHTML = '';
             let total = 0; let count = 0;
             if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#333; margin-top:100px; font-size:14px; letter-spacing:2px;">Your Selection is Empty.</p>';
+                container.innerHTML = '<p style="text-align:center; color:#555; margin-top:100px; font-size:14px; letter-spacing:2px; font-weight:600;">Your Selection is Empty.</p>';
                 totalDisplay.innerText = '0'; badge.innerText = '0'; return;
             }
             cart.forEach((item, index) => {
@@ -281,10 +299,10 @@
                         <img src="${item.img}">
                         <div style="flex-grow:1;">
                             <h4 style="color:var(--gold); font-size:14px; margin-bottom:5px;">${item.name}</h4>
-                            <p style="font-size:11px; color:#555;">${item.size} | Qty: ${item.qty}</p>
-                            <p style="font-size:14px; color:#fff;">₹${item.price * item.qty}</p>
+                            <p style="font-size:11px; color:#888; font-weight:500;">${item.size} | Qty: ${item.qty}</p>
+                            <p style="font-size:14px; color:#fff; font-weight:600;">₹${item.price * item.qty}</p>
                         </div>
-                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color:#222; cursor:pointer; font-size:12px;"></i>
+                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color:#444; cursor:pointer; font-size:12px;"></i>
                     </div>`;
             });
             totalDisplay.innerText = total; badge.innerText = count;
