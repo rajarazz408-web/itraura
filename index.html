@@ -82,14 +82,15 @@
         .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
         .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 5px; }
 
-        /* HERITAGE STORY & VIDEO */
+        /* HERITAGE STORY & VIDEO (310-Line Layout Fix) */
         .heritage-sec { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: #080808; }
-        .heritage-media { position: relative; border: 1px solid var(--gold); padding: 10px; }
-        .heritage-media video { width: 100%; display: block; margin-bottom: 20px; border: 1px solid #222; }
-        .heritage-media img { width: 100%; }
-        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 10px; }
-        .heritage-content p { color: #f0f0f0; font-size: 16px; margin-bottom: 20px; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        .heritage-media-container { display: flex; flex-direction: column; gap: 20px; }
+        .heritage-media-container video { width: 100%; border: 1px solid var(--gold); padding: 5px; background: #000; }
+        .heritage-media-container .grid-sub-media { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .heritage-media-container .grid-sub-media video, .heritage-media-container .grid-sub-media img { width: 100%; border: 1px solid #222; }
         
+        .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 30px; }
+        .heritage-content p { color: #f0f0f0; font-size: 16px; margin-bottom: 20px; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
         .power-fact-badge { display: inline-block; border: 1px solid var(--gold); padding: 12px 20px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; letter-spacing: 1px; }
 
         /* TRUST BAR */
@@ -195,28 +196,30 @@
     
     <section class="grid-wrap">
         <a href="product.html" class="item-card">
-            <img src="media/Ruh Bottle.png" alt="ItrAura Ruh Series - Pure Botanical Distillation Attar">
+            <img src="media/Ruh Bottle.png" alt="ItrAura Ruh Series">
             <div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div>
         </a>
         <a href="product.html" class="item-card">
-            <img src="water series.png" alt="ItrAura Water Series - Natural Organic Hydrosols and Rose Water">
+            <img src="water series.png" alt="ItrAura Water Series">
             <div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div>
         </a>
         <a href="product.html" class="item-card">
-            <img src="media/Ruh mini.png" alt="ItrAura Premium Series - Luxury Alcohol-Free Perfume Blends">
+            <img src="media/Ruh mini.png" alt="ItrAura Premium Series">
             <div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div>
         </a>
     </section>
 
     <section class="heritage-sec" id="heritage-sec">
-        <div class="heritage-media">
+        <div class="heritage-media-container">
             <video autoplay muted loop playsinline>
                 <source src="media/Bhapka.mp4" type="video/mp4">
             </video>
-            <video autoplay muted loop playsinline>
-                <source src="media/Rose.mp4" type="video/mp4">
-            </video>
-            <img src="Background.png" alt="ItrAura Legacy and Traditional Distillation Background">
+            <div class="grid-sub-media">
+                <video autoplay muted loop playsinline>
+                    <source src="media/Rose.mp4" type="video/mp4">
+                </video>
+                <img src="Background.png" alt="ItrAura Legacy">
+            </div>
         </div>
         <div class="heritage-content">
             <h2>Heritage Since 1958.</h2>
@@ -245,10 +248,6 @@
                 <h4 style="color: var(--gold); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px;">What makes Deg-Bhapka distillation special?</h4>
                 <p style="color: #ccc; font-size: 14px; line-height: 1.6; font-weight: 500;">It is a 400-year-old traditional steam distillation process using copper vessels (Degs). Unlike modern machinery, this slow process captures the true 'soul' and therapeutic properties of the flowers.</p>
             </div>
-            <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px;">
-                <h4 style="color: var(--gold); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px;">Do you ship internationally (USA, UAE, UK)?</h4>
-                <p style="color: #ccc; font-size: 14px; line-height: 1.6; font-weight: 500;">Yes, we offer secure global shipping to UAE, USA, UK, and beyond. Please contact our concierge via WhatsApp for international rates.</p>
-            </div>
         </div>
     </section>
 
@@ -263,7 +262,7 @@
             <div class="footer-links">
                 <h5>Concierge</h5>
                 <a href="https://wa.me/917618243220">Contact Us</a>
-                <a href="https://wa.me/917618243220?text=Hello, I want to know about Shipping.">Shipping</a>
+                <a href="https://wa.me/917618243220?text=Hello">Shipping</a>
             </div>
             <div class="footer-links"><h5>Newsletter</h5><input type="text" placeholder="EMAIL" style="width:100%; background:transparent; border:none; border-bottom:1px solid #222; padding:10px 0; color:white;"></div>
         </div>
@@ -299,7 +298,7 @@
                         <img src="${item.img}">
                         <div style="flex-grow:1;">
                             <h4 style="color:var(--gold); font-size:14px; margin-bottom:5px;">${item.name}</h4>
-                            <p style="font-size:11px; color:#888; font-weight:500;">${item.size} | Qty: ${item.qty}</p>
+                            <p style="font-size:11px; color:#888; font-weight:500;">Qty: ${item.qty}</p>
                             <p style="font-size:14px; color:#fff; font-weight:600;">₹${item.price * item.qty}</p>
                         </div>
                         <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color:#444; cursor:pointer; font-size:12px;"></i>
@@ -315,7 +314,7 @@
         function sendWhatsAppOrder() {
             if (cart.length === 0) return;
             let msg = "Hello ItrAura, I'd like to reserve the following Selection:\n\n";
-            cart.forEach(item => msg += `• ${item.name} (${item.size}) x ${item.qty} = ₹${item.price * item.qty}\n`);
+            cart.forEach(item => msg += `• ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`);
             msg += `\nTotal: ₹${document.getElementById('grand-total').innerText}\nPlease share payment details.`;
             window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
         }
