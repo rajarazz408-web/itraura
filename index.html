@@ -7,14 +7,13 @@
     <title>ItrAura | Premium Artisanal Attars | Traditional Deg-Bhapka Art | Est. 1958</title>
     <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka in Hasayan & Kannauj. Buy Authentic Indian Itr online.">
     
+    <!-- Meta Tags for UAE/UK/USA Markets -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ItrAura | Luxury Artisanal Perfumery | Est. 1958">
     <meta property="og:description" content="Discover 100% Pure, Alcohol-Free Attars distilled via the ancient 400-year-old Deg-Bhapka method. Heritage from Hasayan to the World.">
     <meta property="og:image" content="https://itraura.com/Background.png"> 
     <meta property="og:url" content="https://itraura.com">
     <meta name="twitter:card" content="summary_large_image">
-    
-    <meta name="keywords" content="Luxury Attar India, Pure Rose Water Hasayan, Traditional Kannauj Attar, Organic Perfume Oil, Alcohol Free Fragrance, ItrAura Perfumes, Best Attar for Men Women, Deg-Bhapka Distillation">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -43,12 +42,8 @@
         .nav-right { display: flex; gap: 30px; align-items: center; padding-right: 25px; } 
         .nav-link { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; color: #888; }
         .nav-link:hover { color: var(--gold); }
-        .cart-trigger { position: relative; cursor: pointer; color: var(--gold); font-size: 20px; transition: 0.3s; }
-        .cart-count { position: absolute; top: -10px; right: -12px; background: var(--white); color: var(--black); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
-
-        /* WHATSAPP FLOAT */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 9999; transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); background: var(--gold); }
+        .cart-trigger { position: relative; cursor: pointer; color: var(--gold); font-size: 20px; transition: 0.3s; padding: 5px; }
+        .cart-count { position: absolute; top: -5px; right: -10px; background: var(--white); color: var(--black); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 
         /* LUXURY SIDE CART DRAWER */
         #cart-drawer { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 10000; transition: var(--transition); padding: 30px; display: flex; flex-direction: column; }
@@ -64,16 +59,15 @@
         .cart-foot { border-top: 1px solid #222; padding-top: 30px; }
         .cart-total { display: flex; justify-content: space-between; font-size: 22px; color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 30px; }
         .checkout-whatsapp { width: 100%; padding: 22px; background: var(--gold); color: #000; font-weight: 700; text-transform: uppercase; border: none; letter-spacing: 3px; cursor: pointer; transition: 0.4s; }
-        
         #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(8px); }
 
-        /* HERO SECTION */
+        /* HERO SECTION WITH VIDEO */
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-        .hero-video { position: absolute; inset: 0; z-index: 1; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('Background.png'); background-size: cover; background-position: center; }
+        .hero-video { position: absolute; inset: 0; z-index: 1; }
+        .hero-video video { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
         .hero-content { z-index: 10; max-width: 1000px; padding: 0 5%; }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(45px, 8vw, 110px); color: var(--white); font-style: italic; line-height: 1.1; margin: 25px 0; }
         .hero-btn { padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; font-weight: 600; display: inline-block; transition: 0.5s; }
-        .hero-btn:hover { background: var(--gold); color: #000; transform: translateY(-5px); }
 
         /* SIGNATURE SERIES */
         .section-header { text-align: center; padding: 120px 0 60px; }
@@ -81,15 +75,28 @@
         .grid-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 100px; }
         .item-card { height: 550px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); }
         .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--transition); }
-        .item-card:hover img { transform: scale(1.1); }
         .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
         .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 5px; }
 
-        /* HERITAGE SECTION & TEXT VISIBILITY */
+        /* HERITAGE & VIDEO GRID */
         .heritage-sec { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: #080808; }
-        .heritage-img img { width: 100%; border: 1px solid var(--gold); padding: 10px; }
+        .heritage-media-box { display: flex; flex-direction: column; gap: 20px; }
+        .main-heritage-vid { border: 1px solid var(--gold); padding: 5px; width: 100%; }
+        .media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .media-row video, .media-row img { width: 100%; height: 160px; object-fit: cover; border: 1px solid #222; }
+        
         .heritage-content h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 30px; font-weight: 700; }
         .heritage-content p { color: #ffffff !important; font-size: 16px; margin-bottom: 20px; font-weight: 400; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+
+        /* BLOG SECTION - SCENTED STORIES */
+        .blog-sec { padding: 100px 8%; background: #000; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .blog-card { border: 1px solid #111; transition: 0.5s; cursor: pointer; background: #050505; }
+        .blog-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .blog-card img { width: 100%; height: 250px; object-fit: cover; opacity: 0.6; }
+        .blog-info { padding: 30px; }
+        .blog-info h3 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 15px; font-size: 22px; }
+        .blog-info p { font-size: 14px; color: #ccc; line-height: 1.6; }
 
         /* TRUST BAR */
         .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 80px 8%; background: var(--black); border-top: 1px solid #111; text-align: center; gap: 30px; }
@@ -97,36 +104,35 @@
         .trust-box h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
         .trust-box p { font-size: 13px; color: #ffffff; font-weight: 500; }
 
-        /* FOOTER & FAQ */
-        footer { padding: 80px 8% 40px; border-top: 1px solid #111; background: #000; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 60px; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); margin-bottom: 20px; letter-spacing: 5px; }
-        .footer-links h5 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; color: var(--white); }
-        .footer-links a { color: #ffffff; font-size: 13px; display: block; margin-bottom: 12px; font-weight: 400; }
-        
-        .footer-bottom { border-top: 1px solid #111; padding-top: 40px; text-align: center; }
-        .seo-text { font-size: 9px; color: #666; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-        .copy { font-size: 11px; color: #888; letter-spacing: 2px; }
+        /* FAQ SECTION - ESSENTIAL INQUIRIES */
+        .faq-sec { padding: 100px 8%; background: #050505; border-top: 1px solid #111; }
+        .faq-item { margin-bottom: 40px; border-bottom: 1px solid var(--border-gold); padding-bottom: 30px; }
+        .faq-item h4 { color: var(--gold); font-size: 18px; margin-bottom: 15px; font-weight: 600; letter-spacing: 1px; }
+        .faq-item p { color: #ffffff !important; font-size: 15px; font-weight: 400; line-height: 1.8; }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); background: var(--gold); }
 
         @media (max-width: 1024px) {
-            .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr 1fr; }
+            .grid-wrap, .trust-bar { grid-template-columns: 1fr 1fr; }
             .heritage-sec { grid-template-columns: 1fr; text-align: center; }
+            header { padding: 20px 5%; }
+            .nav-right { padding-right: 25px; }
         }
         @media (max-width: 768px) {
-            header { padding: 20px 5%; }
-            .nav-right { padding-right: 25px; } /* Mobile par Cart Icon fix */
-            .logo { font-size: 24px; }
-            .grid-wrap, .trust-bar, .footer-grid { grid-template-columns: 1fr; }
+            .grid-wrap, .trust-bar, .blog-grid { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 45px; }
-            .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 28px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- SIDE CART DRAWER -->
     <div id="cart-drawer">
         <div class="cart-head">
-            <h2>Selection</h2>
+            <h2>Your Selection</h2>
             <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 22px;"></i>
         </div>
         <div id="cart-content"></div>
@@ -149,65 +155,63 @@
     </header>
 
     <section class="hero">
-        <div class="hero-video"></div>
+        <div class="hero-video">
+            <video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video>
+        </div>
         <div class="hero-content">
-            <span style="letter-spacing: 10px; color: var(--gold); text-transform: uppercase; font-size: 11px; display: block; margin-bottom: 20px;" class="animate__animated animate__fadeInDown">Artisanal Botanical Perfumery</span>
+            <span style="letter-spacing: 10px; color: var(--gold); text-transform: uppercase; font-size: 11px; display: block; margin-bottom: 20px;">Artisanal Botanical Perfumery</span>
             <h1 class="animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
-            <a href="product.html" class="hero-btn animate__animated animate__fadeInUp">Experience Essence</a>
+            <a href="product.html" class="hero-btn">Experience Essence</a>
         </div>
     </section>
 
     <section class="section-header"><h2>Signature Series</h2></section>
     
     <section class="grid-wrap">
-        <a href="product.html" class="item-card"><img src="ruh series.png"><div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></a>
-        <a href="product.html" class="item-card"><img src="water series.png"><div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></a>
-        <a href="product.html" class="item-card"><img src="premium series.png"><div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></a>
+        <a href="product.html" class="item-card"><img src="media/Ruh Bottle.png" alt="Ruh Series"><div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></a>
+        <a href="product.html" class="item-card"><img src="water series.png" alt="Water Series"><div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></a>
+        <a href="product.html" class="item-card"><img src="media/Ruh mini.png" alt="Premium Series"><div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></a>
     </section>
 
     <section class="heritage-sec" id="heritage-sec">
-        <div class="heritage-img"><img src="Background.png" alt="ItrAura Legacy"></div>
+        <div class="heritage-media-box">
+            <video class="main-heritage-vid" autoplay muted loop playsinline><source src="media/Bhapka.mp4" type="video/mp4"></video>
+            <div class="media-row">
+                <video autoplay muted loop playsinline><source src="media/Rose.mp4" type="video/mp4"></video>
+                <img src="Background.png" alt="Traditional Distillation">
+            </div>
+        </div>
         <div class="heritage-content">
             <h2>Heritage Since 1958.</h2>
-            <p>At ItrAura, purity is our inheritance. Born from a family tradition established in 1958, we preserve the 400-year-old <strong>Deg-Bhapka steam distillation</strong> method in the heart of Firozabad and Hasayan.</p>
-            <p>Each bottle is a masterpiece of <strong>Hand-crafted, 100% Botanical</strong> essence, bringing the soul of Indian flowers to the global stage.</p>
+            <p>Preserving the 400-year-old <strong>Deg-Bhapka distillation</strong> method in Firozabad and Hasayan.</p>
+            <p>100% Botanical and Zero Alcohol essence, crafted for the global connoisseur.</p>
+            <a href="product.html" class="hero-btn" style="margin-top: 20px;">Discover Our Roots</a>
         </div>
     </section>
 
-    <section class="trust-bar">
-        <div class="trust-box"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>Perfume mastery.</p></div>
-        <div class="trust-box"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>Rose Capital.</p></div>
-        <div class="trust-box"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka Art</h4><p>Traditional steam.</p></div>
-        <div class="trust-box"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol.</p></div>
+    <section class="section-header"><h2>Scented Stories</h2></section>
+    <section class="blog-sec">
+        <div class="blog-grid">
+            <div class="blog-card"><img src="Background.png"><div class="blog-info"><h3>The Art of Deg-Bhapka</h3><p>How we capture the true 'soul' of flowers using ancient copper stills.</p></div></div>
+            <div class="blog-card"><img src="water series.png"><div class="blog-info"><h3>Purity Over Profits</h3><p>Why ItrAura remains 100% botanical in a world of synthetics.</p></div></div>
+        </div>
     </section>
 
-    <section class="faq-sec" style="padding: 100px 8%; background: #050505; border-top: 1px solid #111;">
+    <section class="faq-sec">
         <h2 style="font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); text-align: center; margin-bottom: 60px;">Essential Inquiries</h2>
         <div style="max-width: 900px; margin: 0 auto;">
-            <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px;">
-                <h4 style="color:var(--gold); font-size:18px;">Are ItrAura fragrances 100% alcohol-free?</h4>
-                <p style="color:#ffffff !important;">Yes, absolutely. We preserve the ancient Deg-Bhapka tradition. Every drop is a pure botanical extract.</p>
-            </div>
-            <div style="margin-bottom: 30px; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px;">
-                <h4 style="color:var(--gold); font-size:18px;">What makes Deg-Bhapka distillation special?</h4>
-                <p style="color:#ffffff !important;">It is a slow process that captures the true 'soul' and therapeutic properties of the flowers.</p>
-            </div>
+            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract with zero synthetics.</p></div>
+            <div class="faq-item"><h4>What makes Deg-Bhapka distillation special?</h4><p>It captures therapeutic properties that modern machinery cannot.</p></div>
+            <div class="faq-item"><h4>Do you ship internationally?</h4><p>Yes, we offer secure global shipping to UAE, USA, and UK.</p></div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-grid">
-            <div><div class="footer-logo">ITRAURA</div><p style="color:#ffffff; font-size:14px; font-weight:500;">Ancient heritage meets modern luxury.</p></div>
-            <div class="footer-links"><h5>Heritage</h5><a href="product.html">Hasayan Fields</a><a href="#heritage-sec">Distillation</a></div>
-            <div class="footer-links"><h5>Concierge</h5><a href="https://wa.me/917618243220">Contact Us</a><a href="https://wa.me/917618243220?text=Hello">Shipping</a></div>
-        </div>
-        <div class="footer-bottom"><p class="copy">© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY | HASAYAN • KANNAUJ • LONDON</p></div>
+    <footer style="padding: 80px 8%; text-align: center; border-top: 1px solid #111;">
+        <div class="logo" style="margin-bottom: 25px;">ITRAURA</div>
+        <p style="color: #666; font-size: 11px;">© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY | HASAYAN • KANNAUJ • LONDON</p>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/917618243220?text=Hello%20ItrAura" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
@@ -222,37 +226,16 @@
             const container = document.getElementById('cart-content');
             const totalDisplay = document.getElementById('grand-total');
             const badge = document.getElementById('cart-count-badge');
-            container.innerHTML = '';
-            let total = 0; let count = 0;
+            container.innerHTML = ''; let total = 0; let count = 0;
             if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#ffffff; margin-top:100px; font-size:14px; letter-spacing:2px;">Your Selection is Empty.</p>';
+                container.innerHTML = '<p style="text-align:center; color:#ffffff; margin-top:100px;">Your Selection is Empty.</p>';
                 totalDisplay.innerText = '0'; badge.innerText = '0'; return;
             }
             cart.forEach((item, index) => {
                 total += item.price * item.qty; count += item.qty;
-                container.innerHTML += `
-                    <div class="cart-item-row">
-                        <img src="${item.img}">
-                        <div style="flex-grow:1;">
-                            <h4 style="color:var(--gold); font-size:14px;">${item.name}</h4>
-                            <p style="font-size:11px; color:#ffffff;">Qty: ${item.qty}</p>
-                            <p style="font-size:14px; color:#fff;">₹${item.price * item.qty}</p>
-                        </div>
-                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color:#ffffff; cursor:pointer; font-size:12px;"></i>
-                    </div>`;
+                container.innerHTML += `<div class="cart-item-row"><img src="${item.img}"><div style="flex-grow:1;"><h4 style="color:var(--gold);">${item.name}</h4><p style="color:#fff;">₹${item.price * item.qty}</p></div></div>`;
             });
             totalDisplay.innerText = total; badge.innerText = count;
-        }
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            localStorage.setItem('itraura_cart', JSON.stringify(cart));
-            renderCart();
-        }
-        function sendWhatsAppOrder() {
-            if (cart.length === 0) return;
-            let msg = "Hello ItrAura, I'd like to reserve:\n\n";
-            cart.forEach(item => msg += `• ${item.name} x ${item.qty}\n`);
-            window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
         }
         window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50); });
         window.onload = renderCart;
