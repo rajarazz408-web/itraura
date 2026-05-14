@@ -3,114 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ItrAura | Luxury Artisanal Perfumery | Est. 1958</title>
+    
+    <title>ItrAura | Premium Artisanal Attars | Traditional Deg-Bhapka Art | Est. 1958</title>
+    <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka in Hasayan & Kannauj. Buy Authentic Indian Itr online.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
-        :root { --gold: #D4AF37; --black: #050505; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        :root {
+            --gold: #D4AF37; --black: #050505; --dark-gray: #0a0a0a; --white: #ffffff;
+            --border-gold: rgba(212, 175, 55, 0.2);
+            --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+        }
 
-        /* FIXED BACKGROUND IMAGE */
-        .site-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('Background.png') no-repeat center center; background-size: cover; opacity: 0.15; z-index: -1; }
+        /* RESET & GLOBAL */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.8; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* PERSISTENT BACKGROUND - NO REPETITION */
+        .site-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('Background.png') no-repeat center center; background-size: cover; opacity: 0.12; z-index: -1; }
 
-        /* HEADER & CART */
-        header { position: fixed; top: 0; width: 100%; padding: 25px 6%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; background: rgba(5,5,5,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212,175,55,0.2); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 24px; letter-spacing: 5px; color: var(--gold) !important; font-weight: 700; text-transform: uppercase; text-decoration: none; }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-link { font-size: 10px; color: var(--gold) !important; border: 1px solid var(--gold); padding: 5px 12px; text-decoration: none; text-transform: uppercase; }
-        .cart-trigger { position: relative; color: var(--gold); font-size: 22px; cursor: pointer; }
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+        /* NAVIGATION & CART FIX */
+        header { position: fixed; top: 0; width: 100%; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; transition: var(--transition); background: rgba(5,5,5,0.85); backdrop-filter: blur(15px); }
+        header.scrolled { padding: 20px 8%; border-bottom: 1px solid var(--border-gold); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 30px; letter-spacing: 8px; color: var(--gold) !important; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+        
+        .nav-right { display: flex; gap: 30px; align-items: center; padding-right: 25px; } 
+        .nav-link { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: var(--gold) !important; border: 1px solid var(--gold); padding: 7px 15px; }
+        .cart-trigger { position: relative; cursor: pointer; color: var(--gold); font-size: 22px; transition: 0.3s; }
         .cart-count { position: absolute; top: -10px; right: -12px; background: var(--white); color: var(--black); font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 
-        /* FRAMED VIDEO (RAAHI STYLE) */
-        .video-container { padding: 120px 8% 40px; text-align: center; }
-        .video-frame { position: relative; width: 100%; height: 45vh; border: 1px solid var(--gold); padding: 8px; background: #000; overflow: hidden; }
-        .video-frame video { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-        .video-title { margin-top: 20px; font-family: 'Playfair Display', serif; font-size: 32px; font-style: italic; color: #fff; }
+        /* RAAHI STYLE VIDEO FRAME */
+        .hero-framed { padding: 140px 8% 60px; text-align: center; }
+        .video-window { position: relative; width: 100%; height: 50vh; border: 1px solid var(--gold); padding: 10px; background: #000; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .video-window video { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+        .hero-title { margin-top: 30px; font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 85px); color: var(--white); font-style: italic; line-height: 1.1; }
 
         /* SIGNATURE SERIES */
-        .section-header { text-align: center; padding: 60px 0 30px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--gold); letter-spacing: 2px; }
-        .grid-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 8% 80px; }
-        .item-card { height: 480px; position: relative; overflow: hidden; border: 1px solid rgba(212,175,55,0.2); }
-        .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1s; opacity: 0.8; }
-        .item-card:hover img { transform: scale(1.05); opacity: 1; }
-        .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; }
-        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
+        .section-header { text-align: center; padding: 100px 0 60px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); letter-spacing: 2px; }
+        .grid-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 100px; }
+        .item-card { height: 550px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); }
+        .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--transition); opacity: 0.8; }
+        .item-card:hover img { transform: scale(1.1); opacity: 1; }
+        .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); }
 
-        /* SPECIAL GALLERY */
-        .special-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 8% 80px; }
-        .special-gallery img { width: 100%; border: 1px solid var(--gold); padding: 5px; background: #000; }
+        /* SPECIAL BOTTLE GALLERY */
+        .special-gallery { padding: 0 8% 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .special-gallery img { width: 100%; border: 1px solid var(--gold); padding: 8px; background: #000; transition: 0.5s; }
+        .special-gallery img:hover { transform: translateY(-10px); border-color: #fff; }
 
-        /* INDIAN REVIEWS */
-        .reviews-sec { padding: 60px 8%; }
-        .review-card { background: rgba(10,10,10,0.8); padding: 35px; border-left: 4px solid var(--gold); margin-bottom: 25px; }
-        .review-text { font-style: italic; color: #ccc; font-size: 15px; margin-bottom: 10px; }
-        .review-author { color: var(--gold); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        /* VOICE OF CONNOISSEURS - INDIAN REVIEWS */
+        .reviews-sec { padding: 120px 8%; background: rgba(8,8,8,0.7); border-top: 1px solid #111; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .review-card { padding: 45px; background: #050505; border: 1px solid #1a1a1a; border-left: 4px solid var(--gold); transition: 0.5s; }
+        .review-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .review-text { font-style: italic; font-size: 15px; color: #ccc; margin-bottom: 25px; }
+        .review-author { font-weight: 600; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; }
 
-        /* FAQ & FOOTER */
-        .faq-sec { padding: 80px 8%; border-top: 1px solid #111; }
-        .faq-item { margin-bottom: 40px; border-bottom: 1px solid rgba(212,175,55,0.1); padding-bottom: 25px; }
-        .faq-item h4 { color: var(--gold); font-size: 18px; margin-bottom: 15px; }
-        footer { padding: 60px 8%; background: #000; border-top: 1px solid #111; text-align: center; }
+        /* FAQ SECTION - 6 QUESTIONS */
+        .faq-sec { padding: 120px 8%; background: #000; border-top: 1px solid #111; }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { margin-bottom: 45px; border-bottom: 1px solid var(--border-gold); padding-bottom: 30px; }
+        .faq-item h4 { color: var(--gold); font-size: 20px; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        .faq-item p { color: #ffffff !important; }
 
-        .whatsapp-float { position: fixed; bottom: 30px; right: 25px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 9999; }
+        /* FOOTER RESTORATION */
+        footer { padding: 100px 8% 40px; border-top: 1px solid #111; background: #000; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--gold); margin-bottom: 30px; letter-spacing: 7px; font-weight: 700; }
+        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
+        .footer-links a { color: #888; font-size: 14px; }
+        .footer-contact { color: #555; font-size: 13px; line-height: 2; }
 
-        @media (max-width: 768px) { .grid-wrap, .special-gallery { grid-template-columns: 1fr; } .video-frame { height: 35vh; } .logo { font-size: 20px; } }
+        /* WHATSAPP FLOAT */
+        .whatsapp-float { position: fixed; bottom: 40px; right: 35px; background: #25d366; color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        /* CART DRAWER */
+        #cart-drawer { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 10000; transition: var(--transition); padding: 40px; display: flex; flex-direction: column; }
+        @media (min-width: 901px) { #cart-drawer { width: 450px; right: -450px; } }
+        #cart-drawer.open { right: 0; }
+        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(8px); }
+
+        @media (max-width: 1024px) { 
+            .grid-wrap, .special-gallery, .reviews-grid { grid-template-columns: 1fr; }
+            .hero-framed { padding: 120px 6% 40px; }
+            header { padding: 25px 6%; }
+        }
     </style>
 </head>
+
 <body>
     <div class="site-bg"></div>
+    <div id="cart-mask" onclick="toggleCart()"></div>
 
-    <header>
-        <a href="index.html" class="logo">ITRAURA</a>
+    <div id="cart-drawer">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; padding-bottom:20px; margin-bottom:30px;">
+            <h2 style="color:var(--gold); font-family:'Playfair Display'; font-size:26px;">Selection</h2>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 24px;"></i>
+        </div>
+        <div id="cart-content"></div>
+        <div style="border-top:1px solid #222; padding-top:30px;">
+            <div style="display:flex; justify-content:space-between; font-size:24px; color:var(--gold); font-family:'Playfair Display'; margin-bottom:30px;">
+                <span>Total</span><span>₹<span id="grand-total">0</span></span>
+            </div>
+            <button onclick="sendWhatsAppOrder()" style="width:100%; padding:20px; background:var(--gold); color:#000; font-weight:700; text-transform:uppercase; border:none; letter-spacing:3px; cursor:pointer;">Reserve via WhatsApp</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
         <div class="nav-right">
             <a href="product.html" class="nav-link">The Collection</a>
-            <div class="cart-trigger"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></div>
+            <div class="cart-trigger" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cart-count-badge">0</span>
+            </div>
         </div>
     </header>
 
-    <section class="video-container">
-        <div class="video-frame">
+    <section class="hero-framed">
+        <div class="video-window">
             <video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video>
         </div>
-        <h1 class="video-title">Perfume for the Soul.</h1>
+        <h1 class="hero-title">Perfume for the Soul.</h1>
     </section>
 
     <section class="section-header"><h2>Signature Series</h2></section>
     <section class="grid-wrap">
-        <div class="item-card"><img src="ruh series.png"><div class="item-overlay"><h3>Ruh Series</h3></div></div>
-        <div class="item-card"><img src="water series.png"><div class="item-overlay"><h3>Water Series</h3></div></div>
-        <div class="item-card"><img src="premium series.png"><div class="item-overlay"><h3>Premium Series</h3></div></div>
+        <a href="product.html" class="item-card"><img src="ruh series.png"><div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></a>
+        <a href="product.html" class="item-card"><img src="water series.png"><div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></a>
+        <a href="product.html" class="item-card"><img src="premium series.png"><div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></a>
     </section>
 
-    <section class="section-header"><h2>Artisanal Collection</h2></section>
+    <section class="section-header"><h2>Exclusive Selection</h2></section>
     <section class="special-gallery">
-        <img src="media/Ruh Bottle.png" alt="Ruh Bottle">
-        <img src="media/Ruh mini.png" alt="Ruh Mini">
+        <img src="media/Ruh Bottle.png" alt="Ruh Gulaab Original">
+        <img src="media/Ruh mini.png" alt="Ruh Gulaab Miniature">
     </section>
 
     <section class="section-header"><h2>Aapki Zubani</h2></section>
     <section class="reviews-sec">
-        <div class="review-card"><p class="review-text">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai, Kannauj ki yaad dila di."</p><p class="review-author">— AMAN S., DELHI</p></div>
-        <div class="review-card"><p class="review-text">"Purity is top class. Subah lagaya, raat tak mehak raha hai."</p><p class="review-author">— PRIYA V., MUMBAI</p></div>
-        <div class="review-card"><p class="review-text">"Original Deg-Bhapka distillation! ItrAura ki quality is best."</p><p class="review-author">— VIKRAM R., LUCKNOW</p></div>
-        <div class="review-card"><p class="review-text">"Packaging bohot luxury hai, gift ke liye perfect choice hai."</p><p class="review-author">— RAHUL M., AGRA</p></div>
+        <div class="reviews-grid">
+            <div class="review-card"><p class="review-text">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai, Kannauj ki yaad dila di."</p><p class="review-author">— AMAN S., DELHI</p></div>
+            <div class="review-card"><p class="review-text">"Purity level 100% hai. Subah lagaya aur sham tak mehek raha hai."</p><p class="review-author">— PRIYA V., MUMBAI</p></div>
+            <div class="review-card"><p class="review-text">"Original Deg-Bhapka distillation! Quality is truly international."</p><p class="review-author">— VIKRAM R., LUCKNOW</p></div>
+            <div class="review-card"><p class="review-text">"Packaging bohot luxury hai, gift ke liye best choice hai."</p><p class="review-author">— RAHUL M., AGRA</p></div>
+        </div>
     </section>
 
     <section class="faq-sec">
-        <div class="section-header"><h2>Essential Inquiries</h2></div>
-        <div class="faq-item"><h4>Are your attars alcohol-free?</h4><p>Yes. 100% botanical extract distilled traditionally.</p></div>
-        <div class="faq-item"><h4>Do you ship to UAE & UK?</h4><p>Yes, we provide secure global shipping.</p></div>
+        <div class="faq-container">
+            <h2 style="color:var(--gold); text-align:center; margin-bottom:80px; font-family:'Playfair Display'; font-size:40px;">Essential Inquiries</h2>
+            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract distilled using traditional methods. Zero alcohol.</p></div>
+            <div class="faq-item"><h4>Do you ship to UAE & UK?</h4><p>Yes, we offer secure global shipping for all our international connoisseurs.</p></div>
+            <div class="faq-item"><h4>How long does the scent last?</h4><p>Being pure oils, they evolve on the skin and typically last 8-12 hours.</p></div>
+            <div class="faq-item"><h4>Safe for sensitive skin?</h4><p>Yes, botanical oils are skin-friendly, but a patch test is always recommended.</p></div>
+        </div>
     </section>
 
     <footer>
-        <div class="logo">ITRAURA</div>
-        <p style="color:#555; font-size:11px; margin-top:20px;">© 2026 ITRAURA | Established 1958</p>
+        <div class="footer-logo">ITRAURA</div>
+        <div class="footer-links"><a href="product.html">Collection</a><a href="https://wa.me/917618243220">Concierge</a><a href="mailto:info@itraura.com">Email Us</a></div>
+        <div class="footer-contact">Hasayan • Kannauj • Firozabad • London<br>© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY</div>
     </footer>
 
-    <a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/917618243220?text=Hello%20ItrAura" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const mask = document.getElementById('cart-mask');
+            drawer.classList.toggle('open');
+            mask.style.display = drawer.classList.contains('open') ? 'block' : 'none';
+            renderCart();
+        }
+        function renderCart() {
+            const container = document.getElementById('cart-content');
+            const totalDisplay = document.getElementById('grand-total');
+            const badge = document.getElementById('cart-count-badge');
+            container.innerHTML = '';
+            let total = 0; let count = 0;
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#555; margin-top:100px;">Selection is Empty.</p>';
+                totalDisplay.innerText = '0'; badge.innerText = '0'; return;
+            }
+            cart.forEach((item, index) => {
+                total += item.price * item.qty; count += item.qty;
+                container.innerHTML += `<div style="display:flex; gap:15px; margin-bottom:20px; align-items:center; border-bottom:1px solid #111; padding-bottom:15px;">
+                    <img src="${item.img}" style="width:60px; height:60px; object-fit:cover; border:1px solid #222;">
+                    <div style="flex-grow:1;"><h4 style="color:var(--gold); font-size:14px;">${item.name}</h4><p style="font-size:11px;">Qty: ${item.qty}</p><p>₹${item.price * item.qty}</p></div>
+                    <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="cursor:pointer; font-size:12px;"></i></div>`;
+            });
+            totalDisplay.innerText = total; badge.innerText = count;
+        }
+        function removeFromCart(index) { cart.splice(index, 1); localStorage.setItem('itraura_cart', JSON.stringify(cart)); renderCart(); }
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) return;
+            let msg = "Hello ItrAura, I'd like to reserve:\n\n";
+            cart.forEach(item => msg += `• ${item.name} x ${item.qty}\n`);
+            window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
+        }
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50); });
+        window.onload = renderCart;
+    </script>
 </body>
 </html>
