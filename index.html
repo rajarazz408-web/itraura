@@ -6,7 +6,7 @@
     
     <title>ItrAura | Authentic Deg-Bhapka Attars | Est. 1958 | Hasayan • Kannauj</title>
     
-    <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka distillation.">
+    <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka distillation in Hasayan & Kannauj.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ItrAura | Luxury Artisanal Perfumery | Est. 1958">
     <meta property="og:image" content="https://itraura.com/Background.png"> 
@@ -20,7 +20,6 @@
         :root {
             --gold: #D4AF37;
             --black: #050505;
-            --dark-gray: #0a0a0a;
             --white: #ffffff;
             --gold-transparent: rgba(212, 175, 55, 0.2);
             --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
@@ -43,13 +42,12 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* THE ANTI-PURPLE SHIELD */
+        /* NO PURPLE LINK SHIELD */
         a, a:visited, a:active {
             text-decoration: none !important;
             color: var(--gold) !important;
             transition: 0.3s;
         }
-
         a:hover {
             color: var(--white) !important;
         }
@@ -67,13 +65,12 @@
         ::-webkit-scrollbar {
             width: 5px;
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--gold);
             border-radius: 10px;
         }
 
-        /* HEADER DESIGN - WITH SHIFT LOGIC */
+        /* HEADER DESIGN - THE SHIFT LOGIC (1% FIX) */
         header { 
             position: fixed;
             top: 0;
@@ -89,7 +86,7 @@
             backdrop-filter: blur(15px);
         }
 
-        /* THE MAGIC "KHISKANA" CLASS */
+        /* THE MAGIC "KHISKANA" CLASS: Moves everything left to show cart */
         header.shift-left {
             left: -100% !important;
         }
@@ -116,15 +113,6 @@
             gap: 20px;
         } 
 
-        .nav-link {
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-            border: 1px solid var(--gold);
-            padding: 7px 15px;
-        }
-
         /* CART TRIGGER & BADGE */
         .cart-trigger {
             position: relative;
@@ -132,6 +120,8 @@
             display: flex;
             align-items: center;
             margin-left: 10px;
+            color: var(--gold);
+            font-size: 24px;
         }
 
         .cart-count { 
@@ -151,7 +141,7 @@
             border: 1px solid var(--gold);
         }
 
-        /* SIDE CART DRAWER OVERLAY */
+        /* SIDE CART DRAWER (RIGHT SIDE BUT ACCESSIBLE VIA SHIFT) */
         #cart-drawer { 
             position: fixed;
             top: 0;
@@ -249,10 +239,14 @@
             cursor: pointer;
         }
 
-        /* HERO VIDEO FIX - NO TEXT CUTTING */
+        /* HERO VIDEO FIX - NO CUTTING */
         .hero-section {
             padding: 150px 8% 60px;
             text-align: center;
+            transition: var(--transition);
+        }
+        .hero-section.shift-left {
+            transform: translateX(-100%);
         }
 
         .v-window {
@@ -282,7 +276,7 @@
             font-style: italic;
         }
 
-        /* GRID BLOCKS */
+        /* GRID SYSTEM */
         .section-label {
             text-align: center;
             padding: 100px 0 60px;
@@ -339,7 +333,7 @@
             color: var(--gold);
         }
 
-        /* RUH GALLERY - RESTORED PHOTOS */
+        /* RUH GALLERY - THE 2 RESTORED PHOTOS back in place */
         .ruh-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -352,7 +346,6 @@
             padding: 15px;
             background: rgba(5,5,5,0.6);
             text-align: center;
-            transition: 0.5s;
         }
 
         .ruh-card img {
@@ -361,7 +354,7 @@
             object-fit: contain;
         }
 
-        /* HERITAGE VIDEOS (VIDEO 2 & 3) */
+        /* HERITAGE VIDEOS */
         .heritage-videos {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -382,7 +375,7 @@
             object-fit: contain;
         }
 
-        /* REVIEWS EXPANDED - FULL WORDS */
+        /* 6 REVIEWS - ENGLISH NAMES (Restored Script) */
         .reviews-wrap {
             padding: 120px 8%;
             display: grid;
@@ -481,7 +474,7 @@
             transition: 0.5s;
         }
 
-        /* TRUST BAR & FOOTER */
+        /* FOOTER & TRUST */
         .trust-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -532,20 +525,11 @@
             height: 70px;
             border-radius: 50%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            z-index: 9999;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        }
+            align-items: center; justify-content: center; font-size: 38px; z-index: 9999; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
 
         @media (max-width: 1024px) {
-            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar {
-                grid-template-columns: 1fr;
-            }
-            header {
-                padding: 25px 6%;
-            }
+            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar { grid-template-columns: 1fr; }
+            header { padding: 25px 6%; }
         }
     </style>
 </head>
@@ -561,7 +545,7 @@
     <header id="main-header">
         <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
         <div class="nav-right">
-            <a href="product.html" class="nav-link">Collection</a>
+            <a href="product.html" class="nav-link">The Collection</a>
             <div class="cart-trigger" onclick="toggleCart()">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count" id="badge-val">0</span>
@@ -577,36 +561,25 @@
         <div id="cart-content-container"></div>
         <div class="cart-foot">
             <div class="cart-total">
-                <span>Total Amount</span>
+                <span>Grand Total</span>
                 <span>₹<span id="grand-total-val">0</span></span>
             </div>
-            <button onclick="sendOrder()" class="checkout-whatsapp">Reserve via WhatsApp Concierge</button>
+            <button onclick="sendOrder()" class="checkout-whatsapp">Reserve via WhatsApp</button>
         </div>
     </div>
 
-    <section class="hero-section">
+    <section class="hero-section" id="hero-sec">
         <div class="v-window animate__animated animate__fadeIn">
-            <video autoplay muted loop playsinline>
-                <source src="media/Itraura.mp4" type="video/mp4">
-            </video>
+            <video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video>
         </div>
         <h1 class="hero-title animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
     </section>
 
     <div class="section-label"><h2>Signature Series</h2></div>
     <section class="main-grid">
-        <div class="item-card">
-            <img src="ruh series.png" alt="Ruh Series">
-            <div class="overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div>
-        </div>
-        <div class="item-card">
-            <img src="water series.png" alt="Water Series">
-            <div class="overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div>
-        </div>
-        <div class="item-card">
-            <img src="premium series.png" alt="Premium Series">
-            <div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div>
-        </div>
+        <div class="item-card"><img src="ruh series.png"><div class="overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></div>
+        <div class="item-card"><img src="water series.png"><div class="overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></div>
+        <div class="item-card"><img src="premium series.png"><div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></div>
     </section>
 
     <div class="section-label"><h2>Masterpiece Showcase</h2></div>
@@ -625,38 +598,38 @@
     <section class="heritage-videos">
         <div class="v-card">
             <video autoplay muted loop playsinline><source src="media/Bhapka.mp4" type="video/mp4"></video>
-            <p style="color:var(--gold); margin-top:15px; font-size:11px; letter-spacing:3px;">TRADITIONAL DEG-BHAPKA ART</p>
+            <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; font-size:11px;">TRADITIONAL DEG-BHAPKA ART</p>
         </div>
         <div class="v-card">
             <video autoplay muted loop playsinline><source src="media/Rose.mp4" type="video/mp4"></video>
-            <p style="color:var(--gold); margin-top:15px; font-size:11px; letter-spacing:3px;">THE SOUL OF HASAYAN ROSE</p>
+            <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; font-size:11px;">THE SOUL OF HASAYAN ROSE</p>
         </div>
     </section>
 
     <div class="section-label"><h2>Connoisseur Reviews</h2></div>
     <section class="reviews-wrap">
         <div class="rev-card">
-            <p class="rev-text">"भैया, रूह गुलाब की खुशबू एकदम असली है, कन्नौज की याद दिला दी। 1958 की विरासत सच में बोतल में बंद है। International Standard Packaging!"</p>
-            <span class="rev-author">— मुकेश ठाकुर, लखनऊ</span>
+            <p class="rev-text">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai, Kannauj ki yaad dila di. 1958 se virasat sach mein ek bottle mein band hai."</p>
+            <span class="rev-author">— Mukesh Thakur, Lucknow</span>
         </div>
         <div class="rev-card">
-            <p class="rev-text">"Purity level 100% hai. Morning mein lagaya aur sham tak mehek raha hai. Truly international quality attars. Totally impressed!"</p>
-            <span class="rev-author">— अमन सिंह, दिल्ली</span>
+            <p class="rev-text">"Purity level 100% hai. Morning mein lagaya aur sham tak mehek raha hai. It's truly international quality attars. Totally impressed!"</p>
+            <span class="rev-author">— Aman Singh, Delhi</span>
         </div>
         <div class="rev-card">
-            <p class="rev-text">"रोबिन भाई, ये अत्तर अंतर्राष्ट्रीय स्तर का है। भारतीय विरासत को इस तरह पेश करना बहुत गर्व की बात है। Great job Itraura!"</p>
-            <span class="rev-author">— रोबिन चौहान, आगरा</span>
+            <p class="rev-text">"Robin bhai, ye attar international level ka hai. Indian heritage ko iss tarah pesh karna bahut garv ki baat hai. Great job Itraura!"</p>
+            <span class="rev-author">— Robin Chauhan, Agra</span>
         </div>
         <div class="rev-card">
-            <p class="rev-text">"Authentic Deg-Bhapka distillation makes all the difference. The ancient therapeutic soul is visible in their oils."</p>
-            <span class="rev-author">— आशीष गौतम, आगरा</span>
+            <p class="rev-text">"Authentic Deg-Bhapka distillation makes all the difference. The ancient therapeutic soul is visible in their oils. Highly recommended."</p>
+            <span class="rev-author">— Ashish Gautam, Agra</span>
         </div>
         <div class="rev-card">
-            <p class="rev-text">"A very serene experience. Using it for my daily rituals and meditation. The Sandalwood is exceptional."</p>
-            <span class="rev-author">— आकाश गुप्ता, दिल्ली</span>
+            <p class="rev-text">"A very serene experience. Using it for my daily rituals and meditation. The Sandalwood is exceptional and pure."</p>
+            <span class="rev-author">— Akash Gupta, Delhi</span>
         </div>
         <div class="rev-card">
-            <p class="rev-text">"Excellent craftsmanship. High-end fragrances that last through the day. Perfect for gifting in Dubai."</p>
+            <p class="rev-text">"Excellent craftsmanship. High-end fragrances that last through the day. Perfect for gifting in Dubai and London."</p>
             <span class="rev-author">— Sahil K., Dubai</span>
         </div>
     </section>
@@ -664,30 +637,12 @@
     <div class="section-label"><h2>Essential Inquiries</h2></div>
     <section class="faq-sec">
         <div class="faq-container">
-            <div class="faq-item">
-                <h4>Are ItrAura fragrances 100% alcohol-free?</h4>
-                <p>Yes. Every drop is a pure botanical extract distilled using traditional Deg-Bhapka methods. Zero alcohol, zero synthetics.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Do you ship to UAE, UK & USA?</h4>
-                <p>Yes, we offer secure global shipping for international connoisseurs. Contact our concierge via WhatsApp for shipping rates.</p>
-            </div>
-            <div class="faq-item">
-                <h4>How long does the scent typically last?</h4>
-                <p>Pure oils evolve on the skin and typically last 8-12 hours depending on ambient temperature and skin type.</p>
-            </div>
-            <div class="faq-item">
-                <h4>What is the Deg-Bhapka method?</h4>
-                <p>It is a 400-year-old steam distillation process using copper vessels (Degs) to capture the true therapeutic soul of flowers.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Is it safe for extremely sensitive skin?</h4>
-                <p>Our botanical extracts are natural and skin-friendly. However, a small patch test is always recommended for pure oils.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Where do you source your flowers from?</h4>
-                <p>We source our materials directly from organic fields in Hasayan and Kannauj to ensure heritage quality since 1958.</p>
-            </div>
+            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract distilled using traditional Deg-Bhapka methods. Zero alcohol, zero synthetics.</p></div>
+            <div class="faq-item"><h4>Do you ship to UAE, UK & USA?</h4><p>Yes, we offer secure global shipping for international connoisseurs. Contact concierge via WhatsApp for rates.</p></div>
+            <div class="faq-item"><h4>How long does the scent typically last?</h4><p>Pure oils evolve on the skin and typically last 8-12 hours depending on ambient temperature and skin type.</p></div>
+            <div class="faq-item"><h4>What is the Deg-Bhapka method?</h4><p>It is a 400-year-old steam distillation process using copper vessels (Degs) to capture the true soul of flowers.</p></div>
+            <div class="faq-item"><h4>Is it safe for extremely sensitive skin?</h4><p>Our botanical extracts are skin-friendly, but because they are highly concentrated, a patch test is always recommended.</p></div>
+            <div class="faq-item"><h4>Where do you source your flowers from?</h4><p>We source materials directly from organic fields in Hasayan and Kannauj to ensure heritage quality since 1958.</p></div>
         </div>
     </section>
 
@@ -695,9 +650,9 @@
         <div class="section-label"><h2>Concierge Enquiry</h2></div>
         <div class="enquiry-form">
             <input type="text" placeholder="Your Name" required>
-            <input type="text" placeholder="WhatsApp Contact Number" required>
+            <input type="text" placeholder="WhatsApp Contact" required>
             <textarea rows="6" placeholder="Enquire about custom gifting, bulk orders or heritage collections..."></textarea>
-            <button class="enquiry-btn" onclick="alert('Inquiry Sent!')">Send Inquiry to ItrAura</button>
+            <button class="enquiry-btn" onclick="alert('Inquiry Sent!')">Submit Inquiry</button>
         </div>
     </section>
 
@@ -716,19 +671,18 @@
 
     <script>
         let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
-        const music = document.getElementById('soul-music');
-        music.volume = 0.3;
+        const sangeet = document.getElementById('soul-music');
+        sangeet.volume = 0.3;
 
-        // Auto-play Trigger
-        window.addEventListener('click', () => { 
-            music.play(); 
-        }, { once: true });
+        // Music Play: First click starts sangeet
+        window.addEventListener('click', () => { sangeet.play(); }, { once: true });
 
-        // DRAWER INTERFACE (THE SHIFT LOGIC)
+        // THE MAGIC SHIFT FUNCTION
         function toggleCart() {
             const h = document.getElementById('main-header');
             const d = document.getElementById('cart-drawer');
             const m = document.getElementById('cart-mask');
+            const hero = document.getElementById('hero-sec');
             
             h.classList.toggle('shift-left'); // HEADER KHISKANE WALI LINE
             d.classList.toggle('open');
@@ -736,7 +690,6 @@
             render();
         }
 
-        // RENDER ENGINE
         function render() {
             const list = document.getElementById('cart-content-container');
             const total = document.getElementById('grand-total-val');
@@ -755,7 +708,7 @@
                                 <h4 style="color:var(--gold); font-size:14px;">${it.name}</h4>
                                 <p style="color:#fff; font-size:14px;">₹${(it.price * it.qty).toLocaleString()}</p>
                             </div>
-                            <i class="fas fa-trash" onclick="remove(${i})" style="cursor:pointer; font-size:12px; color:#444;"></i>
+                            <i class="fas fa-trash-alt" onclick="remove(${i})" style="cursor:pointer; font-size:12px; color:#444;"></i>
                         </div>`;
                 });
             }
@@ -770,8 +723,8 @@
         }
 
         function sendOrder() {
-            let msg = "Order Inquiry:\n";
-            cart.forEach(it => msg += `• ${it.name} x ${it.qty}\n`);
+            let msg = "Hello ItrAura Concierge, I'd like to reserve:\n\n";
+            cart.forEach(it => msg += `• ${it.name} x ${it.qty} (₹${it.price * it.qty})\n`);
             window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
         }
 
