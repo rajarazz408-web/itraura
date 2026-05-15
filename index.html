@@ -4,128 +4,261 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>ItrAura | Premium Artisanal Attars | Traditional Deg-Bhapka Art | Est. 1958</title>
-    <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka in Hasayan & Kannauj. Buy Authentic Indian Itr online.">
+    <title>ItrAura | Luxury Artisanal Attars | Heritage Since 1958 | Hasayan • Kannauj</title>
     
-    <!-- Meta Tags for SEO -->
+    <meta name="description" content="ItrAura: Discover the soul of Indian perfumery. 100% Pure, Alcohol-Free Attars crafted via the 400-year-old Deg-Bhapka distillation method in Hasayan and Kannauj. Experience luxury botanical perfumes since 1958.">
+    <meta name="keywords" content="Luxury Attar India, Deg-Bhapka Distillation, Pure Rose Water Hasayan, Organic Perfume Oils, Traditional Indian Itr, ItrAura Artisanal, Alcohol Free Fragrance, Best Attar for Men Women">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ItrAura | Luxury Artisanal Perfumery | Est. 1958">
-    <meta property="og:description" content="Discover 100% Pure, Alcohol-Free Attars distilled via the ancient 400-year-old Deg-Bhapka method.">
-    <meta property="og:image" content="https://itraura.com/Background.png"> 
+    <meta property="og:title" content="ItrAura | Heritage Artisanal Perfumery | Est. 1958">
+    <meta property="og:description" content="Traditional Deg-Bhapka distilled attars from the heart of India to the world.">
+    <meta property="og:image" content="https://itraura.com/Background.png">
+    <meta property="og:url" content="https://itraura.com">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
+        /* LUXURY DESIGN TOKENS */
         :root {
-            --gold: #D4AF37; --black: #050505; --dark-gray: #0a0a0a; --white: #ffffff;
-            --border-gold: rgba(212, 175, 55, 0.2);
-            --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+            --gold: #D4AF37;
+            --black: #050505;
+            --dark-gray: #0a0a0a;
+            --soft-gray: #1a1a1a;
+            --white: #ffffff;
+            --gold-transparent: rgba(212, 175, 55, 0.2);
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+            --luxury-shadow: 0 20px 50px rgba(0,0,0,0.7);
         }
 
-        /* GLOBAL RESET & ANTI-PURPLE */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.8; }
+        /* GLOBAL RESET & ANTI-PURPLE PROTOCOL */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
         
-        /* Strict Gold Enforcement to kill Purple links */
-        a, a:visited, a:active { text-decoration: none !important; color: var(--gold) !important; transition: 0.3s; }
-        a:hover { color: var(--white) !important; }
-
-        .site-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('Background.png') no-repeat center center; background-size: cover; opacity: 0.12; z-index: -1; }
-
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); }
-
-        /* HEADER REFINED FOR CART VISIBILITY */
-        header { position: fixed; top: 0; width: 100%; padding: 35px 6%; display: flex; justify-content: space-between; align-items: center; z-index: 5000; transition: var(--transition); background: rgba(5,5,5,0.92); backdrop-filter: blur(15px); }
-        header.scrolled { padding: 18px 6%; border-bottom: 1px solid var(--border-gold); }
+        html { scroll-behavior: smooth; }
         
-        .logo { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4vw, 30px); letter-spacing: 6px; color: var(--gold) !important; font-weight: 700; text-transform: uppercase; cursor: pointer; }
-        
-        .nav-right { display: flex; gap: 20px; align-items: center; padding-right: 10px; } 
-        .nav-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; border: 1px solid var(--gold); padding: 6px 12px; white-space: nowrap; }
+        body { 
+            background-color: var(--black); 
+            color: var(--white); 
+            font-family: 'Poppins', sans-serif; 
+            overflow-x: hidden; 
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* CART ICON POSITIONING FIX */
-        .cart-trigger { position: relative; cursor: pointer; color: var(--gold) !important; font-size: 22px; transition: 0.3s; display: flex; align-items: center; margin-left: 5px; }
+        /* THE GOLD SHIELD: Strictly Blocking Purple/Browser Default Styling */
+        a, a:visited, a:active { text-decoration: none !important; color: var(--gold) !important; transition: var(--transition); }
+        a:hover { color: var(--white) !important; letter-spacing: 1px; }
+
+        .site-bg { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: url('Background.png') no-repeat center center; 
+            background-size: cover; opacity: 0.15; z-index: -1; 
+            filter: grayscale(20%);
+        }
+
+        /* CUSTOM LUXURY SCROLLBAR */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* HEADER & ROYAL NAVIGATION */
+        header { 
+            position: fixed; top: 0; width: 100%; padding: 40px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            z-index: 9000; transition: var(--transition); 
+            background: linear-gradient(to bottom, rgba(5,5,5,1), rgba(5,5,5,0));
+        }
+        header.scrolled { 
+            padding: 20px 8%; 
+            background: rgba(5,5,5,0.98); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--gold-transparent);
+        }
+        
+        .logo { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(24px, 5vw, 32px); 
+            letter-spacing: 10px; 
+            color: var(--gold) !important; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: 0.5s;
+        }
+        .logo:hover { transform: scale(1.02); text-shadow: 0 0 15px var(--gold-glow); }
+        
+        .nav-right { display: flex; gap: 30px; align-items: center; } 
+        .nav-link { 
+            font-size: 11px; letter-spacing: 3px; 
+            text-transform: uppercase; font-weight: 700; 
+            border: 1px solid var(--gold); padding: 10px 20px; 
+            background: transparent; transition: var(--transition);
+        }
+        .nav-link:hover { background: var(--gold); color: var(--black) !important; }
+
+        /* CART TRIGGER BUTTON */
+        .cart-trigger { 
+            position: relative; cursor: pointer; color: var(--gold) !important; 
+            font-size: 26px; transition: 0.4s; display: flex; align-items: center;
+        }
+        .cart-icon-svg { width: 28px; height: 28px; fill: var(--gold); transition: 0.4s; }
+        .cart-trigger:hover .cart-icon-svg { filter: drop-shadow(0 0 8px var(--gold)); }
+        
         .cart-count { 
-            position: absolute; top: -10px; right: -12px; 
+            position: absolute; top: -12px; right: -15px; 
             background: var(--white); color: var(--black); 
-            font-size: 9px; width: 18px; height: 18px; 
+            font-size: 10px; width: 22px; height: 22px; 
             border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-weight: 800; 
-            border: 1px solid var(--gold); box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            justify-content: center; font-weight: 900; 
+            border: 1px solid var(--gold); box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
-        /* SIDE CART DRAWER (FULL LOGIC) */
-        #cart-drawer { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: #080808; border-left: 1px solid var(--gold); z-index: 10000; transition: var(--transition); padding: 40px; display: flex; flex-direction: column; }
-        @media (min-width: 901px) { #cart-drawer { width: 450px; right: -450px; } }
+        /* LUXURY SIDE CART DRAWER SYSTEM */
+        #cart-drawer { 
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
+            background: #080808; border-left: 1px solid var(--gold); 
+            z-index: 10000; transition: var(--transition); 
+            padding: 50px; display: flex; flex-direction: column;
+            box-shadow: -20px 0 60px rgba(0,0,0,1);
+        }
+        @media (min-width: 901px) { #cart-drawer { width: 500px; right: -500px; } }
         #cart-drawer.open { right: 0 !important; }
         
-        .cart-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 25px; margin-bottom: 40px; }
-        .cart-head h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; }
+        .cart-head { 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid var(--soft-gray); padding-bottom: 30px; margin-bottom: 40px; 
+        }
+        .cart-head h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 30px; letter-spacing: 2px; }
         
-        #cart-content { flex-grow: 1; overflow-y: auto; padding-right: 10px; }
-        .cart-item-row { display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #111; padding-bottom: 20px; align-items: center; }
-        .cart-item-row img { width: 70px; height: 70px; object-fit: cover; border: 1px solid #222; }
+        #cart-content { flex-grow: 1; overflow-y: auto; padding-right: 15px; }
+        .cart-item-row { 
+            display: flex; gap: 25px; margin-bottom: 30px; 
+            border-bottom: 1px solid #111; padding-bottom: 25px; align-items: center; 
+        }
+        .cart-item-row img { width: 85px; height: 85px; object-fit: cover; border: 1px solid var(--soft-gray); background: #000; }
+        .item-details h4 { color: var(--gold); font-size: 16px; margin-bottom: 5px; }
+        .item-details p { font-size: 13px; color: #777; }
 
-        .cart-foot { border-top: 1px solid #222; padding-top: 30px; }
-        .cart-total { display: flex; justify-content: space-between; font-size: 22px; color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 30px; }
-        .checkout-whatsapp { width: 100%; padding: 20px; background: var(--gold); color: #000; font-weight: 700; text-transform: uppercase; border: none; letter-spacing: 2px; cursor: pointer; }
+        .cart-foot { border-top: 1px solid var(--soft-gray); padding-top: 40px; }
+        .cart-total { 
+            display: flex; justify-content: space-between; font-size: 26px; 
+            color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 40px; 
+        }
+        .checkout-whatsapp { 
+            width: 100%; padding: 25px; background: var(--gold); color: #000; 
+            font-weight: 800; text-transform: uppercase; border: none; 
+            letter-spacing: 4px; cursor: pointer; transition: 0.4s;
+        }
+        .checkout-whatsapp:hover { background: var(--white); transform: translateY(-5px); }
+        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9998; display: none; backdrop-filter: blur(15px); }
 
-        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(8px); }
+        /* VIDEO WINDOW SYSTEM: CINEMATIC REFINEMENT */
+        .hero-framed { padding: 160px 8% 80px; text-align: center; }
+        .main-video-window { 
+            position: relative; width: 100%; height: 60vh; 
+            border: 1px solid var(--gold); padding: 12px; 
+            background: #000; overflow: hidden; box-shadow: var(--luxury-shadow);
+        }
+        .main-video-window video { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+        .hero-title { 
+            margin-top: 40px; font-family: 'Playfair Display', serif; 
+            font-size: clamp(38px, 8vw, 100px); color: var(--white); 
+            font-style: italic; text-shadow: 0 10px 30px rgba(0,0,0,0.9);
+            line-height: 1.1;
+        }
 
-        /* HERO - FRAMED VIDEO WINDOW */
-        .hero-framed { padding: 140px 8% 60px; text-align: center; }
-        .video-window { position: relative; width: 100%; height: 50vh; border: 1px solid var(--gold); padding: 10px; background: #000; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
-        .video-window video { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
-        .hero-title { margin-top: 30px; font-family: 'Playfair Display', serif; font-size: clamp(32px, 6vw, 75px); color: var(--white); font-style: italic; text-shadow: 0 5px 15px rgba(0,0,0,0.8); }
+        /* SECTION HEADERS */
+        .section-header { text-align: center; padding: 120px 0 80px; }
+        .section-header span { color: var(--gold); font-size: 12px; letter-spacing: 8px; text-transform: uppercase; display: block; margin-bottom: 20px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 50px; color: var(--white); letter-spacing: 4px; font-weight: 700; font-style: italic; }
 
-        /* SIGNATURE SERIES GRID */
-        .section-header { text-align: center; padding: 100px 0 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); letter-spacing: 3px; font-weight: 700; }
-        .grid-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 100px; }
-        .item-card { height: 550px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); }
-        .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.8s var(--transition); opacity: 0.85; }
-        .item-card:hover img { transform: scale(1.1); opacity: 1; }
-        .item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
-        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); }
+        /* TRIPLE VIDEO POWER: THE HERITAGE GRID */
+        .heritage-video-grid { padding: 0 8% 120px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .heritage-v-card { 
+            border: 1px solid var(--gold-transparent); padding: 10px; 
+            background: rgba(5,5,5,0.5); transition: 0.6s; position: relative;
+        }
+        .heritage-v-card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: var(--luxury-shadow); }
+        .heritage-v-card video { width: 100%; height: 400px; object-fit: cover; filter: brightness(0.85); transition: 0.6s; }
+        .heritage-v-card:hover video { filter: brightness(1.1); }
+        .v-label { 
+            text-align: center; color: var(--gold); font-size: 11px; 
+            letter-spacing: 4px; text-transform: uppercase; 
+            margin-top: 20px; font-weight: 700;
+        }
 
-        /* EXCLUSIVE BOTTLE DISPLAY */
-        .special-gallery { padding: 0 8% 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .special-gallery img { width: 100%; border: 1px solid var(--gold); padding: 8px; background: #000; }
+        /* SIGNATURE COLLECTIONS CARDS */
+        .collections-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; padding: 0 8% 120px; }
+        .collection-card { 
+            height: 600px; position: relative; overflow: hidden; 
+            border: 1px solid var(--gold-transparent); background: var(--dark-gray);
+        }
+        .collection-card img { width: 100%; height: 100%; object-fit: cover; transition: 2.5s var(--transition); opacity: 0.75; }
+        .collection-card:hover img { transform: scale(1.15) rotate(1deg); opacity: 1; }
+        .collection-overlay { 
+            position: absolute; inset: 0; 
+            background: linear-gradient(to top, rgba(5,5,5,1) 15%, transparent 60%); 
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 50px; 
+            border-top: 1px solid transparent; transition: 0.5s;
+        }
+        .collection-card:hover .collection-overlay { background: linear-gradient(to top, rgba(212,175,55,0.15), transparent); }
+        .collection-overlay h3 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 10px; letter-spacing: 1px; }
+        .collection-overlay p { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #888; }
 
-        /* INDIAN REVIEWS SECTION */
-        .reviews-sec { padding: 120px 8%; background: rgba(8,8,8,0.75); border-top: 1px solid #111; }
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .review-card { padding: 45px; background: #050505; border: 1px solid #1a1a1a; border-left: 4px solid var(--gold); transition: 0.5s; }
-        .review-card:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .review-text { font-style: italic; font-size: 15px; color: #ccc; line-height: 1.8; margin-bottom: 25px; }
-        .review-author { font-weight: 600; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; }
+        /* REVIEWS: THE CONNOISSEUR'S VOICE */
+        .reviews-section { padding: 150px 8%; background: #080808; position: relative; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
+        .r-card { 
+            padding: 60px; background: var(--black); 
+            border: 1px solid var(--soft-gray); 
+            border-top: 3px solid var(--gold); 
+            position: relative; transition: 0.5s;
+        }
+        .r-card:hover { transform: translateY(-15px); border-color: var(--gold-transparent); }
+        .r-card i { position: absolute; top: 40px; right: 40px; color: var(--gold-transparent); font-size: 40px; }
+        .r-quote { font-style: italic; font-size: 17px; color: #bbb; line-height: 2; margin-bottom: 30px; }
+        .r-author { font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: 13px; }
 
-        /* FAQ REFINEMENT */
-        .faq-sec { padding: 120px 8%; background: #000; border-top: 1px solid #111; }
-        .faq-container { max-width: 900px; margin: 0 auto; }
-        .faq-item { margin-bottom: 40px; border-bottom: 1px solid var(--border-gold); padding-bottom: 30px; }
-        .faq-item h4 { color: var(--gold); font-size: 20px; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
-        .faq-item p { color: #ffffff !important; }
+        /* TRUST FOOTER BAR */
+        .trust-bar { 
+            display: grid; grid-template-columns: repeat(4, 1fr); 
+            background: var(--black); padding: 100px 8%; 
+            border-top: 1px solid var(--soft-gray); border-bottom: 1px solid var(--soft-gray);
+            gap: 50px; text-align: center; 
+        }
+        .trust-item i { color: var(--gold); font-size: 35px; margin-bottom: 30px; display: block; text-shadow: 0 0 10px var(--gold-glow); }
+        .trust-item h4 { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
+        .trust-item p { font-size: 14px; color: #666; font-weight: 300; }
 
-        /* FOOTER DETAILS */
-        footer { padding: 100px 8% 50px; border-top: 1px solid #111; background: #000; text-align: center; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--gold); margin-bottom: 30px; letter-spacing: 6px; font-weight: 700; }
-        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
-        .footer-links a { color: #888 !important; font-size: 14px; }
-        .footer-contact { color: #555; font-size: 13px; line-height: 2; letter-spacing: 1px; }
+        /* LEGACY FOOTER */
+        footer { padding: 120px 8% 60px; background: #000; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--gold); margin-bottom: 40px; letter-spacing: 12px; font-weight: 900; }
+        .footer-nav { display: flex; justify-content: center; gap: 50px; margin-bottom: 60px; flex-wrap: wrap; }
+        .footer-nav a { font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #555 !important; }
+        .footer-nav a:hover { color: var(--gold) !important; }
+        .copyright { font-size: 12px; color: #333; letter-spacing: 2px; text-transform: uppercase; margin-top: 40px; }
 
-        /* WHATSAPP FLOAT */
-        .whatsapp-float { position: fixed; bottom: 40px; right: 30px; background: #25d366; color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); background: var(--gold); }
+        /* WHATSAPP LUXURY FLOATER */
+        .whatsapp-float { 
+            position: fixed; bottom: 50px; right: 40px; 
+            background: #25d366; color: #fff; width: 70px; height: 70px; 
+            border-radius: 50%; display: flex; align-items: center; 
+            justify-content: center; font-size: 38px; z-index: 9999; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); transition: 0.5s; 
+        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); background: var(--gold); }
 
-        @media (max-width: 1024px) {
-            .grid-wrap, .special-gallery, .reviews-grid { grid-template-columns: 1fr; }
-            .logo { font-size: 22px; letter-spacing: 4px; }
-            header { padding: 25px 5%; }
-            .nav-right { gap: 15px; }
+        /* RESPONSIVE ADAPTABILITY */
+        @media (max-width: 1200px) { .collections-wrap { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 900px) {
+            header { padding: 25px 6%; }
+            .hero-framed { padding: 130px 6% 40px; }
+            .heritage-video-grid, .collections-wrap, .trust-bar, .reviews-grid { grid-template-columns: 1fr; }
+            .main-video-window { height: 40vh; }
+            .collection-card { height: 500px; }
+            .footer-nav { gap: 25px; }
         }
     </style>
 </head>
@@ -134,81 +267,142 @@
     <div class="site-bg"></div>
     <div id="cart-mask" onclick="toggleCart()"></div>
 
-    <!-- SIDE CART DRAWER -->
     <div id="cart-drawer">
         <div class="cart-head">
-            <h2>Luxury Selection</h2>
-            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 24px;"></i>
+            <h2>Your Selection</h2>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 28px;"></i>
         </div>
-        <div id="cart-content"></div>
+        <div id="cart-content">
+            </div>
         <div class="cart-foot">
-            <div class="cart-total"><span>Grand Total</span><span>₹<span id="grand-total">0</span></span></div>
-            <button class="checkout-whatsapp" onclick="sendWhatsAppOrder()">Reserve via WhatsApp</button>
+            <div class="cart-total">
+                <span>Grand Total</span>
+                <span>₹<span id="grand-total">0</span></span>
+            </div>
+            <button class="checkout-whatsapp" onclick="sendWhatsAppOrder()">Reserve via WhatsApp Concierge</button>
         </div>
     </div>
 
-    <!-- HEADER -->
     <header id="header">
         <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
         <div class="nav-right">
-            <a href="product.html" class="nav-link">The Collection</a>
+            <a href="product.html" class="nav-link">Explore Collection</a>
             <div class="cart-trigger" onclick="toggleCart()">
-                <i class="fas fa-shopping-bag"></i>
+                <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
                 <span class="cart-count" id="cart-count-badge">0</span>
             </div>
         </div>
     </header>
 
     <section class="hero-framed">
-        <div class="video-window">
-            <video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video>
+        <div class="main-video-window animate__animated animate__fadeIn">
+            <video autoplay muted loop playsinline poster="Background.png">
+                <source src="media/Itraura.mp4" type="video/mp4">
+            </video>
         </div>
-        <h1 class="hero-title">Perfume for the Soul.</h1>
+        <h1 class="hero-title animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
     </section>
 
-    <section class="section-header"><h2>Signature Series</h2></section>
-    <section class="grid-wrap">
-        <a href="product.html" class="item-card"><img src="ruh series.png"><div class="item-overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></a>
-        <a href="product.html" class="item-card"><img src="water series.png"><div class="item-overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></a>
-        <a href="product.html" class="item-card"><img src="premium series.png"><div class="item-overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></a>
+    <div class="section-header">
+        <span>Curated Excellence</span>
+        <h2>Signature Series</h2>
+    </div>
+    <section class="collections-wrap">
+        <a href="product.html#ruh" class="collection-card">
+            <img src="ruh series.png" alt="Ruh Series ItrAura">
+            <div class="collection-overlay">
+                <h3>Ruh Series</h3>
+                <p>Pure Distillations</p>
+            </div>
+        </a>
+        <a href="product.html#water" class="collection-card">
+            <img src="water series.png" alt="Water Series ItrAura">
+            <div class="collection-overlay">
+                <h3>Water Series</h3>
+                <p>Natural Hydrosols</p>
+            </div>
+        </a>
+        <a href="product.html#premium" class="collection-card">
+            <img src="premium series.png" alt="Premium Series ItrAura">
+            <div class="collection-overlay">
+                <h3>Premium Series</h3>
+                <p>Exquisite Blends</p>
+            </div>
+        </a>
     </section>
 
-    <section class="section-header"><h2>Pure Essence</h2></section>
-    <section class="special-gallery">
-        <img src="media/Ruh Bottle.png" alt="Original Ruh Gulaab">
-        <img src="media/Ruh mini.png" alt="Ruh Miniature">
+    <div class="section-header">
+        <span>Ancient Alchemy</span>
+        <h2>The Heritage Process</h2>
+    </div>
+    <section class="heritage-video-grid">
+        <div class="heritage-v-card">
+            <video autoplay muted loop playsinline>
+                <source src="media/Bhapka.mp4" type="video/mp4">
+            </video>
+            <p class="v-label">Traditional Distillation (Deg-Bhapka)</p>
+        </div>
+        <div class="heritage-v-card">
+            <video autoplay muted loop playsinline>
+                <source src="media/Rose.mp4" type="video/mp4">
+            </video>
+            <p class="v-label">The Soul of Hasayan (Organic Rose)</p>
+        </div>
     </section>
 
-    <section class="section-header"><h2>Aapki Zubani</h2></section>
-    <section class="reviews-sec">
+    <div class="section-header">
+        <span>Voice of Connoisseurs</span>
+        <h2>Connoisseur Reviews</h2>
+    </div>
+    <section class="reviews-section">
         <div class="reviews-grid">
-            <div class="review-card"><p class="review-text">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai, Kannauj ki yaad dila di."</p><p class="review-author">— AMAN S., DELHI</p></div>
-            <div class="review-card"><p class="review-text">"Purity level 100% hai. Morning mein lagaya aur sham tak mehek raha hai."</p><p class="review-author">— PRIYA V., MUMBAI</p></div>
-            <div class="review-card"><p class="review-text">"Original Deg-Bhapka distillation! Quality is truly international."</p><p class="review-author">— VIKRAM R., LUCKNOW</p></div>
-            <div class="review-card"><p class="review-text">"Packaging bohot luxury hai, gift ke liye best choice hai."</p><p class="review-author">— RAHUL M., AGRA</p></div>
+            <div class="r-card">
+                <i class="fas fa-quote-right"></i>
+                <p class="r-quote">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai. Hasayan aur Kannauj ki heritage bottle mein band hai. International standard!"</p>
+                <p class="r-author">— Aman Singh, Delhi</p>
+            </div>
+            <div class="r-card">
+                <i class="fas fa-quote-right"></i>
+                <p class="r-quote">"100% Botanical and zero alcohol. The long-lasting fragrance of their Sandalwood is unmatched. Truly luxury."</p>
+                <p class="r-author">— Vikram R., Lucknow</p>
+            </div>
+            <div class="r-card">
+                <i class="fas fa-quote-right"></i>
+                <p class="r-quote">"Purity level is 100%. The slow Deg-Bhapka process really captures the therapeutic essence of flowers. Amazing."</p>
+                <p class="r-author">— Priya V., Mumbai</p>
+            </div>
         </div>
     </section>
 
-    <section class="faq-sec">
-        <div class="faq-container">
-            <h2 style="color:var(--gold); text-align:center; margin-bottom:80px; font-family:'Playfair Display'; font-size:38px;">Essential Inquiries</h2>
-            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract distilled using traditional Deg-Bhapka methods. Zero alcohol.</p></div>
-            <div class="faq-item"><h4>Do you ship to UAE & UK?</h4><p>Yes, we offer secure global shipping for international connoisseurs. Contact concierge for rates.</p></div>
-            <div class="faq-item"><h4>How long does the scent last?</h4><p>Pure oils evolve on skin and typically last 8-12 hours depending on ambient conditions.</p></div>
-            <div class="faq-item"><h4>Safe for sensitive skin?</h4><p>Yes, botanical oils are skin-friendly, but a patch test is recommended for pure extracts.</p></div>
-        </div>
+    <section class="trust-bar">
+        <div class="trust-item"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>Heritage preserved across generations.</p></div>
+        <div class="trust-item"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>Distilled in the heart of India's Rose capital.</p></div>
+        <div class="trust-item"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka Art</h4><p>Ancient 400-year-old steam distillation.</p></div>
+        <div class="trust-item"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Alcohol. Zero Synthetics. Just Purity.</p></div>
     </section>
 
     <footer>
         <div class="footer-logo">ITRAURA</div>
-        <div class="footer-links"><a href="product.html">Collection</a><a href="https://wa.me/917618243220">Concierge</a><a href="mailto:info@itraura.com">Email Us</a></div>
-        <div class="footer-contact">Hasayan • Kannauj • Firozabad • London<br>© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY</div>
+        <div class="footer-nav">
+            <a href="product.html">The Collection</a>
+            <a href="https://wa.me/917618243220">WhatsApp Concierge</a>
+            <a href="mailto:info@itraura.com">Official Inquiries</a>
+        </div>
+        <p style="color:#666; font-size:14px; font-weight:500; margin-bottom:10px;">Luxury Artisanal Perfumery • Born in India • Global Presence</p>
+        <p class="copyright">© 2026 ITRAURA LUXURY PERFUMERY | HASAYAN • KANNAUJ • LONDON</p>
     </footer>
 
-    <a href="https://wa.me/917618243220?text=Hello%20ItrAura" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/917618243220?text=Hello%20ItrAura,%20I'd%20like%20to%20know%20more%20about%20your%20Signature%20Collections." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
+        // CORE CART DATA HANDLER
         let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
+
+        // SIDE CART TOGGLE ENGINE
         function toggleCart() {
             const drawer = document.getElementById('cart-drawer');
             const mask = document.getElementById('cart-mask');
@@ -216,33 +410,78 @@
             mask.style.display = drawer.classList.contains('open') ? 'block' : 'none';
             renderCart();
         }
+
+        // CART RENDERER: DYNAMIC INJECTION
         function renderCart() {
             const container = document.getElementById('cart-content');
             const totalDisplay = document.getElementById('grand-total');
             const badge = document.getElementById('cart-count-badge');
-            container.innerHTML = '';
+            
+            container.innerHTML = ''; 
             let total = 0; let count = 0;
+
             if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#555; margin-top:100px; font-size:14px; letter-spacing:2px;">Your Selection is Empty.</p>';
-                totalDisplay.innerText = '0'; badge.innerText = '0'; return;
+                container.innerHTML = `
+                    <div style="text-align:center; color:#555; margin-top:100px;">
+                        <i class="fas fa-shopping-bag" style="font-size:40px; margin-bottom:20px; opacity:0.2;"></i>
+                        <p style="font-size:13px; letter-spacing:2px; text-transform:uppercase;">Your Selection is Empty.</p>
+                    </div>`;
+                totalDisplay.innerText = '0';
+                badge.innerText = '0';
+                return;
             }
+
             cart.forEach((item, index) => {
-                total += item.price * item.qty; count += item.qty;
-                container.innerHTML += `<div class="cart-item-row">
-                    <img src="${item.img}">
-                    <div style="flex-grow:1;"><h4 style="color:var(--gold); font-size:15px;">${item.name}</h4><p style="font-size:12px; color:#ffffff;">Qty: ${item.qty}</p><p style="color:#fff;">₹${item.price * item.qty}</p></div>
-                    <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="cursor:pointer; font-size:13px; color:#fff;"></i></div>`;
+                total += item.price * item.qty;
+                count += item.qty;
+                container.innerHTML += `
+                    <div class="cart-item-row animate__animated animate__fadeIn">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="item-details" style="flex-grow:1;">
+                            <h4>${item.name}</h4>
+                            <p style="color:#fff; font-weight:600; font-size:14px; margin:5px 0;">₹${item.price * item.qty}</p>
+                            <p>Quantity: ${item.qty}</p>
+                        </div>
+                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="cursor:pointer; font-size:13px; color:#444;"></i>
+                    </div>`;
             });
-            totalDisplay.innerText = total; badge.innerText = count;
+
+            totalDisplay.innerText = total.toLocaleString('en-IN');
+            badge.innerText = count;
         }
-        function removeFromCart(index) { cart.splice(index, 1); localStorage.setItem('itraura_cart', JSON.stringify(cart)); renderCart(); }
+
+        // CART REMOVAL ENGINE
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('itraura_cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // WHATSAPP ORDER AUTOMATION
         function sendWhatsAppOrder() {
             if (cart.length === 0) return;
-            let msg = "Hello ItrAura, I'd like to reserve:\n\n";
-            cart.forEach(item => msg += `• ${item.name} x ${item.qty}\n`);
-            window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
+            let msg = "Hello ItrAura Concierge, I'd like to reserve the following signature pieces:\n\n";
+            cart.forEach(item => {
+                msg += `• ${item.name} x ${item.qty} (₹${item.price * item.qty})\n`;
+            });
+            msg += `\nTotal Amount: ₹${document.getElementById('grand-total').innerText}\n`;
+            msg += "\nPlease guide me with the payment and shipping details.";
+            
+            const waLink = `https://wa.me/917618243220?text=${encodeURIComponent(msg)}`;
+            window.open(waLink, '_blank');
         }
-        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50); });
+
+        // SCROLL REVELATION ENGINE
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // INITIALIZATION ON LOAD
         window.onload = renderCart;
     </script>
 </body>
