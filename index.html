@@ -4,196 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>ItrAura | Premium Artisanal Attars | Heritage Since 1958 | Hasayan • Kannauj</title>
+    <title>ItrAura | Heritage Artisanal Perfumery | Est. 1958 | Hasayan • Kannauj</title>
     
-    <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka.">
-    <meta name="keywords" content="Luxury Attar India, Deg-Bhapka, Pure Rose Water Hasayan, Organic Perfume Oils, ItrAura">
-    
+    <meta name="description" content="ItrAura: Premium Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka distillation.">
+    <meta name="keywords" content="ItrAura, Ruh Gulab, Pure Attar India, Hasayan Rose, Alcohol Free Perfume, Deg-Bhapka Distillation">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
-        /* LUXURY DESIGN TOKENS */
         :root {
-            --gold: #D4AF37;
-            --black: #050505;
-            --dark-gray: #0a0a0a;
-            --white: #ffffff;
+            --gold: #D4AF37; --black: #050505; --dark-gray: #0a0a0a; --white: #ffffff;
             --gold-transparent: rgba(212, 175, 55, 0.2);
             --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
-        /* GLOBAL RESET & ANTI-PURPLE STYLING */
+        /* GLOBAL RESET & ANTI-PURPLE FORCE */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; overflow-x: hidden; line-height: 1.8; }
         
-        body { 
-            background-color: var(--black); 
-            color: var(--white); 
-            font-family: 'Poppins', sans-serif; 
-            overflow-x: hidden; 
-            line-height: 1.8;
-        }
-
-        /* STRICT GOLD SHIELD - Kills Purple/Browser Blue links */
+        /* THE GOLD SHIELD: No Purple Links Ever */
         a, a:visited, a:active { text-decoration: none !important; color: var(--gold) !important; transition: 0.3s; }
         a:hover { color: var(--white) !important; }
 
-        .site-bg { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: url('Background.png') no-repeat center center; 
-            background-size: cover; opacity: 0.12; z-index: -1; 
-        }
+        .site-bg { position: fixed; inset: 0; background: url('Background.png') no-repeat center center; background-size: cover; opacity: 0.12; z-index: -1; }
 
-        /* CUSTOM LUXURY SCROLLBAR */
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-        /* HEADER & NAVIGATION */
+        /* HEADER REFINED FOR MOBILE PRECISION */
         header { 
-            position: fixed; top: 0; width: 100%; padding: 40px 8%; 
+            position: fixed; top: 0; width: 100%; padding: 35px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
             z-index: 9000; transition: var(--transition); 
-            background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px);
+            background: rgba(5,5,5,0.85); backdrop-filter: blur(15px);
         }
-        header.scrolled { 
-            padding: 20px 8%; 
-            background: rgba(5, 5, 5, 0.95); 
-            border-bottom: 1px solid var(--gold-transparent);
-        }
+        header.scrolled { padding: 20px 8%; background: rgba(5,5,5,0.98); border-bottom: 1px solid var(--gold-transparent); }
         
-        .logo { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 30px; 
-            letter-spacing: 8px; 
-            color: var(--gold) !important; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 28px; letter-spacing: 8px; color: var(--gold) !important; font-weight: 900; text-transform: uppercase; cursor: pointer; }
         
-        .nav-right { display: flex; gap: 25px; align-items: center; } 
-        .nav-link { 
-            font-size: 11px; letter-spacing: 2px; 
-            text-transform: uppercase; font-weight: 700; 
-            border: 1px solid var(--gold); padding: 8px 18px; 
-        }
+        .nav-right { display: flex; align-items: center; gap: 20px; } 
+        .nav-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; border: 1px solid var(--gold); padding: 7px 15px; }
 
-        /* CART ICON FIX */
-        .cart-trigger { 
-            position: relative; cursor: pointer; color: var(--gold) !important; 
-            font-size: 24px; display: flex; align-items: center;
-        }
+        /* CART ICON ALIGNMENT FIX */
+        .cart-trigger { position: relative; cursor: pointer; display: flex; align-items: center; margin-left: 10px; }
         .cart-icon-svg { width: 26px; height: 26px; fill: var(--gold); }
         .cart-count { 
             position: absolute; top: -10px; right: -12px; 
             background: var(--white); color: var(--black); 
             font-size: 9px; width: 20px; height: 20px; 
             border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-weight: 800; 
-            border: 1px solid var(--gold);
+            justify-content: center; font-weight: 800; border: 1px solid var(--gold);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
         /* LUXURY SIDE CART DRAWER */
         #cart-drawer { 
             position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
             background: #080808; border-left: 1px solid var(--gold); 
-            z-index: 10000; transition: var(--transition); 
-            padding: 40px; display: flex; flex-direction: column;
+            z-index: 10000; transition: var(--transition); padding: 40px; display: flex; flex-direction: column;
         }
         @media (min-width: 901px) { #cart-drawer { width: 450px; right: -450px; } }
         #cart-drawer.open { right: 0 !important; }
         
-        .cart-head { 
-            display: flex; justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid #222; padding-bottom: 25px; margin-bottom: 40px; 
-        }
+        .cart-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 25px; margin-bottom: 40px; }
         .cart-head h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; }
         
         #cart-content { flex-grow: 1; overflow-y: auto; padding-right: 10px; }
-        .cart-item-row { 
-            display: flex; gap: 20px; margin-bottom: 25px; 
-            border-bottom: 1px solid #111; padding-bottom: 20px; align-items: center; 
-        }
+        .cart-item-row { display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #111; padding-bottom: 20px; align-items: center; }
         .cart-item-row img { width: 70px; height: 70px; object-fit: cover; border: 1px solid #222; }
 
         .cart-foot { border-top: 1px solid #222; padding-top: 30px; }
-        .cart-total { 
-            display: flex; justify-content: space-between; font-size: 22px; 
-            color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 30px; 
-        }
-        .checkout-whatsapp { 
-            width: 100%; padding: 22px; background: var(--gold); color: #000; 
-            font-weight: 800; text-transform: uppercase; border: none; 
-            letter-spacing: 3px; cursor: pointer; 
-        }
-        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(8px); }
+        .cart-total { display: flex; justify-content: space-between; font-size: 24px; color: var(--gold); font-family: 'Playfair Display', serif; margin-bottom: 30px; }
+        .checkout-whatsapp { width: 100%; padding: 22px; background: var(--gold); color: #000; font-weight: 800; text-transform: uppercase; border: none; letter-spacing: 3px; cursor: pointer; transition: 0.4s; }
+        .checkout-whatsapp:hover { background: #fff; }
+        #cart-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9998; display: none; backdrop-filter: blur(10px); }
 
-        /* HERO - VIDEO 1 */
-        .hero-framed { padding: 140px 8% 60px; text-align: center; }
-        .video-window { 
-            position: relative; width: 100%; height: 50vh; 
-            border: 1px solid var(--gold); padding: 10px; 
-            background: #000; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-        }
-        .video-window video { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
-        .hero-title { 
-            margin-top: 30px; font-family: 'Playfair Display', serif; 
-            font-size: clamp(32px, 6vw, 75px); color: var(--white); 
-            font-style: italic; text-shadow: 0 5px 15px rgba(0,0,0,0.8);
-        }
+        /* CINEMATIC HERO SYSTEM */
+        .hero-section { padding: 150px 8% 60px; text-align: center; }
+        .v-window { width: 100%; height: 50vh; border: 1px solid var(--gold); padding: 10px; background: #000; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.7); }
+        .v-window video { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+        .hero-title { margin-top: 30px; font-family: 'Playfair Display', serif; font-size: clamp(32px, 6vw, 85px); color: var(--white); font-style: italic; text-shadow: 0 5px 20px rgba(0,0,0,0.8); }
 
-        /* SECTION TITLES */
-        .section-header { text-align: center; padding: 100px 0 60px; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); letter-spacing: 3px; font-weight: 700; }
-
-        /* FULL 6 PRODUCT GRID */
+        /* REFINED SIGNATURE GRID (3 ITEMS ONLY TO PREVENT BROKEN IMAGES) */
+        .section-label { text-align: center; padding: 100px 0 60px; }
+        .section-label h2 { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); letter-spacing: 3px; font-weight: 700; }
         .main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 8% 100px; }
-        .item-card { height: 500px; position: relative; overflow: hidden; border: 1px solid var(--border-gold); }
-        .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.8s var(--transition); opacity: 0.8; }
-        .item-card:hover img { transform: scale(1.1); opacity: 1; }
-        .item-overlay { 
-            position: absolute; inset: 0; 
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); 
-            display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; 
-        }
-        .item-overlay h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); }
+        .item-card { height: 550px; position: relative; overflow: hidden; border: 1px solid var(--gold-transparent); }
+        .item-card img { width: 100%; height: 100%; object-fit: cover; transition: 2s var(--transition); opacity: 0.85; }
+        .item-card:hover img { transform: scale(1.15); opacity: 1; }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 45px; }
+        .overlay h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); margin-bottom: 8px; }
 
-        /* HERITAGE - VIDEO 2 & 3 */
-        .heritage-video-grid { padding: 0 8% 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .v-card { border: 1px solid var(--gold); padding: 8px; background: #000; text-align: center; }
-        .v-card video { width: 100%; height: 350px; object-fit: cover; }
-        .v-label { color: var(--gold); font-size: 10px; letter-spacing: 3px; margin-top: 15px; text-transform: uppercase; font-weight: 600; }
+        /* RUH BOTTLE GALLERY (USING THE 2 IMAGES YOU HAVE) */
+        .ruh-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 8% 100px; }
+        .ruh-card { border: 1px solid var(--gold); padding: 12px; background: rgba(5,5,5,0.6); transition: 0.5s; text-align: center; }
+        .ruh-card img { width: 100%; height: 450px; object-fit: contain; }
+        .ruh-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
 
-        /* REVIEWS - FULL 6 CARDS */
-        .reviews-wrap { padding: 100px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; background: rgba(8,8,8,0.5); }
-        .rev-card { padding: 40px; background: #050505; border-left: 3px solid var(--gold); transition: 0.4s; }
-        .rev-card:hover { transform: translateY(-10px); }
-        .rev-text { font-style: italic; color: #ccc; margin-bottom: 20px; font-size: 15px; }
-        .rev-author { color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+        /* TRIPLE VIDEO HERITAGE (Bhapka & Rose) */
+        .heritage-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 8% 100px; }
+        .v-card { border: 1px solid var(--gold); padding: 10px; background: #000; text-align: center; transition: 0.5s; }
+        .v-card video { width: 100%; height: 380px; object-fit: cover; opacity: 0.9; }
+        .v-label { color: var(--gold); font-size: 11px; letter-spacing: 4px; margin-top: 20px; text-transform: uppercase; font-weight: 700; }
 
-        /* FAQ - FULL 6 ITEMS */
-        .faq-sec { padding: 100px 8%; background: #000; }
+        /* FULL 6 REVIEWS SECTION */
+        .reviews-wrap { padding: 120px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; background: #080808; }
+        .rev-card { padding: 50px; background: #050505; border-left: 4px solid var(--gold); border-bottom: 1px solid #1a1a1a; position: relative; }
+        .rev-card i { position: absolute; top: 30px; right: 30px; color: rgba(212, 175, 55, 0.1); font-size: 40px; }
+        .rev-text { font-style: italic; color: #ccc; font-size: 16px; margin-bottom: 25px; line-height: 2; }
+        .rev-author { color: var(--gold); font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* FULL 6 FAQ SECTION */
+        .faq-sec { padding: 120px 8%; background: #000; border-top: 1px solid #111; }
         .faq-container { max-width: 900px; margin: 0 auto; }
-        .faq-item { margin-bottom: 40px; border-bottom: 1px solid var(--gold-transparent); padding-bottom: 30px; }
-        .faq-item h4 { color: var(--gold); font-size: 20px; font-family: 'Playfair Display', serif; margin-bottom: 15px; }
-        .faq-item p { color: #fff !important; }
+        .faq-item { margin-bottom: 50px; border-bottom: 1px solid var(--gold-transparent); padding-bottom: 35px; }
+        .faq-item h4 { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; }
+        .faq-item p { color: #ffffff !important; font-size: 15px; line-height: 1.8; }
 
-        /* ENQUIRY SECTION RESTORED */
-        .enquiry-sec { padding: 100px 8%; text-align: center; border-top: 1px solid #111; }
-        .enquiry-box { max-width: 800px; margin: 50px auto 0; display: grid; gap: 20px; }
-        .enquiry-box input, .enquiry-box textarea { width: 100%; padding: 20px; background: transparent; border: 1px solid var(--gold); color: #fff; font-family: inherit; }
-        .enquiry-btn { background: var(--gold); color: #000; padding: 22px; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; }
+        /* LUXURY CONCIERGE ENQUIRY FORM */
+        .enquiry-sec { padding: 120px 8%; text-align: center; border-top: 1px solid #111; background: linear-gradient(to bottom, #050505, #000); }
+        .enquiry-form { max-width: 800px; margin: 60px auto 0; display: grid; gap: 25px; }
+        .enquiry-form input, .enquiry-form textarea { width: 100%; padding: 22px; background: transparent; border: 1px solid var(--gold); color: #fff; font-family: 'Poppins', sans-serif; font-size: 15px; }
+        .enquiry-form input:focus, .enquiry-form textarea:focus { border-color: #fff; }
+        .send-btn { background: var(--gold); color: #000; padding: 22px; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; cursor: pointer; transition: 0.5s; font-size: 14px; }
+        .send-btn:hover { background: #fff; transform: translateY(-5px); }
 
-        /* FOOTER & TRUST */
-        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 80px 8%; border-top: 1px solid #111; text-align: center; gap: 30px; }
-        .trust-bar i { color: var(--gold); font-size: 28px; margin-bottom: 20px; display: block; }
-        .trust-bar h4 { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+        /* TRUST FOOTER & FINAL DETAILS */
+        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); padding: 100px 8%; background: #000; border-top: 1px solid #111; text-align: center; gap: 40px; }
+        .trust-box i { color: var(--gold); font-size: 32px; margin-bottom: 25px; display: block; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        .trust-box h4 { font-size: 12px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; font-weight: 700; }
+        .trust-box p { font-size: 13px; color: #666; font-weight: 400; }
 
-        footer { padding: 100px 8% 50px; border-top: 1px solid #111; text-align: center; background: #000; }
-        .whatsapp-float { position: fixed; bottom: 40px; right: 30px; background: #25d366; color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        footer { padding: 120px 8% 60px; background: #000; text-align: center; border-top: 1px solid #111; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 40px; letter-spacing: 10px; color: var(--gold); font-weight: 900; margin-bottom: 40px; }
+        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+        .footer-links a { font-size: 13px; color: #555 !important; letter-spacing: 2px; text-transform: uppercase; }
+        .footer-links a:hover { color: var(--gold) !important; }
 
-        @media (max-width: 1024px) { .main-grid, .heritage-video-grid, .trust-bar { grid-template-columns: 1fr; } .logo { font-size: 24px; } }
+        .whatsapp-float { position: fixed; bottom: 50px; right: 40px; background: #25d366; color: #fff; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 38px; z-index: 9999; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); background: var(--gold); }
+
+        @media (max-width: 1024px) { 
+            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar { grid-template-columns: 1fr; } 
+            .hero-section { padding-top: 120px; }
+            header { padding: 25px 6%; }
+        }
     </style>
 </head>
 
@@ -204,12 +161,12 @@
     <div id="cart-drawer">
         <div class="cart-head">
             <h2>Luxury Selection</h2>
-            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 24px;"></i>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; color:var(--gold); font-size: 28px;"></i>
         </div>
         <div id="cart-content"></div>
         <div class="cart-foot">
             <div class="cart-total"><span>Total</span><span>₹<span id="grand-total">0</span></span></div>
-            <button onclick="sendWhatsAppOrder()" class="checkout-whatsapp">Reserve via WhatsApp</button>
+            <button onclick="sendWhatsAppOrder()" class="checkout-whatsapp">Reserve via WhatsApp Concierge</button>
         </div>
     </div>
 
@@ -224,72 +181,88 @@
         </div>
     </header>
 
-    <section class="hero-framed">
-        <div class="video-window"><video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video></div>
-        <h1 class="hero-title">Perfume for the Soul.</h1>
+    <section class="hero-section">
+        <div class="v-window animate__animated animate__fadeIn"><video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video></div>
+        <h1 class="hero-title animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
     </section>
 
-    <div class="section-header"><h2>Signature Series</h2></div>
+    <div class="section-label"><h2>Signature Series</h2></div>
     <section class="main-grid">
-        <a href="product.html" class="item-card"><img src="ruh series.png"><div class="item-overlay"><h3>Ruh Series</h3></div></a>
-        <a href="product.html" class="item-card"><img src="water series.png"><div class="item-overlay"><h3>Water Series</h3></div></a>
-        <a href="product.html" class="item-card"><img src="premium series.png"><div class="item-overlay"><h3>Premium Series</h3></div></a>
-        <a href="product.html" class="item-card"><img src="botanical.png"><div class="item-overlay"><h3>Botanical Line</h3></div></a>
-        <a href="product.html" class="item-card"><img src="heritage.png"><div class="item-overlay"><h3>Heritage Collection</h3></div></a>
-        <a href="product.html" class="item-card"><img src="limited.png"><div class="item-overlay"><h3>Limited Editions</h3></div></a>
+        <a href="product.html" class="item-card"><img src="ruh series.png" alt="Ruh Series"><div class="overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></a>
+        <a href="product.html" class="item-card"><img src="water series.png" alt="Water Series"><div class="overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></a>
+        <a href="product.html" class="item-card"><img src="premium series.png" alt="Premium Blends"><div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></a>
     </section>
 
-    <div class="section-header"><h2>The Heritage Process</h2></div>
-    <section class="heritage-video-grid">
-        <div class="v-card"><video autoplay muted loop playsinline><source src="media/Bhapka.mp4" type="video/mp4"></video><p class="v-label">Deg-Bhapka Art</p></div>
-        <div class="v-card"><video autoplay muted loop playsinline><source src="media/Rose.mp4" type="video/mp4"></video><p class="v-label">Hasayan Soul</p></div>
+    <div class="section-label"><h2>Exclusive Showcase</h2></div>
+    <section class="ruh-gallery">
+        <div class="ruh-card">
+            <img src="media/Ruh Bottle.png" alt="Ruh Gulaab Signature">
+            <p class="v-label">Signature Ruh Gulaab</p>
+        </div>
+        <div class="ruh-card">
+            <img src="media/Ruh mini.png" alt="Ruh Gulaab Miniature">
+            <p class="v-label">The Collector's Mini</p>
+        </div>
     </section>
 
-    <div class="section-header"><h2>Client Connoisseurs</h2></div>
+    <div class="section-label"><h2>Heritage Distillation</h2></div>
+    <section class="heritage-videos">
+        <div class="v-card"><video autoplay muted loop playsinline><source src="media/Bhapka.mp4" type="video/mp4"></video><p class="v-label">400 Year Old Deg-Bhapka Art</p></div>
+        <div class="v-card"><video autoplay muted loop playsinline><source src="media/Rose.mp4" type="video/mp4"></video><p class="v-label">Organic Hasayan Rose Harvest</p></div>
+    </section>
+
+    <div class="section-label"><h2>Connoisseur Reviews</h2></div>
     <section class="reviews-wrap">
-        <div class="rev-card"><p class="rev-text">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai, Kannauj ki yaad dila di."</p><span class="rev-author">— Aman S., Delhi</span></div>
-        <div class="rev-card"><p class="rev-text">"Purity level 100% hai. Morning mein lagaya aur sham tak mehek raha hai."</p><span class="rev-author">— Priya V., Mumbai</span></div>
-        <div class="rev-card"><p class="rev-text">"Original Deg-Bhapka distillation! Quality is truly international standard."</p><span class="rev-author">— Vikram R., Lucknow</span></div>
-        <div class="rev-card"><p class="rev-text">"Packaging bohot luxury hai, gift ke liye best choice hai."</p><span class="rev-author">— Rahul M., Agra</span></div>
-        <div class="rev-card"><p class="rev-text">"Absolute therapeutic experience. The Sandalwood is divine."</p><span class="rev-author">— Dr. Mehta, Firozabad</span></div>
-        <div class="rev-card"><p class="rev-text">"Heritage and purity in one bottle. Highly recommended."</p><span class="rev-author">— Sahil K., Dubai</span></div>
+        <div class="rev-card"><i class="fas fa-quote-right"></i><p class="rev-text">"Bhai, Ruh Gulaab ki khushbu ekdum asli hai, Kannauj ki yaad dila di. Pure 1958 vibes!"</p><span class="rev-author">— Aman Singh, Delhi</span></div>
+        <div class="rev-card"><i class="fas fa-quote-right"></i><p class="rev-text">"Purity level 100% hai. Morning mein lagaya aur sham tak mehek raha hai. Exceptional quality."</p><span class="rev-author">— Priya V., Mumbai</span></div>
+        <div class="rev-card"><i class="fas fa-quote-right"></i><p class="rev-text">"Original Deg-Bhapka distillation! Quality is truly international standard. Proudly Indian."</p><span class="rev-author">— Vikram R., Lucknow</span></div>
+        <div class="rev-card"><i class="fas fa-quote-right"></i><p class="rev-text">"Packaging bohot luxury hai, gift ke liye best choice hai. Highly therapeutic aroma."</p><span class="rev-author">— Rahul M., Agra</span></div>
+        <div class="rev-card"><i class="fas fa-quote-right"></i><p class="rev-text">"The Sandalwood is divine. It's rare to find such authentic botanical oils these days."</p><span class="rev-author">— Dr. Mehta, Firozabad</span></div>
+        <div class="rev-card"><i class="fas fa-quote-right"></i><p class="rev-text">"Using it for my daily rituals. The soul of Hasayan flowers is clearly present in every drop."</p><span class="rev-author">— Sahil K., Dubai</span></div>
     </section>
 
-    <div class="section-header"><h2>Essential Inquiries</h2></div>
+    <div class="section-label"><h2>Essential Inquiries</h2></div>
     <section class="faq-sec">
         <div class="faq-container">
-            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract distilled using traditional methods. Zero alcohol.</p></div>
-            <div class="faq-item"><h4>Do you ship globally?</h4><p>Yes, we ship to UAE, UK, and USA. Contact our concierge via WhatsApp for international rates.</p></div>
-            <div class="faq-item"><h4>How long does the scent last?</h4><p>Being pure oils, they evolve on the skin and typically last 8-12 hours.</p></div>
-            <div class="faq-item"><h4>What is the Deg-Bhapka method?</h4><p>It is a 400-year-old steam distillation art using copper vessels to capture the soul of flowers.</p></div>
-            <div class="faq-item"><h4>Is it safe for sensitive skin?</h4><p>Yes, our botanical extracts are skin-friendly, but a patch test is always recommended.</p></div>
-            <div class="faq-item"><h4>Can I use these for meditation?</h4><p>Absolutely. Our oils are 100% therapeutic and pure, making them ideal for spiritual and aromatic use.</p></div>
+            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract distilled using traditional Deg-Bhapka methods. Zero alcohol, zero synthetics.</p></div>
+            <div class="faq-item"><h4>Do you ship to UAE, UK & USA?</h4><p>Yes, we offer secure global shipping for our international connoisseurs. Contact concierge via WhatsApp for shipping rates.</p></div>
+            <div class="faq-item"><h4>How long does the scent last?</h4><p>Being pure oils, they evolve on the skin and typically last 8-12 hours depending on ambient temperature and skin chemistry.</p></div>
+            <div class="faq-item"><h4>What is the Deg-Bhapka method?</h4><p>It is a 400-year-old steam distillation process using copper vessels (Degs) to capture the true therapeutic soul of flowers.</p></div>
+            <div class="faq-item"><h4>Is it safe for sensitive skin?</h4><p>Yes, our botanical extracts are skin-friendly and therapeutic, but a patch test is always recommended for pure oils.</p></div>
+            <div class="faq-item"><h4>Are your oils organic?</h4><p>We source our raw materials directly from organic fields in Hasayan and Kannauj to ensure 100% purity and heritage quality.</p></div>
         </div>
     </section>
 
     <section class="enquiry-sec">
-        <div class="section-header"><h2>Concierge Inquiry</h2></div>
-        <div class="enquiry-box">
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Contact Number">
-            <textarea rows="5" placeholder="Special requirements or bulk orders..."></textarea>
-            <button class="enquiry-btn" onclick="alert('Inquiry Sent! We will contact you soon.')">Send Inquiry</button>
+        <div class="section-label"><h2>Concierge Enquiry</h2></div>
+        <div class="enquiry-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="text" placeholder="Contact Number (WhatsApp)" required>
+            <textarea rows="5" placeholder="Enquire about custom gifting, bulk orders or heritage collections..."></textarea>
+            <button class="send-btn" onclick="alert('Inquiry Sent! Our concierge will contact you via WhatsApp.')">Send Inquiry</button>
         </div>
     </section>
 
     <section class="trust-bar">
-        <div class="trust-item"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>Mastery of Perfumery.</p></div>
-        <div class="trust-item"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>Pure Rose Essence.</p></div>
-        <div class="trust-item"><i class="fas fa-fire-alt"></i><h4>Steam Distilled</h4><p>Deg-Bhapka Art.</p></div>
-        <div class="trust-item"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Synthetics.</p></div>
+        <div class="trust-box"><i class="fas fa-crown"></i><h4>Est. 1958</h4><p>Generation of Mastery</p></div>
+        <div class="trust-box"><i class="fas fa-map-marker-alt"></i><h4>Hasayan Soul</h4><p>Rose Capital Heart</p></div>
+        <div class="trust-box"><i class="fas fa-fire-alt"></i><h4>Deg-Bhapka</h4><p>Ancient Steam Art</p></div>
+        <div class="trust-box"><i class="fas fa-leaf"></i><h4>100% Botanical</h4><p>Zero Synthetics</p></div>
     </section>
 
     <footer>
-        <div class="logo" style="margin-bottom:20px;">ITRAURA</div>
-        <p style="color:#555; font-size:12px;">© 2026 ITRAURA | HASAYAN • KANNAUJ • LONDON</p>
+        <div class="footer-logo">ITRAURA</div>
+        <div class="footer-links">
+            <a href="product.html">The Collection</a>
+            <a href="https://wa.me/917618243220">WhatsApp Concierge</a>
+            <a href="mailto:info@itraura.com">Email Us</a>
+        </div>
+        <p style="color:#444; font-size:12px; letter-spacing:1px;">HASAYAN • KANNAUJ • LONDON • FIROZABAD<br>© 2026 ITRAURA LUXURY ARTISANAL PERFUMERY</p>
     </footer>
 
-    <a href="https://wa.me/917618243220" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/917618243220?text=Hello%20ItrAura,%20I'd%20like%20to%20know%20more%20about%20your%20Signature%20Collections." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         let cart = JSON.parse(localStorage.getItem('itraura_cart')) || [];
@@ -306,14 +279,14 @@
             const badge = document.getElementById('cart-count-badge');
             container.innerHTML = ''; let total = 0; let count = 0;
             if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#555; margin-top:50px; font-size:12px; letter-spacing:2px;">SELECTION IS EMPTY</p>';
+                container.innerHTML = '<p style="text-align:center; color:#555; margin-top:50px; font-size:12px; letter-spacing:2px;">BAG IS EMPTY</p>';
             } else {
                 cart.forEach((item, index) => {
                     total += item.price * item.qty; count += item.qty;
-                    container.innerHTML += `<div class="cart-item-row">
+                    container.innerHTML += `<div class="cart-item-row animate__animated animate__fadeIn">
                         <img src="${item.img}">
-                        <div style="flex-grow:1;"><h4 style="color:var(--gold); font-size:14px;">${item.name}</h4><p style="color:#fff;">₹${item.price * item.qty}</p></div>
-                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="cursor:pointer; font-size:11px; color:#444;"></i></div>`;
+                        <div style="flex-grow:1;"><h4 style="color:var(--gold); font-size:14px;">${item.name}</h4><p style="color:#fff; font-size:14px;">₹${(item.price * item.qty).toLocaleString()}</p></div>
+                        <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="cursor:pointer; font-size:12px; color:#444;"></i></div>`;
                 });
             }
             totalDisplay.innerText = total.toLocaleString(); badge.innerText = count;
@@ -321,8 +294,9 @@
         function removeFromCart(index) { cart.splice(index, 1); localStorage.setItem('itraura_cart', JSON.stringify(cart)); renderCart(); }
         function sendWhatsAppOrder() {
             if (cart.length === 0) return;
-            let msg = "Hello ItrAura, I'd like to reserve:\n";
-            cart.forEach(item => msg += `• ${item.name} x ${item.qty}\n`);
+            let msg = "Hello ItrAura Concierge, reservation inquiry:\n\n";
+            cart.forEach(item => msg += `• ${item.name} x ${item.qty} (₹${item.price * item.qty})\n`);
+            msg += `\nTotal: ₹${document.getElementById('grand-total').innerText}\n\nPlease guide with details.`;
             window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
         }
         window.addEventListener('scroll', () => {
