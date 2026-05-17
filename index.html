@@ -323,90 +323,45 @@
             color: var(--gold);
         }
 
-        /* NEW CODE BLOCK: HIGH CONVERSION GULAB GRID */
-        .gulab-grid {
+        /* 3-CARD BALANCED SHOWCASE GRID */
+        .ruh-gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             padding: 0 8% 120px;
         }
 
-        .gulab-card {
-            background: #080808;
+        .ruh-card {
             border: 1px solid var(--gold-transparent);
-            border-radius: 4px;
-            padding: 40px;
+            padding: 30px 20px;
+            background: rgba(8,8,8,0.6);
             text-align: center;
-            transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            transition: var(--transition);
         }
 
-        .gulab-card:hover {
+        .ruh-card:hover {
             border-color: var(--gold);
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
         }
 
-        .badge-premium {
-            background: var(--gold);
-            color: #000;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 5px 15px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .badge-classic {
-            background: #222;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 5px 15px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-        }
-
-        .gulab-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .gulab-card p {
-            color: #aaa;
-            font-size: 14px;
-            max-width: 400px;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .gulab-price {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        .gulab-price span {
-            font-size: 16px;
-            color: #555;
-            font-family: 'Poppins', sans-serif;
+        .ruh-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            margin-bottom: 15px;
         }
 
         .buy-btn-gold {
             background: var(--gold);
             color: #000;
             width: 100%;
-            max-width: 280px;
-            padding: 18px;
+            max-width: 240px;
+            padding: 15px;
+            font-size: 13px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -416,27 +371,7 @@
         }
 
         .buy-btn-gold:hover {
-            background: #fff;
-        }
-
-        .ruh-gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            padding: 0 8% 120px;
-        }
-
-        .ruh-card {
-            border: 1px solid var(--gold);
-            padding: 15px;
-            background: rgba(5,5,5,0.6);
-            text-align: center;
-        }
-
-        .ruh-card img {
-            width: 100%;
-            height: 450px;
-            object-fit: contain;
+            background: var(--white);
         }
 
         .heritage-videos {
@@ -608,7 +543,7 @@
             align-items: center; justify-content: center; font-size: 38px; z-index: 9999; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
 
         @media (max-width: 1024px) {
-            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar, .gulab-grid { grid-template-columns: 1fr; }
+            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar { grid-template-columns: 1fr; }
             header { padding: 25px 6%; }
         }
     </style>
@@ -662,35 +597,48 @@
         <div class="item-card"><img src="premium series.png"><div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></div>
     </section>
 
-    <div class="section-label"><h2>The Pride of Hasayan</h2></div>
-    <section class="gulab-grid">
-        <div class="gulab-card animate__animated animate__fadeInUp">
-            <div class="badge-premium">Flagship Heritage</div>
-            <h3>Royal Pink Gulab</h3>
-            <p>Sourced from legendary pink Desi Damask roses. Pure, uncut traditional steam distillation in copper stills. The richest, deepest therapeutic aroma.</p>
-            <div class="gulab-price">₹2,999 <span>/ 3ml</span></div>
-            <button class="buy-btn-gold" onclick="addToBag('Royal Pink Gulab (Hasayan)', 2999, 'media/Ruh Bottle.png')">Add to Selection</button>
-        </div>
-
-        <div class="gulab-card animate__animated animate__fadeInUp">
-            <div class="badge-classic">Everyday Luxury</div>
-            <h3>Classic Red Gulab</h3>
-            <p>Intense, sweet, and mesmerizing traditional profile. Crafted from pristine seasonal red crops for a deep, long-lasting signature aura.</p>
-            <div class="gulab-price">₹1,699 <span>/ 3ml</span></div>
-            <button class="buy-btn-gold" onclick="addToBag('Classic Red Gulab (Hasayan)', 1699, 'media/Ruh mini.png')">Add to Selection</button>
-        </div>
-    </section>
-
     <div class="section-label"><h2>Masterpiece Showcase</h2></div>
     <section class="ruh-gallery">
-        <div class="ruh-card">
-            <img src="media/Ruh Bottle.png" alt="Signature Ruh Gulaab">
-            <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700;">SIGNATURE RUH GULAAB</p>
+        
+        <div class="ruh-card animate__animated animate__fadeInUp">
+            <div>
+                <span style="background: var(--gold); color: #000; font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 15px;">Wholesale Volume</span>
+                <img src="media/Ruh 1Litre.png" alt="Ruh Gulab 1 Litre Bulk" onerror="this.src='media/Ruh Bottle.png'">
+                <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Pure Ruh Gulab (Bulk)</p>
+                <p style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Traditional Deg-Bhapka commercial scale volume. Direct distillation extraction from our heritage plant.</p>
+            </div>
+            <div style="width: 100%; margin-top: 15px;">
+                <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; font-weight: 700; margin-bottom: 15px;">Contact Concierge <span style="font-size: 14px; color: #555; font-family: 'Poppins', sans-serif;">/ 1L</span></div>
+                <button class="buy-btn-gold" onclick="window.open('https://wa.me/917618243220?text=I%20am%20interested%20in%20Bulk%20Wholesale%201%20Litre%20Ruh%20Gulab')">Inquire Bulk</button>
+            </div>
         </div>
-        <div class="ruh-card">
-            <img src="media/Ruh mini.png" alt="Ruh Miniature">
-            <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700;">THE COLLECTOR'S MINI</p>
+
+        <div class="ruh-card animate__animated animate__fadeInUp">
+            <div>
+                <span style="background: #111; color: var(--gold); font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; border: 1px solid var(--gold);">Premium Flagship</span>
+                <img src="media/Ruh Bottle.png" alt="Signature Ruh Gulaab Pink">
+                <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Royal Pink Gulab</p>
+                <p style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Sourced from legendary organic pink Desi Damask roses. The deepest therapeutic luxury aroma profile.</p>
+            </div>
+            <div style="width: 100%; margin-top: 15px;">
+                <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; font-weight: 700; margin-bottom: 15px;">₹2,999 <span style="font-size: 14px; color: #555; font-family: 'Poppins', sans-serif;">/ 3ml</span></div>
+                <button class="buy-btn-gold" onclick="addToBag('Royal Pink Gulab (3ml)', 2999, 'media/Ruh Bottle.png')">Add to Selection</button>
+            </div>
         </div>
+
+        <div class="ruh-card animate__animated animate__fadeInUp">
+            <div>
+                <span style="background: #222; color: #fff; font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; border: 1px solid #333;">Everyday Luxury</span>
+                <img src="media/ruh_red.png" alt="Classic Ruh Gulab Red">
+                <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Classic Red Gulab</p>
+                <p style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Intense, mesmerizing sweet signature notes crafted beautifully from raw seasonal red rose crops.</p>
+            </div>
+            <div style="width: 100%; margin-top: 15px;">
+                <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; font-weight: 700; margin-bottom: 15px;">₹1,699 <span style="font-size: 14px; color: #555; font-family: 'Poppins', sans-serif;">/ 3ml</span></div>
+                <button class="buy-btn-gold" onclick="addToBag('Classic Red Gulab (3ml)', 1699, 'media/ruh_red.png')">Add to Selection</button>
+            </div>
+        </div>
+
     </section>
 
     <div class="section-label"><h2>Heritage Distillation</h2></div>
@@ -703,6 +651,35 @@
             <video autoplay muted loop playsinline><source src="media/Rose.mp4" type="video/mp4"></video>
             <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; font-size:11px;">THE SOUL OF HASAYAN ROSE</p>
         </div>
+    </section>
+
+    <div class="section-label"><h2>The ItrAura Chronicle</h2></div>
+    <section class="blog-section" style="max-width: 1200px; margin: 0 auto 100px auto; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px;">
+        
+        <div class="blog-card" style="background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; overflow: hidden;">
+            <div style="height: 200px; background: #151515; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(212,175,55,0.1);">
+                <i class="fas fa-seedling" style="color: var(--gold); font-size: 40px;"></i>
+            </div>
+            <div style="padding: 30px;">
+                <span style="color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">May 2026 • Live Update</span>
+                <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 22px; margin: 15px 0 10px 0; font-weight: 500;">Hasayan's Choice: Decoding Royal Pink vs Classic Red Ruh Gulab</h3>
+                <p style="color: #888; font-size: 13px; line-height: 1.7; margin-bottom: 25px;">Not all roses share the same soul. This season, we unveil why Hasayan's traditional organic Pink Damask roses command flagship status over standard seasonal Red crops, and how copper Deg-Bhapka distillation seals their deep therapeutic oil profile...</p>
+                <a href="#" style="color: var(--gold); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px;">Read Chapter →</a>
+            </div>
+        </div>
+
+        <div class="blog-card" style="background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; overflow: hidden;">
+            <div style="height: 200px; background: #151515; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(212,175,55,0.1);">
+                <i class="fas fa-fire-alt" style="color: var(--gold); font-size: 40px;"></i>
+            </div>
+            <div style="padding: 30px;">
+                <span style="color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Distillation Secrets</span>
+                <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 22px; margin: 15px 0 10px 0; font-weight: 500;">The Art of Deg-Bhapka: Why Copper Matters</h3>
+                <p style="color: #888; font-size: 13px; line-height: 1.7; margin-bottom: 25px;">Understand how our family's 1958 heritage steam distillation process locks the truest botanical oil notes without modern chemicals...</p>
+                <a href="#" style="color: var(--gold); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px;">Read Chapter →</a>
+            </div>
+        </div>
+
     </section>
 
     <div class="section-label"><h2>Connoisseur Reviews</h2></div>
@@ -786,7 +763,6 @@
             render();
         }
 
-        // NEW LOGIC: Dynamic LocalStorage Add Functionality
         function addToBag(name, price, img) {
             let existingItem = cart.find(it => it.name === name);
             if (existingItem) {
@@ -795,8 +771,6 @@
                 cart.push({ name: name, price: price, img: img, qty: 1 });
             }
             localStorage.setItem('itraura_cart', JSON.stringify(cart));
-            
-            // Auto open cart drawer to push high-intent checkout conversions
             toggleCart();
         }
 
