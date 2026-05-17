@@ -9,7 +9,27 @@
     <meta name="description" content="ItrAura: Luxury Artisanal Perfumes & Organic Attars since 1958. 100% Pure, Alcohol-Free fragrances crafted via traditional Deg-Bhapka distillation in Hasayan & Kannauj.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ItrAura | Luxury Artisanal Perfumery | Est. 1958">
-    <meta property="og:image" content="https://itraura.com/Background.png"> 
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="media/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/logo.png">
+    <link rel="apple-touch-icon" href="media/logo.png">
+    <link rel="shortcut icon" href="media/logo.png" type="image/x-icon">
+
+    <meta property="og:image" content="https://itraura.com/media/Ruh%20mini.png">
+    <meta name="thumbnail" content="https://itraura.com/media/Ruh%20mini.png">
+    <meta name="twitter:image" content="https://itraura.com/media/Ruh%20mini.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://itraura.com",
+      "logo": "https://itraura.com/media/logo.png",
+      "name": "ItrAura",
+      "foundingDate": "1958",
+      "location": "Hasayan • Kannauj"
+    }
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -71,7 +91,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 35px 8%; 
+            padding: 25px 8%; 
             display: flex;
             justify-content: space-between;
             align-items: center; 
@@ -86,19 +106,20 @@
         }
 
         header.scrolled {
-            padding: 20px 8%;
+            padding: 15px 8%;
             background: rgba(5, 5, 5, 0.98);
             border-bottom: 1px solid var(--gold-transparent);
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            letter-spacing: 8px;
-            color: var(--gold) !important;
-            font-weight: 900;
-            text-transform: uppercase;
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
         }
         
         .nav-right {
@@ -323,7 +344,6 @@
             color: var(--gold);
         }
 
-        /* 3-CARD PERFECT HIERARCHY SHOWCASE */
         .ruh-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -558,7 +578,9 @@
     </audio>
 
     <header id="main-header">
-        <div class="logo" onclick="window.location.href='index.html'">ITRAURA</div>
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="media/logo.png" alt="ItrAura Official Logo">
+        </div>
         <div class="nav-right">
             <a href="product.html" class="nav-link">The Collection</a>
             <div class="cart-trigger" onclick="toggleCart()">
