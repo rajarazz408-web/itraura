@@ -86,12 +86,13 @@
             border-radius: 10px;
         }
 
+        /* MOBILE OPTIMIZED FIXED HEADER */
         header { 
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 25px 8%; 
+            padding: 15px 4%; 
             display: flex;
             justify-content: space-between;
             align-items: center; 
@@ -106,47 +107,71 @@
         }
 
         header.scrolled {
-            padding: 15px 8%;
+            padding: 12px 4%;
             background: rgba(5, 5, 5, 0.98);
             border-bottom: 1px solid var(--gold-transparent);
         }
         
+        /* BRAND BLOCK WITH IMMUNE TO SHRINKING */
         .logo {
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         .logo img {
-            height: 55px;
+            height: clamp(35px, 5vw, 45px);
             width: auto;
             object-fit: contain;
         }
+
+        .logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(16px, 4.2vw, 22px);
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
         
+        /* NAV AND TRIGGER CONTAINER */
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: clamp(12px, 3.5vw, 22px);
+            flex-shrink: 1;
         } 
+
+        .nav-link {
+            font-size: clamp(11px, 2.8vw, 14px);
+            letter-spacing: 1px;
+            white-space: nowrap;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
 
         .cart-trigger {
             position: relative;
             cursor: pointer;
             display: flex;
             align-items: center;
-            margin-left: 10px;
             color: var(--gold);
-            font-size: 24px;
+            font-size: clamp(19px, 4.5vw, 24px);
+            flex-shrink: 0;
         }
 
         .cart-count { 
             position: absolute;
-            top: -10px;
-            right: -12px; 
+            top: -8px;
+            right: -10px; 
             background: var(--white);
             color: var(--black); 
             font-size: 9px;
-            width: 20px;
-            height: 20px; 
+            width: 18px;
+            height: 18px; 
             border-radius: 50%;
             display: flex;
             align-items: center; 
@@ -564,7 +589,8 @@
 
         @media (max-width: 1024px) {
             .main-grid, .ruh-gallery, .heritage-videos, .trust-bar { grid-template-columns: 1fr; }
-            header { padding: 25px 6%; }
+            /* FIXED MOBILE RUNWAY - PERFECT CONTAINER PADDING */
+            header { padding: 15px 4%; }
         }
     </style>
 </head>
@@ -580,6 +606,7 @@
     <header id="main-header">
         <div class="logo" onclick="window.location.href='index.html'">
             <img src="media/logo.png" alt="ItrAura Official Logo">
+            <span>ItrAura</span>
         </div>
         <div class="nav-right">
             <a href="product.html" class="nav-link">The Collection</a>
