@@ -78,16 +78,16 @@
             z-index: -1;
         }
 
-        /* LIGHT-WEIGHT SMOOTH SMOKE OVERLAY EFFECT */
+        /* LIGHT-WEIGHT SMOOTH AMBER SMOKE OVERLAY */
         #smoke-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Isse buttons dablein ge nahi, click normal chalega */
-            z-index: 8500; /* Header ke niche par background ke upar */
-            opacity: 0.25; /* Halka dhuan rakhne ke liye tight control */
+            pointer-events: none; /* Isse pure interface par clicks normal chalenge */
+            z-index: 8500; /* Header ke theek niche par background ke upar */
+            opacity: 0.28; /* Controlled density */
         }
 
         ::-webkit-scrollbar {
@@ -98,6 +98,7 @@
             border-radius: 10px;
         }
 
+        /* FIXED RESPONSIVE HEADER CONTAINER */
         header { 
             position: fixed;
             top: 0;
@@ -123,6 +124,7 @@
             border-bottom: 1px solid var(--gold-transparent);
         }
         
+        /* BRAND LOGO + TEXT FIXED ALIGNMENT (IMMUNE TO SHRINKING) */
         .logo {
             cursor: pointer;
             transition: var(--transition);
@@ -722,7 +724,7 @@
             <div style="padding: 30px;">
                 <span style="color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">May 2026 • Live Edition</span>
                 <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 22px; margin: 15px 0 10px 0; font-weight: 500;">Hasayan's Choice: Decoding Royal Pink vs Classic Red Ruh Gulab</h3>
-                <p style="color: #888; font-size: 13px; line-height: 1.7; margin-bottom: 25px;">Aaj baat karte hain us farq ki jo aapko market mein koi nahi batayega. Hasayan mein jo asli Desi Damask Pink Rose hota hai, uski yield bohot kam hoti hai par uski scent ekdum therapeutic aur heavy mitti jaisi hoti hai. Wahi dusri taraf, standard Red Rose se volume toh zyada nikal jata hai, par woh Signature Luxury Layer nahi milti jo humare traditional copper Deg-Bhapka distillation process se banti hai. Isiliye ItrAura par humne dono options pure extraction ke sath fit kiye hain—Everyday luxury ke liye Red, aur Royal experience ke liye Pink!</p>
+                <p style="color: #888; font-size: 13px; line-height: 1.7; margin-bottom: 25px;">Aaj baat karte hain us farq ki jo aapko market mein koi nahi batayega. Hasayan mein jo asli Desi Damask Pink Rose hota hai, uski yield bohot kam hoti hai par uski scent ekdum therapeutic aur heavy mitti jaisi hoti hai. Wahi dushri taraf, standard Red Rose se volume toh zyada nikal jata hai, par woh Signature Luxury Layer nahi milti jo humare traditional copper Deg-Bhapka distillation process se banti hai. Isiliye ItrAura par humne dono options pure extraction ke sath fit kiye hain—Everyday luxury ke liye Red, aur Royal experience ke liye Pink!</p>
                 <a href="#" style="color: var(--gold); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px;">Read Chapter →</a>
             </div>
         </div>
@@ -878,7 +880,7 @@
         });
 
         // ==========================================
-        // DYNAMIC SMOOTH CANVAS SMOKE ENGINE (LIGHTWEIGHT)
+        // GUARANTEED AMBER-TINT SMOKE ENGINE CORE
         // ==========================================
         const canvas = document.getElementById('smoke-overlay');
         const ctx = canvas.getContext('2d');
@@ -894,45 +896,48 @@
         class SmokeParticle {
             constructor() {
                 this.x = Math.random() * canvas.width;
-                this.y = canvas.height + Math.random() * 100;
-                this.size = Math.random() * 80 + 40; // Bade soft clouds
-                this.speedY = -(Math.random() * 0.6 + 0.2); // Dhire-dhire upar uthna
-                this.speedX = Math.random() * 0.4 - 0.2; // Halka हवा ka drift
-                this.alpha = Math.random() * 0.15 + 0.05; // ekdum halka opaque
-                this.fade = Math.random() * 0.001 + 0.0005;
+                this.y = canvas.height + (Math.random() * 50 + 20);
+                this.size = Math.random() * 60 + 50; 
+                this.speedY = -(Math.random() * 0.7 + 0.4); 
+                this.speedX = Math.random() * 0.5 - 0.25; 
+                this.alpha = Math.random() * 0.22 + 0.12; 
+                this.fade = Math.random() * 0.0012 + 0.0006;
             }
             update() {
                 this.y += this.speedY;
                 this.x += this.speedX;
                 this.alpha -= this.fade;
-                this.size += 0.15; // Cloud ka phoolna upar jaake
+                this.size += 0.2; 
             }
             draw() {
+                if (this.alpha <= 0) return;
+                ctx.save();
                 ctx.beginPath();
+                
                 let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-                gradient.addColorStop(0, `rgba(150, 150, 150, ${this.alpha})`);
-                gradient.addColorStop(1, 'rgba(150, 150, 150, 0)');
+                gradient.addColorStop(0, `rgba(220, 200, 180, ${this.alpha})`); 
+                gradient.addColorStop(0.4, `rgba(160, 150, 140, ${this.alpha * 0.5})`);
+                gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                
                 ctx.fillStyle = gradient;
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
-            }
-        }
-
-        function initSmoke() {
-            // Mobile view par particle count kam rakhenge for performance
-            const maxParticles = canvas.width < 600 ? 15 : 35;
-            if (particles.length < maxParticles && Math.random() < 0.1) {
-                particles.push(new SmokeParticle());
+                ctx.restore();
             }
         }
 
         function animateSmoke() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            initSmoke();
+            
+            const maxParticles = canvas.width < 600 ? 18 : 40;
+            if (particles.length < maxParticles && Math.random() < 0.15) {
+                particles.push(new SmokeParticle());
+            }
+
             for (let i = particles.length - 1; i >= 0; i--) {
                 particles[i].update();
                 particles[i].draw();
-                if (particles[i].alpha <= 0 || particles[i].y < -100) {
+                if (particles[i].alpha <= 0 || particles[i].y < -150) {
                     particles.splice(i, 1);
                 }
             }
