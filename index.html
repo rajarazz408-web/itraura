@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
-        /* FULLY EXPANDED STYLING FOR BANKER PRECISION */
         :root {
             --gold: #D4AF37;
             --black: #050505;
@@ -25,7 +24,6 @@
             --transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
         }
 
-        /* GLOBAL RESET BLOCK */
         * {
             margin: 0;
             padding: 0;
@@ -42,7 +40,6 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* NO PURPLE LINK SHIELD */
         a, a:visited, a:active {
             text-decoration: none !important;
             color: var(--gold) !important;
@@ -61,7 +58,6 @@
             z-index: -1;
         }
 
-        /* CUSTOM SCROLLBAR EXPANDED */
         ::-webkit-scrollbar {
             width: 5px;
         }
@@ -70,7 +66,6 @@
             border-radius: 10px;
         }
 
-        /* HEADER DESIGN - THE SHIFT LOGIC (1% FIX) */
         header { 
             position: fixed;
             top: 0;
@@ -86,7 +81,6 @@
             backdrop-filter: blur(15px);
         }
 
-        /* THE MAGIC "KHISKANA" CLASS: Moves everything left to show cart */
         header.shift-left {
             left: -100% !important;
         }
@@ -113,7 +107,6 @@
             gap: 20px;
         } 
 
-        /* CART TRIGGER & BADGE */
         .cart-trigger {
             position: relative;
             cursor: pointer;
@@ -141,7 +134,6 @@
             border: 1px solid var(--gold);
         }
 
-        /* SIDE CART DRAWER (RIGHT SIDE BUT ACCESSIBLE VIA SHIFT) */
         #cart-drawer { 
             position: fixed;
             top: 0;
@@ -239,7 +231,6 @@
             cursor: pointer;
         }
 
-        /* HERO VIDEO FIX - NO CUTTING */
         .hero-section {
             padding: 150px 8% 60px;
             text-align: center;
@@ -276,7 +267,6 @@
             font-style: italic;
         }
 
-        /* GRID SYSTEM */
         .section-label {
             text-align: center;
             padding: 100px 0 60px;
@@ -333,7 +323,102 @@
             color: var(--gold);
         }
 
-        /* RUH GALLERY - THE 2 RESTORED PHOTOS back in place */
+        /* NEW CODE BLOCK: HIGH CONVERSION GULAB GRID */
+        .gulab-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 0 8% 120px;
+        }
+
+        .gulab-card {
+            background: #080808;
+            border: 1px solid var(--gold-transparent);
+            border-radius: 4px;
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gulab-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .badge-premium {
+            background: var(--gold);
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 5px 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .badge-classic {
+            background: #222;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 5px 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+
+        .gulab-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .gulab-card p {
+            color: #aaa;
+            font-size: 14px;
+            max-width: 400px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .gulab-price {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .gulab-price span {
+            font-size: 16px;
+            color: #555;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .buy-btn-gold {
+            background: var(--gold);
+            color: #000;
+            width: 100%;
+            max-width: 280px;
+            padding: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-btn-gold:hover {
+            background: #fff;
+        }
+
         .ruh-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -354,7 +439,6 @@
             object-fit: contain;
         }
 
-        /* HERITAGE VIDEOS */
         .heritage-videos {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -375,7 +459,6 @@
             object-fit: contain;
         }
 
-        /* 6 REVIEWS - ENGLISH NAMES (Restored Script) */
         .reviews-wrap {
             padding: 120px 8%;
             display: grid;
@@ -407,7 +490,6 @@
             text-transform: uppercase;
         }
 
-        /* FAQ EXPANDED */
         .faq-sec {
             padding: 120px 8%;
             background: #000;
@@ -437,7 +519,6 @@
             font-size: 15px;
         }
 
-        /* ENQUIRY EXPANDED */
         .enquiry-sec {
             padding: 120px 8%;
             text-align: center;
@@ -474,7 +555,6 @@
             transition: 0.5s;
         }
 
-        /* FOOTER & TRUST */
         .trust-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -528,7 +608,7 @@
             align-items: center; justify-content: center; font-size: 38px; z-index: 9999; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
 
         @media (max-width: 1024px) {
-            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar { grid-template-columns: 1fr; }
+            .main-grid, .ruh-gallery, .heritage-videos, .trust-bar, .gulab-grid { grid-template-columns: 1fr; }
             header { padding: 25px 6%; }
         }
     </style>
@@ -580,6 +660,25 @@
         <div class="item-card"><img src="ruh series.png"><div class="overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></div>
         <div class="item-card"><img src="water series.png"><div class="overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></div>
         <div class="item-card"><img src="premium series.png"><div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></div>
+    </section>
+
+    <div class="section-label"><h2>The Pride of Hasayan</h2></div>
+    <section class="gulab-grid">
+        <div class="gulab-card animate__animated animate__fadeInUp">
+            <div class="badge-premium">Flagship Heritage</div>
+            <h3>Royal Pink Gulab</h3>
+            <p>Sourced from legendary pink Desi Damask roses. Pure, uncut traditional steam distillation in copper stills. The richest, deepest therapeutic aroma.</p>
+            <div class="gulab-price">₹2,999 <span>/ 3ml</span></div>
+            <button class="buy-btn-gold" onclick="addToBag('Royal Pink Gulab (Hasayan)', 2999, 'media/Ruh Bottle.png')">Add to Selection</button>
+        </div>
+
+        <div class="gulab-card animate__animated animate__fadeInUp">
+            <div class="badge-classic">Everyday Luxury</div>
+            <h3>Classic Red Gulab</h3>
+            <p>Intense, sweet, and mesmerizing traditional profile. Crafted from pristine seasonal red crops for a deep, long-lasting signature aura.</p>
+            <div class="gulab-price">₹1,699 <span>/ 3ml</span></div>
+            <button class="buy-btn-gold" onclick="addToBag('Classic Red Gulab (Hasayan)', 1699, 'media/Ruh mini.png')">Add to Selection</button>
+        </div>
     </section>
 
     <div class="section-label"><h2>Masterpiece Showcase</h2></div>
@@ -674,20 +773,31 @@
         const sangeet = document.getElementById('soul-music');
         sangeet.volume = 0.3;
 
-        // Music Play: First click starts sangeet
         window.addEventListener('click', () => { sangeet.play(); }, { once: true });
 
-        // THE MAGIC SHIFT FUNCTION
         function toggleCart() {
             const h = document.getElementById('main-header');
             const d = document.getElementById('cart-drawer');
             const m = document.getElementById('cart-mask');
-            const hero = document.getElementById('hero-sec');
             
-            h.classList.toggle('shift-left'); // HEADER KHISKANE WALI LINE
+            h.classList.toggle('shift-left');
             d.classList.toggle('open');
             m.style.display = d.classList.contains('open') ? 'block' : 'none';
             render();
+        }
+
+        // NEW LOGIC: Dynamic LocalStorage Add Functionality
+        function addToBag(name, price, img) {
+            let existingItem = cart.find(it => it.name === name);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name: name, price: price, img: img, qty: 1 });
+            }
+            localStorage.setItem('itraura_cart', JSON.stringify(cart));
+            
+            // Auto open cart drawer to push high-intent checkout conversions
+            toggleCart();
         }
 
         function render() {
@@ -706,7 +816,7 @@
                             <img src="${it.img}">
                             <div style="flex-grow:1;">
                                 <h4 style="color:var(--gold); font-size:14px;">${it.name}</h4>
-                                <p style="color:#fff; font-size:14px;">₹${(it.price * it.qty).toLocaleString()}</p>
+                                <p style="color:#fff; font-size:14px;">₹${(it.price * it.qty).toLocaleString()} (x${it.qty})</p>
                             </div>
                             <i class="fas fa-trash-alt" onclick="remove(${i})" style="cursor:pointer; font-size:12px; color:#444;"></i>
                         </div>`;
@@ -724,7 +834,7 @@
 
         function sendOrder() {
             let msg = "Hello ItrAura Concierge, I'd like to reserve:\n\n";
-            cart.forEach(it => msg += `• ${it.name} x ${it.qty} (₹${it.price * it.qty})\n`);
+            cart.forEach(it => msg += `• ${it.name} x ${it.qty} (₹${(it.price * it.qty).toLocaleString()})\n`);
             window.open(`https://wa.me/917618243220?text=${encodeURIComponent(msg)}`);
         }
 
