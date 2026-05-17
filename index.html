@@ -78,6 +78,18 @@
             z-index: -1;
         }
 
+        /* LIGHT-WEIGHT SMOOTH SMOKE OVERLAY EFFECT */
+        #smoke-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Isse buttons dablein ge nahi, click normal chalega */
+            z-index: 8500; /* Header ke niche par background ke upar */
+            opacity: 0.25; /* Halka dhuan rakhne ke liye tight control */
+        }
+
         ::-webkit-scrollbar {
             width: 5px;
         }
@@ -86,7 +98,6 @@
             border-radius: 10px;
         }
 
-        /* MOBILE OPTIMIZED FIXED HEADER */
         header { 
             position: fixed;
             top: 0;
@@ -112,7 +123,6 @@
             border-bottom: 1px solid var(--gold-transparent);
         }
         
-        /* BRAND BLOCK WITH IMMUNE TO SHRINKING */
         .logo {
             cursor: pointer;
             transition: var(--transition);
@@ -137,7 +147,6 @@
             text-transform: uppercase;
         }
         
-        /* NAV AND TRIGGER CONTAINER */
         .nav-right {
             display: flex;
             align-items: center;
@@ -589,7 +598,6 @@
 
         @media (max-width: 1024px) {
             .main-grid, .ruh-gallery, .heritage-videos, .trust-bar { grid-template-columns: 1fr; }
-            /* FIXED MOBILE RUNWAY - PERFECT CONTAINER PADDING */
             header { padding: 15px 4%; }
         }
     </style>
@@ -598,6 +606,8 @@
 <body>
     <div class="site-bg"></div>
     <div id="cart-mask" onclick="toggleCart()"></div>
+
+    <canvas id="smoke-overlay"></canvas>
 
     <audio id="soul-music" loop>
         <source src="media/Sufi.mp3" type="audio/mpeg">
@@ -866,6 +876,69 @@
             if (window.scrollY > 80) h.classList.add('scrolled');
             else h.classList.remove('scrolled');
         });
+
+        // ==========================================
+        // DYNAMIC SMOOTH CANVAS SMOKE ENGINE (LIGHTWEIGHT)
+        // ==========================================
+        const canvas = document.getElementById('smoke-overlay');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class SmokeParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.size = Math.random() * 80 + 40; // Bade soft clouds
+                this.speedY = -(Math.random() * 0.6 + 0.2); // Dhire-dhire upar uthna
+                this.speedX = Math.random() * 0.4 - 0.2; // Halka हवा ka drift
+                this.alpha = Math.random() * 0.15 + 0.05; // ekdum halka opaque
+                this.fade = Math.random() * 0.001 + 0.0005;
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.alpha -= this.fade;
+                this.size += 0.15; // Cloud ka phoolna upar jaake
+            }
+            draw() {
+                ctx.beginPath();
+                let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+                gradient.addColorStop(0, `rgba(150, 150, 150, ${this.alpha})`);
+                gradient.addColorStop(1, 'rgba(150, 150, 150, 0)');
+                ctx.fillStyle = gradient;
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initSmoke() {
+            // Mobile view par particle count kam rakhenge for performance
+            const maxParticles = canvas.width < 600 ? 15 : 35;
+            if (particles.length < maxParticles && Math.random() < 0.1) {
+                particles.push(new SmokeParticle());
+            }
+        }
+
+        function animateSmoke() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            initSmoke();
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].alpha <= 0 || particles[i].y < -100) {
+                    particles.splice(i, 1);
+                }
+            }
+            requestAnimationFrame(animateSmoke);
+        }
+        animateSmoke();
 
         window.onload = render;
     </script>
