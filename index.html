@@ -85,9 +85,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Isse pure interface par clicks normal chalenge */
-            z-index: 8500; /* Header ke theek niche par background ke upar */
-            opacity: 0.28; /* Controlled density */
+            pointer-events: none; /* Clicks completely normal chalenge */
+            z-index: 8500; 
+            opacity: 0.28; 
         }
 
         ::-webkit-scrollbar {
@@ -297,9 +297,11 @@
             transform: translateX(-100%);
         }
 
+        /* FIXED: SLEEK CINEMATIC 16:9 VIEW WITH MAXIMUM MOBILE SECURITY */
         .v-window {
             width: 100%;
-            max-height: 70vh;
+            aspect-ratio: 16 / 9; 
+            max-height: 50vh; 
             border: 1px solid var(--gold);
             padding: 5px;
             background: #000;
@@ -313,7 +315,7 @@
         .v-window video {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover; 
         }
 
         .hero-title {
@@ -646,7 +648,10 @@
 
     <section class="hero-section" id="hero-sec">
         <div class="v-window animate__animated animate__fadeIn">
-            <video autoplay muted loop playsinline><source src="media/Itraura.mp4" type="video/mp4"></video>
+            <video autoplay loop muted playsinline preload="auto">
+                <source src="media/Itraura.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <h1 class="hero-title animate__animated animate__fadeInUp">Perfume for the Soul.</h1>
     </section>
@@ -784,12 +789,24 @@
     </section>
 
     <section class="enquiry-sec">
-        <div class="section-label"><h2>Concierge Enquiry</h2></div>
+        <div class="section-label"><h2>Wholesale & Industrial B2B Supply</h2></div>
+        <p style="color:#aaa; font-size:14px; max-width:600px; margin:-40px auto 40px auto; padding: 0 5%;">Supplying certified high-grade Ruh Gulab, Hydrosols, and Essential Oils to premium wellness, tobacco, FMCG, and cosmetic formulations since 1958.</p>
+        
         <div class="enquiry-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="text" placeholder="WhatsApp Contact" required>
-            <textarea rows="6" placeholder="Enquire about custom gifting, bulk orders or heritage collections..."></textarea>
-            <button class="enquiry-btn" onclick="alert('Inquiry Sent!')">Submit Inquiry</button>
+            <input type="text" placeholder="Company / Enterprise Name (e.g., Dabur / DS Group Sourcing)" required>
+            <input type="text" placeholder="Your Name & Designation" required>
+            <input type="text" placeholder="WhatsApp Contact Number" required>
+            
+            <select style="width: 100%; padding: 22px; background: transparent; border: 1px solid var(--gold); color: #fff; font-family: inherit; font-size: 15px; -webkit-appearance: none; border-radius: 0;">
+                <option style="background:#050505; color:#fff;" value="" disabled selected>Select Your Industry Segment</option>
+                <option style="background:#050505; color:#fff;" value="FMCG / Tobacco Flavouring">FMCG / Pan Masala & Tobacco Flavouring</option>
+                <option style="background:#050505; color:#fff;" value="Cosmetics & Skincare Formulation">Cosmetics & Skincare Formulation</option>
+                <option style="background:#050505; color:#fff;" value="Wellness Spas & Temples Bulk">Wellness Spas & Temple Essential Supplies</option>
+                <option style="background:#050505; color:#fff;" value="Wholesale Bulk Export (1L - 50L)">Wholesale Bulk Export (1L to 50L+)</option>
+            </select>
+
+            <textarea rows="6" placeholder="Specify your volume requirements, formulation grade details, or custom batch packaging requests..."></textarea>
+            <button class="enquiry-btn" onclick="alert('B2B Industrial Inquiry Logged! Our Concierge will reach out via WhatsApp within 12 hours.')">Request Wholesale Catalog</button>
         </div>
     </section>
 
