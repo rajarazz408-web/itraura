@@ -448,7 +448,7 @@
             background: #000;
             text-align: center;
             width: 100%;
-            height: auto; /* Removed strict 16:9 crop block */
+            height: auto; 
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -459,7 +459,7 @@
         .v-card video {
             width: 100%;
             height: auto;
-            object-fit: contain; /* Ensures 100% of the text inside stays fully visible */
+            object-fit: contain; 
         }
 
         .reviews-wrap {
@@ -670,9 +670,9 @@
 
     <div class="section-label"><h2>Signature Series</h2></div>
     <section class="main-grid">
-        <div class="item-card" onclick="scrollToShowcase()"><img src="ruh series.png"><div class="overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></div>
-        <div class="item-card" onclick="scrollToShowcase()"><img src="water series.png"><div class="overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></div>
-        <div class="item-card" onclick="scrollToShowcase()"><img src="premium series.png"><div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></div>
+        <div class="item-card" onclick="window.location.href='product.html'"><img src="ruh series.png"><div class="overlay"><h3>Ruh Series</h3><p>Pure Distillations</p></div></div>
+        <div class="item-card" onclick="window.location.href='product.html'"><img src="water series.png"><div class="overlay"><h3>Water Series</h3><p>Natural Hydrosols</p></div></div>
+        <div class="item-card" onclick="window.location.href='product.html'"><img src="premium series.png"><div class="overlay"><h3>Premium Series</h3><p>Exquisite Blends</p></div></div>
     </section>
 
     <div class="section-label" id="masterpiece-target"><h2>Masterpiece Showcase</h2></div>
@@ -849,12 +849,6 @@
             d.classList.toggle('open');
             m.style.display = d.classList.contains('open') ? 'block' : 'none';
             render();
-        }
-
-        function scrollToShowcase() {
-            document.getElementById('masterpiece-target').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
         }
 
         function addToBag(name, price, img) {
