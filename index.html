@@ -678,12 +678,12 @@
     <div class="section-label" id="masterpiece-target"><h2>Masterpiece Showcase</h2></div>
     <section class="ruh-gallery">
         
-        <div class="ruh-card animate__animated animate__fadeInUp">
+        <div class="ruh-card animate__animated animate__fadeInUp" itemscope itemtype="https://schema.org/Product">
             <div>
                 <span style="background: var(--gold); color: #000; font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 15px;">Wholesale Volume</span>
-                <img src="media/Ruh Bottle.png" alt="1 Litre Bulk Aluminum Container of Pure Ruh Gulab Direct Sourced from Hasayan Distillery">
-                <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Pure Ruh Gulab (Bulk)</p>
-                <p style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Traditional Deg-Bhapka wholesale volume. Sourced direct from our distillation plant for authentic connoisseurs.</p>
+                <img itemprop="image" src="media/Ruh Bottle.png" alt="1 Litre Bulk Aluminum Container of Pure Ruh Gulab Direct Sourced from Hasayan Distillery">
+                <p itemprop="name" style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Pure Ruh Gulab (Bulk)</p>
+                <p itemprop="description" style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Traditional Deg-Bhapka wholesale volume. Sourced direct from our distillation plant for authentic connoisseurs.</p>
             </div>
             <div style="width: 100%; margin-top: 15px;">
                 <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; font-weight: 700; margin-bottom: 15px;">Contact Concierge <span style="font-size: 14px; color: #555; font-family: 'Poppins', sans-serif;">/ 1L</span></div>
@@ -691,27 +691,33 @@
             </div>
         </div>
 
-        <div class="ruh-card animate__animated animate__fadeInUp">
+        <div class="ruh-card animate__animated animate__fadeInUp" itemscope itemtype="https://schema.org/Product">
             <div>
                 <span style="background: #111; color: var(--gold); font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; border: 1px solid var(--gold);">Premium Flagship</span>
-                <img src="media/Ruh mini.png" alt="ItrAura Royal Pink Gulab 3ml Luxury Miniature - Traditional Damask Rose Extraction">
-                <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Royal Pink Gulab</p>
-                <p style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Sourced from legendary organic pink Desi Damask roses. The deepest therapeutic luxury aroma profile.</p>
+                <img itemprop="image" src="media/Ruh mini.png" alt="ItrAura Royal Pink Gulab 3ml Luxury Miniature - Traditional Damask Rose Extraction">
+                <p itemprop="name" style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Royal Pink Gulab</p>
+                <p itemprop="description" style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Sourced from legendary organic pink Desi Damask roses. The deepest therapeutic luxury aroma profile.</p>
             </div>
-            <div style="width: 100%; margin-top: 15px;">
+            <div style="width: 100%; margin-top: 15px;" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="INR">
+                <meta itemprop="price" content="2999">
+                <meta itemprop="availability" content="https://schema.org/InStock">
                 <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; font-weight: 700; margin-bottom: 15px;">₹2,999 <span style="font-size: 14px; color: #555; font-family: 'Poppins', sans-serif;">/ 3ml</span></div>
                 <button class="buy-btn-gold" onclick="addToBag('Royal Pink Gulab (3ml)', 2999, 'media/Ruh mini.png')">Add to Selection</button>
             </div>
         </div>
 
-        <div class="ruh-card animate__animated animate__fadeInUp">
+        <div class="ruh-card animate__animated animate__fadeInUp" itemscope itemtype="https://schema.org/Product">
             <div>
                 <span style="background: #222; color: #fff; font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; border: 1px solid #333;">Everyday Luxury</span>
-                <img src="media/ruh_red.png" alt="ItrAura Classic Red Gulab 3ml Perfume - Pure Seasonal Copper Deg-Bhapka Distillation">
-                <p style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Classic Red Gulab</p>
-                <p style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Intense, mesmerizing sweet signature notes crafted beautifully from raw seasonal red rose crops.</p>
+                <img itemprop="image" src="media/ruh_red.png" alt="ItrAura Classic Red Gulab 3ml Perfume - Pure Seasonal Copper Deg-Bhapka Distillation">
+                <p itemprop="name" style="color:var(--gold); margin-top:20px; letter-spacing:4px; font-weight:700; text-transform: uppercase; font-size: 16px;">Classic Red Gulab</p>
+                <p itemprop="description" style="color: #aaa; font-size: 13px; max-width: 320px; margin: 10px auto; line-height: 1.5;">Intense, mesmerizing sweet signature notes crafted beautifully from raw seasonal red rose crops.</p>
             </div>
-            <div style="width: 100%; margin-top: 15px;">
+            <div style="width: 100%; margin-top: 15px;" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="INR">
+                <meta itemprop="price" content="1699">
+                <meta itemprop="availability" content="https://schema.org/InStock">
                 <div style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 26px; font-weight: 700; margin-bottom: 15px;">₹1,699 <span style="font-size: 14px; color: #555; font-family: 'Poppins', sans-serif;">/ 3ml</span></div>
                 <button class="buy-btn-gold" onclick="addToBag('Classic Red Gulab (3ml)', 1699, 'media/ruh_red.png')">Add to Selection</button>
             </div>
@@ -756,6 +762,18 @@
         
         <article class="blog-card" style="background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; overflow: hidden;">
             <div style="height: 200px; background: #151515; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(212,175,55,0.1);">
+                <i class="fas fa-crown" style="color: var(--gold); font-size: 40px;"></i>
+            </div>
+            <div style="padding: 30px;">
+                <span style="color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">🏺 Heritage Evaluation • May 23, 2026</span>
+                <h3 itemprop="headline" style="color: #fff; font-family: 'Playfair Display', serif; font-size: 24px; margin: 15px 0 10px 0; font-weight: 500; line-height: 1.4;">Item Tola, Laakhon Phool: Kyu Sacha 'Pure Desi Itr' Saste Synthetic Fragrances Se 100 Guna Behtar Aur Qeemti Hai?</h3>
+                <p itemprop="articleBody" style="color: #888; font-size: 13.5px; line-height: 1.8; margin-bottom: 25px;">Aksar log jab ItrAura ke **Royal Pink Gulab** ka price tag dekhte hain, toh sochte hain ki market mein milne wale ₹200-300 ke normal perfume sprays ya local attar ke mukable yeh kyu alag hai. Bhai, luxury perfume market ka ek niyam hai—aap paisa khushbu ka nahi, us khushbu ki purity aur uske piche ki beintehaa mehnat ka dete hain. Aaj parda uthate hain is absolute value pipeline se.<br><br><b>The Extraction Economy:</b><br>Ek saste synthetic commercial perfume ko banane mein sirf laboratory chemicals, alcohol, aur artificial color lagte hain jo mass factories mein har ghante hazaron litres taiyar hote hain. Lekin jab hum **Hasayan ke traditional plants** mein mitti ke bhatthiyon par kaam shuru karte hain, toh hisab badal jata hai. Sirf ek choti si drop pure Ruh Gulab ke liye kailo-kilo taaze subah ke tode hue Desi Damask Rose petals ko humare heavy copper **Deg-Bhapka setup** mein steam kiya jata hai. Isme hafte lagte hain, aur poore extraction process mein ek bohot hi skilled artisan ki expertise chahiye hoti hai taaki bina kisi single chemical drop ke, phoolon ka asli essence liquid gold ban kar nikle.<br><br><b>The Evolution on Your Skin:</b><br>Chemical perfumes lagate hi ek tez spray dete hain aur 2-3 ghante mein ud jaate hain, aksar sensitive skin par rashes bhi chhod dete hain. Iske bilkul ulta, hamara certified premium **pure desi itr** bina alcohol ke direct skin pores ke sath blend hota hai. Yeh waqt ke sath udta nahi, balki aapki body heat ke sath dhal kar har ghante ek nayi, nikhri hui olfactory notes release karta hai. Iska projection mature hota hai aur yeh ek dynamic organic experience deta hai.<br><br><b>B2B Standard Testing & Gifting Orders:</b><br>Yahi wajah hai ki global corporate houses, high-end wedding event planners, aur international luxury formulation labs saste imitation formulations ko drop karke ItrAura ke source-certified batches ko select karte hain. Agar aap apne personal collection ko ek top-class botanical upgrade dena chahte hain, toh hamari curated range ko explore karein. Private white-label packaging contracts ya bulk distribution queries (1L to 50L+) ke liye humare high-impact digital B2B portal par apni business queries submit karein.</p>
+                <a href="product.html" rel="bookmark" style="color: var(--gold); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px;">Explore The Collection →</a>
+            </div>
+        </article>
+
+        <article class="blog-card" style="background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; overflow: hidden;">
+            <div style="height: 200px; background: #151515; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(212,175,55,0.1);">
                 <i class="fas fa-shield-alt" style="color: var(--gold); font-size: 40px;"></i>
             </div>
             <div style="padding: 30px;">
@@ -775,18 +793,6 @@
                 <h3 itemprop="headline" style="color: #fff; font-family: 'Playfair Display', serif; font-size: 24px; margin: 15px 0 10px 0; font-weight: 500; line-height: 1.4;">The Royal Box: Saste Gift Hampers Ke Zamane Mein Kyu Pure Desi Itr Aur Hydrosols Hain Best Corporate Gift?</h3>
                 <p itemprop="articleBody" style="color: #888; font-size: 13.5px; line-height: 1.8; margin-bottom: 25px;">Aajkal corporate gifting ho ya premium family weddings, log wahi purane saste dry fruits, sasti sweets, ya saste chemical spray perfume ke hampers de-dekar thak chuke hain. Agar aap kisi bade client, investor, ya apne khas mehmaano par ek aisi chaap chhodna chahte hain jo zindagi bhar unke dimaag se na nikle, toh aapko unhe kuch aisa dena hoga jisme ek sachhi kahani aur shaan ho. Aur wahi par entry hoti hai ItrAura ke authentic products ki.<br><br><b>Kyu Ek Authentic Pure Desi Itr Se Behtar Koi Gift Nahi?</b><br>Jab aap kisi ko <b>ItrAura ka Ruh Gulab</b> gift karte hain, toh aap usey sirf ek fragrance nahi de rahe hote. Aap usey <b>Hasayan ke organic gulabon</b> ki mehek aur humare traditional <b>copper Deg-Bhapka process</b> ki 400 saal purani zinda virasat pesh kar rahe hote hain. Ek aisi khushbu jo 100% alcohol-free hai, therapeutic hai, aur skin par lagte hi apni purity ka ehsaas dilati hai. Yeh ek aisi luxury hai jo samne wale ko batati hai ki uski aapki zindagi mein kya qeemat hai.<br><br><b>B2B Custom Corporate Gifts & Royal Favors:</b><br>Badi institutions aur corporate houses jackpot deals par jab apne VVIP guests ke liye custom boxes design karwate hain, toh hamari <i>Water Series (Natural Hydrosols)</i> aur miniature oils unke brand ki premium value ko ek alag hi level par lekar jaate hain. Hum batch-level customization direct apni distillery se manage karte hain taaki uncompromised purity bani rahe. Apne doston aur clients ko dene ke liye hamari Flagship <b>Royal Pink Gulab Miniature (3ml)</b> se shuruat karein, ya bulk customization orders ke liye direct upar diye gaye B2B Gateway Form par apni requirements drop karein.</p>
                 <a href="product.html" rel="bookmark" style="color: var(--gold); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px;">Explore The Collection →</a>
-            </div>
-        </article>
-
-        <article class="blog-card" style="background: #0d0d0d; border: 1px solid #1a1a1a; transition: all 0.3s ease; overflow: hidden;">
-            <div style="height: 200px; background: #151515; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(212,175,55,0.1);">
-                <i class="fas fa-industry" style="color: var(--gold); font-size: 40px;"></i>
-            </div>
-            <div style="padding: 30px;">
-                <span style="color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">May 18, 2026 • Corporate Sourcing</span>
-                <h3 itemprop="headline" style="color: #fff; font-family: 'Playfair Display', serif; font-size: 22px; margin: 15px 0 10px 0; font-weight: 500;">Direct from Hasayan: Why India's Top FMCG Houses Bypass Brokers for Pure Oils</h3>
-                <p itemprop="articleBody" style="color: #888; font-size: 13px; line-height: 1.7; margin-bottom: 25px;">E-commerce par jab hum 3ml ki sheeshiyan dekhte hain, toh lagta hai attar bas ek shauq hai. Par parda utha kar dekhein toh asli game industrial B2B supply ka hai. Aaj India ke sabse bade traditional companies, cosmetic formulation labs, aur heritage wellness centers brokers ko bypass karke seedhe Hasayan aur Kannauj ki bhatthiyon se barrel-grade hydro-distilled *Water Series* aur *Ruh Gulab* bulk mein uthate hain. Reason ekdum simple hai—milawat (adulteration) se unka taste profile aur raw base kharab ho jata hai. ItrAura par hamari 1958 se locked distillation direct transparency deti hai taaki bade industrial standards bina chemical alterations ke direct formulation lab tak safely deliver ho sakein.</p>
-                <a href="#" rel="bookmark" style="color: var(--gold); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px;">Read Chapter →</a>
             </div>
         </article>
 
@@ -821,14 +827,51 @@
     </section>
 
     <div class="section-label"><h2>Essential Inquiries</h2></div>
-    <section class="faq-sec">
+    <section class="faq-sec" itemscope itemtype="https://schema.org/FAQPage">
         <div class="faq-container">
-            <div class="faq-item"><h4>Are ItrAura fragrances 100% alcohol-free?</h4><p>Yes. Every drop is a pure botanical extract distilled using traditional Deg-Bhapka methods. Zero alcohol, zero synthetics.</p></div>
-            <div class="faq-item"><h4>Do you ship to UAE, UK & USA?</h4><p>Yes, we offer secure global shipping for international connoisseurs. Contact concierge via WhatsApp for rates.</p></div>
-            <div class="faq-item"><h4>How long does the scent typically last?</h4><p>Pure oils evolve on the skin and typically last 8-12 hours depending on ambient temperature and skin type.</p></div>
-            <div class="faq-item"><h4>What is the Deg-Bhapka method?</h4><p>It is a 400-year-old steam distillation process using copper vessels (Degs) to capture the true soul of flowers.</p></div>
-            <div class="faq-item"><h4>Is it safe for extremely sensitive skin?</h4><p>Our botanical extracts are skin-friendly, but because they are highly concentrated, a patch test is always recommended.</p></div>
-            <div class="faq-item"><h4>Where do you source your flowers from?</h4><p>We source materials directly from organic fields in Hasayan and Kannauj to ensure heritage quality since 1958.</p></div>
+            
+            <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                <h4 itemprop="name">Are ItrAura fragrances 100% alcohol-free?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Yes. Every drop is a pure botanical extract distilled using traditional Deg-Bhapka methods. Zero alcohol, zero synthetics, making it completely skin-friendly and therapeutic.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                <h4 itemprop="name">Do you ship to UAE, UK & USA?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Yes, we offer secure global shipping for international connoisseurs across Dubai, London, and the USA. Contact our concierge via WhatsApp for real-time international freight rates.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                <h4 itemprop="name">How long does the scent typically last?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Pure traditional attars and essential oils evolve on the skin based on body chemistry and typically last 8 to 12 hours depending on ambient temperature and skin type.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                <h4 itemprop="name">What is the Deg-Bhapka method?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text">It is a 400-year-old traditional steam distillation process using heavy copper vessels (Degs) and clay receivers (Bhapkas) to safely capture the true botanical soul of flowers without chemical solvents.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                <h4 itemprop="name">Is it safe for extremely sensitive skin?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Our botanical extracts and pure desi itr are 100% organic and chemical-free. However, because they are highly concentrated, a minor patch test on the wrist is always recommended.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                <h4 itemprop="name">Where do you source your flowers from?</h4>
+                <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                    <p itemprop="text">We source our premium materials directly from organic agricultural fields in Hasayan and Kannauj to ensure heritage quality distillation since 1958.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
